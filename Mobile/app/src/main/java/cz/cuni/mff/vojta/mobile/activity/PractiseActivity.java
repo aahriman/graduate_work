@@ -17,9 +17,10 @@ import java.util.List;
 import cz.cuni.mff.vojta.mobile.R;
 import cz.cuni.mff.vojta.mobile.external.FlowLayout;
 import cz.cuni.mff.vojta.mobile.models.PractiseModel;
+import cz.cuni.mff.vojta.mobile.utils.IPractiseModelListener;
 
 
-public class PractiseActivity extends Activity {
+public class PractiseActivity extends Activity implements IPractiseModelListener {
     HashMap<Integer, Button> wordButtons = new HashMap<>();
 
     Button activeAlternative;
@@ -27,37 +28,9 @@ public class PractiseActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.practise);
-        FlowLayout items = (FlowLayout)findViewById(R.id.items);
-        for(final PractiseModel.Response.Word word : PractiseModel.SINGLETON.getWords()) {
-            View view = getLayoutInflater().inflate(R.layout.practise_words, null);
-            Button button = ((Button) view.findViewById(R.id.button));
-            wordButtons.put(word.getId(), button);
-            button.setText(word.getOrigin());
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    clickWordButton(view, word.getId());
-                }
-            });
-            items.addView(view);
-        }
-        MediaPlayer mediaPlayer = PractiseModel.SINGLETON.getAudio(getApplicationContext());
-        mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(MediaPlayer mediaPlayer) {
-                Button button = (Button)findViewById(R.id.play_button);
-                button.setEnabled(true);
-            }
-        });
-
-        mediaPlayer.setOnErrorListener(new MediaPlayer.OnErrorListener() {
-            @Override
-            public boolean onError(MediaPlayer mediaPlayer, int what, int extra) {
-                Log.d("Error in mediaplayer", "what: "  + what + " \t extra:"+extra);
-                return true;
-            }
-        });
+        PractiseModel.SINGLETON.addListener(this);
+        PractiseModel.SINGLETON.downloadResponse();
+        setContentView(R.layout.loading_data);
     }
 
 
@@ -91,18 +64,20 @@ public class PractiseActivity extends Activity {
         Log.d("Info", "alternatives: " + alternatives);
         LinearLayout suggests = ((LinearLayout)findViewById(R.id.suggests));
         final Button originalButton = (Button) buttonView;
+        int alternativePosition = 0;
         for (String s : alternatives){
-            Log.d("Info", "alternativ: " + s);
             View view = getLayoutInflater().inflate(R.layout.practise_suggest, null);
             Button button = ((Button) view.findViewById(R.id.button));
             button.setText(s);
             if(s.equals(originalButton.getText())){
                 button.setEnabled(false);
             }
+            alternativePosition++;
+            final int ap = alternativePosition;
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    clickSuggestButton(view, id);
+                    clickSuggestButton(view, id, ap);
                 }
             });
             suggests.addView(view);
@@ -111,9 +86,10 @@ public class PractiseActivity extends Activity {
         activeAlternative = originalButton;
     }
 
-    public void clickSuggestButton(View buttonView, int id){
+    public void clickSuggestButton(View buttonView, int id, final int alternativePosition){
         Button button = (Button) buttonView;
         wordButtons.get(id).setText(button.getText());
+        PractiseModel.SINGLETON.wordChange(id, alternativePosition);
         clearSuggest();
     }
 
@@ -125,4 +101,42 @@ public class PractiseActivity extends Activity {
         activeAlternative = null;
     }
 
+    @Override
+    public void onPrepared(PractiseModel p) {
+        setContentView(R.layout.practise);
+        FlowLayout items = (FlowLayout)findViewById(R.id.items);
+        for(final PractiseModel.Response.Word word : p.getWords()) {
+            View view = getLayoutInflater().inflate(R.layout.practise_words, null);
+            Button button = ((Button) view.findViewById(R.id.button));
+            wordButtons.put(word.getId(), button);
+            button.setText(word.getOrigin());
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    clickWordButton(view, word.getId());
+                }
+            });
+            items.addView(view);
+        }
+        MediaPlayer mediaPlayer = p.getAudio(getApplicationContext());
+        //Log.d("mediaPlayer.isPlaying()", ""+mediaPlayer.isPlaying());
+
+        if(mediaPlayer != null) {
+            mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mediaPlayer) {
+                    Button button = (Button) findViewById(R.id.play_button);
+                    button.setEnabled(true);
+                }
+            });
+
+            mediaPlayer.setOnErrorListener(new MediaPlayer.OnErrorListener() {
+                @Override
+                public boolean onError(MediaPlayer mediaPlayer, int what, int extra) {
+                    Log.d("Error in mediaplayer", "what: " + what + " \t extra:" + extra);
+                    return true;
+                }
+            });
+        }
+    }
 }

@@ -49,7 +49,7 @@ def practise():
             
     
         response = {
-          "url": "atrey.karlin.mff.cuni.cz/~andokajn/test/pisnicky/do_stanice_ceskolipska.wav",
+          "url": "http://atrey.karlin.mff.cuni.cz/~andokajn/test/pisnicky/do_stanice_ceskolipska.wav",
           "words": [{"origin": "do", "alternatives": ["do","z", "od"]},
                     {"origin": "stanice", "alternatives": ["stanice","zadnice", "plostice"]},
                     {"origin": "českolipská", "alternatives": ["častolipská","čístolipská", "českolipská"]}
