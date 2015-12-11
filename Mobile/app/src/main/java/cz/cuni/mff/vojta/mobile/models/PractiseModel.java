@@ -17,7 +17,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-import cz.cuni.mff.vojta.mobile.utils.IPractiseModelListener;
+import cz.cuni.mff.vojta.mobile.utils.IModelListener;
 import cz.cuni.mff.vojta.mobile.utils.IRequestCreator;
 import cz.cuni.mff.vojta.mobile.utils.RequestTask;
 
@@ -78,14 +78,14 @@ public class PractiseModel implements IRequestCreator{
     private MediaPlayer audio = null;
     public static final PractiseModel SINGLETON = new PractiseModel();
 
-    List<IPractiseModelListener> listeners = new LinkedList<>();
+    List<IModelListener> listeners = new LinkedList<>();
     List<CorrectedWord> correctedWordList = new ArrayList<>();
 
-    public boolean addListener(IPractiseModelListener listener){
+    public boolean addListener(IModelListener listener){
         return listeners.add(listener);
     }
 
-    public boolean removeListener(IPractiseModelListener listener){
+    public boolean removeListener(IModelListener listener){
         return listeners.remove(listener);
     }
 
@@ -169,7 +169,7 @@ public class PractiseModel implements IRequestCreator{
     }
 
     private void callListeners(){
-        for(IPractiseModelListener p : listeners){
+        for(IModelListener p : listeners){
             p.onPrepared(this);
         }
     }
