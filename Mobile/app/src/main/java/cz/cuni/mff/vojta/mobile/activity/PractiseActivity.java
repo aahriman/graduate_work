@@ -17,10 +17,10 @@ import java.util.List;
 import cz.cuni.mff.vojta.mobile.R;
 import cz.cuni.mff.vojta.mobile.external.FlowLayout;
 import cz.cuni.mff.vojta.mobile.models.PractiseModel;
-import cz.cuni.mff.vojta.mobile.utils.IPractiseModelListener;
+import cz.cuni.mff.vojta.mobile.utils.IModelListener;
 
 
-public class PractiseActivity extends Activity implements IPractiseModelListener {
+public class PractiseActivity extends Activity implements IModelListener<PractiseModel> {
     HashMap<Integer, Button> wordButtons = new HashMap<>();
 
     Button activeAlternative;
