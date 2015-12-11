@@ -43,6 +43,7 @@ import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.model.people.Person;
 
 import cz.cuni.mff.vojta.mobile.R;
+import cz.cuni.mff.vojta.mobile.models.LoginModel;
 
 /**
  * Minimal activity demonstrating basic Google Sign-In.
@@ -52,6 +53,13 @@ public class LoginActivity extends AppCompatActivity implements
         ActivityCompat.OnRequestPermissionsResultCallback,
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
+
+    /**
+     * Redirect after sign-in
+     */
+    public static boolean redirectAfterFirstSignIn = true;
+
+    private boolean redirect = LoginModel.SINGLETON.getPersonId() == null && LoginActivity.redirectAfterFirstSignIn;//redirect if set person and before you don't have it
 
     private static final String TAG = "LoginActivity";
 
@@ -94,8 +102,6 @@ public class LoginActivity extends AppCompatActivity implements
 
         // Set up button click listeners
         findViewById(R.id.sign_in_button).setOnClickListener(this);
-        findViewById(R.id.sign_out_button).setOnClickListener(this);
-        findViewById(R.id.disconnect_button).setOnClickListener(this);
 
         // Large sign-in
         ((SignInButton) findViewById(R.id.sign_in_button)).setSize(SignInButton.SIZE_WIDE);
@@ -126,21 +132,28 @@ public class LoginActivity extends AppCompatActivity implements
                 String name = currentPerson.getDisplayName();
                 mStatus.setText(getString(R.string.signed_in_fmt, name));
 
+                String currentAccount = null;
                 // Show users' email address (which requires GET_ACCOUNTS permission)
                 if (checkAccountsPermission()) {
-                    String currentAccount = Plus.AccountApi.getAccountName(mGoogleApiClient);
+                    currentAccount = Plus.AccountApi.getAccountName(mGoogleApiClient);
                     ((TextView) findViewById(R.id.email)).setText(currentAccount);
                 }
+
+                if(redirect) {
+                    Intent intent = new Intent(this, MainMenuActivity.class);
+                    LoginModel.SINGLETON.setPerson(currentPerson);
+                    LoginModel.SINGLETON.setEmail(currentAccount);
+                    Toast.makeText(this, getString(R.string.signed_in_name_toasts, LoginModel.SINGLETON.getPersonName()) + getString(R.string.signed_in_mail_toasts, LoginModel.SINGLETON.getPersonEmail()), Toast.LENGTH_LONG).show();
+                    startActivity(intent);
+                }
+
             } else {
                 // If getCurrentPerson returns null there is generally some error with the
                 // configuration of the application (invalid Client ID, Plus API not enabled, etc).
                 Log.w(TAG, getString(R.string.error_null_person));
                 mStatus.setText(getString(R.string.signed_in_err));
             }
-
-            // Set button visibility
-            findViewById(R.id.sign_in_button).setVisibility(View.GONE);
-            findViewById(R.id.sign_out_and_disconnect).setVisibility(View.VISIBLE);
+            findViewById(R.id.sign_in_button).setEnabled(true);
         } else {
             // Show signed-out message and clear email field
             mStatus.setText(R.string.signed_out);
@@ -148,8 +161,6 @@ public class LoginActivity extends AppCompatActivity implements
 
             // Set button visibility
             findViewById(R.id.sign_in_button).setEnabled(true);
-            findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
-            findViewById(R.id.sign_out_and_disconnect).setVisibility(View.GONE);
         }
     }
 
@@ -335,18 +346,14 @@ public class LoginActivity extends AppCompatActivity implements
             case R.id.sign_in_button:
                 onSignInClicked();
                 break;
-            case R.id.sign_out_button:
-                onSignOutClicked();
-                break;
-            case R.id.disconnect_button:
-                onDisconnectClicked();
-                break;
         }
     }
     // [END on_click]
 
     // [START on_sign_in_clicked]
     private void onSignInClicked() {
+        onSignOutClicked(); // I have to sign-out before I can sing in new account
+
         // User clicked the sign-in button, so begin the sign-in process and automatically
         // attempt to resolve any errors that occur.
         mShouldResolve = true;
