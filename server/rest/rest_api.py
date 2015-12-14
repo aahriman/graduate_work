@@ -14,7 +14,7 @@ app.config.update(
 
 
 
-@app.route("/statistics", methods=['GET'])
+@app.route("/statistics", methods=['POST'])
 def statistics():
     
     data = {
@@ -22,25 +22,19 @@ def statistics():
         "limit": int(request.args.get("limit", "1")),
     }
 
-    
-    def generate(response):
-        for result in response:
-            yield json.dumps(result)
-            
     try:
         response = []
         for i in range(data["offset"], data["offset"]+data["limit"]):
             response.append({"name": "test"+str(i), "score": 100/(i+1), "position": i })
     
-        print(response);
-        return Response(stream_with_context(generate(response)))
+        return Response(stream_with_context(json.dumps(response)))
     except:
         print("Unexpected error:")
         logging.error(traceback.format_exc())
         return jsonify({"status": "error", "message": "Some internal error. If you are developer, see log."}), 500
         
         
-@app.route("/practise", methods=['GET'])
+@app.route("/practise", methods=['POST'])
 def practise():
     try:
         data = {
@@ -56,8 +50,6 @@ def practise():
                     ]
         }
             
-        print(response);
-        print(json.dumps(response));
         return Response(stream_with_context(json.dumps(response)))
     except:
         print("Unexpected error:")
@@ -65,4 +57,4 @@ def practise():
         return jsonify({"status": "error", "message": "Some internal error. If you are developer, see log."}), 500    
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=8000)
+    app.run(host="0.0.0.0", port=80)
