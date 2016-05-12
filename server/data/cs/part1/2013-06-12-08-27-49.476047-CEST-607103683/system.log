@@ -1,0 +1,844 @@
+2013-06-12-08-27-49.488312-CEST  VoipIO-1   : DEBUG      
+    CallCallback::on_media_state : Media is now active
+
+2013-06-12-08-27-49.493933-CEST  MainProcess : SYSTEM-LOG 
+    config = { 'ASR': { 'Google': { 'debug': False, 'language': 'cs', 'maxresults': 20},
+               'Julius': { 'adinnetport': 5530,
+                           'binary': '/usr/local/bin/julius',
+                           'debug': False,
+                           'hostname': 'localhost',
+                           'jconf': { '-adport': '5530',
+                                      '-b': '1000',
+                                      '-b2': '100',
+                                      '-cmnload': 'cmn.param',
+                                      '-cmnmapweight': '200',
+                                      '-cmnsave': 'cmn.param',
+                                      '-confnet': '',
+                                      '-fallback1pass': '',
+                                      '-gprune': 'safe',
+                                      '-h': '/mnt/h/jurcicek/vystadial-git/alex/resources/asr/voip_en/hmmdefs',
+                                      '-hlist': '/mnt/h/jurcicek/vystadial-git/alex/resources/asr/voip_en/tiedlist',
+                                      '-htkconf': '/mnt/h/jurcicek/vystadial-git/alex/resources/asr/voip_en/config',
+                                      '-input': 'adinnet',
+                                      '-iwsp': '',
+                                      '-iwsppenalty': '0.0',
+                                      '-lmp': '15.0 0.0',
+                                      '-lmp2': '15.0 0.0',
+                                      '-mapunk': 'UM',
+                                      '-module': '10500',
+                                      '-n': '50',
+                                      '-nlr': '/mnt/h/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_arpa_bigram',
+                                      '-no_ccd': '',
+                                      '-nrl': '/mnt/h/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_arpa_rev_bigram',
+                                      '-silhead': '<s>',
+                                      '-siltail': '</s>',
+                                      '-spmodel': 'sp',
+                                      '-tmix': '4',
+                                      '-v': '/mnt/h/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_dict'},
+                           'jconffile': 'julius.jconf',
+                           'killall': False,
+                           'logfile': 'julius.log',
+                           'pidfile': 'julius.pid',
+                           'reuse_server': False,
+                           'serverport': 10500,
+                           'start_max_wait_time': 15,
+                           'start_wait_time': 0.5,
+                           'timeout': 2.0},
+               'debug': True,
+               'type': 'Google'},
+      'AlexOnTheBus': { 'max_turns': 30},
+      'Audio': { 'sample_rate': 16000, 'samples_per_frame': 256},
+      'AudioIO': { 'debug': True, 'output_dir': './aio_call_log', 'play_buffer_size': 1024},
+      'DM': { 'Basic': { 'debug': True},
+              'PUfalRuleDM': { 'code_submit_url': None,
+                               'db_cfg': '/mnt/h/jurcicek/vystadial-git/alex/applications/CamInfoRest/cued_data/CIRdbase_V7_noloc.txt',
+                               'ontology': '/mnt/h/jurcicek/vystadial-git/alex/applications/CamInfoRest/ontology.cfg',
+                               'provide_code': False},
+              'UfalRuleDM': { 'code_submit_url': None,
+                              'db_cfg': '/mnt/h/jurcicek/vystadial-git/alex/applications/CamInfoRest/cued_data/CIRdbase_V7_noloc.txt',
+                              'ontology': '/mnt/h/jurcicek/vystadial-git/alex/applications/CamInfoRest/ontology.cfg',
+                              'provide_code': False},
+              'basic': { 'debug': True},
+              'debug': True,
+              'dialogue_policy': <class 'alex.components.dm.dummypolicy.DummyDialoguePolicy'>,
+              'dialogue_state': <class 'alex.components.dm.dddstate.DeterministicDiscriminativeDialogueState'>,
+              'type': <class 'alex.applications.AlexOnTheBus.aotb_dm.AOTBDM'>},
+      'General': { 'include': ['/mnt/h/jurcicek/vystadial-git/alex/resources/private/default.cfg']},
+      'Hub': { 'history_file': 'hub_history_hub.txt', 'history_length': 1000, 'main_loop_sleep_time': 0.005},
+      'Logging': { 'session_logger': SessionLogger(),
+                   'system_logger': SystemLogger(stdout_log_level='ERROR', stdout=True, file_log_level='ERROR', output_dir=/net/projects/vystadial/data/call-logs/2013-05-30-alex-aotb-prototype),
+                   'system_name': 'Alex On The Bus - Live',
+                   'version': '1.0'},
+      'NLG': { 'Template': { 'model': '/mnt/h/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/nlg_templates.cfg'},
+               'debug': True,
+               'type': <class 'alex.applications.AlexOnTheBus.aotb_nlg.AOTBNLG'>},
+      'SHub': { 'history_file': 'hub_history_shub.txt', 'history_length': 1000},
+      'SLU': { 'cl-tracing': { 'cldb_fname': '/mnt/h/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/data/database.py',
+                               'do_preprocessing': True,
+                               'features_type': ('ngram',),
+                               'testing': { 'max_examples': None,
+                                            'min_perc': 80,
+                                            'model_fname': '/mnt/h/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/models/130516_minf60-minfc35-mind60.slu_model.gz',
+                                            'renormalise': True,
+                                            'threshold': None,
+                                            'vanilla': True},
+                               'training': { 'models_dir': 'models'}},
+               'debug': True,
+               'type': <class 'alex.applications.AlexOnTheBus.aotb_slu.AOTBSLU'>,
+               <class 'alex.applications.AlexOnTheBus.aotb_slu.AOTBSLU'>: { 'cldb_fname': '/mnt/h/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/data/database.py',
+                                                                            'preprocessing_cls': <class 'alex.applications.AlexOnTheBus.aotb_preprocessing.AOTBSLUPreprocessing'>,
+                                                                            'training': { 'models_dir': 'models'}}},
+      'THub': { 'history_file': 'hub_history_thub.txt', 'history_length': 1000},
+      'TTS': { 'Flite': { 'debug': False, 'voice': 'kal16'},
+               'Google': { 'debug': False, 'language': 'cs', 'rate': 2.0},
+               'SpeechTech': { 'debug': True,
+                               'login': 'filipjurcicek',
+    # this line was removed since it included a password
+                               'voice': 'Iva210'},
+               'VoiceRSS': { 'api_key': '3b6a9fca5d724b1c8ac34691586cdda1', 'language': 'en-gb'},
+               'debug': True,
+               'type': 'SpeechTech'},
+      'VAD': { 'debug': False,
+               'decision_frames_sil': 25,
+               'decision_frames_speech': 10,
+               'decision_non_speech_threshold': 0.2,
+               'decision_speech_threshold': 0.7,
+               'gmm': { 'ceplifter': 22,
+                        'enormalise': True,
+                        'filter_length': 5,
+                        'frameshift': 160,
+                        'framesize': 512,
+                        'frontend': 'MFCC',
+                        'hifreq': 3800,
+                        'lofreq': 125,
+                        'numceps': 12,
+                        'numchans': 26,
+                        'preemcoef': 0.97,
+                        'sil_model': '/mnt/h/jurcicek/vystadial-git/alex/resources/vad/voip_en/vad_sil_sds_mfcc_m064_f100000.gmm',
+                        'speech_model': '/mnt/h/jurcicek/vystadial-git/alex/resources/vad/voip_en/vad_speech_sds_mfcc_m064_f100000.gmm',
+                        'useacc': True,
+                        'usec0': False,
+                        'usecmn': False,
+                        'usedelta': True,
+                        'usehamming': True,
+                        'usepower': True,
+                        'zmeansource': True},
+               'power': { 'adaptation_frames': 30, 'threshold': 70, 'threshold_multiplier': 1.0},
+               'speech_buffer_frames': 20,
+               'type': 'gmm'},
+      'VoipHub': { 'hard_time_limit': 360,
+                   'hard_turn_limit': 40,
+                   'history_length': 1000,
+                   'wait_time_before_calling_back': 10},
+      'VoipIO': { 'allowed_hosts': '',
+                  'allowed_phone_numbers': '(^[234567])',
+                  'allowed_users': '(^[234567])',
+                  'debug': True,
+                  'domain': 'vystadial.ms.mff.cuni.cz',
+                  'forbidden_hosts': '',
+                  'forbidden_phone_number': '(^112$|^150$|^155$|^156$|^158$)',
+                  'forbidden_users': '(^112$|^150$|^155$|^156$|^158$)',
+    # this line was removed since it included a password
+                  'pjsip_log_level': 3,
+                  'reject_calls': False,
+                  'user': '800899998'},
+      'WebHub': { 'port': 8000}}
+    
+
+2013-06-12-08-27-49.501507-CEST  VoipIO-1   : DEBUG      
+    CallCallback::on_state : Call with "607103683" <sip:607103683@195.113.20.160> is CONNECTING last code = 200 (OK)
+
+2013-06-12-08-27-49.508622-CEST  MainProcess : INFO       
+    From: VoipIO     To: HUB        Command: incoming_call(remote_uri="607103683") 
+
+2013-06-12-08-27-49.515966-CEST  VoipIO-1   : DEBUG      
+    VoipIO::on_call_connecting
+
+2013-06-12-08-27-49.524926-CEST  VoipIO-1   : DEBUG      
+    CallCallback::on_state : Call with "607103683" <sip:607103683@195.113.20.160> is CONFIRMED last code = 200 (OK)
+
+2013-06-12-08-27-49.572348-CEST  VoipIO-1   : DEBUG      
+    VoipIO::on_call_confirmed
+
+2013-06-12-08-27-49.590942-CEST  MainProcess : INFO       
+    From: VoipIO     To: HUB        Command: call_connecting(remote_uri="607103683") 
+
+2013-06-12-08-27-49.604469-CEST  MainProcess : INFO       
+    From: VoipIO     To: HUB        Command: call_confirmed(remote_uri="607103683") 
+
+2013-06-12-08-27-49.616440-CEST  DM-5       : DEBUG      
+    From: HUB        To: DM         Command: new_dialogue() 
+
+2013-06-12-08-27-49.624420-CEST  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    hello()
+    
+
+2013-06-12-08-27-49.658793-CEST  MainProcess : INFO       
+    From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-06-12-08-27-49.667152-CEST  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Dobrý den, dovolali jste se na informace o veřejné dopravě v Praze. Hovor je nahráván. Více informací o této službě je na internetu. Odkud a kam chcete jet? Můžete například říct chtěla bych jet .
+    
+
+2013-06-12-08-27-49.674691-CEST  TTS-7      : DEBUG      
+    From: HUB        To: TTS        Command: keeplast() 
+
+2013-06-12-08-27-49.683328-CEST  VoipIO-1   : DEBUG      
+    From: HUB        To: VIO        Command: flush_out() 
+
+2013-06-12-08-27-49.697016-CEST  MainProcess : INFO       
+    From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-06-12-08-27-49.703879-CEST  MainProcess : INFO       
+    From: TTS        To: HUB        Command: tts_start(user_id="None",text="Dobrý den, dovolali jste se na informace o veřejné dopravě v Praze. Hovor je nahráván. Více informací o této službě je na internetu. Odkud a kam chcete jet? Můžete například říct chtěla bych jet .") 
+
+2013-06-12-08-27-51.758230-CEST  MainProcess : INFO       
+    From: VoipIO     To: HUB        Command: play_utterance_start(user_id="None",fname="tts-2013-06-12-08-27-51.683614.wav") 
+
+2013-06-12-08-27-51.786704-CEST  MainProcess : INFO       
+    From: TTS        To: HUB        Command: tts_end(user_id="None",text="Dobrý den, dovolali jste se na informace o veřejné dopravě v Praze. Hovor je nahráván. Více informací o této službě je na internetu. Odkud a kam chcete jet? Můžete například říct chtěla bych jet .",fname="tts-2013-06-12-08-27-51.683614.wav") 
+
+2013-06-12-08-28-02.965500-CEST  VoipIO-1   : INFO       
+    08:28:02.959    pjsua_acc.c  ....<sip:800899998@vystadial.ms.mff.cuni.cz>: registration success, status=200 (OK), will re-register in 300 seconds
+    
+
+2013-06-12-08-28-07.248454-CEST  MainProcess : INFO       
+    From: VoipIO     To: HUB        Command: play_utterance_end(user_id="None",fname="tts-2013-06-12-08-27-51.683614.wav) 
+
+2013-06-12-08-28-11.567298-CEST  MainProcess : INFO       
+    From: VAD        To: HUB        Command: speech_start(fname="vad-2013-06-12-08-28-11.536628.wav") 
+
+2013-06-12-08-28-11.575158-CEST  ASR-3      : DEBUG      
+    ASR: speech_start()
+
+2013-06-12-08-28-11.582415-CEST  MainProcess : INFO       
+    From: ASR        To: HUB        Command: asr_start() 
+
+2013-06-12-08-28-15.903658-CEST  ASR-3      : DEBUG      
+    ASR: speech_end()
+
+2013-06-12-08-28-15.911022-CEST  MainProcess : INFO       
+    From: VAD        To: HUB        Command: speech_end(fname="vad-2013-06-12-08-28-11.536628.wav") 
+
+2013-06-12-08-28-17.106321-CEST  ASR-3      : DEBUG      
+    ASR Hypothesis
+    ------------------------------------------------------------
+    0.576 chtěl bych jet letňanské na malostranské náměstí
+    0.141 chtěl bych jet letenské na malostranské náměstí
+    0.113 chtěl bych jet letňanské na malostranském náměstí
+    0.085 chtěl bych jet letenské na malostranském náměstí
+    0.057 chtěl bych jet letenské malostranské náměstí
+    0.028 chtěl bych jet letňanské malostranské náměstí
+    0.000 __other__
+    
+
+2013-06-12-08-28-17.132994-CEST  MainProcess : INFO       
+    From: ASR        To: HUB        Command: asr_end() 
+
+2013-06-12-08-28-17.782173-CEST  SLU-4      : DEBUG      
+    SLU Hypothesis
+    ------------------------------------------------------------
+    0.703 inform(to_stop="letňanská")
+    0.170 inform(to_stop="malostranské náměstí")
+    0.085 other()
+    0.028 inform(from_stop="malostranské náměstí")
+    0.014 inform(from_stop="letňanská")
+    
+
+2013-06-12-08-28-17.812368-CEST  MainProcess : INFO       
+    From: SLU        To: HUB        Command: slu_parsed() 
+
+2013-06-12-08-28-17.819806-CEST  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    iconfirm(to_stop="letňanská")&request(from_stop)
+    
+
+2013-06-12-08-28-17.850741-CEST  MainProcess : INFO       
+    From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-06-12-08-28-17.858225-CEST  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Chcete jet do zastávky letňanská. Odkud chcete jet?
+    
+
+2013-06-12-08-28-17.866502-CEST  TTS-7      : DEBUG      
+    From: HUB        To: TTS        Command: keeplast() 
+
+2013-06-12-08-28-17.874993-CEST  VoipIO-1   : DEBUG      
+    From: HUB        To: VIO        Command: flush_out() 
+
+2013-06-12-08-28-17.881363-CEST  MainProcess : INFO       
+    From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-06-12-08-28-17.888878-CEST  MainProcess : INFO       
+    From: TTS        To: HUB        Command: tts_start(user_id="None",text="Chcete jet do zastávky letňanská. Odkud chcete jet?") 
+
+2013-06-12-08-28-18.878413-CEST  MainProcess : INFO       
+    From: VoipIO     To: HUB        Command: play_utterance_start(user_id="None",fname="tts-2013-06-12-08-28-18.835810.wav") 
+
+2013-06-12-08-28-18.886643-CEST  MainProcess : INFO       
+    From: TTS        To: HUB        Command: tts_end(user_id="None",text="Chcete jet do zastávky letňanská. Odkud chcete jet?",fname="tts-2013-06-12-08-28-18.835810.wav") 
+
+2013-06-12-08-28-23.889508-CEST  MainProcess : INFO       
+    From: VoipIO     To: HUB        Command: play_utterance_end(user_id="None",fname="tts-2013-06-12-08-28-18.835810.wav) 
+
+2013-06-12-08-28-24.874498-CEST  MainProcess : INFO       
+    From: VAD        To: HUB        Command: speech_start(fname="vad-2013-06-12-08-28-24.841365.wav") 
+
+2013-06-12-08-28-24.882244-CEST  ASR-3      : DEBUG      
+    ASR: speech_start()
+
+2013-06-12-08-28-24.890290-CEST  MainProcess : INFO       
+    From: ASR        To: HUB        Command: asr_start() 
+
+2013-06-12-08-28-27.031634-CEST  MainProcess : INFO       
+    From: VAD        To: HUB        Command: speech_end(fname="vad-2013-06-12-08-28-24.841365.wav") 
+
+2013-06-12-08-28-27.038957-CEST  ASR-3      : DEBUG      
+    ASR: speech_end()
+
+2013-06-12-08-28-27.651864-CEST  ASR-3      : DEBUG      
+    ASR Hypothesis
+    ------------------------------------------------------------
+    0.592 svět letňanské
+    0.074 5 letňanské
+    0.067 jet letňanské
+    0.059 květ letňanské
+    0.052 pět letňanské
+    0.044 svět letňanského
+    0.037 svět letňanské i
+    0.030 svět letňanském
+    0.022 5 letňanského
+    0.015 jet letňanského
+    0.007 svět letňanské a
+    0.000 __other__
+    
+
+2013-06-12-08-28-27.672760-CEST  MainProcess : INFO       
+    From: ASR        To: HUB        Command: asr_end() 
+
+2013-06-12-08-28-28.156431-CEST  SLU-4      : DEBUG      
+    SLU Hypothesis
+    ------------------------------------------------------------
+    0.419 inform(from_stop="letňanská")
+    0.418 inform(to_stop="letňanská")
+    0.163 other()
+    
+
+2013-06-12-08-28-28.180904-CEST  MainProcess : INFO       
+    From: SLU        To: HUB        Command: slu_parsed() 
+
+2013-06-12-08-28-28.477622-CEST  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    iconfirm(from_stop="letňanská")&apology()&inform(from_stop="letňanská")&inform(to_stop="letňanská")
+    
+
+2013-06-12-08-28-28.517915-CEST  MainProcess : INFO       
+    From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-06-12-08-28-28.525962-CEST  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Dobře, ze zastávky letňanská. Jemi líto, ale žádné spojení jsem nenašla. Trasa ze zastávky letňanská do zastávky letňanská nebyla nalezena.
+    
+
+2013-06-12-08-28-28.535059-CEST  TTS-7      : DEBUG      
+    From: HUB        To: TTS        Command: keeplast() 
+
+2013-06-12-08-28-28.542661-CEST  VoipIO-1   : DEBUG      
+    From: HUB        To: VIO        Command: flush_out() 
+
+2013-06-12-08-28-28.550911-CEST  MainProcess : INFO       
+    From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-06-12-08-28-28.557308-CEST  MainProcess : INFO       
+    From: TTS        To: HUB        Command: tts_start(user_id="None",text="Dobře, ze zastávky letňanská. Jemi líto, ale žádné spojení jsem nenašla. Trasa ze zastávky letňanská do zastávky letňanská nebyla nalezena.") 
+
+2013-06-12-08-28-30.687292-CEST  MainProcess : INFO       
+    From: VoipIO     To: HUB        Command: play_utterance_start(user_id="None",fname="tts-2013-06-12-08-28-30.615423.wav") 
+
+2013-06-12-08-28-30.699730-CEST  MainProcess : INFO       
+    From: TTS        To: HUB        Command: tts_end(user_id="None",text="Dobře, ze zastávky letňanská. Jemi líto, ale žádné spojení jsem nenašla. Trasa ze zastávky letňanská do zastávky letňanská nebyla nalezena.",fname="tts-2013-06-12-08-28-30.615423.wav") 
+
+2013-06-12-08-28-42.122845-CEST  MainProcess : INFO       
+    From: VoipIO     To: HUB        Command: play_utterance_end(user_id="None",fname="tts-2013-06-12-08-28-30.615423.wav) 
+
+2013-06-12-08-28-44.338457-CEST  ASR-3      : DEBUG      
+    ASR: speech_start()
+
+2013-06-12-08-28-44.346162-CEST  MainProcess : INFO       
+    From: VAD        To: HUB        Command: speech_start(fname="vad-2013-06-12-08-28-44.303405.wav") 
+
+2013-06-12-08-28-44.353789-CEST  MainProcess : INFO       
+    From: ASR        To: HUB        Command: asr_start() 
+
+2013-06-12-08-28-45.407967-CEST  MainProcess : INFO       
+    From: VAD        To: HUB        Command: speech_end(fname="vad-2013-06-12-08-28-44.303405.wav") 
+
+2013-06-12-08-28-45.415851-CEST  ASR-3      : DEBUG      
+    ASR: speech_end()
+
+2013-06-12-08-28-45.891173-CEST  ASR-3      : DEBUG      
+    ASR Hypothesis
+    ------------------------------------------------------------
+    0.330 nova
+    0.248 znova
+    0.174 smlouva
+    0.165 slova
+    0.083 nová
+    0.000 __other__
+    
+
+2013-06-12-08-28-45.914410-CEST  MainProcess : INFO       
+    From: ASR        To: HUB        Command: asr_end() 
+
+2013-06-12-08-28-46.145317-CEST  SLU-4      : DEBUG      
+    SLU Hypothesis
+    ------------------------------------------------------------
+    0.752 other()
+    0.248 repeat()
+    
+
+2013-06-12-08-28-46.172325-CEST  MainProcess : INFO       
+    From: SLU        To: HUB        Command: slu_parsed() 
+
+2013-06-12-08-28-46.180609-CEST  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    notunderstood()
+    
+
+2013-06-12-08-28-46.224515-CEST  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Můžete to zopakovat?
+    
+
+2013-06-12-08-28-46.233730-CEST  MainProcess : INFO       
+    From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-06-12-08-28-46.240198-CEST  TTS-7      : DEBUG      
+    From: HUB        To: TTS        Command: keeplast() 
+
+2013-06-12-08-28-46.248571-CEST  VoipIO-1   : DEBUG      
+    From: HUB        To: VIO        Command: flush_out() 
+
+2013-06-12-08-28-46.256480-CEST  MainProcess : INFO       
+    From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-06-12-08-28-46.263816-CEST  MainProcess : INFO       
+    From: TTS        To: HUB        Command: tts_start(user_id="None",text="Můžete to zopakovat?") 
+
+2013-06-12-08-28-46.776134-CEST  MainProcess : INFO       
+    From: TTS        To: HUB        Command: tts_end(user_id="None",text="Můžete to zopakovat?",fname="tts-2013-06-12-08-28-46.754238.wav") 
+
+2013-06-12-08-28-46.798849-CEST  MainProcess : INFO       
+    From: VoipIO     To: HUB        Command: play_utterance_start(user_id="None",fname="tts-2013-06-12-08-28-46.754238.wav") 
+
+2013-06-12-08-28-49.100107-CEST  MainProcess : INFO       
+    From: VoipIO     To: HUB        Command: play_utterance_end(user_id="None",fname="tts-2013-06-12-08-28-46.754238.wav) 
+
+2013-06-12-08-28-50.749313-CEST  MainProcess : INFO       
+    From: VAD        To: HUB        Command: speech_start(fname="vad-2013-06-12-08-28-50.703635.wav") 
+
+2013-06-12-08-28-50.756192-CEST  MainProcess : INFO       
+    From: ASR        To: HUB        Command: asr_start() 
+
+2013-06-12-08-28-50.763688-CEST  ASR-3      : DEBUG      
+    ASR: speech_start()
+
+2013-06-12-08-28-51.680480-CEST  ASR-3      : DEBUG      
+    ASR: speech_end()
+
+2013-06-12-08-28-51.687344-CEST  MainProcess : INFO       
+    From: VAD        To: HUB        Command: speech_end(fname="vad-2013-06-12-08-28-50.703635.wav") 
+
+2013-06-12-08-28-52.019659-CEST  ASR-3      : DEBUG      
+    ASR Hypothesis
+    ------------------------------------------------------------
+    0.777 opakuj
+    0.089 opakuji
+    0.067 opakuje
+    0.045 opakují
+    0.022 opakujte
+    0.000 __other__
+    
+
+2013-06-12-08-28-52.043739-CEST  MainProcess : INFO       
+    From: ASR        To: HUB        Command: asr_end() 
+
+2013-06-12-08-28-52.263436-CEST  SLU-4      : DEBUG      
+    SLU Hypothesis
+    ------------------------------------------------------------
+    0.933 repeat()
+    0.067 other()
+    
+
+2013-06-12-08-28-52.290590-CEST  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    irepeat()
+    
+
+2013-06-12-08-28-52.298851-CEST  MainProcess : INFO       
+    From: SLU        To: HUB        Command: slu_parsed() 
+
+2013-06-12-08-28-52.335428-CEST  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Můžete to zopakovat?
+    
+
+2013-06-12-08-28-52.344684-CEST  MainProcess : INFO       
+    From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-06-12-08-28-52.351284-CEST  TTS-7      : DEBUG      
+    From: HUB        To: TTS        Command: keeplast() 
+
+2013-06-12-08-28-52.359537-CEST  VoipIO-1   : DEBUG      
+    From: HUB        To: VIO        Command: flush_out() 
+
+2013-06-12-08-28-52.367236-CEST  MainProcess : INFO       
+    From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-06-12-08-28-52.374519-CEST  MainProcess : INFO       
+    From: TTS        To: HUB        Command: tts_start(user_id="None",text="Můžete to zopakovat?") 
+
+2013-06-12-08-28-52.891573-CEST  MainProcess : INFO       
+    From: TTS        To: HUB        Command: tts_end(user_id="None",text="Můžete to zopakovat?",fname="tts-2013-06-12-08-28-52.869057.wav") 
+
+2013-06-12-08-28-52.914407-CEST  MainProcess : INFO       
+    From: VoipIO     To: HUB        Command: play_utterance_start(user_id="None",fname="tts-2013-06-12-08-28-52.869057.wav") 
+
+2013-06-12-08-28-55.181469-CEST  MainProcess : INFO       
+    From: VoipIO     To: HUB        Command: play_utterance_end(user_id="None",fname="tts-2013-06-12-08-28-52.869057.wav) 
+
+2013-06-12-08-28-56.050194-CEST  MainProcess : INFO       
+    From: VAD        To: HUB        Command: speech_start(fname="vad-2013-06-12-08-28-56.005333.wav") 
+
+2013-06-12-08-28-56.057170-CEST  MainProcess : INFO       
+    From: ASR        To: HUB        Command: asr_start() 
+
+2013-06-12-08-28-56.064859-CEST  ASR-3      : DEBUG      
+    ASR: speech_start()
+
+2013-06-12-08-29-01.494406-CEST  ASR-3      : DEBUG      
+    ASR: speech_end()
+
+2013-06-12-08-29-01.501060-CEST  MainProcess : INFO       
+    From: VAD        To: HUB        Command: speech_end(fname="vad-2013-06-12-08-28-56.005333.wav") 
+
+2013-06-12-08-29-02.656602-CEST  ASR-3      : DEBUG      
+    ASR Hypothesis
+    ------------------------------------------------------------
+    0.720 chtěl bych zastávka letňanská do zastávky malostranské náměstí
+    0.056 chtěl bych jet zastávka letňanská do zastávky malostranské náměstí
+    0.050 chtěl bych zastávka letenská do zastávky malostranské náměstí
+    0.044 chtěl bych jet zastávka letenská do zastávky malostranské náměstí
+    0.037 chtěl bych zastávky letňanská do zastávky malostranské náměstí
+    0.031 chtěl bych jet zastávky letňanská do zastávky malostranské náměstí
+    0.025 chtěl bych zastávky letenská do zastávky malostranské náměstí
+    0.019 chtěl bych jet zastávky letenská do zastávky malostranské náměstí
+    0.012 chtěl bych zastávka německa do zastávky malostranské náměstí
+    0.006 chtěl bych jet zastávka německa do zastávky malostranské náměstí
+    0.000 __other__
+    
+
+2013-06-12-08-29-02.687168-CEST  MainProcess : INFO       
+    From: ASR        To: HUB        Command: asr_end() 
+
+2013-06-12-08-29-03.123095-CEST  SLU-4      : DEBUG      
+    SLU Hypothesis
+    ------------------------------------------------------------
+    0.844 inform(to_stop="letňanská")
+    0.156 inform(to_stop="malostranské náměstí")
+    
+
+2013-06-12-08-29-03.155600-CEST  MainProcess : INFO       
+    From: SLU        To: HUB        Command: slu_parsed() 
+
+2013-06-12-08-29-03.326883-CEST  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    iconfirm(to_stop="letňanská")&apology()&inform(from_stop="letňanská")&inform(to_stop="letňanská")
+    
+
+2013-06-12-08-29-03.395370-CEST  MainProcess : INFO       
+    From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-06-12-08-29-03.403306-CEST  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Dobře, do zastávky letňanská. Jemi líto, ale trasa ze zastávky letňanská do zastávky letňanská nebyla nalezena.
+    
+
+2013-06-12-08-29-03.412592-CEST  TTS-7      : DEBUG      
+    From: HUB        To: TTS        Command: keeplast() 
+
+2013-06-12-08-29-03.419358-CEST  VoipIO-1   : DEBUG      
+    From: HUB        To: VIO        Command: flush_out() 
+
+2013-06-12-08-29-03.438760-CEST  MainProcess : INFO       
+    From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-06-12-08-29-03.446791-CEST  MainProcess : INFO       
+    From: TTS        To: HUB        Command: tts_start(user_id="None",text="Dobře, do zastávky letňanská. Jemi líto, ale trasa ze zastávky letňanská do zastávky letňanská nebyla nalezena.") 
+
+2013-06-12-08-29-04.231314-CEST  MainProcess : INFO       
+    From: VAD        To: HUB        Command: speech_start(fname="vad-2013-06-12-08-29-04.184262.wav") 
+
+2013-06-12-08-29-04.237555-CEST  MainProcess : INFO       
+    From: ASR        To: HUB        Command: asr_start() 
+
+2013-06-12-08-29-04.245495-CEST  ASR-3      : DEBUG      
+    ASR: speech_start()
+
+2013-06-12-08-29-04.694045-CEST  ASR-3      : DEBUG      
+    ASR: speech_end()
+
+2013-06-12-08-29-04.701800-CEST  MainProcess : INFO       
+    From: VAD        To: HUB        Command: speech_end(fname="vad-2013-06-12-08-29-04.184262.wav") 
+
+2013-06-12-08-29-04.729728-CEST  MainProcess : INFO       
+    From: VoipIO     To: HUB        Command: play_utterance_start(user_id="None",fname="tts-2013-06-12-08-29-04.636768.wav") 
+
+2013-06-12-08-29-04.742102-CEST  MainProcess : INFO       
+    From: TTS        To: HUB        Command: tts_end(user_id="None",text="Dobře, do zastávky letňanská. Jemi líto, ale trasa ze zastávky letňanská do zastávky letňanská nebyla nalezena.",fname="tts-2013-06-12-08-29-04.636768.wav") 
+
+2013-06-12-08-29-04.825529-CEST  ASR-3      : DEBUG      
+    ASR Hypothesis
+    ------------------------------------------------------------
+    1.000 __other__
+    
+
+2013-06-12-08-29-04.858225-CEST  MainProcess : INFO       
+    From: ASR        To: HUB        Command: asr_end() 
+
+2013-06-12-08-29-04.866032-CEST  SLU-4      : DEBUG      
+    SLU Hypothesis
+    ------------------------------------------------------------
+    1.000 other()
+    
+
+2013-06-12-08-29-04.899133-CEST  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    notunderstood()
+    
+
+2013-06-12-08-29-04.907786-CEST  MainProcess : INFO       
+    From: SLU        To: HUB        Command: slu_parsed() 
+
+2013-06-12-08-29-04.950220-CEST  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Ještě jednou prosím.
+    
+
+2013-06-12-08-29-04.958988-CEST  MainProcess : INFO       
+    From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-06-12-08-29-04.965332-CEST  TTS-7      : DEBUG      
+    From: HUB        To: TTS        Command: keeplast() 
+
+2013-06-12-08-29-04.973884-CEST  VoipIO-1   : DEBUG      
+    From: HUB        To: VIO        Command: flush_out() 
+
+2013-06-12-08-29-04.981605-CEST  MainProcess : INFO       
+    From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-06-12-08-29-04.988720-CEST  MainProcess : INFO       
+    From: TTS        To: HUB        Command: tts_start(user_id="None",text="Ještě jednou prosím.") 
+
+2013-06-12-08-29-05.505996-CEST  MainProcess : INFO       
+    From: TTS        To: HUB        Command: tts_end(user_id="None",text="Ještě jednou prosím.",fname="tts-2013-06-12-08-29-05.482841.wav") 
+
+2013-06-12-08-29-05.533533-CEST  MainProcess : INFO       
+    From: VoipIO     To: HUB        Command: play_utterance_start(user_id="None",fname="tts-2013-06-12-08-29-05.482841.wav") 
+
+2013-06-12-08-29-07.918341-CEST  MainProcess : INFO       
+    From: VoipIO     To: HUB        Command: play_utterance_end(user_id="None",fname="tts-2013-06-12-08-29-05.482841.wav) 
+
+2013-06-12-08-29-08.738177-CEST  MainProcess : INFO       
+    From: VAD        To: HUB        Command: speech_start(fname="vad-2013-06-12-08-29-08.686827.wav") 
+
+2013-06-12-08-29-08.744424-CEST  ASR-3      : DEBUG      
+    ASR: speech_start()
+
+2013-06-12-08-29-08.751768-CEST  MainProcess : INFO       
+    From: ASR        To: HUB        Command: asr_start() 
+
+2013-06-12-08-29-12.546627-CEST  ASR-3      : DEBUG      
+    ASR: speech_end()
+
+2013-06-12-08-29-12.554010-CEST  MainProcess : INFO       
+    From: VAD        To: HUB        Command: speech_end(fname="vad-2013-06-12-08-29-08.686827.wav") 
+
+2013-06-12-08-29-12.822422-CEST  MainProcess : INFO       
+    From: VAD        To: HUB        Command: speech_start(fname="vad-2013-06-12-08-29-12.771967.wav") 
+
+2013-06-12-08-29-13.548210-CEST  ASR-3      : DEBUG      
+    ASR Hypothesis
+    ------------------------------------------------------------
+    0.682 chtěl bych jet zastávky letenská
+    0.071 chtěl bych jet zastávky letňanská
+    0.062 chtěl bych jet zastávky od německa
+    0.053 chtěl bych jet zastávky německa
+    0.044 chtěl bych jet ze zastávky letenská
+    0.035 chtěl bych jet zpátky letenská
+    0.026 chtěl bych jet ze zastávky letňanská
+    0.018 chtěl bych jed zastávky letenská
+    0.009 chtěl bych jet zpátky letňanská
+    0.000 __other__
+    
+
+2013-06-12-08-29-13.578007-CEST  ASR-3      : DEBUG      
+    ASR: speech_start()
+
+2013-06-12-08-29-13.584081-CEST  MainProcess : INFO       
+    From: ASR        To: HUB        Command: asr_end() 
+
+2013-06-12-08-29-13.595683-CEST  MainProcess : INFO       
+    From: ASR        To: HUB        Command: asr_start() 
+
+2013-06-12-08-29-13.976400-CEST  SLU-4      : DEBUG      
+    SLU Hypothesis
+    ------------------------------------------------------------
+    0.894 other()
+    0.066 inform(from_stop="letňanská")
+    0.040 inform(to_stop="letňanská")
+    
+
+2013-06-12-08-29-14.022984-CEST  MainProcess : INFO       
+    From: SLU        To: HUB        Command: slu_parsed() 
+
+2013-06-12-08-29-14.030483-CEST  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    notunderstood()
+    
+
+2013-06-12-08-29-14.137308-CEST  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Nerozuměla jsem. Jěště jednou prosím.
+    
+
+2013-06-12-08-29-14.146691-CEST  MainProcess : INFO       
+    From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-06-12-08-29-14.153961-CEST  TTS-7      : DEBUG      
+    From: HUB        To: TTS        Command: keeplast() 
+
+2013-06-12-08-29-14.160706-CEST  VoipIO-1   : DEBUG      
+    From: HUB        To: VIO        Command: flush_out() 
+
+2013-06-12-08-29-14.175097-CEST  MainProcess : INFO       
+    From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-06-12-08-29-14.182035-CEST  MainProcess : INFO       
+    From: TTS        To: HUB        Command: tts_start(user_id="None",text="Nerozuměla jsem. Jěště jednou prosím.") 
+
+2013-06-12-08-29-14.952080-CEST  MainProcess : INFO       
+    From: TTS        To: HUB        Command: tts_end(user_id="None",text="Nerozuměla jsem. Jěště jednou prosím.",fname="tts-2013-06-12-08-29-14.922430.wav") 
+
+2013-06-12-08-29-14.985502-CEST  MainProcess : INFO       
+    From: VoipIO     To: HUB        Command: play_utterance_start(user_id="None",fname="tts-2013-06-12-08-29-14.922430.wav") 
+
+2013-06-12-08-29-15.246154-CEST  ASR-3      : DEBUG      
+    ASR: speech_end()
+
+2013-06-12-08-29-15.253625-CEST  MainProcess : INFO       
+    From: VAD        To: HUB        Command: speech_end(fname="vad-2013-06-12-08-29-12.771967.wav") 
+
+2013-06-12-08-29-15.821834-CEST  ASR-3      : DEBUG      
+    ASR Hypothesis
+    ------------------------------------------------------------
+    0.839 zastávky malostranské náměstí
+    0.032 zastávka malostranské náměstí
+    0.029 zastávky malostranském náměstí
+    0.025 zastávky malostranské náměstí 5
+    0.021 zastávky malostranské náměstí i
+    0.018 zastávka malostranském náměstí
+    0.014 zastávka malostranské náměstí 5
+    0.011 zastávka malostranské náměstí i
+    0.007 zastavte malostranské náměstí
+    0.004 zastávky malostranském náměstí i
+    0.000 __other__
+    
+
+2013-06-12-08-29-15.858240-CEST  MainProcess : INFO       
+    From: ASR        To: HUB        Command: asr_end() 
+
+2013-06-12-08-29-16.291937-CEST  SLU-4      : DEBUG      
+    SLU Hypothesis
+    ------------------------------------------------------------
+    0.476 inform(from_stop="malostranské náměstí")
+    0.474 inform(to_stop="malostranské náměstí")
+    0.050 other()
+    
+
+2013-06-12-08-29-16.331766-CEST  MainProcess : INFO       
+    From: SLU        To: HUB        Command: slu_parsed() 
+
+2013-06-12-08-29-16.576500-CEST  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    iconfirm(from_stop="malostranské náměstí")&inform(alternatives="4")&inform(alternative="1")&inform(vehicle="TRAM")&inform(line="12")&inform(go_at="08:45")&inform(enter_at="Malostranské náměstí")&inform(headsign="Palmovka")&inform(exit_at="Palmovka")&inform(transfer="True")&inform(vehicle="BUS")&inform(line="140")&inform(go_at="09:16")&inform(enter_at="Palmovka")&inform(headsign="Čakovice")&inform(exit_at="Letňanská")
+    
+
+2013-06-12-08-29-16.642382-CEST  MainProcess : INFO       
+    From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-06-12-08-29-16.649076-CEST  TTS-7      : DEBUG      
+    From: HUB        To: TTS        Command: keeplast() 
+
+2013-06-12-08-29-16.655224-CEST  VoipIO-1   : DEBUG      
+    From: HUB        To: VIO        Command: flush_out() 
+
+2013-06-12-08-29-16.857792-CEST  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Dobře, ze zastávky malostranské náměstí. Našla jsem čtyři cesty. Možnost první. Jeďte tramvají číslo 12 v 08:45 ze zastávky Malostranské náměstí směrem Palmovka. Vystupte na zastávce Palmovka. A pak přestupte. Jeďte autobusem číslo 140 v 09:16 ze zastávky Palmovka směrem Čakovice. Vystupte na zastávce Letňanská.
+    
+
+2013-06-12-08-29-16.895917-CEST  MainProcess : INFO       
+    From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-06-12-08-29-16.903555-CEST  MainProcess : INFO       
+    From: TTS        To: HUB        Command: tts_start(user_id="None",text="Dobře, ze zastávky malostranské náměstí. Našla jsem čtyři cesty. Možnost první. Jeďte tramvají číslo 12 v 08:45 ze zastávky Malostranské náměstí směrem Palmovka. Vystupte na zastávce Palmovka. A pak přestupte. Jeďte autobusem číslo 140 v 09:16 ze zastávky Palmovka směrem Čakovice. Vystupte na zastávce Letňanská.") 
+
+2013-06-12-08-29-19.760458-CEST  VoipIO-1   : DEBUG      
+    CallCallback::on_state : Call with "607103683" <sip:607103683@195.113.20.160> is DISCONNCTD last code = 200 (Normal call clearing)
+
+2013-06-12-08-29-19.942655-CEST  VoipIO-1   : DEBUG      
+    VoipIO::on_call_disconnected
+
+2013-06-12-08-29-19.950859-CEST  MainProcess : INFO       
+    From: VoipIO     To: HUB        Command: call_disconnected(remote_uri="607103683") 
+
+2013-06-12-08-29-19.961833-CEST  VoipIO-1   : DEBUG      
+    From: HUB        To: VoipIO     Command: flush() 
+
+2013-06-12-08-29-19.970250-CEST  ASR-3      : DEBUG      
+    From: HUB        To: ASR        Command: flush() 
+
+2013-06-12-08-29-19.979820-CEST  SLU-4      : DEBUG      
+    From: HUB        To: SLU        Command: flush() 
+
+2013-06-12-08-29-19.987945-CEST  NLG-6      : DEBUG      
+    From: HUB        To: NLG        Command: flush() 
+
+2013-06-12-08-29-19.996204-CEST  DM-5       : DEBUG      
+    From: HUB        To: DM         Command: flush() 
+
+2013-06-12-08-29-20.008454-CEST  DM-5       : DEBUG      
+    From: HUB        To: DM         Command: end_dialogue() 
+

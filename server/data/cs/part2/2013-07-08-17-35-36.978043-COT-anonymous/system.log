@@ -1,0 +1,2802 @@
+2013-07-08-17-35-36.998068-COT  MainProcess : SYSTEM-LOG 
+    config = { 'ASR': { 'Google': { 'debug': False, 'language': 'cs', 'maxresults': 20},
+               'Julius': { 'adinnetport': 5530,
+                           'binary': '/usr/local/bin/julius',
+                           'debug': False,
+                           'hostname': 'localhost',
+                           'jconf': { '-adport': '5530',
+                                      '-b': '1000',
+                                      '-b2': '100',
+                                      '-cmnload': 'cmn.param',
+                                      '-cmnmapweight': '200',
+                                      '-cmnsave': 'cmn.param',
+                                      '-confnet': '',
+                                      '-fallback1pass': '',
+                                      '-gprune': 'safe',
+                                      '-h': '/home/jurcicek/vystadial-git/alex/resources/asr/voip_en/hmmdefs',
+                                      '-hlist': '/home/jurcicek/vystadial-git/alex/resources/asr/voip_en/tiedlist',
+                                      '-htkconf': '/home/jurcicek/vystadial-git/alex/resources/asr/voip_en/config',
+                                      '-input': 'adinnet',
+                                      '-iwsp': '',
+                                      '-iwsppenalty': '0.0',
+                                      '-lmp': '15.0 0.0',
+                                      '-lmp2': '15.0 0.0',
+                                      '-mapunk': 'UM',
+                                      '-module': '10500',
+                                      '-n': '50',
+                                      '-nlr': '/home/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_arpa_bigram',
+                                      '-no_ccd': '',
+                                      '-nrl': '/home/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_arpa_rev_bigram',
+                                      '-silhead': '<s>',
+                                      '-siltail': '</s>',
+                                      '-spmodel': 'sp',
+                                      '-tmix': '4',
+                                      '-v': '/home/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_dict'},
+                           'jconffile': 'julius.jconf',
+                           'killall': False,
+                           'logfile': 'julius.log',
+                           'msg_timeout': 0.3,
+                           'pidfile': 'julius.pid',
+                           'reuse_server': False,
+                           'serverport': 10500,
+                           'start_max_wait_time': 15,
+                           'start_wait_time': 0.5,
+                           'timeout': 2.0},
+               'Kaldi': { 'LM_scale': -6666.66,
+                          'hypothesis_type': 'nblist',
+                          'lat_depth': 666666,
+                          'model': 'TODO_path_to_model'},
+               'debug': True,
+               'type': 'Google'},
+      'AlexOnTheBus': { 'max_turns': 30},
+      'Analytics': Analytics(account_id='UA-41905278-1', domain_name='cuni.cz'),
+      'Audio': { 'sample_rate': 16000, 'samples_per_frame': 256},
+      'AudioIO': { 'debug': True, 'output_dir': './aio_call_log', 'play_buffer_size': 1024},
+      'DM': { 'PUfalRuleDM': { 'code_submit_url': None,
+                               'db_cfg': '/home/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/cued_data/CIRdbase_V7_noloc.txt',
+                               'ontology': '/home/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/ontology.cfg',
+                               'provide_code': False},
+              'UfalRuleDM': { 'code_submit_url': None,
+                              'db_cfg': '/home/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/cued_data/CIRdbase_V7_noloc.txt',
+                              'ontology': '/home/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/ontology.cfg',
+                              'provide_code': False},
+              'basic': { 'debug': True, 'silence_timeout': 10.0},
+              'debug': True,
+              'dialogue_policy': { 'type': <class 'alex.applications.AlexOnTheBus.aotb_hdc_policy.AOTBHDCPolicy'>},
+              'dialogue_state': { 'type': <class 'alex.components.dm.dddstate.DeterministicDiscriminativeDialogueState'>},
+              'input_timeout': 3.0,
+              'ontology': '/home/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/data/ontology.py',
+              'type': 'basic'},
+      'General': { 'debug': False, 'include': ['/home/jurcicek/vystadial-git/alex/resources/private/default.cfg']},
+      'Hub': { 'history_file': 'hub_history_hub.txt', 'history_length': 1000, 'main_loop_sleep_time': 0.002},
+      'Logging': { 'excepthook': ExceptionHook(
+            ExceptionHook
+              Hook Type: log
+              Hook Logger: SystemLogger(output_dir=./call_logs, stdout_log_level='DEBUG', stdout=True, file_log_level='DEBUG')),
+                   'session_logger': SessionLogger(),
+                   'system_logger': SystemLogger(output_dir=./call_logs, stdout_log_level='DEBUG', stdout=True, file_log_level='DEBUG'),
+                   'system_name': 'Alex On The Bus',
+                   'version': '1.0'},
+      'NLG': { 'Template': { 'model': '/home/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/nlg_templates.cfg'},
+               'debug': True,
+               'type': 'Template'},
+      'SHub': { 'history_file': 'hub_history_shub.txt', 'history_length': 1000},
+      'SLU': { 'cl-tracing': { 'cldb_fname': '/home/jurcicek/vystadial-git/alex/applications/CamInfoRest/data/database.py',
+                               'do_preprocessing': True,
+                               'features_type': ('ngram', 'ab_ngram'),
+                               'testing': { 'max_examples': None,
+                                            'min_perc': 80,
+                                            'model_fname': '/home/jurcicek/vystadial-git/alex/applications/CamInfoRest/models/130516_minf60-minfc35-mind60.slu_model.gz',
+                                            'renormalise': True,
+                                            'threshold': None,
+                                            'vanilla': True},
+                               'training': { 'abstractions': ('abstract',), 'models_dir': 'models'}},
+               'debug': True,
+               'type': <class 'alex.applications.AlexOnTheBus.aotb_slu.AOTBSLU'>,
+               <class 'alex.applications.AlexOnTheBus.aotb_slu.AOTBSLU'>: { 'cldb_fname': '/home/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/data/database.py',
+                                                                            'preprocessing_cls': <class 'alex.applications.AlexOnTheBus.aotb_preprocessing.AOTBSLUPreprocessing'>,
+                                                                            'training': { 'models_dir': 'models'}}},
+      'THub': { 'history_file': 'hub_history_thub.txt', 'history_length': 1000},
+      'TTS': { 'Flite': { 'debug': False,
+                          'preprocessing': '/home/jurcicek/vystadial-git/alex/resources/tts/prep_flite_en.cfg',
+                          'voice': 'kal16'},
+               'Google': { 'debug': False,
+                           'language': 'en',
+                           'preprocessing': '/home/jurcicek/vystadial-git/alex/resources/tts/prep_google_en.cfg'},
+               'SpeechTech': { 'debug': True,
+                               'login': 'filipjurcicek',
+    # this line was removed since it included a password
+                               'preprocessing': '/home/jurcicek/vystadial-git/alex/resources/tts/prep_speechtech_cs.cfg',
+                               'voice': 'Iva210'},
+               'VoiceRSS': { 'api_key': '3b6a9fca5d724b1c8ac34691586cdda1'},
+               'VoiceRss': { 'language': 'en-gb',
+                             'preprocessing': '/home/jurcicek/vystadial-git/alex/resources/tts/prep_voicerss_en.cfg'},
+               'debug': True,
+               'in_between_segments_silence': 0.1,
+               'type': 'SpeechTech'},
+      'VAD': { 'debug': False,
+               'decision_frames_sil': 25,
+               'decision_frames_speech': 10,
+               'decision_non_speech_threshold': 0.2,
+               'decision_speech_threshold': 0.7,
+               'gmm': { 'ceplifter': 22,
+                        'enormalise': True,
+                        'filter_length': 5,
+                        'frameshift': 160,
+                        'framesize': 512,
+                        'frontend': 'MFCC',
+                        'hifreq': 3800,
+                        'lofreq': 125,
+                        'numceps': 12,
+                        'numchans': 26,
+                        'preemcoef': 0.97,
+                        'sil_model': '/home/jurcicek/vystadial-git/alex/resources/vad/voip_en/vad_sil_sds_mfcc_m064_f100000.gmm',
+                        'speech_model': '/home/jurcicek/vystadial-git/alex/resources/vad/voip_en/vad_speech_sds_mfcc_m064_f100000.gmm',
+                        'useacc': True,
+                        'usec0': False,
+                        'usecmn': False,
+                        'usedelta': True,
+                        'usehamming': True,
+                        'usepower': True,
+                        'zmeansource': True},
+               'power': { 'adaptation_frames': 30, 'threshold': 70, 'threshold_multiplier': 1.0},
+               'speech_buffer_frames': 20,
+               'type': 'gmm'},
+      'VoipHub': { 'blacklist_for': 7200,
+                   'call_db': '/home/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/call_db.pckl',
+                   'hard_time_limit': 360,
+                   'hard_turn_limit': 120,
+                   'history_length': 1000,
+                   'last_period_max_num_calls': 100,
+                   'last_period_max_total_time': 7200,
+                   'limit_reached_message': u'D\u011bkujeme za zavol\xe1n\xed, ale u\u017e jste volali hodn\u011b. Pros\xedm zavolejte pozd\u011bji. Na shledanou.',
+                   'period': 172800,
+                   'pid_file': '/home/jurcicek/vystadial-git/alex/applications/vhub.pid',
+                   'wait_time_before_calling_back': 10},
+      'VoipIO': { 'allowed_hosts': '',
+                  'allowed_phone_numbers': '(^[234567])',
+                  'allowed_users': '(^[234567])',
+                  'debug': True,
+                  'domain': 'external.sip.mff.cuni.cz:5066',
+                  'forbidden_hosts': '',
+                  'forbidden_phone_number': '(^112$|^150$|^155$|^156$|^158$)',
+                  'forbidden_users': '(^112$|^150$|^155$|^156$|^158$)',
+    # this line was removed since it included a password
+                  'pjsip_log_level': 3,
+                  'reject_calls': False,
+                  'user': 'DEV-9889'},
+      'WebHub': { 'port': 8000},
+      'corpustools': { 'get_jasr_confnets': { 'frame_size': 256, 'rt_ratio': 0.2}}}
+
+2013-07-08-17-35-37.043815-COT  MainProcess : INFO       
+    #2      Time: 2013-07-08-17-35-36.977050-COT From: VoipIO     To: HUB        Command: call_connecting(remote_uri="anonymous") 
+
+2013-07-08-17-35-37.187470-COT  VoipIO-1   : DEBUG      
+    CallCallback::on_state : Call with "Anonymous" <sip:anonymous@195.113.20.69> is CONFIRMED last code = 200 (OK)
+
+2013-07-08-17-35-37.197752-COT  VoipIO-1   : DEBUG      
+    VoipIO::on_call_confirmed
+
+2013-07-08-17-35-37.199653-COT  MainProcess : INFO       
+    #3      Time: 2013-07-08-17-35-37.197923-COT From: VoipIO     To: HUB        Command: call_confirmed(remote_uri="anonymous") 
+
+2013-07-08-17-35-37.205733-COT  MainProcess : INFO       
+    
+    ========================================================================================================================
+    Incoming call from :          anonymous
+    ------------------------------------------------------------------------------------------------------------------------
+    Total calls:                  5
+    Total time (min):             11.4
+    Last period total calls:      3
+    Last period total time (min): 6.8
+    ------------------------------------------------------------------------------------------------------------------------
+    CALL ACCEPTED
+    ========================================================================================================================
+    
+
+2013-07-08-17-35-37.207276-COT  DM-5       : DEBUG      
+    #4      Time: 2013-07-08-17-35-37.201770-COT From: HUB        To: DM         Command: new_dialogue() 
+
+2013-07-08-17-35-37.218405-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    hello()
+    
+
+2013-07-08-17-35-37.230306-COT  MainProcess : INFO       
+    #5      Time: 2013-07-08-17-35-37.221468-COT From: DM         To: HUB        Hyp: hello() 
+
+2013-07-08-17-35-37.232498-COT  NLG-6      : DEBUG      
+    #6      Time: 2013-07-08-17-35-37.230791-COT From: DM         To: HUB        Hyp: hello() 
+
+2013-07-08-17-35-37.233188-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Dobrý den, dovolali jste se na informace o veřejné dopravě v Praze. Hovor je nahráván. Více informací o této službě je na internetu. Jak Vám mohu pomoci. Můžete například říct chtěl bych jet z Malostranského náměstí na Žižkov.
+    
+
+2013-07-08-17-35-37.245841-COT  MainProcess : INFO       
+    #7      Time: 2013-07-08-17-35-37.241612-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-08-17-35-37.246764-COT  MainProcess : INFO       
+    #9      Time: 2013-07-08-17-35-37.242411-COT From: TTS        To: HUB        Command: tts_start(user_id="None",text="Dobrý den, dovolali jste se na informace o veřejné dopravě v Praze. Hovor je nahráván. Více informací o této službě je na internetu. Jak Vám mohu pomoci. Můžete například říct chtěl bych jet z Malostranského náměstí na Žižkov.") 
+
+2013-07-08-17-35-37.340303-COT  MainProcess : INFO       
+    #11     Time: 2013-07-08-17-35-37.245409-COT From: VoipIO     To: HUB        Command: play_utterance_start(user_id="None",fname="tts-2013-07-08-17-35-37.242066.wav") 
+
+2013-07-08-17-35-45.082622-COT  MainProcess : INFO       
+    #1565   Time: 2013-07-08-17-35-45.077892-COT From: TTS        To: HUB        Command: tts_end(user_id="None",text="Dobrý den, dovolali jste se na informace o veřejné dopravě v Praze. Hovor je nahráván. Více informací o této službě je na internetu. Jak Vám mohu pomoci. Můžete například říct chtěl bych jet z Malostranského náměstí na Žižkov.",fname="tts-2013-07-08-17-35-37.242066.wav",log="true") 
+
+2013-07-08-17-35-54.235158-COT  MainProcess : INFO       
+    #2108   Time: 2013-07-08-17-35-53.750647-COT From: VoipIO     To: HUB        Command: play_utterance_end(user_id="None",fname="tts-2013-07-08-17-35-37.242066.wav) 
+
+2013-07-08-17-35-57.240086-COT  DM-5       : DEBUG      
+    #2329   Time: 2013-07-08-17-35-57.236604-COT From: HUB        To: DM         Command: timeout(silence_time="3.001") 
+
+2013-07-08-17-35-57.241351-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="3.001")
+
+2013-07-08-17-35-57.242134-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="3.001")
+
+2013-07-08-17-35-57.242893-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    silence_time = 3.001
+    
+    
+    
+    
+
+2013-07-08-17-35-57.243682-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 3.001}
+
+2013-07-08-17-35-57.245399-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-17-35-57.259047-COT  MainProcess : INFO       
+    #2330   Time: 2013-07-08-17-35-57.254005-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-17-35-57.510432-COT  ASR-3      : DEBUG      
+    ASR: speech_start()
+
+2013-07-08-17-35-57.513261-COT  MainProcess : INFO       
+    #2348   Time: 2013-07-08-17-35-57.505224-COT From: VAD        To: HUB        Command: speech_start(fname="vad-2013-07-08-17-35-57.422606.wav") 
+
+2013-07-08-17-35-57.516346-COT  MainProcess : INFO       
+    #2349   Time: 2013-07-08-17-35-57.507136-COT From: ASR        To: HUB        Command: asr_start() 
+
+2013-07-08-17-36-00.003668-COT  MainProcess : INFO       
+    #2507   Time: 2013-07-08-17-35-59.999697-COT From: VAD        To: HUB        Command: speech_end(fname="vad-2013-07-08-17-35-57.422606.wav") 
+
+2013-07-08-17-36-00.006783-COT  ASR-3      : DEBUG      
+    ASR: speech_end()
+
+2013-07-08-17-36-01.623817-COT  ASR-3      : DEBUG      
+    ASR Hypothesis
+    ------------------------------------------------------------
+    0.750 chtěl bych jedno sladká náměstí žižkov
+    0.025 chtěl bych jedno sladká náměstí na žižkov
+    0.024 chtěl bych jedno sládka náměstí žižkov
+    0.022 chtěl bych jedno sladké náměstí žižkov
+    0.021 chtěl bych jedno smrtka náměstí žižkov
+    0.020 chtěl bych jedno sládka náměstí na žižkov
+    0.018 chtěl bych jedno sladké náměstí na žižkov
+    0.017 chtěl bych jedno smrtka náměstí na žižkov
+    0.016 chtěl bych jedno sladka náměstí žižkov
+    0.014 chtěl bych jedno sladká náměstí na žižkově
+    0.013 chtěl bych jedno sportka náměstí žižkov
+    0.012 chtěl bych jedno slezské náměstí žižkov
+    0.011 chtěl bych jedno sladká náměstí vyškov
+    0.009 chtěl bych 1 sladká náměstí žižkov
+    0.008 chtěl bych jedno sladká náměstí žižkovský
+    0.007 chtěl bych jedno sladka náměstí na žižkov
+    0.005 chtěl bych jedno sportka náměstí na žižkov
+    0.004 chtěl bych jedno slezské náměstí na žižkov
+    0.003 chtěl bych 1 sladká náměstí na žižkov
+    0.001 chtěl bych jet na sladká náměstí žižkov
+    0.000 __other__
+    
+
+2013-07-08-17-36-01.633997-COT  MainProcess : INFO       
+    #2608   Time: 2013-07-08-17-36-01.633076-COT From: ASR        To: HUB        Command: asr_end() 
+
+2013-07-08-17-36-03.008407-COT  DM-5       : DEBUG      
+    #2698   Time: 2013-07-08-17-36-03.006035-COT From: HUB        To: DM         Command: timeout(silence_time="3.002") 
+
+2013-07-08-17-36-03.010365-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="3.002")
+
+2013-07-08-17-36-03.012263-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="3.002")
+
+2013-07-08-17-36-03.019331-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    silence_time = 3.002
+    
+    
+    
+    
+
+2013-07-08-17-36-03.022674-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 3.002}
+
+2013-07-08-17-36-03.025306-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-17-36-03.091457-COT  MainProcess : INFO       
+    #2703   Time: 2013-07-08-17-36-03.078940-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-17-36-03.176555-COT  SLU-4      : DEBUG      
+    SLU Hypothesis
+    ------------------------------------------------------------
+    1.000 other()
+    
+
+2013-07-08-17-36-03.187469-COT  MainProcess : INFO       
+    #2711   Time: 2013-07-08-17-36-03.184338-COT From: SLU        To: HUB        Command: slu_parsed() 
+
+2013-07-08-17-36-03.188956-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: other()
+
+2013-07-08-17-36-03.190719-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: other()
+
+2013-07-08-17-36-03.192599-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = other
+    silence_time = 0.0
+    
+    
+    
+    
+
+2013-07-08-17-36-03.194538-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 0.0}
+
+2013-07-08-17-36-03.210215-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    notunderstood()&help(inform="hangup")
+    
+
+2013-07-08-17-36-03.220598-COT  MainProcess : INFO       
+    #2714   Time: 2013-07-08-17-36-03.219105-COT From: DM         To: HUB        Hyp: notunderstood()&help(inform="hangup") 
+
+2013-07-08-17-36-03.231212-COT  NLG-6      : DEBUG      
+    #2715   Time: 2013-07-08-17-36-03.221076-COT From: DM         To: HUB        Hyp: notunderstood()&help(inform="hangup") 
+
+2013-07-08-17-36-03.234016-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Nerozuměla jsem. Ještě jednou prosím. Hovor můžete kdykoli ukončit tím, že se rozloučíte.
+    
+
+2013-07-08-17-36-03.263119-COT  MainProcess : INFO       
+    #2719   Time: 2013-07-08-17-36-03.261065-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-08-17-36-03.268265-COT  MainProcess : INFO       
+    #2722   Time: 2013-07-08-17-36-03.263827-COT From: TTS        To: HUB        Command: tts_start(user_id="None",text="Nerozuměla jsem. Ještě jednou prosím. Hovor můžete kdykoli ukončit tím, že se rozloučíte.") 
+
+2013-07-08-17-36-03.295083-COT  MainProcess : INFO       
+    #2724   Time: 2013-07-08-17-36-03.267822-COT From: VoipIO     To: HUB        Command: play_utterance_start(user_id="None",fname="tts-2013-07-08-17-36-03.262553.wav") 
+
+2013-07-08-17-36-03.421585-COT  MainProcess : INFO       
+    #3197   Time: 2013-07-08-17-36-03.418574-COT From: TTS        To: HUB        Command: tts_end(user_id="None",text="Nerozuměla jsem. Ještě jednou prosím. Hovor můžete kdykoli ukončit tím, že se rozloučíte.",fname="tts-2013-07-08-17-36-03.262553.wav",log="true") 
+
+2013-07-08-17-36-10.681397-COT  MainProcess : INFO       
+    #3613   Time: 2013-07-08-17-36-10.033956-COT From: VoipIO     To: HUB        Command: play_utterance_end(user_id="None",fname="tts-2013-07-08-17-36-03.262553.wav) 
+
+2013-07-08-17-36-13.686613-COT  DM-5       : DEBUG      
+    #3843   Time: 2013-07-08-17-36-13.682188-COT From: HUB        To: DM         Command: timeout(silence_time="3.000") 
+
+2013-07-08-17-36-13.688412-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="3.000")
+
+2013-07-08-17-36-13.689685-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="3.000")
+
+2013-07-08-17-36-13.693607-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    route_alternative = none
+    silence_time = 3.0
+    
+    
+    
+    
+
+2013-07-08-17-36-13.696584-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 3.0}
+
+2013-07-08-17-36-13.699383-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-17-36-13.714158-COT  MainProcess : INFO       
+    #3844   Time: 2013-07-08-17-36-13.712617-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-17-36-16.686575-COT  DM-5       : DEBUG      
+    #4029   Time: 2013-07-08-17-36-16.682850-COT From: HUB        To: DM         Command: timeout(silence_time="6.001") 
+
+2013-07-08-17-36-16.687272-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="6.001")
+
+2013-07-08-17-36-16.687803-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="6.001")
+
+2013-07-08-17-36-16.691827-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    route_alternative = none
+    silence_time = 6.001
+    
+    
+    
+    
+
+2013-07-08-17-36-16.695156-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 6.001}
+
+2013-07-08-17-36-16.697485-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-17-36-16.719290-COT  MainProcess : INFO       
+    #4034   Time: 2013-07-08-17-36-16.714604-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-17-36-17.951554-COT  MainProcess : INFO       
+    #4112   Time: 2013-07-08-17-36-17.949803-COT From: VAD        To: HUB        Command: speech_start(fname="vad-2013-07-08-17-36-17.843042.wav") 
+
+2013-07-08-17-36-17.952461-COT  ASR-3      : DEBUG      
+    ASR: speech_start()
+
+2013-07-08-17-36-17.953943-COT  MainProcess : INFO       
+    #4113   Time: 2013-07-08-17-36-17.950661-COT From: ASR        To: HUB        Command: asr_start() 
+
+2013-07-08-17-36-19.082574-COT  MainProcess : INFO       
+    #4187   Time: 2013-07-08-17-36-19.077952-COT From: VAD        To: HUB        Command: speech_end(fname="vad-2013-07-08-17-36-17.843042.wav") 
+
+2013-07-08-17-36-19.083608-COT  ASR-3      : DEBUG      
+    ASR: speech_end()
+
+2013-07-08-17-36-20.399002-COT  ASR-3      : DEBUG      
+    ASR Hypothesis
+    ------------------------------------------------------------
+    0.299 při stanice žižkov
+    0.070 přestaňte žižkov
+    0.066 stanice žižkov
+    0.063 přistaňte žižkov
+    0.059 zůstaňte žižkov
+    0.055 přestanice žižkov
+    0.052 přestaňte žižkovský
+    0.048 přestaňte žižkovská
+    0.044 přistaňte žižkovský
+    0.041 františkov
+    0.037 přistaňte žižkovská
+    0.033 přestaňte vyškov
+    0.030 zůstaňte žižkovský
+    0.026 přistaňte vyškov
+    0.022 při stanice žižkovský
+    0.018 zůstaňte žižkovská
+    0.015 při stanice žižkovská
+    0.011 přestanice žižkovský
+    0.007 přestanice žižkovská
+    0.004 zůstaňte vyškov
+    0.000 __other__
+    
+
+2013-07-08-17-36-20.421329-COT  MainProcess : INFO       
+    #4272   Time: 2013-07-08-17-36-20.418071-COT From: ASR        To: HUB        Command: asr_end() 
+
+2013-07-08-17-36-21.469573-COT  SLU-4      : DEBUG      
+    SLU Hypothesis
+    ------------------------------------------------------------
+    1.000 other()
+    
+
+2013-07-08-17-36-21.483656-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: other()
+
+2013-07-08-17-36-21.485731-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: other()
+
+2013-07-08-17-36-21.490023-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = other
+    alternative = none
+    route_alternative = none
+    silence_time = 0.0
+    
+    
+    
+    
+
+2013-07-08-17-36-21.490457-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 0.0}
+
+2013-07-08-17-36-21.507393-COT  MainProcess : INFO       
+    #4338   Time: 2013-07-08-17-36-21.480362-COT From: SLU        To: HUB        Command: slu_parsed() 
+
+2013-07-08-17-36-21.538903-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    notunderstood()&help(inform="from_stop")
+    
+
+2013-07-08-17-36-21.558614-COT  MainProcess : INFO       
+    #4345   Time: 2013-07-08-17-36-21.557745-COT From: DM         To: HUB        Hyp: notunderstood()&help(inform="from_stop") 
+
+2013-07-08-17-36-21.567797-COT  NLG-6      : DEBUG      
+    #4349   Time: 2013-07-08-17-36-21.565573-COT From: DM         To: HUB        Hyp: notunderstood()&help(inform="from_stop") 
+
+2013-07-08-17-36-21.569618-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Nerozuměla jsem. Můžete to zopakovat? Můžete například říct z Anděla.
+    
+
+2013-07-08-17-36-21.592780-COT  MainProcess : INFO       
+    #4350   Time: 2013-07-08-17-36-21.591605-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-08-17-36-21.605398-COT  MainProcess : INFO       
+    #4352   Time: 2013-07-08-17-36-21.593833-COT From: TTS        To: HUB        Command: tts_start(user_id="None",text="Nerozuměla jsem. Můžete to zopakovat? Můžete například říct z Anděla.") 
+
+2013-07-08-17-36-21.620822-COT  MainProcess : INFO       
+    #4354   Time: 2013-07-08-17-36-21.597018-COT From: VoipIO     To: HUB        Command: play_utterance_start(user_id="None",fname="tts-2013-07-08-17-36-21.593720.wav") 
+
+2013-07-08-17-36-21.810594-COT  MainProcess : INFO       
+    #4735   Time: 2013-07-08-17-36-21.808714-COT From: TTS        To: HUB        Command: tts_end(user_id="None",text="Nerozuměla jsem. Můžete to zopakovat? Můžete například říct z Anděla.",fname="tts-2013-07-08-17-36-21.593720.wav",log="true") 
+
+2013-07-08-17-36-27.518058-COT  MainProcess : INFO       
+    #5071   Time: 2013-07-08-17-36-27.134203-COT From: VoipIO     To: HUB        Command: play_utterance_end(user_id="None",fname="tts-2013-07-08-17-36-21.593720.wav) 
+
+2013-07-08-17-36-29.723961-COT  MainProcess : INFO       
+    #5233   Time: 2013-07-08-17-36-29.719995-COT From: VAD        To: HUB        Command: speech_start(fname="vad-2013-07-08-17-36-29.693908.wav") 
+
+2013-07-08-17-36-29.726480-COT  ASR-3      : DEBUG      
+    ASR: speech_start()
+
+2013-07-08-17-36-29.728956-COT  MainProcess : INFO       
+    #5234   Time: 2013-07-08-17-36-29.721466-COT From: ASR        To: HUB        Command: asr_start() 
+
+2013-07-08-17-36-31.684787-COT  ASR-3      : DEBUG      
+    ASR: speech_end()
+
+2013-07-08-17-36-31.688053-COT  MainProcess : INFO       
+    #5360   Time: 2013-07-08-17-36-31.681280-COT From: VAD        To: HUB        Command: speech_end(fname="vad-2013-07-08-17-36-29.693908.wav") 
+
+2013-07-08-17-36-32.847149-COT  ASR-3      : DEBUG      
+    ASR Hypothesis
+    ------------------------------------------------------------
+    0.725 výchozí stanice anděl
+    0.037 výchozí stránka anděl
+    0.034 stanice anděl
+    0.031 východní fronta anděl
+    0.029 výchozí staňka anděl
+    0.026 výchozí stanica anděl
+    0.024 východní staňka anděl
+    0.021 příchozí staňka anděl
+    0.018 výchozí stanice anděl s
+    0.016 výchozí stanice anděl i
+    0.013 výchozí stránka anděla
+    0.010 východní stanica anděl
+    0.008 příchozí stanica anděl
+    0.005 ticho stanice anděl
+    0.003 anděl
+    0.000 __other__
+    
+
+2013-07-08-17-36-32.870395-COT  MainProcess : INFO       
+    #5433   Time: 2013-07-08-17-36-32.863694-COT From: ASR        To: HUB        Command: asr_end() 
+
+2013-07-08-17-36-33.652903-COT  SLU-4      : DEBUG      
+    SLU Hypothesis
+    ------------------------------------------------------------
+    0.864 inform(from_stop="Anděl")
+    0.136 inform(="Anděl")
+    
+
+2013-07-08-17-36-33.666390-COT  MainProcess : INFO       
+    #5487   Time: 2013-07-08-17-36-33.664312-COT From: SLU        To: HUB        Command: slu_parsed() 
+
+2013-07-08-17-36-33.669102-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: inform(from_stop="Anděl")
+
+2013-07-08-17-36-33.673273-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: inform(from_stop="Anděl")
+
+2013-07-08-17-36-33.676304-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = none
+    alternative = none
+    from_stop = Anděl
+    route_alternative = none
+    silence_time = 0.0
+    
+    
+    
+    
+
+2013-07-08-17-36-33.678417-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 0.0, u'from_stop': u'And\u011bl'}
+
+2013-07-08-17-36-33.715395-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    iconfirm(from_stop="Anděl")&request(to_stop)
+    
+
+2013-07-08-17-36-33.731768-COT  MainProcess : INFO       
+    #5493   Time: 2013-07-08-17-36-33.729467-COT From: DM         To: HUB        Hyp: iconfirm(from_stop="Anděl")&request(to_stop) 
+
+2013-07-08-17-36-33.736110-COT  NLG-6      : DEBUG      
+    #5494   Time: 2013-07-08-17-36-33.734065-COT From: DM         To: HUB        Hyp: iconfirm(from_stop="Anděl")&request(to_stop) 
+
+2013-07-08-17-36-33.738596-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Ze zastávky Anděl. Kam chcete jet?
+    
+
+2013-07-08-17-36-33.767140-COT  MainProcess : INFO       
+    #5495   Time: 2013-07-08-17-36-33.764332-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-08-17-36-33.768383-COT  MainProcess : INFO       
+    #5497   Time: 2013-07-08-17-36-33.766373-COT From: TTS        To: HUB        Command: tts_start(user_id="None",text="Ze zastávky Anděl. Kam chcete jet?") 
+
+2013-07-08-17-36-33.826988-COT  MainProcess : INFO       
+    #5499   Time: 2013-07-08-17-36-33.769012-COT From: VoipIO     To: HUB        Command: play_utterance_start(user_id="None",fname="tts-2013-07-08-17-36-33.766233.wav") 
+
+2013-07-08-17-36-33.834844-COT  MainProcess : INFO       
+    #5706   Time: 2013-07-08-17-36-33.832331-COT From: TTS        To: HUB        Command: tts_end(user_id="None",text="Ze zastávky Anděl. Kam chcete jet?",fname="tts-2013-07-08-17-36-33.766233.wav",log="true") 
+
+2013-07-08-17-36-37.051733-COT  MainProcess : INFO       
+    #5881   Time: 2013-07-08-17-36-36.569167-COT From: VoipIO     To: HUB        Command: play_utterance_end(user_id="None",fname="tts-2013-07-08-17-36-33.766233.wav) 
+
+2013-07-08-17-36-40.054996-COT  DM-5       : DEBUG      
+    #6102   Time: 2013-07-08-17-36-40.054039-COT From: HUB        To: DM         Command: timeout(silence_time="3.002") 
+
+2013-07-08-17-36-40.055831-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="3.002")
+
+2013-07-08-17-36-40.058280-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="3.002")
+
+2013-07-08-17-36-40.059835-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = Anděl
+    route_alternative = none
+    silence_time = 3.002
+    to_centre = none
+    to_stop = none
+    
+    rh_from_stop = system-informed
+    
+    ch_from_stop = system-informed
+    
+    sh_from_stop = system-informed
+    
+
+2013-07-08-17-36-40.061313-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 3.002}
+
+2013-07-08-17-36-40.062101-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-17-36-40.094046-COT  MainProcess : INFO       
+    #6103   Time: 2013-07-08-17-36-40.093121-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-17-36-43.059843-COT  DM-5       : DEBUG      
+    #6290   Time: 2013-07-08-17-36-43.056073-COT From: HUB        To: DM         Command: timeout(silence_time="6.004") 
+
+2013-07-08-17-36-43.061002-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="6.004")
+
+2013-07-08-17-36-43.061763-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="6.004")
+
+2013-07-08-17-36-43.063749-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = Anděl
+    route_alternative = none
+    silence_time = 6.004
+    to_centre = none
+    to_stop = none
+    
+    rh_from_stop = system-informed
+    
+    ch_from_stop = system-informed
+    
+    sh_from_stop = system-informed
+    
+
+2013-07-08-17-36-43.064806-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 6.004}
+
+2013-07-08-17-36-43.065653-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-17-36-43.139886-COT  MainProcess : INFO       
+    #6297   Time: 2013-07-08-17-36-43.137546-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-17-36-44.055179-COT  ASR-3      : DEBUG      
+    ASR: speech_start()
+
+2013-07-08-17-36-44.056996-COT  MainProcess : INFO       
+    #6355   Time: 2013-07-08-17-36-44.053678-COT From: VAD        To: HUB        Command: speech_start(fname="vad-2013-07-08-17-36-44.028819.wav") 
+
+2013-07-08-17-36-44.060243-COT  MainProcess : INFO       
+    #6356   Time: 2013-07-08-17-36-44.053800-COT From: ASR        To: HUB        Command: asr_start() 
+
+2013-07-08-17-36-45.390579-COT  ASR-3      : DEBUG      
+    ASR: speech_end()
+
+2013-07-08-17-36-45.391454-COT  MainProcess : INFO       
+    #6442   Time: 2013-07-08-17-36-45.389308-COT From: VAD        To: HUB        Command: speech_end(fname="vad-2013-07-08-17-36-44.028819.wav") 
+
+2013-07-08-17-36-46.417410-COT  ASR-3      : DEBUG      
+    ASR Hypothesis
+    ------------------------------------------------------------
+    0.408 načapán náměstí
+    0.079 načapali nové náměstí
+    0.073 nad teplárnou náměstí
+    0.068 načapal náměstí
+    0.062 načapal nové náměstí
+    0.056 načapání náměstí
+    0.051 načapán na náměstí
+    0.045 načapali náměstí
+    0.039 načapán nové náměstí
+    0.034 načerpat nové náměstí
+    0.028 načapal na náměstí
+    0.023 načapá nové náměstí
+    0.017 na kapli nové náměstí
+    0.011 načapali na náměstí
+    0.006 načapá na náměstí
+    0.000 __other__
+    
+
+2013-07-08-17-36-46.443463-COT  MainProcess : INFO       
+    #6507   Time: 2013-07-08-17-36-46.441729-COT From: ASR        To: HUB        Command: asr_end() 
+
+2013-07-08-17-36-47.299226-COT  SLU-4      : DEBUG      
+    SLU Hypothesis
+    ------------------------------------------------------------
+    0.673 other()
+    0.237 inform(="Nové náměstí")
+    0.073 inform(="Nad Trojou")
+    0.017 inform(to_stop="Nové náměstí")
+    
+
+2013-07-08-17-36-47.319032-COT  MainProcess : INFO       
+    #6565   Time: 2013-07-08-17-36-47.317659-COT From: SLU        To: HUB        Command: slu_parsed() 
+
+2013-07-08-17-36-47.328073-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: other()
+
+2013-07-08-17-36-47.329125-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: other()
+
+2013-07-08-17-36-47.331229-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = other
+    alternative = none
+    from_stop = Anděl
+    route_alternative = none
+    silence_time = 0.0
+    to_centre = none
+    to_stop = none
+    
+    rh_from_stop = system-informed
+    
+    ch_from_stop = system-informed
+    
+    sh_from_stop = system-informed
+    
+
+2013-07-08-17-36-47.332590-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 0.0}
+
+2013-07-08-17-36-47.396908-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    notunderstood()&help(inform="to_stop")
+    
+
+2013-07-08-17-36-47.424908-COT  MainProcess : INFO       
+    #6575   Time: 2013-07-08-17-36-47.421904-COT From: DM         To: HUB        Hyp: notunderstood()&help(inform="to_stop") 
+
+2013-07-08-17-36-47.428476-COT  NLG-6      : DEBUG      
+    #6576   Time: 2013-07-08-17-36-47.425587-COT From: DM         To: HUB        Hyp: notunderstood()&help(inform="to_stop") 
+
+2013-07-08-17-36-47.437178-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Promiňte, nerozuměla jsem. Můžete například říct chtěl bych jet na Žižkov.
+    
+
+2013-07-08-17-36-47.463316-COT  MainProcess : INFO       
+    #6577   Time: 2013-07-08-17-36-47.460728-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-08-17-36-47.467666-COT  MainProcess : INFO       
+    #6579   Time: 2013-07-08-17-36-47.463586-COT From: TTS        To: HUB        Command: tts_start(user_id="None",text="Promiňte, nerozuměla jsem. Můžete například říct chtěl bych jet na Žižkov.") 
+
+2013-07-08-17-36-47.499005-COT  MainProcess : INFO       
+    #6581   Time: 2013-07-08-17-36-47.465551-COT From: VoipIO     To: HUB        Command: play_utterance_start(user_id="None",fname="tts-2013-07-08-17-36-47.462640.wav") 
+
+2013-07-08-17-36-50.925983-COT  MainProcess : INFO       
+    #7165   Time: 2013-07-08-17-36-50.923395-COT From: TTS        To: HUB        Command: tts_end(user_id="None",text="Promiňte, nerozuměla jsem. Můžete například říct chtěl bych jet na Žižkov.",fname="tts-2013-07-08-17-36-47.462640.wav",log="true") 
+
+2013-07-08-17-36-54.333950-COT  MainProcess : INFO       
+    #7366   Time: 2013-07-08-17-36-54.112264-COT From: VoipIO     To: HUB        Command: play_utterance_end(user_id="None",fname="tts-2013-07-08-17-36-47.462640.wav) 
+
+2013-07-08-17-36-57.338645-COT  DM-5       : DEBUG      
+    #7571   Time: 2013-07-08-17-36-57.335282-COT From: HUB        To: DM         Command: timeout(silence_time="3.001") 
+
+2013-07-08-17-36-57.339499-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="3.001")
+
+2013-07-08-17-36-57.340589-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="3.001")
+
+2013-07-08-17-36-57.343433-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = Anděl
+    route_alternative = none
+    silence_time = 3.001
+    to_centre = none
+    to_stop = none
+    
+    rh_from_stop = system-informed
+    
+    ch_from_stop = system-informed
+    
+    sh_from_stop = system-informed
+    
+
+2013-07-08-17-36-57.345614-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 3.001}
+
+2013-07-08-17-36-57.347660-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-17-36-57.389430-COT  MainProcess : INFO       
+    #7573   Time: 2013-07-08-17-36-57.387490-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-17-36-57.628199-COT  MainProcess : INFO       
+    #7590   Time: 2013-07-08-17-36-57.625238-COT From: VAD        To: HUB        Command: speech_start(fname="vad-2013-07-08-17-36-57.587595.wav") 
+
+2013-07-08-17-36-57.629479-COT  ASR-3      : DEBUG      
+    ASR: speech_start()
+
+2013-07-08-17-36-57.634510-COT  MainProcess : INFO       
+    #7591   Time: 2013-07-08-17-36-57.627140-COT From: ASR        To: HUB        Command: asr_start() 
+
+2013-07-08-17-36-59.093242-COT  MainProcess : INFO       
+    #7685   Time: 2013-07-08-17-36-59.091894-COT From: VAD        To: HUB        Command: speech_end(fname="vad-2013-07-08-17-36-57.587595.wav") 
+
+2013-07-08-17-36-59.094322-COT  ASR-3      : DEBUG      
+    ASR: speech_end()
+
+2013-07-08-17-37-00.436804-COT  ASR-3      : DEBUG      
+    ASR Hypothesis
+    ------------------------------------------------------------
+    0.446 na čepy nové náměstí
+    0.065 na čepy nova náměstí
+    0.061 metro plynovod náměstí
+    0.057 metatronova náměstí
+    0.053 metro plynová náměstí
+    0.049 na čepy na náměstí
+    0.045 metro náměstí
+    0.041 načo plynovod náměstí
+    0.037 načerpat nové náměstí
+    0.033 metry na náměstí
+    0.029 metro nové náměstí
+    0.024 načo plynová náměstí
+    0.020 na kapli na náměstí
+    0.016 metro plynova náměstí
+    0.012 na čepy nová náměstí
+    0.008 na kapli nová náměstí
+    0.004 načatý nová náměstí
+    0.000 __other__
+    
+
+2013-07-08-17-37-00.459676-COT  MainProcess : INFO       
+    #7770   Time: 2013-07-08-17-37-00.456202-COT From: ASR        To: HUB        Command: asr_end() 
+
+2013-07-08-17-37-01.268016-COT  SLU-4      : DEBUG      
+    SLU Hypothesis
+    ------------------------------------------------------------
+    0.489 other()
+    0.446 inform(to_stop="Nové náměstí")
+    0.065 inform(="Nové náměstí")
+    
+
+2013-07-08-17-37-01.291021-COT  MainProcess : INFO       
+    #7824   Time: 2013-07-08-17-37-01.287618-COT From: SLU        To: HUB        Command: slu_parsed() 
+
+2013-07-08-17-37-01.292226-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: inform(to_stop="Nové náměstí")
+
+2013-07-08-17-37-01.293077-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: inform(to_stop="Nové náměstí")
+
+2013-07-08-17-37-01.296145-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = none
+    alternative = none
+    from_stop = Anděl
+    route_alternative = none
+    silence_time = 0.0
+    to_centre = none
+    to_stop = Nové náměstí
+    
+    rh_from_stop = system-informed
+    
+    ch_from_stop = system-informed
+    
+    sh_from_stop = system-informed
+    
+
+2013-07-08-17-37-01.297605-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'to_stop': u'Nov\xe9 n\xe1m\u011bst\xed', u'silence_time': 0.0}
+
+2013-07-08-17-37-01.926461-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    iconfirm(to_stop="Nové náměstí")&inform(found_directions="true")&inform(alternative="1")&inform(vehicle="TRAM")&inform(line="59")&inform(go_at="01:17")&inform(enter_at="Anděl")&inform(headsign="Nádraží Hostivař")&inform(exit_at="Nádraží Strašnice")&inform(transfer="true")&inform(vehicle="BUS")&inform(line="506")&inform(go_at="02:00")&inform(enter_at="Nádraží Strašnice")&inform(headsign="Nádraží Uhříněves")&inform(exit_at="Nové náměstí")
+    
+
+2013-07-08-17-37-01.957079-COT  MainProcess : INFO       
+    #7870   Time: 2013-07-08-17-37-01.955113-COT From: DM         To: HUB        Hyp: iconfirm(to_stop="Nové náměstí")&inform(found_directions="true")&inform(alternative="1")&inform(vehicle="TRAM")&inform(line="59")&inform(go_at="01:17")&inform(enter_at="Anděl")&inform(headsign="Nádraží Hostivař")&inform(exit_at="Nádraží Strašnice")&inform(transfer="true")&inform(vehicle="BUS")&inform(line="506")&inform(go_at="02:00")&inform(enter_at="Nádraží Strašnice")&inform(headsign="Nádraží Uhříněves")&inform(exit_at="Nové náměstí") 
+
+2013-07-08-17-37-01.963241-COT  NLG-6      : DEBUG      
+    #7871   Time: 2013-07-08-17-37-01.958072-COT From: DM         To: HUB        Hyp: iconfirm(to_stop="Nové náměstí")&inform(found_directions="true")&inform(alternative="1")&inform(vehicle="TRAM")&inform(line="59")&inform(go_at="01:17")&inform(enter_at="Anděl")&inform(headsign="Nádraží Hostivař")&inform(exit_at="Nádraží Strašnice")&inform(transfer="true")&inform(vehicle="BUS")&inform(line="506")&inform(go_at="02:00")&inform(enter_at="Nádraží Strašnice")&inform(headsign="Nádraží Uhříněves")&inform(exit_at="Nové náměstí") 
+
+2013-07-08-17-37-02.098202-COT  DM-5       : DEBUG      
+    #7880   Time: 2013-07-08-17-37-02.094268-COT From: HUB        To: DM         Command: timeout(silence_time="3.001") 
+
+2013-07-08-17-37-02.099971-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="3.001")
+
+2013-07-08-17-37-02.102950-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="3.001")
+
+2013-07-08-17-37-02.125686-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = Anděl
+    route_alternative = 0
+    silence_time = 3.001
+    time = none
+    to_centre = none
+    to_stop = Nové náměstí
+    
+    rh_alternative = system-informed
+    rh_enter_at = system-informed
+    rh_exit_at = system-informed
+    rh_found_directions = system-informed
+    rh_from_stop = system-informed
+    rh_go_at = system-informed
+    rh_headsign = system-informed
+    rh_line = system-informed
+    rh_to_stop = system-informed
+    rh_transfer = system-informed
+    rh_vehicle = system-informed
+    
+    ch_alternative = system-informed
+    ch_enter_at = system-informed
+    ch_exit_at = system-informed
+    ch_found_directions = system-informed
+    ch_from_stop = system-informed
+    ch_go_at = system-informed
+    ch_headsign = system-informed
+    ch_line = system-informed
+    ch_to_stop = system-informed
+    ch_transfer = system-informed
+    ch_vehicle = system-informed
+    
+    sh_alternative = system-informed
+    sh_enter_at = system-informed
+    sh_exit_at = system-informed
+    sh_found_directions = system-informed
+    sh_from_stop = system-informed
+    sh_go_at = system-informed
+    sh_headsign = system-informed
+    sh_line = system-informed
+    sh_to_stop = system-informed
+    sh_transfer = system-informed
+    sh_vehicle = system-informed
+    
+
+2013-07-08-17-37-02.132559-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'route_alternative': 0, u'silence_time': 3.001}
+
+2013-07-08-17-37-02.135964-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-17-37-02.202889-COT  MainProcess : INFO       
+    #7889   Time: 2013-07-08-17-37-02.198131-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-17-37-02.378321-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Do zastávky Nové náměstí. Našla jsem následující spojení. Možnost první. Jeďte tramvají číslo 59 v 01:17 ze zastávky Anděl směrem Nádraží Hostivař. Vystupte na zastávce Nádraží Strašnice. A pak přestupte. Jeďte autobusem číslo 506 v 02:00 ze zastávky Nádraží Strašnice směrem Nádraží Uhříněves. Vystupte na zastávce Nové náměstí.
+    
+
+2013-07-08-17-37-02.400910-COT  MainProcess : INFO       
+    #7902   Time: 2013-07-08-17-37-02.400041-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-08-17-37-02.404651-COT  MainProcess : INFO       
+    #7904   Time: 2013-07-08-17-37-02.401169-COT From: TTS        To: HUB        Command: tts_start(user_id="None",text="Do zastávky Nové náměstí. Našla jsem následující spojení. Možnost první. Jeďte tramvají číslo 59 v 01:17 ze zastávky Anděl směrem Nádraží Hostivař. Vystupte na zastávce Nádraží Strašnice. A pak přestupte. Jeďte autobusem číslo 506 v 02:00 ze zastávky Nádraží Strašnice směrem Nádraží Uhříněves. Vystupte na zastávce Nové náměstí.") 
+
+2013-07-08-17-37-02.434447-COT  MainProcess : INFO       
+    #7906   Time: 2013-07-08-17-37-02.403056-COT From: VoipIO     To: HUB        Command: play_utterance_start(user_id="None",fname="tts-2013-07-08-17-37-02.400334.wav") 
+
+2013-07-08-17-37-15.020630-COT  MainProcess : INFO       
+    #9847   Time: 2013-07-08-17-37-15.014872-COT From: VAD        To: HUB        Command: speech_start(fname="vad-2013-07-08-17-37-14.939958.wav") 
+
+2013-07-08-17-37-15.024386-COT  ASR-3      : DEBUG      
+    ASR: speech_start()
+
+2013-07-08-17-37-15.025367-COT  MainProcess : INFO       
+    #9848   Time: 2013-07-08-17-37-15.016023-COT From: ASR        To: HUB        Command: asr_start() 
+
+2013-07-08-17-37-16.441467-COT  ASR-3      : DEBUG      
+    ASR: speech_end()
+
+2013-07-08-17-37-16.443168-COT  MainProcess : INFO       
+    #9938   Time: 2013-07-08-17-37-16.438680-COT From: VAD        To: HUB        Command: speech_end(fname="vad-2013-07-08-17-37-14.939958.wav") 
+
+2013-07-08-17-37-16.705453-COT  MainProcess : INFO       
+    #9956   Time: 2013-07-08-17-37-16.703002-COT From: VAD        To: HUB        Command: speech_start(fname="vad-2013-07-08-17-37-16.659505.wav") 
+
+2013-07-08-17-37-17.489669-COT  ASR-3      : DEBUG      
+    ASR Hypothesis
+    ------------------------------------------------------------
+    0.884 ne já nechci
+    0.018 ne já nechci nic
+    0.016 ne já nechci jít
+    0.015 ne já nechci jet
+    0.013 ne já nechci být
+    0.012 né já nechci nic
+    0.010 né já nechci jít
+    0.009 né já nechci jet
+    0.007 né já nechci být
+    0.006 me já nechci nic
+    0.004 dne já nechci nic
+    0.003 dnes já nechci nic
+    0.001 idnes já nechci nic
+    0.000 __other__
+    
+
+2013-07-08-17-37-17.534027-COT  MainProcess : INFO       
+    #10009  Time: 2013-07-08-17-37-17.531305-COT From: ASR        To: HUB        Command: asr_end() 
+
+2013-07-08-17-37-17.535152-COT  ASR-3      : DEBUG      
+    ASR: speech_start()
+
+2013-07-08-17-37-17.537055-COT  MainProcess : INFO       
+    #10011  Time: 2013-07-08-17-37-17.534390-COT From: ASR        To: HUB        Command: asr_start() 
+
+2013-07-08-17-37-17.970176-COT  ASR-3      : DEBUG      
+    ASR: speech_end()
+
+2013-07-08-17-37-17.979054-COT  MainProcess : INFO       
+    #10041  Time: 2013-07-08-17-37-17.968359-COT From: VAD        To: HUB        Command: speech_end(fname="vad-2013-07-08-17-37-16.659505.wav") 
+
+2013-07-08-17-37-18.239632-COT  SLU-4      : DEBUG      
+    SLU Hypothesis
+    ------------------------------------------------------------
+    0.946 negate()
+    0.054 other()
+    
+
+2013-07-08-17-37-18.292562-COT  MainProcess : INFO       
+    #10062  Time: 2013-07-08-17-37-18.289997-COT From: SLU        To: HUB        Command: slu_parsed() 
+
+2013-07-08-17-37-18.293885-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: negate()
+
+2013-07-08-17-37-18.294672-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: negate()
+
+2013-07-08-17-37-18.300795-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = none
+    alternative = none
+    from_stop = Anděl
+    route_alternative = 0
+    silence_time = 0.0
+    time = none
+    to_centre = none
+    to_stop = Nové náměstí
+    
+    rh_alternative = system-informed
+    rh_enter_at = system-informed
+    rh_exit_at = system-informed
+    rh_found_directions = system-informed
+    rh_from_stop = system-informed
+    rh_go_at = system-informed
+    rh_headsign = system-informed
+    rh_line = system-informed
+    rh_to_stop = system-informed
+    rh_transfer = system-informed
+    rh_vehicle = system-informed
+    
+    ch_alternative = system-informed
+    ch_enter_at = system-informed
+    ch_exit_at = system-informed
+    ch_found_directions = system-informed
+    ch_from_stop = system-informed
+    ch_go_at = system-informed
+    ch_headsign = system-informed
+    ch_line = system-informed
+    ch_to_stop = system-informed
+    ch_transfer = system-informed
+    ch_vehicle = system-informed
+    
+    sh_alternative = system-informed
+    sh_enter_at = system-informed
+    sh_exit_at = system-informed
+    sh_found_directions = system-informed
+    sh_from_stop = system-informed
+    sh_go_at = system-informed
+    sh_headsign = system-informed
+    sh_line = system-informed
+    sh_to_stop = system-informed
+    sh_transfer = system-informed
+    sh_vehicle = system-informed
+    
+
+2013-07-08-17-37-18.303203-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'route_alternative': 0, u'silence_time': 0.0}
+
+2013-07-08-17-37-18.827987-COT  ASR-3      : DEBUG      
+    ASR Hypothesis
+    ------------------------------------------------------------
+    0.533 nového náměstí
+    0.062 nové náměstí
+    0.058 náměstí
+    0.053 nového náměšti
+    0.049 nové ho náměstí
+    0.045 nového
+    0.040 novýho náměstí
+    0.036 nového na náměstí
+    0.031 nově náměstí
+    0.027 nové ho náměšti
+    0.022 novýho náměšti
+    0.018 noviny náměstí
+    0.013 krnov náměstí
+    0.009 náměšti
+    0.004 nové ho na náměstí
+    0.000 __other__
+    
+
+2013-07-08-17-37-18.863626-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    inform(found_directions="true")&inform(alternative="1")&inform(vehicle="TRAM")&inform(line="59")&inform(go_at="01:17")&inform(enter_at="Anděl")&inform(headsign="Nádraží Hostivař")&inform(exit_at="Nádraží Strašnice")&inform(transfer="true")&inform(vehicle="BUS")&inform(line="506")&inform(go_at="02:00")&inform(enter_at="Nádraží Strašnice")&inform(headsign="Nádraží Uhříněves")&inform(exit_at="Nové náměstí")
+    
+
+2013-07-08-17-37-18.942733-COT  MainProcess : INFO       
+    #10104  Time: 2013-07-08-17-37-18.934297-COT From: ASR        To: HUB        Command: asr_end() 
+
+2013-07-08-17-37-18.992718-COT  MainProcess : INFO       
+    #10110  Time: 2013-07-08-17-37-18.989701-COT From: DM         To: HUB        Hyp: inform(found_directions="true")&inform(alternative="1")&inform(vehicle="TRAM")&inform(line="59")&inform(go_at="01:17")&inform(enter_at="Anděl")&inform(headsign="Nádraží Hostivař")&inform(exit_at="Nádraží Strašnice")&inform(transfer="true")&inform(vehicle="BUS")&inform(line="506")&inform(go_at="02:00")&inform(enter_at="Nádraží Strašnice")&inform(headsign="Nádraží Uhříněves")&inform(exit_at="Nové náměstí") 
+
+2013-07-08-17-37-19.085955-COT  NLG-6      : DEBUG      
+    #10115  Time: 2013-07-08-17-37-19.081807-COT From: HUB        To: NLG        Command: flush() 
+
+2013-07-08-17-37-19.088770-COT  MainProcess : INFO       
+    #10118  Time: 2013-07-08-17-37-19.086140-COT From: NLG        To: HUB        Command: flushed() 
+
+2013-07-08-17-37-19.090244-COT  NLG-6      : DEBUG      
+    #10116  Time: 2013-07-08-17-37-19.081939-COT From: DM         To: HUB        Hyp: inform(found_directions="true")&inform(alternative="1")&inform(vehicle="TRAM")&inform(line="59")&inform(go_at="01:17")&inform(enter_at="Anděl")&inform(headsign="Nádraží Hostivař")&inform(exit_at="Nádraží Strašnice")&inform(transfer="true")&inform(vehicle="BUS")&inform(line="506")&inform(go_at="02:00")&inform(enter_at="Nádraží Strašnice")&inform(headsign="Nádraží Uhříněves")&inform(exit_at="Nové náměstí") 
+
+2013-07-08-17-37-19.454329-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Našla jsem následující spojení. Možnost první. Jeďte tramvají číslo 59 v 01:17 ze zastávky Anděl směrem Nádraží Hostivař. Vystupte na zastávce Nádraží Strašnice. A pak přestupte. Jeďte autobusem číslo 506 v 02:00 ze zastávky Nádraží Strašnice směrem Nádraží Uhříněves. Vystupte na zastávce Nové náměstí.
+    
+
+2013-07-08-17-37-19.540113-COT  MainProcess : INFO       
+    #10149  Time: 2013-07-08-17-37-19.535102-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-08-17-37-20.025497-COT  SLU-4      : DEBUG      
+    SLU Hypothesis
+    ------------------------------------------------------------
+    0.938 other()
+    0.062 inform(="Nové náměstí")
+    
+
+2013-07-08-17-37-20.066586-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: other()
+
+2013-07-08-17-37-20.067459-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: other()
+
+2013-07-08-17-37-20.070750-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = other
+    alternative = none
+    from_stop = Anděl
+    route_alternative = 0
+    silence_time = 0.0
+    time = none
+    to_centre = none
+    to_stop = Nové náměstí
+    
+    rh_alternative = system-informed
+    rh_enter_at = system-informed
+    rh_exit_at = system-informed
+    rh_found_directions = system-informed
+    rh_from_stop = system-informed
+    rh_go_at = system-informed
+    rh_headsign = system-informed
+    rh_line = system-informed
+    rh_to_stop = system-informed
+    rh_transfer = system-informed
+    rh_vehicle = system-informed
+    
+    ch_alternative = system-informed
+    ch_enter_at = system-informed
+    ch_exit_at = system-informed
+    ch_found_directions = system-informed
+    ch_from_stop = system-informed
+    ch_go_at = system-informed
+    ch_headsign = system-informed
+    ch_line = system-informed
+    ch_to_stop = system-informed
+    ch_transfer = system-informed
+    ch_vehicle = system-informed
+    
+    sh_alternative = system-informed
+    sh_enter_at = system-informed
+    sh_exit_at = system-informed
+    sh_found_directions = system-informed
+    sh_from_stop = system-informed
+    sh_go_at = system-informed
+    sh_headsign = system-informed
+    sh_line = system-informed
+    sh_to_stop = system-informed
+    sh_transfer = system-informed
+    sh_vehicle = system-informed
+    
+
+2013-07-08-17-37-20.072025-COT  MainProcess : INFO       
+    #10695  Time: 2013-07-08-17-37-20.063581-COT From: SLU        To: HUB        Command: slu_parsed() 
+
+2013-07-08-17-37-20.073365-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'route_alternative': 0, u'silence_time': 0.0}
+
+2013-07-08-17-37-20.164358-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    notunderstood()&help(inform="alternative_prev")
+    
+
+2013-07-08-17-37-20.231756-COT  MainProcess : INFO       
+    #10705  Time: 2013-07-08-17-37-20.230808-COT From: DM         To: HUB        Hyp: notunderstood()&help(inform="alternative_prev") 
+
+2013-07-08-17-37-20.235046-COT  NLG-6      : DEBUG      
+    #10706  Time: 2013-07-08-17-37-20.232362-COT From: DM         To: HUB        Hyp: notunderstood()&help(inform="alternative_prev") 
+
+2013-07-08-17-37-20.236237-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Promiňte, nerozuměla jsem. Pokud chcete zjistit předchozí spoj, potom mě můžete požádat o předchozí spoj.
+    
+
+2013-07-08-17-37-20.311517-COT  MainProcess : INFO       
+    #10712  Time: 2013-07-08-17-37-20.309614-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-08-17-37-22.085788-COT  DM-5       : DEBUG      
+    #10825  Time: 2013-07-08-17-37-22.082919-COT From: HUB        To: DM         Command: timeout(silence_time="3.001") 
+
+2013-07-08-17-37-22.087212-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="3.001")
+
+2013-07-08-17-37-22.087762-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="3.001")
+
+2013-07-08-17-37-22.089323-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = Anděl
+    route_alternative = 0
+    silence_time = 3.001
+    time = none
+    to_centre = none
+    to_stop = Nové náměstí
+    
+    rh_alternative = system-informed
+    rh_enter_at = system-informed
+    rh_exit_at = system-informed
+    rh_found_directions = system-informed
+    rh_from_stop = system-informed
+    rh_go_at = system-informed
+    rh_headsign = system-informed
+    rh_line = system-informed
+    rh_to_stop = system-informed
+    rh_transfer = system-informed
+    rh_vehicle = system-informed
+    
+    ch_alternative = system-informed
+    ch_enter_at = system-informed
+    ch_exit_at = system-informed
+    ch_found_directions = system-informed
+    ch_from_stop = system-informed
+    ch_go_at = system-informed
+    ch_headsign = system-informed
+    ch_line = system-informed
+    ch_to_stop = system-informed
+    ch_transfer = system-informed
+    ch_vehicle = system-informed
+    
+    sh_alternative = system-informed
+    sh_enter_at = system-informed
+    sh_exit_at = system-informed
+    sh_found_directions = system-informed
+    sh_from_stop = system-informed
+    sh_go_at = system-informed
+    sh_headsign = system-informed
+    sh_line = system-informed
+    sh_to_stop = system-informed
+    sh_transfer = system-informed
+    sh_vehicle = system-informed
+    
+
+2013-07-08-17-37-22.090284-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'route_alternative': 0, u'silence_time': 3.001}
+
+2013-07-08-17-37-22.091214-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-17-37-22.175471-COT  MainProcess : INFO       
+    #10834  Time: 2013-07-08-17-37-22.173058-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-17-37-24.042197-COT  MainProcess : INFO       
+    #11131  Time: 2013-07-08-17-37-24.037108-COT From: TTS        To: HUB        Command: tts_end(user_id="None",text="Do zastávky Nové náměstí. Našla jsem následující spojení. Možnost první. Jeďte tramvají číslo 59 v 01:17 ze zastávky Anděl směrem Nádraží Hostivař. Vystupte na zastávce Nádraží Strašnice. A pak přestupte. Jeďte autobusem číslo 506 v 02:00 ze zastávky Nádraží Strašnice směrem Nádraží Uhříněves. Vystupte na zastávce Nové náměstí.",fname="tts-2013-07-08-17-37-02.400334.wav",log="true") 
+
+2013-07-08-17-37-24.043688-COT  TTS-7      : DEBUG      
+    #10122  Time: 2013-07-08-17-37-19.113491-COT From: HUB        To: TTS        Command: flush() 
+
+2013-07-08-17-37-24.045456-COT  MainProcess : INFO       
+    #11132  Time: 2013-07-08-17-37-24.044000-COT From: TTS        To: HUB        Command: flushed() 
+
+2013-07-08-17-37-24.048913-COT  VoipIO-1   : DEBUG      
+    #11133  Time: 2013-07-08-17-37-24.045668-COT From: HUB        To: VIO        Command: flush_out() 
+
+2013-07-08-17-37-24.051040-COT  MainProcess : INFO       
+    #11134  Time: 2013-07-08-17-37-24.049268-COT From: VoipIO     To: HUB        Command: flushed_out() 
+
+2013-07-08-17-37-25.085728-COT  DM-5       : DEBUG      
+    #11199  Time: 2013-07-08-17-37-25.083029-COT From: HUB        To: DM         Command: timeout(silence_time="6.001") 
+
+2013-07-08-17-37-25.086493-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="6.001")
+
+2013-07-08-17-37-25.087384-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="6.001")
+
+2013-07-08-17-37-25.090379-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = Anděl
+    route_alternative = 0
+    silence_time = 6.001
+    time = none
+    to_centre = none
+    to_stop = Nové náměstí
+    
+    rh_alternative = system-informed
+    rh_enter_at = system-informed
+    rh_exit_at = system-informed
+    rh_found_directions = system-informed
+    rh_from_stop = system-informed
+    rh_go_at = system-informed
+    rh_headsign = system-informed
+    rh_line = system-informed
+    rh_to_stop = system-informed
+    rh_transfer = system-informed
+    rh_vehicle = system-informed
+    
+    ch_alternative = system-informed
+    ch_enter_at = system-informed
+    ch_exit_at = system-informed
+    ch_found_directions = system-informed
+    ch_from_stop = system-informed
+    ch_go_at = system-informed
+    ch_headsign = system-informed
+    ch_line = system-informed
+    ch_to_stop = system-informed
+    ch_transfer = system-informed
+    ch_vehicle = system-informed
+    
+    sh_alternative = system-informed
+    sh_enter_at = system-informed
+    sh_exit_at = system-informed
+    sh_found_directions = system-informed
+    sh_from_stop = system-informed
+    sh_go_at = system-informed
+    sh_headsign = system-informed
+    sh_line = system-informed
+    sh_to_stop = system-informed
+    sh_transfer = system-informed
+    sh_vehicle = system-informed
+    
+
+2013-07-08-17-37-25.091409-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'route_alternative': 0, u'silence_time': 6.001}
+
+2013-07-08-17-37-25.092151-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-17-37-25.242680-COT  MainProcess : INFO       
+    #11212  Time: 2013-07-08-17-37-25.240777-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-17-37-28.089068-COT  DM-5       : DEBUG      
+    #11389  Time: 2013-07-08-17-37-28.086239-COT From: HUB        To: DM         Command: timeout(silence_time="9.004") 
+
+2013-07-08-17-37-28.089768-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="9.004")
+
+2013-07-08-17-37-28.090386-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="9.004")
+
+2013-07-08-17-37-28.094402-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = Anděl
+    route_alternative = 0
+    silence_time = 9.004
+    time = none
+    to_centre = none
+    to_stop = Nové náměstí
+    
+    rh_alternative = system-informed
+    rh_enter_at = system-informed
+    rh_exit_at = system-informed
+    rh_found_directions = system-informed
+    rh_from_stop = system-informed
+    rh_go_at = system-informed
+    rh_headsign = system-informed
+    rh_line = system-informed
+    rh_to_stop = system-informed
+    rh_transfer = system-informed
+    rh_vehicle = system-informed
+    
+    ch_alternative = system-informed
+    ch_enter_at = system-informed
+    ch_exit_at = system-informed
+    ch_found_directions = system-informed
+    ch_from_stop = system-informed
+    ch_go_at = system-informed
+    ch_headsign = system-informed
+    ch_line = system-informed
+    ch_to_stop = system-informed
+    ch_transfer = system-informed
+    ch_vehicle = system-informed
+    
+    sh_alternative = system-informed
+    sh_enter_at = system-informed
+    sh_exit_at = system-informed
+    sh_found_directions = system-informed
+    sh_from_stop = system-informed
+    sh_go_at = system-informed
+    sh_headsign = system-informed
+    sh_line = system-informed
+    sh_to_stop = system-informed
+    sh_transfer = system-informed
+    sh_vehicle = system-informed
+    
+
+2013-07-08-17-37-28.095493-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'route_alternative': 0, u'silence_time': 9.004}
+
+2013-07-08-17-37-28.096756-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-17-37-28.182779-COT  MainProcess : INFO       
+    #11397  Time: 2013-07-08-17-37-28.181410-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-17-37-31.090202-COT  DM-5       : DEBUG      
+    #11579  Time: 2013-07-08-17-37-31.087359-COT From: HUB        To: DM         Command: timeout(silence_time="12.005") 
+
+2013-07-08-17-37-31.090806-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="12.005")
+
+2013-07-08-17-37-31.091407-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="12.005")
+
+2013-07-08-17-37-31.095620-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = Anděl
+    route_alternative = 0
+    silence_time = 12.005
+    time = none
+    to_centre = none
+    to_stop = Nové náměstí
+    
+    rh_alternative = system-informed
+    rh_enter_at = system-informed
+    rh_exit_at = system-informed
+    rh_found_directions = system-informed
+    rh_from_stop = system-informed
+    rh_go_at = system-informed
+    rh_headsign = system-informed
+    rh_line = system-informed
+    rh_to_stop = system-informed
+    rh_transfer = system-informed
+    rh_vehicle = system-informed
+    
+    ch_alternative = system-informed
+    ch_enter_at = system-informed
+    ch_exit_at = system-informed
+    ch_found_directions = system-informed
+    ch_from_stop = system-informed
+    ch_go_at = system-informed
+    ch_headsign = system-informed
+    ch_line = system-informed
+    ch_to_stop = system-informed
+    ch_transfer = system-informed
+    ch_vehicle = system-informed
+    
+    sh_alternative = system-informed
+    sh_enter_at = system-informed
+    sh_exit_at = system-informed
+    sh_found_directions = system-informed
+    sh_from_stop = system-informed
+    sh_go_at = system-informed
+    sh_headsign = system-informed
+    sh_line = system-informed
+    sh_to_stop = system-informed
+    sh_transfer = system-informed
+    sh_vehicle = system-informed
+    
+
+2013-07-08-17-37-31.097885-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'route_alternative': 0, u'silence_time': 12.005}
+
+2013-07-08-17-37-31.098824-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    inform(silence_timeout="true")
+    
+
+2013-07-08-17-37-31.185182-COT  MainProcess : INFO       
+    #11586  Time: 2013-07-08-17-37-31.181888-COT From: DM         To: HUB        Hyp: inform(silence_timeout="true") 
+
+2013-07-08-17-37-31.187795-COT  NLG-6      : DEBUG      
+    #11588  Time: 2013-07-08-17-37-31.185779-COT From: DM         To: HUB        Hyp: inform(silence_timeout="true") 
+
+2013-07-08-17-37-31.189921-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Haló, jste tam ještě?
+    
+
+2013-07-08-17-37-31.240944-COT  MainProcess : INFO       
+    #11590  Time: 2013-07-08-17-37-31.238758-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-08-17-37-31.245127-COT  MainProcess : INFO       
+    #11592  Time: 2013-07-08-17-37-31.242074-COT From: TTS        To: HUB        Command: tts_start(user_id="None",text="Haló, jste tam ještě?") 
+
+2013-07-08-17-37-31.279111-COT  MainProcess : INFO       
+    #11723  Time: 2013-07-08-17-37-31.275956-COT From: TTS        To: HUB        Command: tts_end(user_id="None",text="Haló, jste tam ještě?",fname="tts-2013-07-08-17-37-31.239216.wav",log="true") 
+
+2013-07-08-17-37-31.321843-COT  MainProcess : INFO       
+    #11595  Time: 2013-07-08-17-37-31.245380-COT From: VoipIO     To: HUB        Command: play_utterance_start(user_id="None",fname="tts-2013-07-08-17-37-31.239216.wav") 
+
+2013-07-08-17-37-33.372402-COT  MainProcess : INFO       
+    #11803  Time: 2013-07-08-17-37-32.515747-COT From: VoipIO     To: HUB        Command: play_utterance_end(user_id="None",fname="tts-2013-07-08-17-37-31.239216.wav) 
+
+2013-07-08-17-37-36.392737-COT  DM-5       : DEBUG      
+    #12046  Time: 2013-07-08-17-37-36.373241-COT From: HUB        To: DM         Command: timeout(silence_time="3.001") 
+
+2013-07-08-17-37-36.394727-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="3.001")
+
+2013-07-08-17-37-36.396747-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="3.001")
+
+2013-07-08-17-37-36.403829-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = Anděl
+    route_alternative = 0
+    silence_time = 3.001
+    time = none
+    to_centre = none
+    to_stop = Nové náměstí
+    
+    rh_alternative = system-informed
+    rh_enter_at = system-informed
+    rh_exit_at = system-informed
+    rh_found_directions = system-informed
+    rh_from_stop = system-informed
+    rh_go_at = system-informed
+    rh_headsign = system-informed
+    rh_line = system-informed
+    rh_silence_timeout = system-informed
+    rh_to_stop = system-informed
+    rh_transfer = system-informed
+    rh_vehicle = system-informed
+    
+    ch_alternative = system-informed
+    ch_enter_at = system-informed
+    ch_exit_at = system-informed
+    ch_found_directions = system-informed
+    ch_from_stop = system-informed
+    ch_go_at = system-informed
+    ch_headsign = system-informed
+    ch_line = system-informed
+    ch_silence_timeout = system-informed
+    ch_to_stop = system-informed
+    ch_transfer = system-informed
+    ch_vehicle = system-informed
+    
+    sh_alternative = system-informed
+    sh_enter_at = system-informed
+    sh_exit_at = system-informed
+    sh_found_directions = system-informed
+    sh_from_stop = system-informed
+    sh_go_at = system-informed
+    sh_headsign = system-informed
+    sh_line = system-informed
+    sh_silence_timeout = system-informed
+    sh_to_stop = system-informed
+    sh_transfer = system-informed
+    sh_vehicle = system-informed
+    
+
+2013-07-08-17-37-36.406081-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'route_alternative': 0, u'silence_time': 3.001}
+
+2013-07-08-17-37-36.408613-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-17-37-36.548937-COT  MainProcess : INFO       
+    #12057  Time: 2013-07-08-17-37-36.546815-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-17-37-39.381966-COT  DM-5       : DEBUG      
+    #12234  Time: 2013-07-08-17-37-39.376807-COT From: HUB        To: DM         Command: timeout(silence_time="6.004") 
+
+2013-07-08-17-37-39.385075-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="6.004")
+
+2013-07-08-17-37-39.388608-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="6.004")
+
+2013-07-08-17-37-39.408885-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = Anděl
+    route_alternative = 0
+    silence_time = 6.004
+    time = none
+    to_centre = none
+    to_stop = Nové náměstí
+    
+    rh_alternative = system-informed
+    rh_enter_at = system-informed
+    rh_exit_at = system-informed
+    rh_found_directions = system-informed
+    rh_from_stop = system-informed
+    rh_go_at = system-informed
+    rh_headsign = system-informed
+    rh_line = system-informed
+    rh_silence_timeout = system-informed
+    rh_to_stop = system-informed
+    rh_transfer = system-informed
+    rh_vehicle = system-informed
+    
+    ch_alternative = system-informed
+    ch_enter_at = system-informed
+    ch_exit_at = system-informed
+    ch_found_directions = system-informed
+    ch_from_stop = system-informed
+    ch_go_at = system-informed
+    ch_headsign = system-informed
+    ch_line = system-informed
+    ch_silence_timeout = system-informed
+    ch_to_stop = system-informed
+    ch_transfer = system-informed
+    ch_vehicle = system-informed
+    
+    sh_alternative = system-informed
+    sh_enter_at = system-informed
+    sh_exit_at = system-informed
+    sh_found_directions = system-informed
+    sh_from_stop = system-informed
+    sh_go_at = system-informed
+    sh_headsign = system-informed
+    sh_line = system-informed
+    sh_silence_timeout = system-informed
+    sh_to_stop = system-informed
+    sh_transfer = system-informed
+    sh_vehicle = system-informed
+    
+
+2013-07-08-17-37-39.419092-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'route_alternative': 0, u'silence_time': 6.004}
+
+2013-07-08-17-37-39.429221-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-17-37-39.632422-COT  MainProcess : INFO       
+    #12252  Time: 2013-07-08-17-37-39.631233-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-17-37-42.383643-COT  DM-5       : DEBUG      
+    #12424  Time: 2013-07-08-17-37-42.378097-COT From: HUB        To: DM         Command: timeout(silence_time="9.005") 
+
+2013-07-08-17-37-42.384602-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="9.005")
+
+2013-07-08-17-37-42.385467-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="9.005")
+
+2013-07-08-17-37-42.389013-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = Anděl
+    route_alternative = 0
+    silence_time = 9.005
+    time = none
+    to_centre = none
+    to_stop = Nové náměstí
+    
+    rh_alternative = system-informed
+    rh_enter_at = system-informed
+    rh_exit_at = system-informed
+    rh_found_directions = system-informed
+    rh_from_stop = system-informed
+    rh_go_at = system-informed
+    rh_headsign = system-informed
+    rh_line = system-informed
+    rh_silence_timeout = system-informed
+    rh_to_stop = system-informed
+    rh_transfer = system-informed
+    rh_vehicle = system-informed
+    
+    ch_alternative = system-informed
+    ch_enter_at = system-informed
+    ch_exit_at = system-informed
+    ch_found_directions = system-informed
+    ch_from_stop = system-informed
+    ch_go_at = system-informed
+    ch_headsign = system-informed
+    ch_line = system-informed
+    ch_silence_timeout = system-informed
+    ch_to_stop = system-informed
+    ch_transfer = system-informed
+    ch_vehicle = system-informed
+    
+    sh_alternative = system-informed
+    sh_enter_at = system-informed
+    sh_exit_at = system-informed
+    sh_found_directions = system-informed
+    sh_from_stop = system-informed
+    sh_go_at = system-informed
+    sh_headsign = system-informed
+    sh_line = system-informed
+    sh_silence_timeout = system-informed
+    sh_to_stop = system-informed
+    sh_transfer = system-informed
+    sh_vehicle = system-informed
+    
+
+2013-07-08-17-37-42.390283-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'route_alternative': 0, u'silence_time': 9.005}
+
+2013-07-08-17-37-42.392485-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-17-37-42.581831-COT  MainProcess : INFO       
+    #12438  Time: 2013-07-08-17-37-42.578450-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-17-37-45.382779-COT  DM-5       : DEBUG      
+    #12614  Time: 2013-07-08-17-37-45.379548-COT From: HUB        To: DM         Command: timeout(silence_time="12.007") 
+
+2013-07-08-17-37-45.383625-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="12.007")
+
+2013-07-08-17-37-45.384830-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="12.007")
+
+2013-07-08-17-37-45.389999-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = Anděl
+    route_alternative = 0
+    silence_time = 12.007
+    time = none
+    to_centre = none
+    to_stop = Nové náměstí
+    
+    rh_alternative = system-informed
+    rh_enter_at = system-informed
+    rh_exit_at = system-informed
+    rh_found_directions = system-informed
+    rh_from_stop = system-informed
+    rh_go_at = system-informed
+    rh_headsign = system-informed
+    rh_line = system-informed
+    rh_silence_timeout = system-informed
+    rh_to_stop = system-informed
+    rh_transfer = system-informed
+    rh_vehicle = system-informed
+    
+    ch_alternative = system-informed
+    ch_enter_at = system-informed
+    ch_exit_at = system-informed
+    ch_found_directions = system-informed
+    ch_from_stop = system-informed
+    ch_go_at = system-informed
+    ch_headsign = system-informed
+    ch_line = system-informed
+    ch_silence_timeout = system-informed
+    ch_to_stop = system-informed
+    ch_transfer = system-informed
+    ch_vehicle = system-informed
+    
+    sh_alternative = system-informed
+    sh_enter_at = system-informed
+    sh_exit_at = system-informed
+    sh_found_directions = system-informed
+    sh_from_stop = system-informed
+    sh_go_at = system-informed
+    sh_headsign = system-informed
+    sh_line = system-informed
+    sh_silence_timeout = system-informed
+    sh_to_stop = system-informed
+    sh_transfer = system-informed
+    sh_vehicle = system-informed
+    
+
+2013-07-08-17-37-45.391959-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'route_alternative': 0, u'silence_time': 12.007}
+
+2013-07-08-17-37-45.392946-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    inform(silence_timeout="true")
+    
+
+2013-07-08-17-37-45.493552-COT  MainProcess : INFO       
+    #12623  Time: 2013-07-08-17-37-45.489643-COT From: DM         To: HUB        Hyp: inform(silence_timeout="true") 
+
+2013-07-08-17-37-45.495746-COT  NLG-6      : DEBUG      
+    #12624  Time: 2013-07-08-17-37-45.494548-COT From: DM         To: HUB        Hyp: inform(silence_timeout="true") 
+
+2013-07-08-17-37-45.496618-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Haló, mohu Vám s něčím pomoci?
+    
+
+2013-07-08-17-37-45.534914-COT  MainProcess : INFO       
+    #12629  Time: 2013-07-08-17-37-45.532052-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-08-17-37-45.538067-COT  MainProcess : INFO       
+    #12631  Time: 2013-07-08-17-37-45.535284-COT From: TTS        To: HUB        Command: tts_start(user_id="None",text="Haló, mohu Vám s něčím pomoci?") 
+
+2013-07-08-17-37-45.621063-COT  MainProcess : INFO       
+    #12633  Time: 2013-07-08-17-37-45.537640-COT From: VoipIO     To: HUB        Command: play_utterance_start(user_id="None",fname="tts-2013-07-08-17-37-45.533572.wav") 
+
+2013-07-08-17-37-45.625360-COT  MainProcess : INFO       
+    #12811  Time: 2013-07-08-17-37-45.620948-COT From: TTS        To: HUB        Command: tts_end(user_id="None",text="Haló, mohu Vám s něčím pomoci?",fname="tts-2013-07-08-17-37-45.533572.wav",log="true") 
+
+2013-07-08-17-37-48.415768-COT  MainProcess : INFO       
+    #12955  Time: 2013-07-08-17-37-47.879242-COT From: VoipIO     To: HUB        Command: play_utterance_end(user_id="None",fname="tts-2013-07-08-17-37-45.533572.wav) 
+
+2013-07-08-17-37-51.419218-COT  DM-5       : DEBUG      
+    #13180  Time: 2013-07-08-17-37-51.416040-COT From: HUB        To: DM         Command: timeout(silence_time="3.000") 
+
+2013-07-08-17-37-51.419894-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="3.000")
+
+2013-07-08-17-37-51.421288-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="3.000")
+
+2013-07-08-17-37-51.429967-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = Anděl
+    route_alternative = 0
+    silence_time = 3.0
+    time = none
+    to_centre = none
+    to_stop = Nové náměstí
+    
+    rh_alternative = system-informed
+    rh_enter_at = system-informed
+    rh_exit_at = system-informed
+    rh_found_directions = system-informed
+    rh_from_stop = system-informed
+    rh_go_at = system-informed
+    rh_headsign = system-informed
+    rh_line = system-informed
+    rh_silence_timeout = system-informed
+    rh_to_stop = system-informed
+    rh_transfer = system-informed
+    rh_vehicle = system-informed
+    
+    ch_alternative = system-informed
+    ch_enter_at = system-informed
+    ch_exit_at = system-informed
+    ch_found_directions = system-informed
+    ch_from_stop = system-informed
+    ch_go_at = system-informed
+    ch_headsign = system-informed
+    ch_line = system-informed
+    ch_silence_timeout = system-informed
+    ch_to_stop = system-informed
+    ch_transfer = system-informed
+    ch_vehicle = system-informed
+    
+    sh_alternative = system-informed
+    sh_enter_at = system-informed
+    sh_exit_at = system-informed
+    sh_found_directions = system-informed
+    sh_from_stop = system-informed
+    sh_go_at = system-informed
+    sh_headsign = system-informed
+    sh_line = system-informed
+    sh_silence_timeout = system-informed
+    sh_to_stop = system-informed
+    sh_transfer = system-informed
+    sh_vehicle = system-informed
+    
+
+2013-07-08-17-37-51.431045-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'route_alternative': 0, u'silence_time': 3.0}
+
+2013-07-08-17-37-51.432672-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-17-37-51.506901-COT  MainProcess : INFO       
+    #13185  Time: 2013-07-08-17-37-51.505000-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-17-37-54.420840-COT  DM-5       : DEBUG      
+    #13368  Time: 2013-07-08-17-37-54.418078-COT From: HUB        To: DM         Command: timeout(silence_time="6.002") 
+
+2013-07-08-17-37-54.422815-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="6.002")
+
+2013-07-08-17-37-54.425703-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="6.002")
+
+2013-07-08-17-37-54.429897-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = Anděl
+    route_alternative = 0
+    silence_time = 6.002
+    time = none
+    to_centre = none
+    to_stop = Nové náměstí
+    
+    rh_alternative = system-informed
+    rh_enter_at = system-informed
+    rh_exit_at = system-informed
+    rh_found_directions = system-informed
+    rh_from_stop = system-informed
+    rh_go_at = system-informed
+    rh_headsign = system-informed
+    rh_line = system-informed
+    rh_silence_timeout = system-informed
+    rh_to_stop = system-informed
+    rh_transfer = system-informed
+    rh_vehicle = system-informed
+    
+    ch_alternative = system-informed
+    ch_enter_at = system-informed
+    ch_exit_at = system-informed
+    ch_found_directions = system-informed
+    ch_from_stop = system-informed
+    ch_go_at = system-informed
+    ch_headsign = system-informed
+    ch_line = system-informed
+    ch_silence_timeout = system-informed
+    ch_to_stop = system-informed
+    ch_transfer = system-informed
+    ch_vehicle = system-informed
+    
+    sh_alternative = system-informed
+    sh_enter_at = system-informed
+    sh_exit_at = system-informed
+    sh_found_directions = system-informed
+    sh_from_stop = system-informed
+    sh_go_at = system-informed
+    sh_headsign = system-informed
+    sh_line = system-informed
+    sh_silence_timeout = system-informed
+    sh_to_stop = system-informed
+    sh_transfer = system-informed
+    sh_vehicle = system-informed
+    
+
+2013-07-08-17-37-54.431164-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'route_alternative': 0, u'silence_time': 6.002}
+
+2013-07-08-17-37-54.432863-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-17-37-54.585344-COT  MainProcess : INFO       
+    #13379  Time: 2013-07-08-17-37-54.582405-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-17-37-57.426800-COT  DM-5       : DEBUG      
+    #13556  Time: 2013-07-08-17-37-57.423236-COT From: HUB        To: DM         Command: timeout(silence_time="9.007") 
+
+2013-07-08-17-37-57.428385-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="9.007")
+
+2013-07-08-17-37-57.429332-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="9.007")
+
+2013-07-08-17-37-57.434547-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = Anděl
+    route_alternative = 0
+    silence_time = 9.007
+    time = none
+    to_centre = none
+    to_stop = Nové náměstí
+    
+    rh_alternative = system-informed
+    rh_enter_at = system-informed
+    rh_exit_at = system-informed
+    rh_found_directions = system-informed
+    rh_from_stop = system-informed
+    rh_go_at = system-informed
+    rh_headsign = system-informed
+    rh_line = system-informed
+    rh_silence_timeout = system-informed
+    rh_to_stop = system-informed
+    rh_transfer = system-informed
+    rh_vehicle = system-informed
+    
+    ch_alternative = system-informed
+    ch_enter_at = system-informed
+    ch_exit_at = system-informed
+    ch_found_directions = system-informed
+    ch_from_stop = system-informed
+    ch_go_at = system-informed
+    ch_headsign = system-informed
+    ch_line = system-informed
+    ch_silence_timeout = system-informed
+    ch_to_stop = system-informed
+    ch_transfer = system-informed
+    ch_vehicle = system-informed
+    
+    sh_alternative = system-informed
+    sh_enter_at = system-informed
+    sh_exit_at = system-informed
+    sh_found_directions = system-informed
+    sh_from_stop = system-informed
+    sh_go_at = system-informed
+    sh_headsign = system-informed
+    sh_line = system-informed
+    sh_silence_timeout = system-informed
+    sh_to_stop = system-informed
+    sh_transfer = system-informed
+    sh_vehicle = system-informed
+    
+
+2013-07-08-17-37-57.437661-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'route_alternative': 0, u'silence_time': 9.007}
+
+2013-07-08-17-37-57.438897-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-17-37-57.580398-COT  MainProcess : INFO       
+    #13569  Time: 2013-07-08-17-37-57.578904-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-17-38-00.431076-COT  DM-5       : DEBUG      
+    #13746  Time: 2013-07-08-17-38-00.427014-COT From: HUB        To: DM         Command: timeout(silence_time="12.011") 
+
+2013-07-08-17-38-00.431757-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="12.011")
+
+2013-07-08-17-38-00.432677-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="12.011")
+
+2013-07-08-17-38-00.437419-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = Anděl
+    route_alternative = 0
+    silence_time = 12.011
+    time = none
+    to_centre = none
+    to_stop = Nové náměstí
+    
+    rh_alternative = system-informed
+    rh_enter_at = system-informed
+    rh_exit_at = system-informed
+    rh_found_directions = system-informed
+    rh_from_stop = system-informed
+    rh_go_at = system-informed
+    rh_headsign = system-informed
+    rh_line = system-informed
+    rh_silence_timeout = system-informed
+    rh_to_stop = system-informed
+    rh_transfer = system-informed
+    rh_vehicle = system-informed
+    
+    ch_alternative = system-informed
+    ch_enter_at = system-informed
+    ch_exit_at = system-informed
+    ch_found_directions = system-informed
+    ch_from_stop = system-informed
+    ch_go_at = system-informed
+    ch_headsign = system-informed
+    ch_line = system-informed
+    ch_silence_timeout = system-informed
+    ch_to_stop = system-informed
+    ch_transfer = system-informed
+    ch_vehicle = system-informed
+    
+    sh_alternative = system-informed
+    sh_enter_at = system-informed
+    sh_exit_at = system-informed
+    sh_found_directions = system-informed
+    sh_from_stop = system-informed
+    sh_go_at = system-informed
+    sh_headsign = system-informed
+    sh_line = system-informed
+    sh_silence_timeout = system-informed
+    sh_to_stop = system-informed
+    sh_transfer = system-informed
+    sh_vehicle = system-informed
+    
+
+2013-07-08-17-38-00.450967-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'route_alternative': 0, u'silence_time': 12.011}
+
+2013-07-08-17-38-00.463990-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    inform(silence_timeout="true")
+    
+
+2013-07-08-17-38-00.611137-COT  MainProcess : INFO       
+    #13759  Time: 2013-07-08-17-38-00.609096-COT From: DM         To: HUB        Hyp: inform(silence_timeout="true") 
+
+2013-07-08-17-38-00.614987-COT  NLG-6      : DEBUG      
+    #13760  Time: 2013-07-08-17-38-00.611792-COT From: DM         To: HUB        Hyp: inform(silence_timeout="true") 
+
+2013-07-08-17-38-00.617044-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Haló, mohu Vám s něčím pomoci?
+    
+
+2013-07-08-17-38-00.709656-COT  MainProcess : INFO       
+    #13768  Time: 2013-07-08-17-38-00.708034-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-08-17-38-00.724263-COT  MainProcess : INFO       
+    #13771  Time: 2013-07-08-17-38-00.710210-COT From: TTS        To: HUB        Command: tts_start(user_id="None",text="Haló, mohu Vám s něčím pomoci?") 
+
+2013-07-08-17-38-00.833220-COT  MainProcess : INFO       
+    #13773  Time: 2013-07-08-17-38-00.711619-COT From: VoipIO     To: HUB        Command: play_utterance_start(user_id="None",fname="tts-2013-07-08-17-38-00.710127.wav") 
+
+2013-07-08-17-38-00.835152-COT  MainProcess : INFO       
+    #13951  Time: 2013-07-08-17-38-00.831220-COT From: TTS        To: HUB        Command: tts_end(user_id="None",text="Haló, mohu Vám s něčím pomoci?",fname="tts-2013-07-08-17-38-00.710127.wav",log="true") 
+
+2013-07-08-17-38-03.709225-COT  MainProcess : INFO       
+    #14115  Time: 2013-07-08-17-38-03.328287-COT From: VoipIO     To: HUB        Command: play_utterance_end(user_id="None",fname="tts-2013-07-08-17-38-00.710127.wav) 
+
+2013-07-08-17-38-06.714143-COT  DM-5       : DEBUG      
+    #14326  Time: 2013-07-08-17-38-06.712449-COT From: HUB        To: DM         Command: timeout(silence_time="3.003") 
+
+2013-07-08-17-38-06.715516-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="3.003")
+
+2013-07-08-17-38-06.716966-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="3.003")
+
+2013-07-08-17-38-06.723587-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = Anděl
+    route_alternative = 0
+    silence_time = 3.003
+    time = none
+    to_centre = none
+    to_stop = Nové náměstí
+    
+    rh_alternative = system-informed
+    rh_enter_at = system-informed
+    rh_exit_at = system-informed
+    rh_found_directions = system-informed
+    rh_from_stop = system-informed
+    rh_go_at = system-informed
+    rh_headsign = system-informed
+    rh_line = system-informed
+    rh_silence_timeout = system-informed
+    rh_to_stop = system-informed
+    rh_transfer = system-informed
+    rh_vehicle = system-informed
+    
+    ch_alternative = system-informed
+    ch_enter_at = system-informed
+    ch_exit_at = system-informed
+    ch_found_directions = system-informed
+    ch_from_stop = system-informed
+    ch_go_at = system-informed
+    ch_headsign = system-informed
+    ch_line = system-informed
+    ch_silence_timeout = system-informed
+    ch_to_stop = system-informed
+    ch_transfer = system-informed
+    ch_vehicle = system-informed
+    
+    sh_alternative = system-informed
+    sh_enter_at = system-informed
+    sh_exit_at = system-informed
+    sh_found_directions = system-informed
+    sh_from_stop = system-informed
+    sh_go_at = system-informed
+    sh_headsign = system-informed
+    sh_line = system-informed
+    sh_silence_timeout = system-informed
+    sh_to_stop = system-informed
+    sh_transfer = system-informed
+    sh_vehicle = system-informed
+    
+
+2013-07-08-17-38-06.728751-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'route_alternative': 0, u'silence_time': 3.003}
+
+2013-07-08-17-38-06.731279-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-17-38-06.846330-COT  MainProcess : INFO       
+    #14336  Time: 2013-07-08-17-38-06.840026-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-17-38-09.714974-COT  DM-5       : DEBUG      
+    #14517  Time: 2013-07-08-17-38-09.713767-COT From: HUB        To: DM         Command: timeout(silence_time="6.004") 
+
+2013-07-08-17-38-09.716280-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="6.004")
+
+2013-07-08-17-38-09.717675-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="6.004")
+
+2013-07-08-17-38-09.725384-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = Anděl
+    route_alternative = 0
+    silence_time = 6.004
+    time = none
+    to_centre = none
+    to_stop = Nové náměstí
+    
+    rh_alternative = system-informed
+    rh_enter_at = system-informed
+    rh_exit_at = system-informed
+    rh_found_directions = system-informed
+    rh_from_stop = system-informed
+    rh_go_at = system-informed
+    rh_headsign = system-informed
+    rh_line = system-informed
+    rh_silence_timeout = system-informed
+    rh_to_stop = system-informed
+    rh_transfer = system-informed
+    rh_vehicle = system-informed
+    
+    ch_alternative = system-informed
+    ch_enter_at = system-informed
+    ch_exit_at = system-informed
+    ch_found_directions = system-informed
+    ch_from_stop = system-informed
+    ch_go_at = system-informed
+    ch_headsign = system-informed
+    ch_line = system-informed
+    ch_silence_timeout = system-informed
+    ch_to_stop = system-informed
+    ch_transfer = system-informed
+    ch_vehicle = system-informed
+    
+    sh_alternative = system-informed
+    sh_enter_at = system-informed
+    sh_exit_at = system-informed
+    sh_found_directions = system-informed
+    sh_from_stop = system-informed
+    sh_go_at = system-informed
+    sh_headsign = system-informed
+    sh_line = system-informed
+    sh_silence_timeout = system-informed
+    sh_to_stop = system-informed
+    sh_transfer = system-informed
+    sh_vehicle = system-informed
+    
+
+2013-07-08-17-38-09.728028-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'route_alternative': 0, u'silence_time': 6.004}
+
+2013-07-08-17-38-09.729597-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-17-38-09.810132-COT  MainProcess : INFO       
+    #14523  Time: 2013-07-08-17-38-09.806028-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-17-38-10.767196-COT  MainProcess : INFO       
+    #14585  Time: 2013-07-08-17-38-10.764203-COT From: VAD        To: HUB        Command: speech_start(fname="vad-2013-07-08-17-38-10.689664.wav") 
+
+2013-07-08-17-38-10.768657-COT  ASR-3      : DEBUG      
+    ASR: speech_start()
+
+2013-07-08-17-38-10.769700-COT  MainProcess : INFO       
+    #14586  Time: 2013-07-08-17-38-10.766328-COT From: ASR        To: HUB        Command: asr_start() 
+
+2013-07-08-17-38-11.882058-COT  ASR-3      : DEBUG      
+    ASR: speech_end()
+
+2013-07-08-17-38-11.883427-COT  MainProcess : INFO       
+    #14656  Time: 2013-07-08-17-38-11.878789-COT From: VAD        To: HUB        Command: speech_end(fname="vad-2013-07-08-17-38-10.689664.wav") 
+
+2013-07-08-17-38-12.681894-COT  ASR-3      : DEBUG      
+    ASR Hypothesis
+    ------------------------------------------------------------
+    0.799 ne děkuji nashledanou
+    0.050 ne děkuju nashledanou
+    0.043 ne děkuji na shledanou
+    0.036 ne děkuji naschledanou
+    0.029 ne děkuji nashledanou i
+    0.021 ne děkuju nashledanou i
+    0.014 ne děkuji na shledanou i
+    0.007 ne děkuji naschledanou i
+    0.000 __other__
+    
+
+2013-07-08-17-38-12.725179-COT  MainProcess : INFO       
+    #14711  Time: 2013-07-08-17-38-12.723338-COT From: ASR        To: HUB        Command: asr_end() 
+
+2013-07-08-17-38-13.184786-COT  SLU-4      : DEBUG      
+    SLU Hypothesis
+    ------------------------------------------------------------
+    1.000 thankyou()
+    1.000 negate()
+    1.000 bye()
+    
+
+2013-07-08-17-38-13.228484-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: thankyou()&negate()&bye()
+
+2013-07-08-17-38-13.230118-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: thankyou()&negate()&bye()
+
+2013-07-08-17-38-13.231171-COT  MainProcess : INFO       
+    #14743  Time: 2013-07-08-17-38-13.225045-COT From: SLU        To: HUB        Command: slu_parsed() 
+
+2013-07-08-17-38-13.237808-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = bye
+    alternative = none
+    from_stop = Anděl
+    route_alternative = 0
+    silence_time = 0.0
+    time = none
+    to_centre = none
+    to_stop = Nové náměstí
+    
+    rh_alternative = system-informed
+    rh_enter_at = system-informed
+    rh_exit_at = system-informed
+    rh_found_directions = system-informed
+    rh_from_stop = system-informed
+    rh_go_at = system-informed
+    rh_headsign = system-informed
+    rh_line = system-informed
+    rh_silence_timeout = system-informed
+    rh_to_stop = system-informed
+    rh_transfer = system-informed
+    rh_vehicle = system-informed
+    
+    ch_alternative = system-informed
+    ch_enter_at = system-informed
+    ch_exit_at = system-informed
+    ch_found_directions = system-informed
+    ch_from_stop = system-informed
+    ch_go_at = system-informed
+    ch_headsign = system-informed
+    ch_line = system-informed
+    ch_silence_timeout = system-informed
+    ch_to_stop = system-informed
+    ch_transfer = system-informed
+    ch_vehicle = system-informed
+    
+    sh_alternative = system-informed
+    sh_enter_at = system-informed
+    sh_exit_at = system-informed
+    sh_found_directions = system-informed
+    sh_from_stop = system-informed
+    sh_go_at = system-informed
+    sh_headsign = system-informed
+    sh_line = system-informed
+    sh_silence_timeout = system-informed
+    sh_to_stop = system-informed
+    sh_transfer = system-informed
+    sh_vehicle = system-informed
+    
+
+2013-07-08-17-38-13.240142-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'route_alternative': 0, u'silence_time': 0.0}
+
+2013-07-08-17-38-13.350210-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    bye()
+    
+
+2013-07-08-17-38-13.438245-COT  MainProcess : INFO       
+    #14761  Time: 2013-07-08-17-38-13.435622-COT From: DM         To: HUB        Hyp: bye() 
+
+2013-07-08-17-38-13.443444-COT  NLG-6      : DEBUG      
+    #14763  Time: 2013-07-08-17-38-13.439196-COT From: DM         To: HUB        Hyp: bye() 
+
+2013-07-08-17-38-13.444593-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Na shledanou.
+    
+
+2013-07-08-17-38-13.446151-COT  MainProcess : INFO       
+    #14762  Time: 2013-07-08-17-38-13.435976-COT From: DM         To: HUB        Command: hangup() 
+
+2013-07-08-17-38-13.523895-COT  MainProcess : INFO       
+    #14768  Time: 2013-07-08-17-38-13.522520-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-08-17-38-13.529746-COT  MainProcess : INFO       
+    #14770  Time: 2013-07-08-17-38-13.524280-COT From: TTS        To: HUB        Command: tts_start(user_id="None",text="Na shledanou.") 
+
+2013-07-08-17-38-13.554223-COT  MainProcess : INFO       
+    #14853  Time: 2013-07-08-17-38-13.551974-COT From: TTS        To: HUB        Command: tts_end(user_id="None",text="Na shledanou.",fname="tts-2013-07-08-17-38-13.523357.wav",log="true") 
+
+2013-07-08-17-38-13.630534-COT  MainProcess : INFO       
+    #14772  Time: 2013-07-08-17-38-13.525835-COT From: VoipIO     To: HUB        Command: play_utterance_start(user_id="None",fname="tts-2013-07-08-17-38-13.523357.wav") 
+
+2013-07-08-17-38-14.909979-COT  MainProcess : INFO       
+    #14906  Time: 2013-07-08-17-38-14.371757-COT From: VoipIO     To: HUB        Command: play_utterance_end(user_id="None",fname="tts-2013-07-08-17-38-13.523357.wav) 
+
+2013-07-08-17-38-16.915720-COT  VoipIO-1   : DEBUG      
+    #15067  Time: 2013-07-08-17-38-16.911732-COT From: HUB        To: VoipIO     Command: hangup() 
+
+2013-07-08-17-38-16.916643-COT  VoipIO-1   : DEBUG      
+    Hangup the call
+
+2013-07-08-17-38-17.136971-COT  VoipIO-1   : DEBUG      
+    CallCallback::on_state : Call with "Anonymous" <sip:anonymous@195.113.20.69> is DISCONNCTD last code = 603 ()
+
+2013-07-08-17-38-17.230156-COT  VoipIO-1   : DEBUG      
+    VoipIO::on_call_disconnected
+
+2013-07-08-17-38-17.232532-COT  MainProcess : INFO       
+    #15082  Time: 2013-07-08-17-38-17.230311-COT From: VoipIO     To: HUB        Command: call_disconnected(remote_uri="anonymous") 
+

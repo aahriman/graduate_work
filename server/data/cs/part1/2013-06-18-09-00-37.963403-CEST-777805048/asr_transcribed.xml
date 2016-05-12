@@ -1,0 +1,547 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dialogue>
+  <config>
+    <!--    config = { 'ASR': { 'Google': { 'debug': False, 'language': 'cs', 'maxresults': 20},
+               'Julius': { 'adinnetport': 5530,
+                           'binary': '/usr/local/bin/julius',
+                           'debug': False,
+                           'hostname': 'localhost',
+                           'jconf': { '-adport': '5530',
+                                      '-b': '1000',
+                                      '-b2': '100',
+                                      '-cmnload': 'cmn.param',
+                                      '-cmnmapweight': '200',
+                                      '-cmnsave': 'cmn.param',
+                                      '-confnet': '',
+                                      '-fallback1pass': '',
+                                      '-gprune': 'safe',
+                                      '-h': '/mnt/h/jurcicek/vystadial-git/alex/resources/asr/voip_en/hmmdefs',
+                                      '-hlist': '/mnt/h/jurcicek/vystadial-git/alex/resources/asr/voip_en/tiedlist',
+                                      '-htkconf': '/mnt/h/jurcicek/vystadial-git/alex/resources/asr/voip_en/config',
+                                      '-input': 'adinnet',
+                                      '-iwsp': '',
+                                      '-iwsppenalty': '0.0',
+                                      '-lmp': '15.0 0.0',
+                                      '-lmp2': '15.0 0.0',
+                                      '-mapunk': 'UM',
+                                      '-module': '10500',
+                                      '-n': '50',
+                                      '-nlr': '/mnt/h/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_arpa_bigram',
+                                      '-no_ccd': '',
+                                      '-nrl': '/mnt/h/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_arpa_rev_bigram',
+                                      '-silhead': '<s>',
+                                      '-siltail': '</s>',
+                                      '-spmodel': 'sp',
+                                      '-tmix': '4',
+                                      '-v': '/mnt/h/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_dict'},
+                           'jconffile': 'julius.jconf',
+                           'killall': False,
+                           'logfile': 'julius.log',
+                           'msg_timeout': 0.3,
+                           'pidfile': 'julius.pid',
+                           'reuse_server': False,
+                           'serverport': 10500,
+                           'start_max_wait_time': 15,
+                           'start_wait_time': 0.5,
+                           'timeout': 2.0},
+               'debug': True,
+               'type': 'Google'},
+      'AlexOnTheBus': { 'max_turns': 30},
+      'Audio': { 'sample_rate': 16000, 'samples_per_frame': 256},
+      'AudioIO': { 'debug': True, 'output_dir': './aio_call_log', 'play_buffer_size': 1024},
+      'DM': { 'PUfalRuleDM': { 'code_submit_url': None,
+                               'db_cfg': '/mnt/h/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/cued_data/CIRdbase_V7_noloc.txt',
+                               'ontology': '/mnt/h/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/ontology.cfg',
+                               'provide_code': False},
+              'UfalRuleDM': { 'code_submit_url': None,
+                              'db_cfg': '/mnt/h/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/cued_data/CIRdbase_V7_noloc.txt',
+                              'ontology': '/mnt/h/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/ontology.cfg',
+                              'provide_code': False},
+              'basic': { 'debug': True},
+              'debug': True,
+              'dialogue_policy': { 'type': <class 'alex.applications.AlexOnTheBus.aotb_hdc_policy.AOTBHDCPolicy'>},
+              'dialogue_state': { 'type': <class 'alex.components.dm.dddstate.DeterministicDiscriminativeDialogueState'>},
+              'ontology': '/mnt/h/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/data/ontology.py',
+              'type': 'basic'},
+      'General': { 'include': ['/mnt/h/jurcicek/vystadial-git/alex/resources/private/default.cfg']},
+      'Hub': { 'history_file': 'hub_history_hub.txt', 'history_length': 1000, 'main_loop_sleep_time': 0.005},
+      'Logging': { 'session_logger': SessionLogger(),
+                   'system_logger': SystemLogger(stdout_log_level='ERROR', stdout=True, file_log_level='ERROR', output_dir=/net/projects/vystadial/data/call-logs/2013-05-30-alex-aotb-prototype),
+                   'system_name': 'Alex On The Bus - Live',
+                   'version': '1.0'},
+      'NLG': { 'Template': { 'model': '/mnt/h/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/nlg_templates.cfg'},
+               'debug': True,
+               'type': 'Template'},
+      'SHub': { 'history_file': 'hub_history_shub.txt', 'history_length': 1000},
+      'SLU': { 'cl-tracing': { 'cldb_fname': '/mnt/h/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/data/database.py',
+                               'do_preprocessing': True,
+                               'features_type': ('ngram',),
+                               'testing': { 'max_examples': None,
+                                            'min_perc': 80,
+                                            'model_fname': '/mnt/h/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/models/130516_minf60-minfc35-mind60.slu_model.gz',
+                                            'renormalise': True,
+                                            'threshold': None,
+                                            'vanilla': True},
+                               'training': { 'models_dir': 'models'}},
+               'debug': True,
+               'type': <class 'alex.applications.AlexOnTheBus.aotb_slu.AOTBSLU'>,
+               <class 'alex.applications.AlexOnTheBus.aotb_slu.AOTBSLU'>: { 'cldb_fname': '/mnt/h/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/data/database.py',
+                                                                            'preprocessing_cls': <class 'alex.applications.AlexOnTheBus.aotb_preprocessing.AOTBSLUPreprocessing'>,
+                                                                            'training': { 'models_dir': 'models'}}},
+      'THub': { 'history_file': 'hub_history_thub.txt', 'history_length': 1000},
+      'TTS': { 'Flite': { 'debug': False,
+                          'preprocessing': '/mnt/h/jurcicek/vystadial-git/alex/resources/tts/prep_flite_en.cfg',
+                          'voice': 'kal16'},
+               'Google': { 'debug': False,
+                           'language': 'en',
+                           'preprocessing': '/mnt/h/jurcicek/vystadial-git/alex/resources/tts/prep_google_en.cfg'},
+               'SpeechTech': { 'debug': True,
+                               'login': 'filipjurcicek',
+    # this line was removed since it included a password
+                               'preprocessing': '/mnt/h/jurcicek/vystadial-git/alex/resources/tts/prep_speechtech_cs.cfg',
+                               'voice': 'Iva210'},
+               'VoiceRSS': { 'api_key': '3b6a9fca5d724b1c8ac34691586cdda1'},
+               'VoiceRss': { 'language': 'en-gb',
+                             'preprocessing': '/mnt/h/jurcicek/vystadial-git/alex/resources/tts/prep_voicerss_en.cfg'},
+               'debug': True,
+               'type': 'SpeechTech'},
+      'VAD': { 'debug': False,
+               'decision_frames_sil': 25,
+               'decision_frames_speech': 10,
+               'decision_non_speech_threshold': 0.2,
+               'decision_speech_threshold': 0.7,
+               'gmm': { 'ceplifter': 22,
+                        'enormalise': True,
+                        'filter_length': 5,
+                        'frameshift': 160,
+                        'framesize': 512,
+                        'frontend': 'MFCC',
+                        'hifreq': 3800,
+                        'lofreq': 125,
+                        'numceps': 12,
+                        'numchans': 26,
+                        'preemcoef': 0.97,
+                        'sil_model': '/mnt/h/jurcicek/vystadial-git/alex/resources/vad/voip_en/vad_sil_sds_mfcc_m064_f100000.gmm',
+                        'speech_model': '/mnt/h/jurcicek/vystadial-git/alex/resources/vad/voip_en/vad_speech_sds_mfcc_m064_f100000.gmm',
+                        'useacc': True,
+                        'usec0': False,
+                        'usecmn': False,
+                        'usedelta': True,
+                        'usehamming': True,
+                        'usepower': True,
+                        'zmeansource': True},
+               'power': { 'adaptation_frames': 30, 'threshold': 70, 'threshold_multiplier': 1.0},
+               'speech_buffer_frames': 20,
+               'type': 'gmm'},
+      'VoipHub': { 'blacklist_for': 7200,
+                   'call_db': '/mnt/h/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/call_db.pckl',
+                   'hard_time_limit': 360,
+                   'hard_turn_limit': 40,
+                   'history_length': 1000,
+                   'last_period_max_num_calls': 100,
+                   'last_period_max_total_time': 1800,
+                   'limit_reached_message': u'D\u011bkujeme za zavol\xe1n\xed, ale u\u017e jste volali hodn\u011b. Pros\xedm zavolejte pozd\u011bji. Na shledanou.',
+                   'period': 172800,
+                   'wait_time_before_calling_back': 10},
+      'VoipIO': { 'allowed_hosts': '',
+                  'allowed_phone_numbers': '(^[234567])',
+                  'allowed_users': '(^[234567])',
+                  'debug': True,
+                  'domain': 'vystadial.ms.mff.cuni.cz',
+                  'forbidden_hosts': '',
+                  'forbidden_phone_number': '(^112$|^150$|^155$|^156$|^158$)',
+                  'forbidden_users': '(^112$|^150$|^155$|^156$|^158$)',
+    # this line was removed since it included a password
+                  'pjsip_log_level': 3,
+                  'reject_calls': False,
+                  'user': '800899998'},
+      'WebHub': { 'port': 8000}}
+-->
+  </config>
+  <dialogue_rec endtime="87.801" fname="all-2013-06-18-09-00-38.010070.played.wav" speaker="system" starttime="0.011"/>
+  <dialogue_rec endtime="87.832" fname="all-2013-06-18-09-00-38.010070.recorded.wav" speaker="user" starttime="0.017"/>
+  <header>
+    <host>loki.ms.mff.cuni.cz</host>
+    <date>2013-06-18 09:00:38 CEST</date>
+    <system>Alex On The Bus - Live</system>
+    <version>1.0</version>
+    <input_source type="voip"/>
+  </header>
+  <annotations>
+    <annotation date_saved="14/07/13, 16:55:10 " user="adela" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" id="13"></annotation>
+  </annotations>
+  <turn speaker="system" time="0.125" turn_number="1">
+    <dialogue_act time="0.133">hello()</dialogue_act>
+    <text time="0.169">Dobrý den, dovolali jste se na informace o veřejné dopravě v Praze. Hovor je nahráván. Více informací o této službě je na internetu. Jak Vám mohu pomoci. </text>
+    <rec endtime="13.739" fname="tts-2013-06-18-09-00-38.188357.wav" starttime="0.182"/>
+  </turn>
+  <turn speaker="user" time="15.478" turn_number="1">
+    <rec endtime="16.876" fname="vad-2013-06-18-09-00-53.479890.wav" starttime="15.488"/>
+    <asr>
+      <hypothesis p="0.769">chtěl bych začít dělat</hypothesis>
+      <hypothesis p="0.023">chtěl bych zájem dělat</hypothesis>
+      <hypothesis p="0.022">chtěl bych za ní dělat</hypothesis>
+      <hypothesis p="0.021">chtěl bych zajela</hypothesis>
+      <hypothesis p="0.019">chtěl bych zapomněla</hypothesis>
+      <hypothesis p="0.018">chtěl bych za ní děláš</hypothesis>
+      <hypothesis p="0.017">chtěl bych za ní dělá</hypothesis>
+      <hypothesis p="0.016">chtěl bych jak začít dělat</hypothesis>
+      <hypothesis p="0.015">chtěl bych za děláš</hypothesis>
+      <hypothesis p="0.013">chtěl bych jen za ní dělat</hypothesis>
+      <hypothesis p="0.012">chtěl bych jet za děláš</hypothesis>
+      <hypothesis p="0.011">chtěl bych jen za děláš</hypothesis>
+      <hypothesis p="0.010">chtěl bych jít za děláš</hypothesis>
+      <hypothesis p="0.009">chtěl bych vza děláš</hypothesis>
+      <hypothesis p="0.007">chtěl bych jen za ní děláš</hypothesis>
+      <hypothesis p="0.006">chtěl bych tě za děláš</hypothesis>
+      <hypothesis p="0.005">chtěl bych jen za ní dělá</hypothesis>
+      <hypothesis p="0.004">chtěla bych zájem dělat</hypothesis>
+      <hypothesis p="0.002">chtěla bych za ní dělat</hypothesis>
+      <hypothesis p="0.001">chtěl bych zadní děláš</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="1.000">other()</interpretation>
+      <interpretation p="0.000">null()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="1.000">other()</dai>
+          <dai p="0.000">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="13" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 16:55:10 ">chtěl bych jet na Anděla</asr_transcription>
+  </turn>
+  <turn speaker="system" time="18.814" turn_number="2">
+    <dialogue_act time="18.825">request(from_stop)</dialogue_act>
+    <text time="18.887">Odkud chcete jet?</text>
+    <rec endtime="20.699" fname="tts-2013-06-18-09-00-56.907073.wav" starttime="18.909"/>
+  </turn>
+  <turn speaker="user" time="21.606" turn_number="2">
+    <rec endtime="22.572" fname="vad-2013-06-18-09-00-59.613582.wav" starttime="21.618"/>
+    <asr>
+      <hypothesis p="0.550">za anděla</hypothesis>
+      <hypothesis p="0.082">na anděla</hypothesis>
+      <hypothesis p="0.074">anděla</hypothesis>
+      <hypothesis p="0.065">na anděla a</hypothesis>
+      <hypothesis p="0.057">z anděla</hypothesis>
+      <hypothesis p="0.049">za anděla a</hypothesis>
+      <hypothesis p="0.041">za anděla i</hypothesis>
+      <hypothesis p="0.033">na anděla i</hypothesis>
+      <hypothesis p="0.025">zoo anděla</hypothesis>
+      <hypothesis p="0.016">v anděla</hypothesis>
+      <hypothesis p="0.008">ze anděla</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="0.512">inform(from_stop="Anděl")</interpretation>
+      <interpretation p="0.214">null()</interpretation>
+      <interpretation p="0.112">inform(from_stop="Anděl")&amp;inform(to_stop="Anděl")</interpretation>
+      <interpretation p="0.066">inform(from_stop="Anděl")&amp;inform(="Anděl")</interpretation>
+      <interpretation p="0.047">inform(to_stop="Anděl")</interpretation>
+      <interpretation p="0.028">inform(="Anděl")</interpretation>
+      <interpretation p="0.015">inform(from_stop="Anděl")&amp;inform(to_stop="Anděl")&amp;inform(="Anděl")</interpretation>
+      <interpretation p="0.006">other()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="0.706">inform(from_stop="Anděl")</dai>
+          <dai p="0.294">null()</dai>
+        </dai_alternatives>
+        <dai_alternatives>
+          <dai p="0.180">inform(to_stop="Anděl")</dai>
+          <dai p="0.820">null()</dai>
+        </dai_alternatives>
+        <dai_alternatives>
+          <dai p="0.115">inform(="Anděl")</dai>
+          <dai p="0.885">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="13" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 16:55:10 ">z Anděla</asr_transcription>
+  </turn>
+  <turn speaker="system" time="23.623" turn_number="3">
+    <dialogue_act time="23.637">iconfirm(from_stop="Anděl")&amp;request(to_stop)</dialogue_act>
+    <text time="23.665">Dobře, ze zastávky Anděl. Do jaké zastávky chcete jet?</text>
+    <rec endtime="29.336" fname="tts-2013-06-18-09-01-01.687046.wav" starttime="23.684"/>
+  </turn>
+  <turn speaker="user" time="30.195" turn_number="3">
+    <rec endtime="31.847" fname="vad-2013-06-18-09-01-08.200312.wav" starttime="30.213"/>
+    <asr>
+      <hypothesis p="0.763">na malostranské náměstí</hypothesis>
+      <hypothesis p="0.059">na malostranském náměstí</hypothesis>
+      <hypothesis p="0.051">malostranské náměstí</hypothesis>
+      <hypothesis p="0.042">na malostranské náměstí i</hypothesis>
+      <hypothesis p="0.034">na malostranské náměstí a</hypothesis>
+      <hypothesis p="0.025">malostranské náměstí i</hypothesis>
+      <hypothesis p="0.017">malostranské náměstí a</hypothesis>
+      <hypothesis p="0.008">na malostranském náměstí i</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="0.710">inform(to_stop="Malostranské náměstí")</interpretation>
+      <interpretation p="0.136">null()</interpretation>
+      <interpretation p="0.073">inform(to_stop="Malostranské náměstí")&amp;inform(="Malostranské náměstí")</interpretation>
+      <interpretation p="0.052">inform(to_stop="Malostranské náměstí")&amp;other()</interpretation>
+      <interpretation p="0.014">inform(="Malostranské náměstí")</interpretation>
+      <interpretation p="0.010">other()</interpretation>
+      <interpretation p="0.005">inform(to_stop="Malostranské náměstí")&amp;inform(="Malostranské náměstí")&amp;other()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="0.839">inform(to_stop="Malostranské náměstí")</dai>
+          <dai p="0.161">null()</dai>
+        </dai_alternatives>
+        <dai_alternatives>
+          <dai p="0.093">inform(="Malostranské náměstí")</dai>
+          <dai p="0.907">null()</dai>
+        </dai_alternatives>
+        <dai_alternatives>
+          <dai p="0.068">other()</dai>
+          <dai p="0.932">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="13" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 16:55:10 ">na Malostranské náměstí</asr_transcription>
+  </turn>
+  <turn speaker="system" time="32.975" turn_number="4">
+    <dialogue_act time="32.992">iconfirm(to_stop="Malostranské náměstí")&amp;inform(alternatives="4")&amp;inform(alternative="1")&amp;inform(vehicle="TRAM")&amp;inform(line="12")&amp;inform(go_at="09:01")&amp;inform(enter_at="Anděl")&amp;inform(headsign="Palmovka")&amp;inform(exit_at="Malostranské náměstí")</dialogue_act>
+    <text time="33.072">Do zastávky Malostranské náměstí. Našla jsem čtyři cesty. Možnost první. Jeďte tramvají číslo 12 v 09:01 ze zastávky Anděl směrem Palmovka. Vystupte na zastávce Malostranské náměstí.</text>
+    <rec endtime="51.412" fname="tts-2013-06-18-09-01-11.095180.wav" starttime="33.095"/>
+    <barge-in time="52.009"/>
+  </turn>
+  <turn speaker="user" time="51.956" turn_number="4">
+    <rec endtime="52.329" fname="vad-2013-06-18-09-01-29.961563.wav" starttime="51.973"/>
+    <asr>
+      <hypothesis p="1.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="1.000">other()</interpretation>
+      <interpretation p="0.000">null()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="1.000">other()</dai>
+          <dai p="0.000">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="13" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 16:55:10 ">(unint)</asr_transcription>
+  </turn>
+  <turn speaker="system" time="52.901" turn_number="5">
+    <dialogue_act time="52.918">inform(alternatives="4")&amp;inform(alternative="1")&amp;inform(vehicle="TRAM")&amp;inform(line="12")&amp;inform(go_at="09:01")&amp;inform(enter_at="Anděl")&amp;inform(headsign="Palmovka")&amp;inform(exit_at="Malostranské náměstí")</dialogue_act>
+    <text time="52.983">Našla jsem čtyři cesty. Možnost první. Jeďte tramvají číslo 12 v 09:01 ze zastávky Anděl směrem Palmovka. Vystupte na zastávce Malostranské náměstí.</text>
+    <rec fname="tts-2013-06-18-09-01-31.006816.wav" starttime="53.012"/>
+    <barge-in time="53.487"/>
+  </turn>
+  <turn speaker="user" time="53.432" turn_number="5">
+    <rec endtime="54.639" fname="vad-2013-06-18-09-01-31.433711.wav" starttime="53.450"/>
+    <asr>
+      <hypothesis p="0.574">kolik přestupků</hypothesis>
+      <hypothesis p="0.066">kolik přestupů</hypothesis>
+      <hypothesis p="0.060">kolik přeskoků</hypothesis>
+      <hypothesis p="0.055">kolín</hypothesis>
+      <hypothesis p="0.049">kolik</hypothesis>
+      <hypothesis p="0.044">kolik překlepů</hypothesis>
+      <hypothesis p="0.038">kolik roků</hypothesis>
+      <hypothesis p="0.033">v kolik přestupků</hypothesis>
+      <hypothesis p="0.027">v kolik přestupů</hypothesis>
+      <hypothesis p="0.022">v kolik přeskoků</hypothesis>
+      <hypothesis p="0.016">v kolik</hypothesis>
+      <hypothesis p="0.011">v kolik překlepů</hypothesis>
+      <hypothesis p="0.005">v kolik roků</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="13" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 16:55:10 ">kolik je tam přestupů?</asr_transcription>
+  </turn>
+  <turn speaker="user" time="55.290" turn_number="6">
+    <rec endtime="55.839" fname="vad-2013-06-18-09-01-33.294712.wav" starttime="55.313"/>
+    <slu>
+      <interpretation p="0.823">other()</interpretation>
+      <interpretation p="0.084">null()</interpretation>
+      <interpretation p="0.084">other()&amp;request(num_transfers)</interpretation>
+      <interpretation p="0.009">request(num_transfers)</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="0.907">other()</dai>
+          <dai p="0.093">null()</dai>
+        </dai_alternatives>
+        <dai_alternatives>
+          <dai p="0.093">request(num_transfers)</dai>
+          <dai p="0.907">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="13" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 16:55:10 ">(unint)</asr_transcription>
+    <asr>
+      <hypothesis p="1.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="1.000">other()</interpretation>
+      <interpretation p="0.000">null()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="1.000">other()</dai>
+          <dai p="0.000">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+  </turn>
+  <turn speaker="system" time="56.181" turn_number="6">
+    <dialogue_act time="56.201">inform(alternatives="4")&amp;inform(alternative="1")&amp;inform(vehicle="TRAM")&amp;inform(line="12")&amp;inform(go_at="09:01")&amp;inform(enter_at="Anděl")&amp;inform(headsign="Palmovka")&amp;inform(exit_at="Malostranské náměstí")</dialogue_act>
+    <text time="56.296">Našla jsem čtyři cesty. Možnost první. Jeďte tramvají číslo 12 v 09:01 ze zastávky Anděl směrem Palmovka. Vystupte na zastávce Malostranské náměstí.</text>
+    <rec fname="tts-2013-06-18-09-01-34.322514.wav" starttime="56.334"/>
+    <barge-in time="58.795"/>
+  </turn>
+  <turn speaker="user" time="58.739" turn_number="7">
+    <rec endtime="59.884" fname="vad-2013-06-18-09-01-36.742679.wav" starttime="58.761"/>
+    <asr>
+      <hypothesis p="0.377">kolik je tam přestupku</hypothesis>
+      <hypothesis p="0.073">kolik přestupů</hypothesis>
+      <hypothesis p="0.069">kolik přestupků</hypothesis>
+      <hypothesis p="0.064">kolik je tam přestupu</hypothesis>
+      <hypothesis p="0.060">kolik je tam stupňů</hypothesis>
+      <hypothesis p="0.055">kolik je tam přestupků</hypothesis>
+      <hypothesis p="0.050">kolik přestupku</hypothesis>
+      <hypothesis p="0.046">kolik je tam sestupu</hypothesis>
+      <hypothesis p="0.041">kolik přestupu</hypothesis>
+      <hypothesis p="0.037">kolik je stupňů</hypothesis>
+      <hypothesis p="0.032">kolik je přestupku</hypothesis>
+      <hypothesis p="0.027">přestupku</hypothesis>
+      <hypothesis p="0.023">kolik je přestupu</hypothesis>
+      <hypothesis p="0.018">kolik je přestupků</hypothesis>
+      <hypothesis p="0.014">přestupu</hypothesis>
+      <hypothesis p="0.009">přestupků</hypothesis>
+      <hypothesis p="0.005">kolik je ta sestupu</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="0.396">request(num_transfers)</interpretation>
+      <interpretation p="0.233">request(num_transfers)&amp;other()</interpretation>
+      <interpretation p="0.233">null()</interpretation>
+      <interpretation p="0.137">other()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="0.629">request(num_transfers)</dai>
+          <dai p="0.371">null()</dai>
+        </dai_alternatives>
+        <dai_alternatives>
+          <dai p="0.371">other()</dai>
+          <dai p="0.629">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="13" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 16:55:10 ">kolik je tam přestupů?</asr_transcription>
+  </turn>
+  <turn speaker="user" time="66.929" turn_number="8">
+    <rec endtime="68.156" fname="vad-2013-06-18-09-01-44.930749.wav" starttime="66.955"/>
+    <asr>
+      <hypothesis p="0.704">kolik je tam přestupu</hypothesis>
+      <hypothesis p="0.030">kolik je tam přestupku</hypothesis>
+      <hypothesis p="0.028">kolik je ta přestupu</hypothesis>
+      <hypothesis p="0.027">kolik je tam sestupu</hypothesis>
+      <hypothesis p="0.025">kolik je tam stupňů</hypothesis>
+      <hypothesis p="0.023">kolik je tam přestupům</hypothesis>
+      <hypothesis p="0.022">kolik je tam přestupů</hypothesis>
+      <hypothesis p="0.020">kolik je tam přestupků</hypothesis>
+      <hypothesis p="0.019">kolik je ta přestupku</hypothesis>
+      <hypothesis p="0.017">kolik přestupků</hypothesis>
+      <hypothesis p="0.016">kolik je ta přestupům</hypothesis>
+      <hypothesis p="0.014">kolik je ta přestupů</hypothesis>
+      <hypothesis p="0.012">kolik je ta přestupků</hypothesis>
+      <hypothesis p="0.011">kolik je ta sestupu</hypothesis>
+      <hypothesis p="0.009">kolik je stupňů</hypothesis>
+      <hypothesis p="0.008">kolik je to sestupu</hypothesis>
+      <hypothesis p="0.006">v kolik je tam přestupu</hypothesis>
+      <hypothesis p="0.005">kolik je tak sestupu</hypothesis>
+      <hypothesis p="0.003">v kolik je tam přestupku</hypothesis>
+      <hypothesis p="0.002">kolik je pán sestupu</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="0.772">other()</interpretation>
+      <interpretation p="0.107">other()&amp;request(num_transfers)</interpretation>
+      <interpretation p="0.107">null()</interpretation>
+      <interpretation p="0.015">request(num_transfers)</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="0.878">other()</dai>
+          <dai p="0.122">null()</dai>
+        </dai_alternatives>
+        <dai_alternatives>
+          <dai p="0.122">request(num_transfers)</dai>
+          <dai p="0.878">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="13" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 16:55:10 ">kolik je tam přestupů?</asr_transcription>
+  </turn>
+  <turn speaker="user" time="75.335" turn_number="9">
+    <rec endtime="77.875" fname="vad-2013-06-18-09-01-53.188702.wav" starttime="75.365"/>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="13" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 16:55:10 ">haló (laugh)</asr_transcription>
+  </turn>
+  <turn speaker="user" time="78.382" turn_number="10">
+    <rec endtime="79.479" fname="vad-2013-06-18-09-01-56.380313.wav" starttime="78.410"/>
+    <asr>
+      <hypothesis p="0.758">halo</hypothesis>
+      <hypothesis p="0.097">alo</hypothesis>
+      <hypothesis p="0.073">halo reach</hypothesis>
+      <hypothesis p="0.048">halo halo</hypothesis>
+      <hypothesis p="0.024">haló</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="1.000">other()</interpretation>
+      <interpretation p="0.000">null()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="1.000">other()</dai>
+          <dai p="0.000">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="13" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 16:55:10 ">(unint) třeba to kleklo</asr_transcription>
+    <asr>
+      <hypothesis p="1.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="1.000">other()</interpretation>
+      <interpretation p="0.000">null()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="1.000">other()</dai>
+          <dai p="0.000">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+  </turn>
+  <turn speaker="user" time="83.644" turn_number="11">
+    <rec endtime="84.467" fname="vad-2013-06-18-09-02-01.643925.wav" starttime="83.676"/>
+    <asr>
+      <hypothesis p="0.562">kam pojede</hypothesis>
+      <hypothesis p="0.175">kam to jede</hypothesis>
+      <hypothesis p="0.131">kam pojedeme</hypothesis>
+      <hypothesis p="0.088">tam pojede</hypothesis>
+      <hypothesis p="0.044">auto jede</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="0.543">request(to_stop)</interpretation>
+      <interpretation p="0.194">request(to_stop)&amp;other()</interpretation>
+      <interpretation p="0.194">null()</interpretation>
+      <interpretation p="0.069">other()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="0.737">request(to_stop)</dai>
+          <dai p="0.263">null()</dai>
+        </dai_alternatives>
+        <dai_alternatives>
+          <dai p="0.263">other()</dai>
+          <dai p="0.737">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="13" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 16:55:10 ">kam to jede?</asr_transcription>
+  </turn>
+  <turn speaker="user" time="86.067" turn_number="12">
+    <rec fname="vad-2013-06-18-09-02-04.063274.wav" starttime="86.098"/>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="13" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 16:55:10 ">si myslím, že to kleklo (unint)</asr_transcription>
+  </turn>
+</dialogue>

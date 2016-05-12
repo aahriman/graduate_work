@@ -1,0 +1,1957 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dialogue>
+    <config>
+        <!--    config = { 'ASR': { 'Google': { 'debug': False, 'language': 'cs', 'maxresults': 20},
+               'Julius': { 'adinnetport': 5530,
+                           'binary': '/usr/local/bin/julius',
+                           'debug': False,
+                           'hostname': 'localhost',
+                           'jconf': { '-adport': '5530',
+                                      '-b': '1000',
+                                      '-b2': '100',
+                                      '-cmnload': 'cmn.param',
+                                      '-cmnmapweight': '200',
+                                      '-cmnsave': 'cmn.param',
+                                      '-confnet': '',
+                                      '-fallback1pass': '',
+                                      '-gprune': 'safe',
+                                      '-h': '/mnt/h/jurcicek/vystadial-git/alex/resources/asr/voip_en/hmmdefs',
+                                      '-hlist': '/mnt/h/jurcicek/vystadial-git/alex/resources/asr/voip_en/tiedlist',
+                                      '-htkconf': '/mnt/h/jurcicek/vystadial-git/alex/resources/asr/voip_en/config',
+                                      '-input': 'adinnet',
+                                      '-iwsp': '',
+                                      '-iwsppenalty': '0.0',
+                                      '-lmp': '15.0 0.0',
+                                      '-lmp2': '15.0 0.0',
+                                      '-mapunk': 'UM',
+                                      '-module': '10500',
+                                      '-n': '50',
+                                      '-nlr': '/mnt/h/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_arpa_bigram',
+                                      '-no_ccd': '',
+                                      '-nrl': '/mnt/h/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_arpa_rev_bigram',
+                                      '-silhead': '<s>',
+                                      '-siltail': '</s>',
+                                      '-spmodel': 'sp',
+                                      '-tmix': '4',
+                                      '-v': '/mnt/h/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_dict'},
+                           'jconffile': 'julius.jconf',
+                           'killall': False,
+                           'logfile': 'julius.log',
+                           'msg_timeout': 0.3,
+                           'pidfile': 'julius.pid',
+                           'reuse_server': False,
+                           'serverport': 10500,
+                           'start_max_wait_time': 15,
+                           'start_wait_time': 0.5,
+                           'timeout': 2.0},
+               'Kaldi': { 'LM_scale': -6666.66,
+                          'hypothesis_type': 'nblist',
+                          'lat_depth': 666666,
+                          'model': 'TODO_path_to_model'},
+               'debug': True,
+               'type': 'Google'},
+      'AlexOnTheBus': { 'max_turns': 120},
+      'Analytics': Analytics(account_id='UA-41905278-1', domain_name='cuni.cz'),
+      'Audio': { 'sample_rate': 16000, 'samples_per_frame': 256},
+      'AudioIO': { 'debug': True, 'output_dir': './aio_call_log', 'play_buffer_size': 1024},
+      'DM': { 'PUfalRuleDM': { 'code_submit_url': None,
+                               'db_cfg': '/mnt/h/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/cued_data/CIRdbase_V7_noloc.txt',
+                               'ontology': '/mnt/h/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/ontology.cfg',
+                               'provide_code': False},
+              'UfalRuleDM': { 'code_submit_url': None,
+                              'db_cfg': '/mnt/h/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/cued_data/CIRdbase_V7_noloc.txt',
+                              'ontology': '/mnt/h/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/ontology.cfg',
+                              'provide_code': False},
+              'basic': { 'debug': True, 'silence_timeout': 10.0},
+              'debug': True,
+              'dialogue_policy': { 'type': <class 'alex.applications.AlexOnTheBus.aotb_hdc_policy.AOTBHDCPolicy'>},
+              'dialogue_state': { 'type': <class 'alex.components.dm.dddstate.DeterministicDiscriminativeDialogueState'>},
+              'input_timeout': 3.0,
+              'ontology': '/mnt/h/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/data/ontology.py',
+              'type': 'basic'},
+      'General': { 'debug': False, 'include': ['/mnt/h/jurcicek/vystadial-git/alex/resources/private/default.cfg']},
+      'Hub': { 'history_file': 'hub_history_hub.txt', 'history_length': 1000, 'main_loop_sleep_time': 0.002},
+      'Logging': { 'excepthook': ExceptionHook(
+            ExceptionHook
+              Hook Type: log
+              Hook Logger: SystemLogger(output_dir=./call_logs, stdout_log_level='DEBUG', stdout=True, file_log_level='DEBUG')),
+                   'session_logger': SessionLogger(),
+                   'system_logger': SystemLogger(output_dir=/net/projects/vystadial/data/call-logs/2013-05-30-alex-aotb-prototype/new, stdout_log_level='DEBUG', stdout=True, file_log_level='DEBUG'),
+                   'system_name': u'Alex On The Bus - Live',
+                   'version': u'1.0'},
+      'NLG': { 'Template': { 'model': '/mnt/h/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/nlg_templates.cfg'},
+               'debug': True,
+               'type': 'Template'},
+      'SHub': { 'history_file': 'hub_history_shub.txt', 'history_length': 1000},
+      'SLU': { 'cl-tracing': { 'cldb_fname': '/mnt/h/jurcicek/vystadial-git/alex/applications/CamInfoRest/data/database.py',
+                               'do_preprocessing': True,
+                               'features_type': ('ngram', 'ab_ngram'),
+                               'testing': { 'max_examples': None,
+                                            'min_perc': 80,
+                                            'model_fname': '/mnt/h/jurcicek/vystadial-git/alex/applications/CamInfoRest/models/130516_minf60-minfc35-mind60.slu_model.gz',
+                                            'renormalise': True,
+                                            'threshold': None,
+                                            'vanilla': True},
+                               'training': { 'abstractions': ('abstract',), 'models_dir': 'models'}},
+               'debug': True,
+               'type': <class 'alex.applications.AlexOnTheBus.aotb_slu.AOTBSLU'>,
+               <class 'alex.applications.AlexOnTheBus.aotb_slu.AOTBSLU'>: { 'cldb_fname': '/mnt/h/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/data/database.py',
+                                                                            'preprocessing_cls': <class 'alex.applications.AlexOnTheBus.aotb_preprocessing.AOTBSLUPreprocessing'>,
+                                                                            'training': { 'models_dir': 'models'}}},
+      'THub': { 'history_file': 'hub_history_thub.txt', 'history_length': 1000},
+      'TTS': { 'Flite': { 'debug': False,
+                          'preprocessing': '/mnt/h/jurcicek/vystadial-git/alex/resources/tts/prep_flite_en.cfg',
+                          'voice': 'kal16'},
+               'Google': { 'debug': False,
+                           'language': 'en',
+                           'preprocessing': '/mnt/h/jurcicek/vystadial-git/alex/resources/tts/prep_google_en.cfg'},
+               'SpeechTech': { 'debug': True,
+                               'login': 'filipjurcicek',
+    # this line was removed since it included a password
+                               'preprocessing': '/mnt/h/jurcicek/vystadial-git/alex/resources/tts/prep_speechtech_cs.cfg',
+                               'voice': 'Iva210'},
+               'VoiceRSS': { 'api_key': '3b6a9fca5d724b1c8ac34691586cdda1'},
+               'VoiceRss': { 'language': 'en-gb',
+                             'preprocessing': '/mnt/h/jurcicek/vystadial-git/alex/resources/tts/prep_voicerss_en.cfg'},
+               'debug': True,
+               'in_between_segments_silence': 0.1,
+               'type': 'SpeechTech'},
+      'VAD': { 'debug': False,
+               'decision_frames_sil': 25,
+               'decision_frames_speech': 10,
+               'decision_non_speech_threshold': 0.2,
+               'decision_speech_threshold': 0.7,
+               'gmm': { 'ceplifter': 22,
+                        'enormalise': True,
+                        'filter_length': 5,
+                        'frameshift': 160,
+                        'framesize': 512,
+                        'frontend': 'MFCC',
+                        'hifreq': 3800,
+                        'lofreq': 125,
+                        'numceps': 12,
+                        'numchans': 26,
+                        'preemcoef': 0.97,
+                        'sil_model': '/mnt/h/jurcicek/vystadial-git/alex/resources/vad/voip_en/vad_sil_sds_mfcc_m064_f100000.gmm',
+                        'speech_model': '/mnt/h/jurcicek/vystadial-git/alex/resources/vad/voip_en/vad_speech_sds_mfcc_m064_f100000.gmm',
+                        'useacc': True,
+                        'usec0': False,
+                        'usecmn': False,
+                        'usedelta': True,
+                        'usehamming': True,
+                        'usepower': True,
+                        'zmeansource': True},
+               'power': { 'adaptation_frames': 30, 'threshold': 70, 'threshold_multiplier': 1.0},
+               'speech_buffer_frames': 20,
+               'type': 'gmm'},
+      'VoipHub': { 'blacklist_for': 7200,
+                   'call_db': u'/net/projects/vystadial/data/call-logs/2013-05-30-alex-aotb-prototype/new/call_db.pckl',
+                   'hard_time_limit': 360,
+                   'hard_turn_limit': 120,
+                   'history_length': 1000,
+                   'last_period_max_num_calls': 20,
+                   'last_period_max_total_time': 1800,
+                   'limit_reached_message': u'D\u011bkujeme za zavol\xe1n\xed, ale u\u017e jste volali hodn\u011b. Pros\xedm zavolejte pozd\u011bji. Na shledanou.',
+                   'period': 172800,
+                   'pid_file': u'/net/projects/vystadial/data/call-logs/2013-05-30-alex-aotb-prototype/new/vhub_live.pid',
+                   'wait_time_before_calling_back': 10},
+      'VoipIO': { 'allowed_hosts': '',
+                  'allowed_phone_numbers': '(^[234567])',
+                  'allowed_users': '(^[234567])',
+                  'debug': True,
+                  'domain': 'vystadial.ms.mff.cuni.cz',
+                  'forbidden_hosts': '',
+                  'forbidden_phone_number': '(^112$|^150$|^155$|^156$|^158$)',
+                  'forbidden_users': '(^112$|^150$|^155$|^156$|^158$)',
+    # this line was removed since it included a password
+                  'pjsip_log_level': 3,
+                  'reject_calls': False,
+                  'user': '800899998'},
+      'WebHub': { 'port': 8000},
+      'corpustools': { 'get_jasr_confnets': { 'frame_size': 256, 'rt_ratio': 0.2}}}
+-->
+    </config>
+    <dialogue_rec endtime="242.813" fname="all-2013-07-19-00-34-46.017427.played.wav" speaker="system" starttime="0.002"/>
+    <dialogue_rec endtime="243.029" fname="all-2013-07-19-00-34-46.017427.recorded.wav" speaker="user" starttime="0.006"/>
+    <header>
+        <host>kronos</host>
+        <date>2013-07-19 00:34:46 CEST</date>
+        <system>Alex On The Bus - Live</system>
+        <version>1.0</version>
+        <input_source type="voip"/>
+    </header>
+    <turn speaker="system" time="0.072" turn_number="1">
+        <dialogue_state>
+            <slot name="ludait">none</slot>
+        </dialogue_state>
+        <dialogue_act time="0.083">hello()</dialogue_act>
+        <text time="0.103">Dobrý den. Tato experimentální služba je poskytována laboratoří výzkumu hlasových dialogových systémů na Ústavu Formální a Aplikované Lingvistiky na Karlově Univerzitě. Hovor je nahráván. Více informací o této službě je na internetu. Jak Vám mohu pomoci. </text>
+        <rec fname="tts-2013-07-19-00-34-46.147692.wav" starttime="0.116"/>
+    </turn>
+    <turn speaker="user" time="0.821" turn_number="1">
+        <rec endtime="1.460" fname="vad-2013-07-19-00-34-46.858161.wav" starttime="0.828"/>
+        <asr>
+            <hypothesis p="1.000">__silence__</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">silence()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <interpretation p="0.000">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">silence()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="1.864" turn_number="2">
+        <dialogue_state>
+            <slot name="ludait">silence</slot>
+            <slot name="silence_time">0.0</slot>
+        </dialogue_state>
+        <dialogue_act time="1.886">silence()</dialogue_act>
+    </turn>
+    <turn speaker="user" time="21.234" turn_number="2">
+        <rec endtime="23.908" fname="vad-2013-07-19-00-35-07.270059.wav" starttime="21.243"/>
+        <asr>
+            <hypothesis p="0.526">potřebuju spojení s poliklinika modřany</hypothesis>
+            <hypothesis p="0.068">potřebuju spojení poliklinika modřany</hypothesis>
+            <hypothesis p="0.062">potřebuju aspoň poliklinika modřany</hypothesis>
+            <hypothesis p="0.057">potřebuju spojeních poliklinika modřany</hypothesis>
+            <hypothesis p="0.052">potřebu spojení s poliklinika modřany</hypothesis>
+            <hypothesis p="0.047">potřebuju spodních poliklinika modřany</hypothesis>
+            <hypothesis p="0.042">potřebuju spojit poliklinika modřany</hypothesis>
+            <hypothesis p="0.036">potřebuji spojení s poliklinika modřany</hypothesis>
+            <hypothesis p="0.031">potřebu spojení poliklinika modřany</hypothesis>
+            <hypothesis p="0.026">potřebuji spojení poliklinika modřany</hypothesis>
+            <hypothesis p="0.021">potřebu spojeních poliklinika modřany</hypothesis>
+            <hypothesis p="0.016">potřeboval spojení s poliklinika modřany</hypothesis>
+            <hypothesis p="0.010">potřebu spodních poliklinika modřany</hypothesis>
+            <hypothesis p="0.005">potřeboval spojení poliklinika modřany</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">inform(=&quot;Poliklinika Modřany&quot;)</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <interpretation p="0.000">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">inform(=&quot;Poliklinika Modřany&quot;)</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="user" time="24.290" turn_number="3">
+        <rec endtime="25.370" fname="vad-2013-07-19-00-35-10.326322.wav" starttime="24.302"/>
+        <asr>
+            <hypothesis p="0.264">haná</hypothesis>
+            <hypothesis p="0.211">an a</hypothesis>
+            <hypothesis p="0.208">n a</hypothesis>
+            <hypothesis p="0.158">anál a</hypothesis>
+            <hypothesis p="0.106">aná</hypothesis>
+            <hypothesis p="0.053">anna</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">other()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">other()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="user" time="25.588" turn_number="4">
+        <rec endtime="27.756" fname="vad-2013-07-19-00-35-11.623463.wav" starttime="25.617"/>
+        <asr>
+            <hypothesis p="0.388">a lá</hypothesis>
+            <hypothesis p="0.111">a já</hypothesis>
+            <hypothesis p="0.100">a lá ní</hypothesis>
+            <hypothesis p="0.089">h h</hypothesis>
+            <hypothesis p="0.078">a lá lá</hypothesis>
+            <hypothesis p="0.067">a vá</hypothesis>
+            <hypothesis p="0.056">a lá lá ní</hypothesis>
+            <hypothesis p="0.045">já vá</hypothesis>
+            <hypothesis p="0.033">h h h</hypothesis>
+            <hypothesis p="0.022">k vá</hypothesis>
+            <hypothesis p="0.011">a lá lá lá ní</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">other()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">other()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="25.642" turn_number="3">
+        <dialogue_state>
+            <slot name="ludait">none</slot>
+            <slot name="silence_time">0.0</slot>
+        </dialogue_state>
+        <dialogue_act time="25.688">request(time)</dialogue_act>
+        <text time="25.722">Kdy chcete jet?</text>
+        <rec fname="tts-2013-07-19-00-35-11.772608.wav" starttime="25.746"/>
+    </turn>
+    <turn speaker="system" time="26.346" turn_number="4">
+        <dialogue_state>
+            <slot name="ludait">other</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_stop">none</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_stop">none</slot>
+        </dialogue_state>
+        <dialogue_act time="26.392">notunderstood()&amp;help(inform=&quot;from_stop&quot;)</dialogue_act>
+        <barge-in time="26.427"/>
+        <text time="26.495">Promiňte, nerozuměla jsem. Můžete například říct chtěl bych jet ze zastávky poliklinika Barrandov.</text>
+        <rec fname="tts-2013-07-19-00-35-12.548990.wav" starttime="26.526"/>
+    </turn>
+    <turn speaker="system" time="29.641" turn_number="5">
+        <dialogue_state>
+            <slot name="ludait">other</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_stop">none</slot>
+            <slot name="route_alternative">none</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_stop">none</slot>
+        </dialogue_state>
+        <dialogue_act time="29.689">notunderstood()&amp;help(request=&quot;help&quot;)</dialogue_act>
+        <barge-in time="29.734"/>
+        <text time="29.805">Promiňte, nerozuměla jsem. Můžete se zeptat na nápovědu nebo požádat o pomoc.</text>
+        <rec fname="tts-2013-07-19-00-35-15.860899.wav" starttime="29.843"/>
+    </turn>
+    <turn speaker="user" time="30.440" turn_number="5">
+        <rec endtime="30.888" fname="vad-2013-07-19-00-35-16.466779.wav" starttime="30.463"/>
+        <asr>
+            <hypothesis p="1.000">__silence__</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">silence()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <interpretation p="0.000">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">silence()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="31.263" turn_number="6">
+        <dialogue_state>
+            <slot name="ludait">silence</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_stop">none</slot>
+            <slot name="route_alternative">none</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_stop">none</slot>
+        </dialogue_state>
+        <dialogue_act time="31.328">silence()</dialogue_act>
+    </turn>
+    <turn speaker="user" time="37.360" turn_number="6">
+        <rec endtime="38.521" fname="vad-2013-07-19-00-35-23.389711.wav" starttime="37.391"/>
+        <asr>
+            <hypothesis p="0.810">jedu zítra</hypothesis>
+            <hypothesis p="0.047">jedu trám</hypothesis>
+            <hypothesis p="0.041">jedu do drá</hypothesis>
+            <hypothesis p="0.034">jedu tra</hypothesis>
+            <hypothesis p="0.027">jedu do pra</hypothesis>
+            <hypothesis p="0.020">jedu do tra</hypothesis>
+            <hypothesis p="0.014">jedu na tra</hypothesis>
+            <hypothesis p="0.007">jedu z tra</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">other()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">other()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="user" time="39.614" turn_number="7">
+        <rec endtime="40.746" fname="vad-2013-07-19-00-35-25.642263.wav" starttime="39.641"/>
+        <asr>
+            <hypothesis p="0.392">10 hodin</hypothesis>
+            <hypothesis p="0.064">deset hodin</hypothesis>
+            <hypothesis p="0.060">kde je hodin</hypothesis>
+            <hypothesis p="0.057">dnes je hodin</hypothesis>
+            <hypothesis p="0.053">kdo je hodin</hypothesis>
+            <hypothesis p="0.050">když je hodin</hypothesis>
+            <hypothesis p="0.046">zde je hodin</hypothesis>
+            <hypothesis p="0.043">kde se hodin</hypothesis>
+            <hypothesis p="0.039">10 hodiny</hypothesis>
+            <hypothesis p="0.036">kde se narodil</hypothesis>
+            <hypothesis p="0.032">zde se hodin</hypothesis>
+            <hypothesis p="0.028">kde se hodiny</hypothesis>
+            <hypothesis p="0.025">kdy se hodin</hypothesis>
+            <hypothesis p="0.021">kdo se hodin</hypothesis>
+            <hypothesis p="0.018">když se hodin</hypothesis>
+            <hypothesis p="0.014">zde se hodiny</hypothesis>
+            <hypothesis p="0.011">kdy se hodiny</hypothesis>
+            <hypothesis p="0.007">kdo se hodiny</hypothesis>
+            <hypothesis p="0.004">když se hodiny</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">other()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">other()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="39.857" turn_number="7">
+        <dialogue_state>
+            <slot name="ludait">other</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_stop">none</slot>
+            <slot name="route_alternative">none</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_stop">none</slot>
+        </dialogue_state>
+        <dialogue_act time="39.926">notunderstood()&amp;help(inform=&quot;from_stop&quot;)</dialogue_act>
+        <text time="39.983">Nerozuměla jsem. Můžete to zopakovat? Můžete například říct ze zastávky poliklinika Barrandov.</text>
+        <rec fname="tts-2013-07-19-00-35-26.043224.wav" starttime="40.022"/>
+    </turn>
+    <turn speaker="system" time="42.463" turn_number="8">
+        <dialogue_state>
+            <slot name="ludait">other</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_stop">none</slot>
+            <slot name="route_alternative">none</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_stop">none</slot>
+        </dialogue_state>
+        <dialogue_act time="42.537">notunderstood()&amp;help(inform=&quot;from_stop&quot;)</dialogue_act>
+        <barge-in time="42.585"/>
+        <text time="42.734">Nerozuměla jsem. Můžete například říct ze zastávky poliklinika Barrandov.</text>
+        <rec fname="tts-2013-07-19-00-35-28.798961.wav" starttime="42.783"/>
+    </turn>
+    <turn speaker="user" time="49.774" turn_number="8">
+        <rec endtime="51.895" fname="vad-2013-07-19-00-35-35.798575.wav" starttime="49.817"/>
+        <asr>
+            <hypothesis p="0.836">zastávky poliklinika modřany</hypothesis>
+            <hypothesis p="0.027">zastávka poliklinika modřany</hypothesis>
+            <hypothesis p="0.025">letáky poliklinika modřany</hypothesis>
+            <hypothesis p="0.022">já taky poliklinika modřany</hypothesis>
+            <hypothesis p="0.020">rozprávky poliklinika modřany</hypothesis>
+            <hypothesis p="0.017">zastávky poliklinika modřany i</hypothesis>
+            <hypothesis p="0.015">zastávky poliklinika modřany a</hypothesis>
+            <hypothesis p="0.012">zastávky poliklinika modřany e</hypothesis>
+            <hypothesis p="0.010">za statky poliklinika modřany</hypothesis>
+            <hypothesis p="0.007">zastávka poliklinika modřany i</hypothesis>
+            <hypothesis p="0.005">letáky poliklinika modřany i</hypothesis>
+            <hypothesis p="0.002">já taky poliklinika modřany i</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="0.980">inform(=&quot;Poliklinika Modřany&quot;)</interpretation>
+            <interpretation p="0.010">null()</interpretation>
+            <interpretation p="0.010">inform(=&quot;Poliklinika Modřany&quot;)&amp;inform(from_stop=&quot;Poliklinika Modřany&quot;)</interpretation>
+            <interpretation p="0.000">inform(from_stop=&quot;Poliklinika Modřany&quot;)</interpretation>
+            <interpretation p="0.000">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="0.990">inform(=&quot;Poliklinika Modřany&quot;)</dai>
+                    <dai p="0.010">null()</dai>
+                </dai_alternatives>
+                <dai_alternatives>
+                    <dai p="0.010">inform(from_stop=&quot;Poliklinika Modřany&quot;)</dai>
+                    <dai p="0.990">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="53.543" turn_number="9">
+        <dialogue_state>
+            <slot name="ludait">none</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_stop">none</slot>
+            <slot name="route_alternative">none</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_stop">none</slot>
+        </dialogue_state>
+        <dialogue_act time="53.701">request(from_stop)&amp;request(to_stop)</dialogue_act>
+        <text time="53.756">Odkud a kam chcete jet?</text>
+        <rec fname="tts-2013-07-19-00-35-39.820719.wav" starttime="53.807"/>
+    </turn>
+    <turn speaker="user" time="54.063" turn_number="9">
+        <rec endtime="54.838" fname="vad-2013-07-19-00-35-40.085093.wav" starttime="54.207"/>
+        <asr>
+            <hypothesis p="0.293">ná</hypothesis>
+            <hypothesis p="0.267">na</hypothesis>
+            <hypothesis p="0.220">zná</hypothesis>
+            <hypothesis p="0.147">nahá</hypothesis>
+            <hypothesis p="0.073">jana</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">other()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">other()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="55.719" turn_number="10">
+        <dialogue_state>
+            <slot name="ludait">other</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">none</slot>
+            <slot name="route_alternative">none</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_centre">none</slot>
+            <slot name="to_stop">none</slot>
+        </dialogue_state>
+        <dialogue_act time="55.818">notunderstood()&amp;help(inform=&quot;from_stop&quot;)</dialogue_act>
+        <barge-in time="55.882"/>
+        <text time="55.984">Nerozuměla jsem. Ještě jednou prosím. Můžete například říct chtěl bych jet ze zastávky Malostranské náměstí.</text>
+        <rec fname="tts-2013-07-19-00-35-42.056183.wav" starttime="56.044"/>
+    </turn>
+    <turn speaker="user" time="57.206" turn_number="10">
+        <rec endtime="57.544" fname="vad-2013-07-19-00-35-43.222773.wav" starttime="57.259"/>
+        <asr>
+            <hypothesis p="1.000">__silence__</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">silence()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <interpretation p="0.000">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">silence()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="user" time="57.836" turn_number="11">
+        <rec endtime="58.685" fname="vad-2013-07-19-00-35-43.853621.wav" starttime="57.941"/>
+        <asr>
+            <hypothesis p="1.000">__silence__</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">silence()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <interpretation p="0.000">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">silence()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="58.070" turn_number="11">
+        <dialogue_state>
+            <slot name="ludait">silence</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">none</slot>
+            <slot name="route_alternative">none</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_centre">none</slot>
+            <slot name="to_stop">none</slot>
+        </dialogue_state>
+        <dialogue_act time="58.173">silence()</dialogue_act>
+    </turn>
+    <turn speaker="system" time="59.120" turn_number="12">
+        <dialogue_state>
+            <slot name="ludait">silence</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">none</slot>
+            <slot name="route_alternative">none</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_centre">none</slot>
+            <slot name="to_stop">none</slot>
+        </dialogue_state>
+        <dialogue_act time="59.234">silence()</dialogue_act>
+    </turn>
+    <turn speaker="user" time="66.244" turn_number="12">
+        <rec endtime="69.479" fname="vad-2013-07-19-00-35-52.264133.wav" starttime="66.297"/>
+        <asr>
+            <hypothesis p="0.791">televize v zastávky poliklinika modřany</hypothesis>
+            <hypothesis p="0.070">televize v zastávka poliklinika modřany</hypothesis>
+            <hypothesis p="0.056">televize v zastávce poliklinika modřany</hypothesis>
+            <hypothesis p="0.042">televize v zastávku poliklinika modřany</hypothesis>
+            <hypothesis p="0.028">televize byla stávka poliklinika modřany</hypothesis>
+            <hypothesis p="0.014">televize v zastávky poliklinika modřany i</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">inform(=&quot;Poliklinika Modřany&quot;)</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <interpretation p="0.000">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">inform(=&quot;Poliklinika Modřany&quot;)</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="user" time="70.178" turn_number="13">
+        <rec endtime="71.598" fname="vad-2013-07-19-00-35-56.204660.wav" starttime="70.207"/>
+        <asr>
+            <hypothesis p="0.933">na zastávku</hypothesis>
+            <hypothesis p="0.022">na zastávku a</hypothesis>
+            <hypothesis p="0.018">na zastávku u</hypothesis>
+            <hypothesis p="0.013">na zastávku i</hypothesis>
+            <hypothesis p="0.009">na zastávku a i</hypothesis>
+            <hypothesis p="0.004">na zastávku u i</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">other()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">other()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="70.678" turn_number="13">
+        <dialogue_state>
+            <slot name="ludait">none</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">none</slot>
+            <slot name="route_alternative">none</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_centre">none</slot>
+            <slot name="to_stop">none</slot>
+        </dialogue_state>
+        <dialogue_act time="70.741">request(from_stop)&amp;request(to_stop)</dialogue_act>
+        <text time="70.789">Odkud a kam chcete jet?</text>
+        <rec fname="tts-2013-07-19-00-35-56.849111.wav" starttime="70.828"/>
+    </turn>
+    <turn speaker="user" time="72.035" turn_number="14">
+        <rec endtime="73.604" fname="vad-2013-07-19-00-35-58.061210.wav" starttime="72.065"/>
+        <asr>
+            <hypothesis p="0.829">masarykovo nádraží</hypothesis>
+            <hypothesis p="0.049">masarykova nádraží</hypothesis>
+            <hypothesis p="0.041">masarykovo nádraž</hypothesis>
+            <hypothesis p="0.033">masarykovo nádraží i</hypothesis>
+            <hypothesis p="0.024">masarykovo nám draží</hypothesis>
+            <hypothesis p="0.016">masarykova nádraží i</hypothesis>
+            <hypothesis p="0.008">masarykovo nádraž i</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="0.859">inform(=&quot;Masarykovo nádraží&quot;)</interpretation>
+            <interpretation p="0.068">null()</interpretation>
+            <interpretation p="0.068">inform(=&quot;Masarykovo nádraží&quot;)&amp;other()</interpretation>
+            <interpretation p="0.005">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="0.927">inform(=&quot;Masarykovo nádraží&quot;)</dai>
+                    <dai p="0.073">null()</dai>
+                </dai_alternatives>
+                <dai_alternatives>
+                    <dai p="0.073">other()</dai>
+                    <dai p="0.927">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="72.417" turn_number="14">
+        <dialogue_state>
+            <slot name="ludait">other</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">none</slot>
+            <slot name="route_alternative">none</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_centre">none</slot>
+            <slot name="to_stop">none</slot>
+        </dialogue_state>
+        <dialogue_act time="72.484">notunderstood()&amp;help(inform=&quot;time&quot;)</dialogue_act>
+        <barge-in time="72.526"/>
+        <text time="72.650">Nerozuměla jsem. Ještě jednou prosím. Můžete například říct v kolik hodin chcete jet.</text>
+        <rec fname="tts-2013-07-19-00-35-58.740967.wav" starttime="72.741"/>
+    </turn>
+    <turn speaker="system" time="74.737" turn_number="15">
+        <dialogue_state>
+            <slot name="ludait">none</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">none</slot>
+            <slot name="route_alternative">none</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_centre">none</slot>
+            <slot name="to_stop">none</slot>
+        </dialogue_state>
+        <dialogue_act time="74.979">request(from_stop)</dialogue_act>
+        <barge-in time="75.110"/>
+        <text time="75.236">Z jaké zastávky chcete jet?</text>
+        <rec fname="tts-2013-07-19-00-36-01.327808.wav" starttime="75.405"/>
+    </turn>
+    <turn speaker="user" time="79.418" turn_number="15">
+        <rec endtime="81.342" fname="vad-2013-07-19-00-36-05.442394.wav" starttime="79.508"/>
+        <asr>
+            <hypothesis p="0.897">poliklinika modřany</hypothesis>
+            <hypothesis p="0.026">5 poliklinika modřany</hypothesis>
+            <hypothesis p="0.022">poliklinika modřany i</hypothesis>
+            <hypothesis p="0.018">svět poliklinika modřany</hypothesis>
+            <hypothesis p="0.015">i poliklinika modřany</hypothesis>
+            <hypothesis p="0.011">herec poliklinika modřany</hypothesis>
+            <hypothesis p="0.007">youtube poliklinika modřany</hypothesis>
+            <hypothesis p="0.004">poliklinika modřany a</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">inform(=&quot;Poliklinika Modřany&quot;)</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <interpretation p="0.000">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">inform(=&quot;Poliklinika Modřany&quot;)</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="82.685" turn_number="16">
+        <dialogue_state>
+            <slot name="ludait">none</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">Poliklinika Modřany</slot>
+            <slot name="route_alternative">none</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_centre">none</slot>
+            <slot name="to_stop">none</slot>
+        </dialogue_state>
+        <dialogue_act time="82.759">iconfirm(from_stop=&quot;Poliklinika Modřany&quot;)&amp;request(to_stop)</dialogue_act>
+        <text time="82.810">Chcete jet ze zastávky Poliklinika Modřany. Do jaké zastávky chcete jet?</text>
+        <rec fname="tts-2013-07-19-00-36-08.874159.wav" starttime="82.854"/>
+    </turn>
+    <turn speaker="user" time="93.391" turn_number="16">
+        <rec endtime="94.974" fname="vad-2013-07-19-00-36-19.400998.wav" starttime="93.460"/>
+        <asr>
+            <hypothesis p="0.883">masarykovo nádraží</hypothesis>
+            <hypothesis p="0.026">masarykova nádraží</hypothesis>
+            <hypothesis p="0.023">masarykovo nám draží</hypothesis>
+            <hypothesis p="0.019">masarykovo nádraží i</hypothesis>
+            <hypothesis p="0.016">masarykova nádraží i</hypothesis>
+            <hypothesis p="0.013">masarykovo nám draží i</hypothesis>
+            <hypothesis p="0.010">masarykovo nádraží i i</hypothesis>
+            <hypothesis p="0.006">masarykova nádraží i i</hypothesis>
+            <hypothesis p="0.003">masarykovo nám draží i i</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="0.924">inform(=&quot;Masarykovo nádraží&quot;)</interpretation>
+            <interpretation p="0.037">null()</interpretation>
+            <interpretation p="0.037">inform(=&quot;Masarykovo nádraží&quot;)&amp;other()</interpretation>
+            <interpretation p="0.002">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="0.961">inform(=&quot;Masarykovo nádraží&quot;)</dai>
+                    <dai p="0.039">null()</dai>
+                </dai_alternatives>
+                <dai_alternatives>
+                    <dai p="0.039">other()</dai>
+                    <dai p="0.961">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="96.140" turn_number="17">
+        <dialogue_state>
+            <slot name="ludait">none</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">Poliklinika Modřany</slot>
+            <slot name="route_alternative">none</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_centre">none</slot>
+            <slot name="to_stop">Masarykovo nádraží</slot>
+            <slot name="rh_from_stop">system-informed</slot>
+            <slot name="ch_from_stop">system-informed</slot>
+            <slot name="sh_from_stop">system-informed</slot>
+        </dialogue_state>
+        <dialogue_act time="96.628">iconfirm(to_stop=&quot;Masarykovo nádraží&quot;)&amp;inform(found_directions=&quot;true&quot;)&amp;inform(alternative=&quot;1&quot;)&amp;inform(vehicle=&quot;TRAM&quot;)&amp;inform(line=&quot;52&quot;)&amp;inform(go_at=&quot;12:49&quot;)&amp;inform(enter_at=&quot;Poliklinika Modřany&quot;)&amp;inform(headsign=&quot;Lehovec&quot;)&amp;inform(exit_at=&quot;Masarykovo nádraží&quot;)</dialogue_act>
+        <text time="96.818">Do zastávky Masarykovo nádraží. Našla jsem následující spojení. Možnost první. Jeďte tramvají číslo 52 v 12:49 ze zastávky Poliklinika Modřany směrem Lehovec. Vystupte na zastávce Masarykovo nádraží.</text>
+        <rec fname="tts-2013-07-19-00-36-22.907578.wav" starttime="96.903"/>
+    </turn>
+    <turn speaker="system" time="118.222" turn_number="18">
+        <dialogue_act time="118.267">silence()</dialogue_act>
+    </turn>
+    <turn speaker="user" time="118.450" turn_number="17">
+        <rec endtime="119.300" fname="vad-2013-07-19-00-36-44.473239.wav" starttime="118.493"/>
+        <asr>
+            <hypothesis p="0.331">ty spoje</hypothesis>
+            <hypothesis p="0.249">display</hypothesis>
+            <hypothesis p="0.171">spoj</hypothesis>
+            <hypothesis p="0.166">spoje</hypothesis>
+            <hypothesis p="0.083">spojit</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">other()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">other()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="user" time="119.477" turn_number="18">
+        <rec endtime="121.020" fname="vad-2013-07-19-00-36-45.485413.wav" starttime="119.571"/>
+        <asr>
+            <hypothesis p="0.530">zítra v 10 hodin</hypothesis>
+            <hypothesis p="0.052">zítra deset hodin</hypothesis>
+            <hypothesis p="0.049">zítra v deset hodin</hypothesis>
+            <hypothesis p="0.046">zítra v 7 hodin</hypothesis>
+            <hypothesis p="0.043">zítra v sedm hodin</hypothesis>
+            <hypothesis p="0.040">zítra v 10 hodin a</hypothesis>
+            <hypothesis p="0.037">zítra v 10 hodin i</hypothesis>
+            <hypothesis p="0.034">zítra deset hodin a</hypothesis>
+            <hypothesis p="0.031">zítra deset hodin i</hypothesis>
+            <hypothesis p="0.028">zítra 10 hodin a</hypothesis>
+            <hypothesis p="0.025">zítra v deset hodin a</hypothesis>
+            <hypothesis p="0.022">zítra v deset hodin i</hypothesis>
+            <hypothesis p="0.018">zítra v 7 hodin a</hypothesis>
+            <hypothesis p="0.015">zítra v sedm hodin a</hypothesis>
+            <hypothesis p="0.012">zítra v 7 hodin i</hypothesis>
+            <hypothesis p="0.009">zítra v sedm hodin i</hypothesis>
+            <hypothesis p="0.006">zítra 7 hodin a</hypothesis>
+            <hypothesis p="0.003">zítra v 10 hodi i</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="0.707">other()</interpretation>
+            <interpretation p="0.137">null()</interpretation>
+            <interpretation p="0.074">other()&amp;inform(time=&quot;10:00&quot;)</interpretation>
+            <interpretation p="0.051">other()&amp;inform(time=&quot;7:00&quot;)</interpretation>
+            <interpretation p="0.014">inform(time=&quot;10:00&quot;)</interpretation>
+            <interpretation p="0.010">inform(time=&quot;7:00&quot;)</interpretation>
+            <interpretation p="0.005">other()&amp;inform(time=&quot;10:00&quot;)&amp;inform(time=&quot;7:00&quot;)</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="0.837">other()</dai>
+                    <dai p="0.163">null()</dai>
+                </dai_alternatives>
+                <dai_alternatives>
+                    <dai p="0.095">inform(time=&quot;10:00&quot;)</dai>
+                    <dai p="0.905">null()</dai>
+                </dai_alternatives>
+                <dai_alternatives>
+                    <dai p="0.068">inform(time=&quot;7:00&quot;)</dai>
+                    <dai p="0.932">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="120.602" turn_number="19">
+        <dialogue_state>
+            <slot name="ludait">other</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">Poliklinika Modřany</slot>
+            <slot name="route_alternative">0</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_centre">none</slot>
+            <slot name="to_stop">Masarykovo nádraží</slot>
+            <slot name="rh_alternative">system-informed</slot>
+            <slot name="rh_enter_at">system-informed</slot>
+            <slot name="rh_exit_at">system-informed</slot>
+            <slot name="rh_found_directions">system-informed</slot>
+            <slot name="rh_from_stop">system-informed</slot>
+            <slot name="rh_go_at">system-informed</slot>
+            <slot name="rh_headsign">system-informed</slot>
+            <slot name="rh_line">system-informed</slot>
+            <slot name="rh_to_stop">system-informed</slot>
+            <slot name="rh_vehicle">system-informed</slot>
+            <slot name="ch_alternative">system-informed</slot>
+            <slot name="ch_enter_at">system-informed</slot>
+            <slot name="ch_exit_at">system-informed</slot>
+            <slot name="ch_found_directions">system-informed</slot>
+            <slot name="ch_from_stop">system-informed</slot>
+            <slot name="ch_go_at">system-informed</slot>
+            <slot name="ch_headsign">system-informed</slot>
+            <slot name="ch_line">system-informed</slot>
+            <slot name="ch_to_stop">system-informed</slot>
+            <slot name="ch_vehicle">system-informed</slot>
+            <slot name="sh_alternative">system-informed</slot>
+            <slot name="sh_enter_at">system-informed</slot>
+            <slot name="sh_exit_at">system-informed</slot>
+            <slot name="sh_found_directions">system-informed</slot>
+            <slot name="sh_from_stop">system-informed</slot>
+            <slot name="sh_go_at">system-informed</slot>
+            <slot name="sh_headsign">system-informed</slot>
+            <slot name="sh_line">system-informed</slot>
+            <slot name="sh_to_stop">system-informed</slot>
+            <slot name="sh_vehicle">system-informed</slot>
+        </dialogue_state>
+        <dialogue_act time="120.803">notunderstood()</dialogue_act>
+        <text time="120.908">Nerozuměla jsem.</text>
+        <rec fname="tts-2013-07-19-00-36-47.002589.wav" starttime="121.109"/>
+    </turn>
+    <turn speaker="user" time="121.528" turn_number="19">
+        <rec endtime="123.059" fname="vad-2013-07-19-00-36-47.460939.wav" starttime="121.835"/>
+        <asr>
+            <hypothesis p="0.592">dneska</hypothesis>
+            <hypothesis p="0.163">dneska 10</hypothesis>
+            <hypothesis p="0.122">dneska 10 let</hypothesis>
+            <hypothesis p="0.082">blesk</hypothesis>
+            <hypothesis p="0.041">dneska deset let</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="0.700">other()</interpretation>
+            <interpretation p="0.136">other()&amp;inform(=&quot;Lety&quot;)</interpretation>
+            <interpretation p="0.136">null()</interpretation>
+            <interpretation p="0.027">inform(=&quot;Lety&quot;)</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="0.837">other()</dai>
+                    <dai p="0.163">null()</dai>
+                </dai_alternatives>
+                <dai_alternatives>
+                    <dai p="0.163">inform(=&quot;Lety&quot;)</dai>
+                    <dai p="0.837">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="123.471" turn_number="20">
+        <dialogue_state>
+            <slot name="ludait">other</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">Poliklinika Modřany</slot>
+            <slot name="route_alternative">0</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_centre">none</slot>
+            <slot name="to_stop">Masarykovo nádraží</slot>
+            <slot name="rh_alternative">system-informed</slot>
+            <slot name="rh_enter_at">system-informed</slot>
+            <slot name="rh_exit_at">system-informed</slot>
+            <slot name="rh_found_directions">system-informed</slot>
+            <slot name="rh_from_stop">system-informed</slot>
+            <slot name="rh_go_at">system-informed</slot>
+            <slot name="rh_headsign">system-informed</slot>
+            <slot name="rh_line">system-informed</slot>
+            <slot name="rh_to_stop">system-informed</slot>
+            <slot name="rh_vehicle">system-informed</slot>
+            <slot name="ch_alternative">system-informed</slot>
+            <slot name="ch_enter_at">system-informed</slot>
+            <slot name="ch_exit_at">system-informed</slot>
+            <slot name="ch_found_directions">system-informed</slot>
+            <slot name="ch_from_stop">system-informed</slot>
+            <slot name="ch_go_at">system-informed</slot>
+            <slot name="ch_headsign">system-informed</slot>
+            <slot name="ch_line">system-informed</slot>
+            <slot name="ch_to_stop">system-informed</slot>
+            <slot name="ch_vehicle">system-informed</slot>
+            <slot name="sh_alternative">system-informed</slot>
+            <slot name="sh_enter_at">system-informed</slot>
+            <slot name="sh_exit_at">system-informed</slot>
+            <slot name="sh_found_directions">system-informed</slot>
+            <slot name="sh_from_stop">system-informed</slot>
+            <slot name="sh_go_at">system-informed</slot>
+            <slot name="sh_headsign">system-informed</slot>
+            <slot name="sh_line">system-informed</slot>
+            <slot name="sh_to_stop">system-informed</slot>
+            <slot name="sh_vehicle">system-informed</slot>
+        </dialogue_state>
+        <dialogue_act time="123.844">notunderstood()&amp;help(inform=&quot;alternative_abs&quot;)</dialogue_act>
+        <text time="124.092">Promiňte, nerozuměla jsem. Můžete to zopakovat? Můžete mě požádat o zopakování konkrétního spoje, například řekněte, první spoj, nebo řekněte druhá možnost.</text>
+        <rec fname="tts-2013-07-19-00-36-50.164043.wav" starttime="124.230"/>
+    </turn>
+    <turn speaker="user" time="123.977" turn_number="20">
+        <rec endtime="125.129" fname="vad-2013-07-19-00-36-49.727402.wav" starttime="124.157"/>
+        <asr>
+            <hypothesis p="0.528">deset hodin dopoledne</hypothesis>
+            <hypothesis p="0.135">10 hodin dopoledne</hypothesis>
+            <hypothesis p="0.112">10 dopoledne</hypothesis>
+            <hypothesis p="0.090">deset hodin dopoledne i</hypothesis>
+            <hypothesis p="0.067">10 hodin dopoledne i</hypothesis>
+            <hypothesis p="0.045">deset hodin dopoledne a</hypothesis>
+            <hypothesis p="0.022">10 hodin dopoledne a</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">other()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">other()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="124.425" turn_number="21">
+        <dialogue_state>
+            <slot name="ludait">other</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">Poliklinika Modřany</slot>
+            <slot name="route_alternative">0</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_centre">none</slot>
+            <slot name="to_stop">Masarykovo nádraží</slot>
+            <slot name="rh_alternative">system-informed</slot>
+            <slot name="rh_enter_at">system-informed</slot>
+            <slot name="rh_exit_at">system-informed</slot>
+            <slot name="rh_found_directions">system-informed</slot>
+            <slot name="rh_from_stop">system-informed</slot>
+            <slot name="rh_go_at">system-informed</slot>
+            <slot name="rh_headsign">system-informed</slot>
+            <slot name="rh_line">system-informed</slot>
+            <slot name="rh_to_stop">system-informed</slot>
+            <slot name="rh_vehicle">system-informed</slot>
+            <slot name="ch_alternative">system-informed</slot>
+            <slot name="ch_enter_at">system-informed</slot>
+            <slot name="ch_exit_at">system-informed</slot>
+            <slot name="ch_found_directions">system-informed</slot>
+            <slot name="ch_from_stop">system-informed</slot>
+            <slot name="ch_go_at">system-informed</slot>
+            <slot name="ch_headsign">system-informed</slot>
+            <slot name="ch_line">system-informed</slot>
+            <slot name="ch_to_stop">system-informed</slot>
+            <slot name="ch_vehicle">system-informed</slot>
+            <slot name="sh_alternative">system-informed</slot>
+            <slot name="sh_enter_at">system-informed</slot>
+            <slot name="sh_exit_at">system-informed</slot>
+            <slot name="sh_found_directions">system-informed</slot>
+            <slot name="sh_from_stop">system-informed</slot>
+            <slot name="sh_go_at">system-informed</slot>
+            <slot name="sh_headsign">system-informed</slot>
+            <slot name="sh_line">system-informed</slot>
+            <slot name="sh_to_stop">system-informed</slot>
+            <slot name="sh_vehicle">system-informed</slot>
+        </dialogue_state>
+        <dialogue_act time="124.536">notunderstood()&amp;help(inform=&quot;alternative_next&quot;)</dialogue_act>
+        <barge-in time="124.601"/>
+        <text time="124.723">Promiňte, nerozuměla jsem. Pokud chcete zjistit následující spoj, potom mě můžete požádat o další spoj.</text>
+        <rec fname="tts-2013-07-19-00-36-50.798377.wav" starttime="124.791"/>
+    </turn>
+    <turn speaker="system" time="126.192" turn_number="22">
+        <dialogue_state>
+            <slot name="ludait">other</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">Poliklinika Modřany</slot>
+            <slot name="route_alternative">0</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_centre">none</slot>
+            <slot name="to_stop">Masarykovo nádraží</slot>
+            <slot name="rh_alternative">system-informed</slot>
+            <slot name="rh_enter_at">system-informed</slot>
+            <slot name="rh_exit_at">system-informed</slot>
+            <slot name="rh_found_directions">system-informed</slot>
+            <slot name="rh_from_stop">system-informed</slot>
+            <slot name="rh_go_at">system-informed</slot>
+            <slot name="rh_headsign">system-informed</slot>
+            <slot name="rh_line">system-informed</slot>
+            <slot name="rh_to_stop">system-informed</slot>
+            <slot name="rh_vehicle">system-informed</slot>
+            <slot name="ch_alternative">system-informed</slot>
+            <slot name="ch_enter_at">system-informed</slot>
+            <slot name="ch_exit_at">system-informed</slot>
+            <slot name="ch_found_directions">system-informed</slot>
+            <slot name="ch_from_stop">system-informed</slot>
+            <slot name="ch_go_at">system-informed</slot>
+            <slot name="ch_headsign">system-informed</slot>
+            <slot name="ch_line">system-informed</slot>
+            <slot name="ch_to_stop">system-informed</slot>
+            <slot name="ch_vehicle">system-informed</slot>
+            <slot name="sh_alternative">system-informed</slot>
+            <slot name="sh_enter_at">system-informed</slot>
+            <slot name="sh_exit_at">system-informed</slot>
+            <slot name="sh_found_directions">system-informed</slot>
+            <slot name="sh_from_stop">system-informed</slot>
+            <slot name="sh_go_at">system-informed</slot>
+            <slot name="sh_headsign">system-informed</slot>
+            <slot name="sh_line">system-informed</slot>
+            <slot name="sh_to_stop">system-informed</slot>
+            <slot name="sh_vehicle">system-informed</slot>
+        </dialogue_state>
+        <dialogue_act time="126.528">notunderstood()</dialogue_act>
+        <barge-in time="126.600"/>
+        <text time="126.699">Promiňte, nerozuměla jsem.</text>
+        <rec fname="tts-2013-07-19-00-36-52.777395.wav" starttime="126.772"/>
+    </turn>
+    <turn speaker="user" time="130.116" turn_number="21">
+        <rec endtime="132.286" fname="vad-2013-07-19-00-36-56.133909.wav" starttime="130.172"/>
+        <asr>
+            <hypothesis p="0.396">5 10 hodin dopoledne</hypothesis>
+            <hypothesis p="0.110">svět deset hodin dopoledne</hypothesis>
+            <hypothesis p="0.099">svět 10 hodin dopoledne</hypothesis>
+            <hypothesis p="0.088">je deset hodin dopoledne</hypothesis>
+            <hypothesis p="0.077">co je deset hodin dopoledne</hypothesis>
+            <hypothesis p="0.066">deset hodin dopoledne</hypothesis>
+            <hypothesis p="0.055">10 hodin dopoledne</hypothesis>
+            <hypothesis p="0.044">je 10 hodin dopoledne</hypothesis>
+            <hypothesis p="0.033">co je 10 hodin dopoledne</hypothesis>
+            <hypothesis p="0.022">to je deset hodin dopoledne</hypothesis>
+            <hypothesis p="0.011">kde je deset hodin dopoledne</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">other()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">other()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="133.731" turn_number="23">
+        <dialogue_state>
+            <slot name="ludait">other</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">Poliklinika Modřany</slot>
+            <slot name="route_alternative">0</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_centre">none</slot>
+            <slot name="to_stop">Masarykovo nádraží</slot>
+            <slot name="rh_alternative">system-informed</slot>
+            <slot name="rh_enter_at">system-informed</slot>
+            <slot name="rh_exit_at">system-informed</slot>
+            <slot name="rh_found_directions">system-informed</slot>
+            <slot name="rh_from_stop">system-informed</slot>
+            <slot name="rh_go_at">system-informed</slot>
+            <slot name="rh_headsign">system-informed</slot>
+            <slot name="rh_line">system-informed</slot>
+            <slot name="rh_to_stop">system-informed</slot>
+            <slot name="rh_vehicle">system-informed</slot>
+            <slot name="ch_alternative">system-informed</slot>
+            <slot name="ch_enter_at">system-informed</slot>
+            <slot name="ch_exit_at">system-informed</slot>
+            <slot name="ch_found_directions">system-informed</slot>
+            <slot name="ch_from_stop">system-informed</slot>
+            <slot name="ch_go_at">system-informed</slot>
+            <slot name="ch_headsign">system-informed</slot>
+            <slot name="ch_line">system-informed</slot>
+            <slot name="ch_to_stop">system-informed</slot>
+            <slot name="ch_vehicle">system-informed</slot>
+            <slot name="sh_alternative">system-informed</slot>
+            <slot name="sh_enter_at">system-informed</slot>
+            <slot name="sh_exit_at">system-informed</slot>
+            <slot name="sh_found_directions">system-informed</slot>
+            <slot name="sh_from_stop">system-informed</slot>
+            <slot name="sh_go_at">system-informed</slot>
+            <slot name="sh_headsign">system-informed</slot>
+            <slot name="sh_line">system-informed</slot>
+            <slot name="sh_to_stop">system-informed</slot>
+            <slot name="sh_vehicle">system-informed</slot>
+        </dialogue_state>
+        <dialogue_act time="133.859">notunderstood()&amp;help(inform=&quot;alternative_next&quot;)</dialogue_act>
+        <text time="134.004">Nerozuměla jsem. Pokud chcete zjistit následující spoj, potom mě můžete požádat o další spoj.</text>
+        <rec fname="tts-2013-07-19-00-37-00.085219.wav" starttime="134.079"/>
+    </turn>
+    <turn speaker="user" time="142.864" turn_number="22">
+        <rec endtime="144.320" fname="vad-2013-07-19-00-37-08.801683.wav" starttime="142.925"/>
+        <asr>
+            <hypothesis p="0.896">řekni mi další spoj</hypothesis>
+            <hypothesis p="0.035">řekni další spoj</hypothesis>
+            <hypothesis p="0.028">řekni mi další spojení</hypothesis>
+            <hypothesis p="0.021">řekni mi další spoj i</hypothesis>
+            <hypothesis p="0.014">řekni mi další spoj a</hypothesis>
+            <hypothesis p="0.007">řekni další spojení</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="0.965">inform(alternative=&quot;next&quot;)&amp;reqalts()</interpretation>
+            <interpretation p="0.035">inform(alternative=&quot;next&quot;)</interpretation>
+            <interpretation p="0.000">reqalts()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <interpretation p="0.000">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">inform(alternative=&quot;next&quot;)</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+                <dai_alternatives>
+                    <dai p="0.965">reqalts()</dai>
+                    <dai p="0.035">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="145.287" turn_number="24">
+        <dialogue_state>
+            <slot name="ludait">reqalts</slot>
+            <slot name="alternative">next</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">Poliklinika Modřany</slot>
+            <slot name="route_alternative">0</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_centre">none</slot>
+            <slot name="to_stop">Masarykovo nádraží</slot>
+            <slot name="rh_alternative">system-informed</slot>
+            <slot name="rh_enter_at">system-informed</slot>
+            <slot name="rh_exit_at">system-informed</slot>
+            <slot name="rh_found_directions">system-informed</slot>
+            <slot name="rh_from_stop">system-informed</slot>
+            <slot name="rh_go_at">system-informed</slot>
+            <slot name="rh_headsign">system-informed</slot>
+            <slot name="rh_line">system-informed</slot>
+            <slot name="rh_to_stop">system-informed</slot>
+            <slot name="rh_vehicle">system-informed</slot>
+            <slot name="ch_alternative">system-informed</slot>
+            <slot name="ch_enter_at">system-informed</slot>
+            <slot name="ch_exit_at">system-informed</slot>
+            <slot name="ch_found_directions">system-informed</slot>
+            <slot name="ch_from_stop">system-informed</slot>
+            <slot name="ch_go_at">system-informed</slot>
+            <slot name="ch_headsign">system-informed</slot>
+            <slot name="ch_line">system-informed</slot>
+            <slot name="ch_to_stop">system-informed</slot>
+            <slot name="ch_vehicle">system-informed</slot>
+            <slot name="sh_alternative">system-informed</slot>
+            <slot name="sh_enter_at">system-informed</slot>
+            <slot name="sh_exit_at">system-informed</slot>
+            <slot name="sh_found_directions">system-informed</slot>
+            <slot name="sh_from_stop">system-informed</slot>
+            <slot name="sh_go_at">system-informed</slot>
+            <slot name="sh_headsign">system-informed</slot>
+            <slot name="sh_line">system-informed</slot>
+            <slot name="sh_to_stop">system-informed</slot>
+            <slot name="sh_vehicle">system-informed</slot>
+        </dialogue_state>
+        <dialogue_act time="145.550">inform(found_directions=&quot;true&quot;)&amp;inform(alternative=&quot;2&quot;)&amp;inform(vehicle=&quot;TRAM&quot;)&amp;inform(line=&quot;52&quot;)&amp;inform(go_at=&quot;01:19&quot;)&amp;inform(enter_at=&quot;Poliklinika Modřany&quot;)&amp;inform(headsign=&quot;Lehovec&quot;)&amp;inform(exit_at=&quot;Masarykovo nádraží&quot;)</dialogue_act>
+        <text time="145.667">Našla jsem následující spojení. Možnost druhá. Jeďte tramvají číslo 52 v 01:19 ze zastávky Poliklinika Modřany směrem Lehovec. Vystupte na zastávce Masarykovo nádraží.</text>
+        <rec fname="tts-2013-07-19-00-37-11.749800.wav" starttime="145.773"/>
+    </turn>
+    <turn speaker="user" time="163.555" turn_number="23">
+        <rec endtime="165.154" fname="vad-2013-07-19-00-37-29.538739.wav" starttime="163.686"/>
+        <asr>
+            <hypothesis p="0.691">zítra v 10 hodin</hypothesis>
+            <hypothesis p="0.069">zítra deset hodin</hypothesis>
+            <hypothesis p="0.060">zítra v deset hodin</hypothesis>
+            <hypothesis p="0.051">zítra v 7 hodin</hypothesis>
+            <hypothesis p="0.043">zítra v sedm hodin</hypothesis>
+            <hypothesis p="0.034">zítra v 9 hodin</hypothesis>
+            <hypothesis p="0.026">zítra v 10 hodin a</hypothesis>
+            <hypothesis p="0.017">zítra 9 hodin</hypothesis>
+            <hypothesis p="0.009">zítra deset hodin a</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="0.807">other()</interpretation>
+            <interpretation p="0.093">null()</interpretation>
+            <interpretation p="0.052">other()&amp;inform(time=&quot;10:00&quot;)</interpretation>
+            <interpretation p="0.036">other()&amp;inform(time=&quot;7:00&quot;)</interpretation>
+            <interpretation p="0.006">inform(time=&quot;10:00&quot;)</interpretation>
+            <interpretation p="0.004">inform(time=&quot;7:00&quot;)</interpretation>
+            <interpretation p="0.002">other()&amp;inform(time=&quot;10:00&quot;)&amp;inform(time=&quot;7:00&quot;)</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="0.897">other()</dai>
+                    <dai p="0.103">null()</dai>
+                </dai_alternatives>
+                <dai_alternatives>
+                    <dai p="0.060">inform(time=&quot;10:00&quot;)</dai>
+                    <dai p="0.940">null()</dai>
+                </dai_alternatives>
+                <dai_alternatives>
+                    <dai p="0.043">inform(time=&quot;7:00&quot;)</dai>
+                    <dai p="0.957">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="user" time="165.394" turn_number="24">
+        <rec endtime="166.151" fname="vad-2013-07-19-00-37-31.380176.wav" starttime="165.651"/>
+        <asr>
+            <hypothesis p="1.000">__silence__</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">silence()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <interpretation p="0.000">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">silence()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="167.278" turn_number="25">
+        <dialogue_state>
+            <slot name="ludait">other</slot>
+            <slot name="alternative">next</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">Poliklinika Modřany</slot>
+            <slot name="route_alternative">1</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_centre">none</slot>
+            <slot name="to_stop">Masarykovo nádraží</slot>
+            <slot name="rh_alternative">system-informed</slot>
+            <slot name="rh_enter_at">system-informed</slot>
+            <slot name="rh_exit_at">system-informed</slot>
+            <slot name="rh_found_directions">system-informed</slot>
+            <slot name="rh_from_stop">system-informed</slot>
+            <slot name="rh_go_at">system-informed</slot>
+            <slot name="rh_headsign">system-informed</slot>
+            <slot name="rh_line">system-informed</slot>
+            <slot name="rh_to_stop">system-informed</slot>
+            <slot name="rh_vehicle">system-informed</slot>
+            <slot name="ch_alternative">system-informed</slot>
+            <slot name="ch_enter_at">system-informed</slot>
+            <slot name="ch_exit_at">system-informed</slot>
+            <slot name="ch_found_directions">system-informed</slot>
+            <slot name="ch_from_stop">system-informed</slot>
+            <slot name="ch_go_at">system-informed</slot>
+            <slot name="ch_headsign">system-informed</slot>
+            <slot name="ch_line">system-informed</slot>
+            <slot name="ch_to_stop">system-informed</slot>
+            <slot name="ch_vehicle">system-informed</slot>
+            <slot name="sh_alternative">system-informed</slot>
+            <slot name="sh_enter_at">system-informed</slot>
+            <slot name="sh_exit_at">system-informed</slot>
+            <slot name="sh_found_directions">system-informed</slot>
+            <slot name="sh_from_stop">system-informed</slot>
+            <slot name="sh_go_at">system-informed</slot>
+            <slot name="sh_headsign">system-informed</slot>
+            <slot name="sh_line">system-informed</slot>
+            <slot name="sh_to_stop">system-informed</slot>
+            <slot name="sh_vehicle">system-informed</slot>
+        </dialogue_state>
+        <dialogue_act time="167.666">inform(found_directions=&quot;next&quot;)&amp;inform(alternative=&quot;3&quot;)&amp;inform(vehicle=&quot;TRAM&quot;)&amp;inform(line=&quot;52&quot;)&amp;inform(go_at=&quot;01:49&quot;)&amp;inform(enter_at=&quot;Poliklinika Modřany&quot;)&amp;inform(headsign=&quot;Lehovec&quot;)&amp;inform(exit_at=&quot;Masarykovo nádraží&quot;)</dialogue_act>
+    </turn>
+    <turn speaker="system" time="167.812" turn_number="26">
+        <text time="167.919">Následující spojení. Možnost třetí. Jeďte tramvají číslo 52 v 01:49 ze zastávky Poliklinika Modřany směrem Lehovec. Vystupte na zastávce Masarykovo nádraží.</text>
+        <dialogue_state>
+            <slot name="ludait">silence</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">Poliklinika Modřany</slot>
+            <slot name="route_alternative">2</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_centre">none</slot>
+            <slot name="to_stop">Masarykovo nádraží</slot>
+            <slot name="rh_alternative">system-informed</slot>
+            <slot name="rh_enter_at">system-informed</slot>
+            <slot name="rh_exit_at">system-informed</slot>
+            <slot name="rh_found_directions">system-informed</slot>
+            <slot name="rh_from_stop">system-informed</slot>
+            <slot name="rh_go_at">system-informed</slot>
+            <slot name="rh_headsign">system-informed</slot>
+            <slot name="rh_line">system-informed</slot>
+            <slot name="rh_to_stop">system-informed</slot>
+            <slot name="rh_vehicle">system-informed</slot>
+            <slot name="ch_alternative">system-informed</slot>
+            <slot name="ch_enter_at">system-informed</slot>
+            <slot name="ch_exit_at">system-informed</slot>
+            <slot name="ch_found_directions">system-informed</slot>
+            <slot name="ch_from_stop">system-informed</slot>
+            <slot name="ch_go_at">system-informed</slot>
+            <slot name="ch_headsign">system-informed</slot>
+            <slot name="ch_line">system-informed</slot>
+            <slot name="ch_to_stop">system-informed</slot>
+            <slot name="ch_vehicle">system-informed</slot>
+            <slot name="sh_alternative">system-informed</slot>
+            <slot name="sh_enter_at">system-informed</slot>
+            <slot name="sh_exit_at">system-informed</slot>
+            <slot name="sh_found_directions">system-informed</slot>
+            <slot name="sh_from_stop">system-informed</slot>
+            <slot name="sh_go_at">system-informed</slot>
+            <slot name="sh_headsign">system-informed</slot>
+            <slot name="sh_line">system-informed</slot>
+            <slot name="sh_to_stop">system-informed</slot>
+            <slot name="sh_vehicle">system-informed</slot>
+        </dialogue_state>
+        <rec fname="tts-2013-07-19-00-37-34.024602.wav" starttime="168.268"/>
+        <dialogue_act time="168.408">silence()</dialogue_act>
+    </turn>
+    <turn speaker="user" time="184.870" turn_number="25">
+        <rec endtime="187.294" fname="vad-2013-07-19-00-37-50.847652.wav" starttime="185.019"/>
+        <asr>
+            <hypothesis p="0.473">jaké spojení 10 hodin dopoledne</hypothesis>
+            <hypothesis p="0.096">jaké spojení deset hodin dopoledne</hypothesis>
+            <hypothesis p="0.086">jaké spojení z 10 hodin dopoledne</hypothesis>
+            <hypothesis p="0.077">jak se spojit 10 hodin dopoledne</hypothesis>
+            <hypothesis p="0.067">jak se spojit deset hodin dopoledne</hypothesis>
+            <hypothesis p="0.057">jaké spojit 10 hodin dopoledne</hypothesis>
+            <hypothesis p="0.048">jak rozpojit 10 hodin dopoledne</hypothesis>
+            <hypothesis p="0.038">jaké spojit deset hodin dopoledne</hypothesis>
+            <hypothesis p="0.029">jak rozpojit deset hodin dopoledne</hypothesis>
+            <hypothesis p="0.019">jaké spojením 10 hodin dopoledne</hypothesis>
+            <hypothesis p="0.010">jaké spojením deset hodin dopoledne</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">other()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">other()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="189.465" turn_number="27">
+        <dialogue_state>
+            <slot name="ludait">other</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">Poliklinika Modřany</slot>
+            <slot name="route_alternative">2</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_centre">none</slot>
+            <slot name="to_stop">Masarykovo nádraží</slot>
+            <slot name="rh_alternative">system-informed</slot>
+            <slot name="rh_enter_at">system-informed</slot>
+            <slot name="rh_exit_at">system-informed</slot>
+            <slot name="rh_found_directions">system-informed</slot>
+            <slot name="rh_from_stop">system-informed</slot>
+            <slot name="rh_go_at">system-informed</slot>
+            <slot name="rh_headsign">system-informed</slot>
+            <slot name="rh_line">system-informed</slot>
+            <slot name="rh_to_stop">system-informed</slot>
+            <slot name="rh_vehicle">system-informed</slot>
+            <slot name="ch_alternative">system-informed</slot>
+            <slot name="ch_enter_at">system-informed</slot>
+            <slot name="ch_exit_at">system-informed</slot>
+            <slot name="ch_found_directions">system-informed</slot>
+            <slot name="ch_from_stop">system-informed</slot>
+            <slot name="ch_go_at">system-informed</slot>
+            <slot name="ch_headsign">system-informed</slot>
+            <slot name="ch_line">system-informed</slot>
+            <slot name="ch_to_stop">system-informed</slot>
+            <slot name="ch_vehicle">system-informed</slot>
+            <slot name="sh_alternative">system-informed</slot>
+            <slot name="sh_enter_at">system-informed</slot>
+            <slot name="sh_exit_at">system-informed</slot>
+            <slot name="sh_found_directions">system-informed</slot>
+            <slot name="sh_from_stop">system-informed</slot>
+            <slot name="sh_go_at">system-informed</slot>
+            <slot name="sh_headsign">system-informed</slot>
+            <slot name="sh_line">system-informed</slot>
+            <slot name="sh_to_stop">system-informed</slot>
+            <slot name="sh_vehicle">system-informed</slot>
+        </dialogue_state>
+        <dialogue_act time="190.156">notunderstood()&amp;help(inform=&quot;alternative_last&quot;)</dialogue_act>
+        <text time="190.336">Nerozuměla jsem. Můžete to zopakovat? Můžete mě požádat o poslední nabídnutý spoj.</text>
+        <rec fname="tts-2013-07-19-00-37-56.476502.wav" starttime="190.503"/>
+    </turn>
+    <turn speaker="user" time="189.568" turn_number="26">
+        <rec endtime="190.951" fname="vad-2013-07-19-00-37-55.520069.wav" starttime="190.000"/>
+        <asr>
+            <hypothesis p="0.416">prosí prosí</hypothesis>
+            <hypothesis p="0.083">prosím prosím</hypothesis>
+            <hypothesis p="0.077">prosím prosí</hypothesis>
+            <hypothesis p="0.071">prosim prosim</hypothesis>
+            <hypothesis p="0.064">prosí prosí o</hypothesis>
+            <hypothesis p="0.058">rossi prosím</hypothesis>
+            <hypothesis p="0.051">prosím prosím o</hypothesis>
+            <hypothesis p="0.045">prosí prosím</hypothesis>
+            <hypothesis p="0.039">rossi prosí</hypothesis>
+            <hypothesis p="0.032">prosím prosí o</hypothesis>
+            <hypothesis p="0.026">rosí prosím</hypothesis>
+            <hypothesis p="0.019">rosí prosí</hypothesis>
+            <hypothesis p="0.013">roztoky prosím</hypothesis>
+            <hypothesis p="0.006">prosim prosim o</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">other()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">other()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="192.874" turn_number="28">
+        <dialogue_state>
+            <slot name="ludait">other</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">Poliklinika Modřany</slot>
+            <slot name="route_alternative">2</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_centre">none</slot>
+            <slot name="to_stop">Masarykovo nádraží</slot>
+            <slot name="rh_alternative">system-informed</slot>
+            <slot name="rh_enter_at">system-informed</slot>
+            <slot name="rh_exit_at">system-informed</slot>
+            <slot name="rh_found_directions">system-informed</slot>
+            <slot name="rh_from_stop">system-informed</slot>
+            <slot name="rh_go_at">system-informed</slot>
+            <slot name="rh_headsign">system-informed</slot>
+            <slot name="rh_line">system-informed</slot>
+            <slot name="rh_to_stop">system-informed</slot>
+            <slot name="rh_vehicle">system-informed</slot>
+            <slot name="ch_alternative">system-informed</slot>
+            <slot name="ch_enter_at">system-informed</slot>
+            <slot name="ch_exit_at">system-informed</slot>
+            <slot name="ch_found_directions">system-informed</slot>
+            <slot name="ch_from_stop">system-informed</slot>
+            <slot name="ch_go_at">system-informed</slot>
+            <slot name="ch_headsign">system-informed</slot>
+            <slot name="ch_line">system-informed</slot>
+            <slot name="ch_to_stop">system-informed</slot>
+            <slot name="ch_vehicle">system-informed</slot>
+            <slot name="sh_alternative">system-informed</slot>
+            <slot name="sh_enter_at">system-informed</slot>
+            <slot name="sh_exit_at">system-informed</slot>
+            <slot name="sh_found_directions">system-informed</slot>
+            <slot name="sh_from_stop">system-informed</slot>
+            <slot name="sh_go_at">system-informed</slot>
+            <slot name="sh_headsign">system-informed</slot>
+            <slot name="sh_line">system-informed</slot>
+            <slot name="sh_to_stop">system-informed</slot>
+            <slot name="sh_vehicle">system-informed</slot>
+        </dialogue_state>
+        <dialogue_act time="193.218">notunderstood()&amp;help(inform=&quot;alternative_last&quot;)</dialogue_act>
+        <barge-in time="193.409"/>
+        <text time="193.618">Nerozuměla jsem. Ještě jednou prosím. Můžete mě požádat o zopakování posledního nabídnutého spojení.</text>
+        <rec fname="tts-2013-07-19-00-37-59.749327.wav" starttime="193.774"/>
+    </turn>
+    <turn speaker="user" time="203.768" turn_number="27">
+        <rec endtime="205.284" fname="vad-2013-07-19-00-38-09.727076.wav" starttime="203.935"/>
+        <asr>
+            <hypothesis p="0.734">přijedu 10 hodin</hypothesis>
+            <hypothesis p="0.028">přijedu deset hodin</hypothesis>
+            <hypothesis p="0.026">přijedu v deset hodin</hypothesis>
+            <hypothesis p="0.025">přijedu za 10 hodin</hypothesis>
+            <hypothesis p="0.023">přijede v sedm hodin</hypothesis>
+            <hypothesis p="0.022">přijedu v 7 hodin</hypothesis>
+            <hypothesis p="0.020">přijedu 10 hodin a</hypothesis>
+            <hypothesis p="0.019">přijedu v 10 hodin a</hypothesis>
+            <hypothesis p="0.017">deset hodin</hypothesis>
+            <hypothesis p="0.016">přijedu deset hodin a</hypothesis>
+            <hypothesis p="0.014">přijedu v deset hodin a</hypothesis>
+            <hypothesis p="0.012">jedu deset hodin</hypothesis>
+            <hypothesis p="0.011">přijede v sedm hodin a</hypothesis>
+            <hypothesis p="0.009">přijedu v 7 hodin a</hypothesis>
+            <hypothesis p="0.008">přijedu za 10 hodin a</hypothesis>
+            <hypothesis p="0.006">svět deset hodin</hypothesis>
+            <hypothesis p="0.005">10 hodin a</hypothesis>
+            <hypothesis p="0.003">přijet deset hodin</hypothesis>
+            <hypothesis p="0.002">5 deset hodin</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="0.858">other()</interpretation>
+            <interpretation p="0.069">null()</interpretation>
+            <interpretation p="0.036">other()&amp;inform(time=&quot;10:00&quot;)</interpretation>
+            <interpretation p="0.030">other()&amp;inform(time=&quot;7:00&quot;)</interpretation>
+            <interpretation p="0.003">inform(time=&quot;10:00&quot;)</interpretation>
+            <interpretation p="0.002">inform(time=&quot;7:00&quot;)</interpretation>
+            <interpretation p="0.001">other()&amp;inform(time=&quot;10:00&quot;)&amp;inform(time=&quot;7:00&quot;)</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="0.925">other()</dai>
+                    <dai p="0.075">null()</dai>
+                </dai_alternatives>
+                <dai_alternatives>
+                    <dai p="0.040">inform(time=&quot;10:00&quot;)</dai>
+                    <dai p="0.960">null()</dai>
+                </dai_alternatives>
+                <dai_alternatives>
+                    <dai p="0.034">inform(time=&quot;7:00&quot;)</dai>
+                    <dai p="0.966">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="user" time="205.667" turn_number="28">
+        <rec endtime="206.508" fname="vad-2013-07-19-00-38-11.519343.wav" starttime="205.834"/>
+        <asr>
+            <hypothesis p="0.855">dopoledne</hypothesis>
+            <hypothesis p="0.036">do poledne</hypothesis>
+            <hypothesis p="0.031">dopoledne a</hypothesis>
+            <hypothesis p="0.026">dopoledne s</hypothesis>
+            <hypothesis p="0.021">dopoledne i</hypothesis>
+            <hypothesis p="0.016">do poledne a</hypothesis>
+            <hypothesis p="0.010">do poledne i</hypothesis>
+            <hypothesis p="0.005">do poledne s</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">other()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">other()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="207.698" turn_number="29">
+        <dialogue_state>
+            <slot name="ludait">other</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">Poliklinika Modřany</slot>
+            <slot name="route_alternative">2</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_centre">none</slot>
+            <slot name="to_stop">Masarykovo nádraží</slot>
+            <slot name="rh_alternative">system-informed</slot>
+            <slot name="rh_enter_at">system-informed</slot>
+            <slot name="rh_exit_at">system-informed</slot>
+            <slot name="rh_found_directions">system-informed</slot>
+            <slot name="rh_from_stop">system-informed</slot>
+            <slot name="rh_go_at">system-informed</slot>
+            <slot name="rh_headsign">system-informed</slot>
+            <slot name="rh_line">system-informed</slot>
+            <slot name="rh_to_stop">system-informed</slot>
+            <slot name="rh_vehicle">system-informed</slot>
+            <slot name="ch_alternative">system-informed</slot>
+            <slot name="ch_enter_at">system-informed</slot>
+            <slot name="ch_exit_at">system-informed</slot>
+            <slot name="ch_found_directions">system-informed</slot>
+            <slot name="ch_from_stop">system-informed</slot>
+            <slot name="ch_go_at">system-informed</slot>
+            <slot name="ch_headsign">system-informed</slot>
+            <slot name="ch_line">system-informed</slot>
+            <slot name="ch_to_stop">system-informed</slot>
+            <slot name="ch_vehicle">system-informed</slot>
+            <slot name="sh_alternative">system-informed</slot>
+            <slot name="sh_enter_at">system-informed</slot>
+            <slot name="sh_exit_at">system-informed</slot>
+            <slot name="sh_found_directions">system-informed</slot>
+            <slot name="sh_from_stop">system-informed</slot>
+            <slot name="sh_go_at">system-informed</slot>
+            <slot name="sh_headsign">system-informed</slot>
+            <slot name="sh_line">system-informed</slot>
+            <slot name="sh_to_stop">system-informed</slot>
+            <slot name="sh_vehicle">system-informed</slot>
+        </dialogue_state>
+        <dialogue_act time="208.053">notunderstood()&amp;help(inform=&quot;alternative_prev&quot;)</dialogue_act>
+        <text time="208.544">Promiňte, nerozuměla jsem. Můžete to zopakovat? Pokud chcete zjistit předchozí spoj, potom mě můžete požádat o předchozí spoj.</text>
+    </turn>
+    <turn speaker="system" time="208.641" turn_number="30">
+        <rec fname="tts-2013-07-19-00-38-14.642405.wav" starttime="208.730"/>
+        <dialogue_state>
+            <slot name="ludait">other</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">Poliklinika Modřany</slot>
+            <slot name="route_alternative">2</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_centre">none</slot>
+            <slot name="to_stop">Masarykovo nádraží</slot>
+            <slot name="rh_alternative">system-informed</slot>
+            <slot name="rh_enter_at">system-informed</slot>
+            <slot name="rh_exit_at">system-informed</slot>
+            <slot name="rh_found_directions">system-informed</slot>
+            <slot name="rh_from_stop">system-informed</slot>
+            <slot name="rh_go_at">system-informed</slot>
+            <slot name="rh_headsign">system-informed</slot>
+            <slot name="rh_line">system-informed</slot>
+            <slot name="rh_to_stop">system-informed</slot>
+            <slot name="rh_vehicle">system-informed</slot>
+            <slot name="ch_alternative">system-informed</slot>
+            <slot name="ch_enter_at">system-informed</slot>
+            <slot name="ch_exit_at">system-informed</slot>
+            <slot name="ch_found_directions">system-informed</slot>
+            <slot name="ch_from_stop">system-informed</slot>
+            <slot name="ch_go_at">system-informed</slot>
+            <slot name="ch_headsign">system-informed</slot>
+            <slot name="ch_line">system-informed</slot>
+            <slot name="ch_to_stop">system-informed</slot>
+            <slot name="ch_vehicle">system-informed</slot>
+            <slot name="sh_alternative">system-informed</slot>
+            <slot name="sh_enter_at">system-informed</slot>
+            <slot name="sh_exit_at">system-informed</slot>
+            <slot name="sh_found_directions">system-informed</slot>
+            <slot name="sh_from_stop">system-informed</slot>
+            <slot name="sh_go_at">system-informed</slot>
+            <slot name="sh_headsign">system-informed</slot>
+            <slot name="sh_line">system-informed</slot>
+            <slot name="sh_to_stop">system-informed</slot>
+            <slot name="sh_vehicle">system-informed</slot>
+        </dialogue_state>
+        <dialogue_act time="209.005">notunderstood()&amp;help(inform=&quot;alternative_prev&quot;)</dialogue_act>
+        <barge-in time="209.191"/>
+        <text time="209.443">Nerozuměla jsem. Ještě jednou prosím. Můžete mě požádat o předchozí spoj.</text>
+        <rec fname="tts-2013-07-19-00-38-15.600765.wav" starttime="209.648"/>
+    </turn>
+    <turn speaker="user" time="217.585" turn_number="29">
+        <rec endtime="221.494" fname="vad-2013-07-19-00-38-23.547347.wav" starttime="217.769"/>
+        <asr>
+            <hypothesis p="0.331">nechci 10 hodin dopoledne</hypothesis>
+            <hypothesis p="0.074">nechci deset hodin dopoledne</hypothesis>
+            <hypothesis p="0.070">nech se překvapit deset hodin dopoledne</hypothesis>
+            <hypothesis p="0.066">nech se překvapit 10 hodin dopoledne</hypothesis>
+            <hypothesis p="0.061">nehty 10 hodin dopoledne</hypothesis>
+            <hypothesis p="0.057">nehty deset hodin dopoledne</hypothesis>
+            <hypothesis p="0.052">nechte 10 hodin dopoledne</hypothesis>
+            <hypothesis p="0.048">nechte deset hodin dopoledne</hypothesis>
+            <hypothesis p="0.044">deset hodin dopoledne</hypothesis>
+            <hypothesis p="0.039">10 hodin dopoledne</hypothesis>
+            <hypothesis p="0.035">nechť 10 hodin dopoledne</hypothesis>
+            <hypothesis p="0.031">nechci vidět deset hodin dopoledne</hypothesis>
+            <hypothesis p="0.026">nechci vidět 10 hodin dopoledne</hypothesis>
+            <hypothesis p="0.022">nechce 10 hodin dopoledne</hypothesis>
+            <hypothesis p="0.017">nechť deset hodin dopoledne</hypothesis>
+            <hypothesis p="0.013">nechce deset hodin dopoledne</hypothesis>
+            <hypothesis p="0.009">nechci něco pokazit deset hodin dopoledne</hypothesis>
+            <hypothesis p="0.004">nechci něco pokazit 10 hodin dopoledne</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">other()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">other()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="224.694" turn_number="31">
+        <dialogue_state>
+            <slot name="ludait">other</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">Poliklinika Modřany</slot>
+            <slot name="route_alternative">2</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_centre">none</slot>
+            <slot name="to_stop">Masarykovo nádraží</slot>
+            <slot name="rh_alternative">system-informed</slot>
+            <slot name="rh_enter_at">system-informed</slot>
+            <slot name="rh_exit_at">system-informed</slot>
+            <slot name="rh_found_directions">system-informed</slot>
+            <slot name="rh_from_stop">system-informed</slot>
+            <slot name="rh_go_at">system-informed</slot>
+            <slot name="rh_headsign">system-informed</slot>
+            <slot name="rh_line">system-informed</slot>
+            <slot name="rh_to_stop">system-informed</slot>
+            <slot name="rh_vehicle">system-informed</slot>
+            <slot name="ch_alternative">system-informed</slot>
+            <slot name="ch_enter_at">system-informed</slot>
+            <slot name="ch_exit_at">system-informed</slot>
+            <slot name="ch_found_directions">system-informed</slot>
+            <slot name="ch_from_stop">system-informed</slot>
+            <slot name="ch_go_at">system-informed</slot>
+            <slot name="ch_headsign">system-informed</slot>
+            <slot name="ch_line">system-informed</slot>
+            <slot name="ch_to_stop">system-informed</slot>
+            <slot name="ch_vehicle">system-informed</slot>
+            <slot name="sh_alternative">system-informed</slot>
+            <slot name="sh_enter_at">system-informed</slot>
+            <slot name="sh_exit_at">system-informed</slot>
+            <slot name="sh_found_directions">system-informed</slot>
+            <slot name="sh_from_stop">system-informed</slot>
+            <slot name="sh_go_at">system-informed</slot>
+            <slot name="sh_headsign">system-informed</slot>
+            <slot name="sh_line">system-informed</slot>
+            <slot name="sh_to_stop">system-informed</slot>
+            <slot name="sh_vehicle">system-informed</slot>
+        </dialogue_state>
+        <dialogue_act time="225.090">notunderstood()&amp;help(inform=&quot;alternative_last&quot;)</dialogue_act>
+        <text time="225.307">Nerozuměla jsem. Můžete mě požádat o zopakování posledního nabídnutého spojení.</text>
+    </turn>
+    <turn speaker="system" time="225.615" turn_number="32">
+        <dialogue_act time="225.786">silence()</dialogue_act>
+        <rec fname="tts-2013-07-19-00-38-31.453743.wav" starttime="226.053"/>
+    </turn>
+    <turn speaker="user" time="227.334" turn_number="30">
+        <rec endtime="227.952" fname="vad-2013-07-19-00-38-33.276213.wav" starttime="227.563"/>
+        <asr>
+            <hypothesis p="1.000">__silence__</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">silence()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <interpretation p="0.000">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">silence()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="229.031" turn_number="33">
+        <dialogue_state>
+            <slot name="ludait">silence</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">Poliklinika Modřany</slot>
+            <slot name="route_alternative">2</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_centre">none</slot>
+            <slot name="to_stop">Masarykovo nádraží</slot>
+            <slot name="rh_alternative">system-informed</slot>
+            <slot name="rh_enter_at">system-informed</slot>
+            <slot name="rh_exit_at">system-informed</slot>
+            <slot name="rh_found_directions">system-informed</slot>
+            <slot name="rh_from_stop">system-informed</slot>
+            <slot name="rh_go_at">system-informed</slot>
+            <slot name="rh_headsign">system-informed</slot>
+            <slot name="rh_line">system-informed</slot>
+            <slot name="rh_to_stop">system-informed</slot>
+            <slot name="rh_vehicle">system-informed</slot>
+            <slot name="ch_alternative">system-informed</slot>
+            <slot name="ch_enter_at">system-informed</slot>
+            <slot name="ch_exit_at">system-informed</slot>
+            <slot name="ch_found_directions">system-informed</slot>
+            <slot name="ch_from_stop">system-informed</slot>
+            <slot name="ch_go_at">system-informed</slot>
+            <slot name="ch_headsign">system-informed</slot>
+            <slot name="ch_line">system-informed</slot>
+            <slot name="ch_to_stop">system-informed</slot>
+            <slot name="ch_vehicle">system-informed</slot>
+            <slot name="sh_alternative">system-informed</slot>
+            <slot name="sh_enter_at">system-informed</slot>
+            <slot name="sh_exit_at">system-informed</slot>
+            <slot name="sh_found_directions">system-informed</slot>
+            <slot name="sh_from_stop">system-informed</slot>
+            <slot name="sh_go_at">system-informed</slot>
+            <slot name="sh_headsign">system-informed</slot>
+            <slot name="sh_line">system-informed</slot>
+            <slot name="sh_to_stop">system-informed</slot>
+            <slot name="sh_vehicle">system-informed</slot>
+        </dialogue_state>
+        <dialogue_act time="229.502">silence()</dialogue_act>
+    </turn>
+    <turn speaker="user" time="234.710" turn_number="31">
+        <rec endtime="236.154" fname="vad-2013-07-19-00-38-40.514800.wav" starttime="234.912"/>
+        <asr>
+            <hypothesis p="0.476">děkuji nashledanou</hypothesis>
+            <hypothesis p="0.105">děkuji a nashledanou</hypothesis>
+            <hypothesis p="0.093">děkuju nashledanou</hypothesis>
+            <hypothesis p="0.081">děkuji naschledanou</hypothesis>
+            <hypothesis p="0.070">děkuji a naschledanou</hypothesis>
+            <hypothesis p="0.058">děkuji nashledanou i</hypothesis>
+            <hypothesis p="0.047">děkuji a nashledanou i</hypothesis>
+            <hypothesis p="0.035">děkuju nashledanou i</hypothesis>
+            <hypothesis p="0.023">děkuji naschledanou i</hypothesis>
+            <hypothesis p="0.012">děkuji a naschledanou i</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">thankyou()&amp;bye()</interpretation>
+            <interpretation p="0.000">thankyou()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <interpretation p="0.000">bye()</interpretation>
+            <interpretation p="0.000">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">thankyou()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+                <dai_alternatives>
+                    <dai p="1.000">bye()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="238.071" turn_number="34">
+        <dialogue_state>
+            <slot name="ludait">bye</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">Poliklinika Modřany</slot>
+            <slot name="route_alternative">2</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_centre">none</slot>
+            <slot name="to_stop">Masarykovo nádraží</slot>
+            <slot name="rh_alternative">system-informed</slot>
+            <slot name="rh_enter_at">system-informed</slot>
+            <slot name="rh_exit_at">system-informed</slot>
+            <slot name="rh_found_directions">system-informed</slot>
+            <slot name="rh_from_stop">system-informed</slot>
+            <slot name="rh_go_at">system-informed</slot>
+            <slot name="rh_headsign">system-informed</slot>
+            <slot name="rh_line">system-informed</slot>
+            <slot name="rh_to_stop">system-informed</slot>
+            <slot name="rh_vehicle">system-informed</slot>
+            <slot name="ch_alternative">system-informed</slot>
+            <slot name="ch_enter_at">system-informed</slot>
+            <slot name="ch_exit_at">system-informed</slot>
+            <slot name="ch_found_directions">system-informed</slot>
+            <slot name="ch_from_stop">system-informed</slot>
+            <slot name="ch_go_at">system-informed</slot>
+            <slot name="ch_headsign">system-informed</slot>
+            <slot name="ch_line">system-informed</slot>
+            <slot name="ch_to_stop">system-informed</slot>
+            <slot name="ch_vehicle">system-informed</slot>
+            <slot name="sh_alternative">system-informed</slot>
+            <slot name="sh_enter_at">system-informed</slot>
+            <slot name="sh_exit_at">system-informed</slot>
+            <slot name="sh_found_directions">system-informed</slot>
+            <slot name="sh_from_stop">system-informed</slot>
+            <slot name="sh_go_at">system-informed</slot>
+            <slot name="sh_headsign">system-informed</slot>
+            <slot name="sh_line">system-informed</slot>
+            <slot name="sh_to_stop">system-informed</slot>
+            <slot name="sh_vehicle">system-informed</slot>
+        </dialogue_state>
+        <dialogue_act time="238.503">bye()</dialogue_act>
+        <text time="238.705">Děkujeme za zavolání. Na shledanou.</text>
+        <rec fname="tts-2013-07-19-00-38-44.852894.wav" starttime="238.885"/>
+    </turn>
+</dialogue>

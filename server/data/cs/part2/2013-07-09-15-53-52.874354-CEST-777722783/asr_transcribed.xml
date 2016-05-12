@@ -1,0 +1,612 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dialogue>
+  <config>
+    <!--    config = { 'ASR': { 'Google': { 'debug': False, 'language': 'cs', 'maxresults': 20},
+               'Julius': { 'adinnetport': 5530,
+                           'binary': '/usr/local/bin/julius',
+                           'debug': False,
+                           'hostname': 'localhost',
+                           'jconf': { '-adport': '5530',
+                                      '-b': '1000',
+                                      '-b2': '100',
+                                      '-cmnload': 'cmn.param',
+                                      '-cmnmapweight': '200',
+                                      '-cmnsave': 'cmn.param',
+                                      '-confnet': '',
+                                      '-fallback1pass': '',
+                                      '-gprune': 'safe',
+                                      '-h': '/mnt/h/jurcicek/vystadial-git/alex/resources/asr/voip_en/hmmdefs',
+                                      '-hlist': '/mnt/h/jurcicek/vystadial-git/alex/resources/asr/voip_en/tiedlist',
+                                      '-htkconf': '/mnt/h/jurcicek/vystadial-git/alex/resources/asr/voip_en/config',
+                                      '-input': 'adinnet',
+                                      '-iwsp': '',
+                                      '-iwsppenalty': '0.0',
+                                      '-lmp': '15.0 0.0',
+                                      '-lmp2': '15.0 0.0',
+                                      '-mapunk': 'UM',
+                                      '-module': '10500',
+                                      '-n': '50',
+                                      '-nlr': '/mnt/h/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_arpa_bigram',
+                                      '-no_ccd': '',
+                                      '-nrl': '/mnt/h/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_arpa_rev_bigram',
+                                      '-silhead': '<s>',
+                                      '-siltail': '</s>',
+                                      '-spmodel': 'sp',
+                                      '-tmix': '4',
+                                      '-v': '/mnt/h/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_dict'},
+                           'jconffile': 'julius.jconf',
+                           'killall': False,
+                           'logfile': 'julius.log',
+                           'msg_timeout': 0.3,
+                           'pidfile': 'julius.pid',
+                           'reuse_server': False,
+                           'serverport': 10500,
+                           'start_max_wait_time': 15,
+                           'start_wait_time': 0.5,
+                           'timeout': 2.0},
+               'Kaldi': { 'LM_scale': -6666.66,
+                          'hypothesis_type': 'nblist',
+                          'lat_depth': 666666,
+                          'model': 'TODO_path_to_model'},
+               'debug': True,
+               'type': 'Google'},
+      'AlexOnTheBus': { 'max_turns': 30},
+      'Analytics': Analytics(account_id='UA-41905278-1', domain_name='cuni.cz'),
+      'Audio': { 'sample_rate': 16000, 'samples_per_frame': 256},
+      'AudioIO': { 'debug': True, 'output_dir': './aio_call_log', 'play_buffer_size': 1024},
+      'DM': { 'PUfalRuleDM': { 'code_submit_url': None,
+                               'db_cfg': '/mnt/h/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/cued_data/CIRdbase_V7_noloc.txt',
+                               'ontology': '/mnt/h/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/ontology.cfg',
+                               'provide_code': False},
+              'UfalRuleDM': { 'code_submit_url': None,
+                              'db_cfg': '/mnt/h/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/cued_data/CIRdbase_V7_noloc.txt',
+                              'ontology': '/mnt/h/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/ontology.cfg',
+                              'provide_code': False},
+              'basic': { 'debug': True},
+              'debug': True,
+              'dialogue_policy': { 'type': <class 'alex.applications.AlexOnTheBus.aotb_hdc_policy.AOTBHDCPolicy'>},
+              'dialogue_state': { 'type': <class 'alex.components.dm.dddstate.DeterministicDiscriminativeDialogueState'>},
+              'ontology': '/mnt/h/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/data/ontology.py',
+              'type': 'basic'},
+      'General': { 'debug': False, 'include': ['/mnt/h/jurcicek/vystadial-git/alex/resources/private/default.cfg']},
+      'Hub': { 'history_file': 'hub_history_hub.txt', 'history_length': 1000, 'main_loop_sleep_time': 0.002},
+      'Logging': { 'excepthook': <alex.utils.excepthook.ExceptionHook object at 0x1c53710>,
+                   'session_logger': SessionLogger(),
+                   'system_logger': SystemLogger(output_dir=/net/projects/vystadial/data/call-logs/2013-05-30-alex-aotb-prototype/new, stdout_log_level='DEBUG', stdout=True, file_log_level='DEBUG'),
+                   'system_name': u'Alex On The Bus - Live',
+                   'version': u'1.0'},
+      'NLG': { 'Template': { 'model': '/mnt/h/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/nlg_templates.cfg'},
+               'debug': True,
+               'type': 'Template'},
+      'SHub': { 'history_file': 'hub_history_shub.txt', 'history_length': 1000},
+      'SLU': { 'cl-tracing': { 'cldb_fname': '/mnt/h/jurcicek/vystadial-git/alex/applications/CamInfoRest/data/database.py',
+                               'do_preprocessing': True,
+                               'features_type': ('ngram', 'ab_ngram'),
+                               'testing': { 'max_examples': None,
+                                            'min_perc': 80,
+                                            'model_fname': '/mnt/h/jurcicek/vystadial-git/alex/applications/CamInfoRest/models/130516_minf60-minfc35-mind60.slu_model.gz',
+                                            'renormalise': True,
+                                            'threshold': None,
+                                            'vanilla': True},
+                               'training': { 'abstractions': ('abstract',), 'models_dir': 'models'}},
+               'debug': True,
+               'type': <class 'alex.applications.AlexOnTheBus.aotb_slu.AOTBSLU'>,
+               <class 'alex.applications.AlexOnTheBus.aotb_slu.AOTBSLU'>: { 'cldb_fname': '/mnt/h/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/data/database.py',
+                                                                            'preprocessing_cls': <class 'alex.applications.AlexOnTheBus.aotb_preprocessing.AOTBSLUPreprocessing'>,
+                                                                            'training': { 'models_dir': 'models'}}},
+      'THub': { 'history_file': 'hub_history_thub.txt', 'history_length': 1000},
+      'TTS': { 'Flite': { 'debug': False,
+                          'preprocessing': '/mnt/h/jurcicek/vystadial-git/alex/resources/tts/prep_flite_en.cfg',
+                          'voice': 'kal16'},
+               'Google': { 'debug': False,
+                           'language': 'en',
+                           'preprocessing': '/mnt/h/jurcicek/vystadial-git/alex/resources/tts/prep_google_en.cfg'},
+               'SpeechTech': { 'debug': True,
+                               'login': 'filipjurcicek',
+    # this line was removed since it included a password
+                               'preprocessing': '/mnt/h/jurcicek/vystadial-git/alex/resources/tts/prep_speechtech_cs.cfg',
+                               'voice': 'Iva210'},
+               'VoiceRSS': { 'api_key': '3b6a9fca5d724b1c8ac34691586cdda1'},
+               'VoiceRss': { 'language': 'en-gb',
+                             'preprocessing': '/mnt/h/jurcicek/vystadial-git/alex/resources/tts/prep_voicerss_en.cfg'},
+               'debug': True,
+               'final_silence_removal_proportion': 0.8,
+               'type': 'SpeechTech'},
+      'VAD': { 'debug': False,
+               'decision_frames_sil': 25,
+               'decision_frames_speech': 10,
+               'decision_non_speech_threshold': 0.2,
+               'decision_speech_threshold': 0.7,
+               'gmm': { 'ceplifter': 22,
+                        'enormalise': True,
+                        'filter_length': 5,
+                        'frameshift': 160,
+                        'framesize': 512,
+                        'frontend': 'MFCC',
+                        'hifreq': 3800,
+                        'lofreq': 125,
+                        'numceps': 12,
+                        'numchans': 26,
+                        'preemcoef': 0.97,
+                        'sil_model': '/mnt/h/jurcicek/vystadial-git/alex/resources/vad/voip_en/vad_sil_sds_mfcc_m064_f100000.gmm',
+                        'speech_model': '/mnt/h/jurcicek/vystadial-git/alex/resources/vad/voip_en/vad_speech_sds_mfcc_m064_f100000.gmm',
+                        'useacc': True,
+                        'usec0': False,
+                        'usecmn': False,
+                        'usedelta': True,
+                        'usehamming': True,
+                        'usepower': True,
+                        'zmeansource': True},
+               'power': { 'adaptation_frames': 30, 'threshold': 70, 'threshold_multiplier': 1.0},
+               'speech_buffer_frames': 20,
+               'type': 'gmm'},
+      'VoipHub': { 'blacklist_for': 7200,
+                   'call_db': u'/net/projects/vystadial/data/call-logs/2013-05-30-alex-aotb-prototype/new/call_db.pckl',
+                   'hard_time_limit': 360,
+                   'hard_turn_limit': 40,
+                   'history_length': 1000,
+                   'last_period_max_num_calls': 20,
+                   'last_period_max_total_time': 1800,
+                   'limit_reached_message': u'D\u011bkujeme za zavol\xe1n\xed, ale u\u017e jste volali hodn\u011b. Pros\xedm zavolejte pozd\u011bji. Na shledanou.',
+                   'period': 172800,
+                   'pid_file': u'/net/projects/vystadial/data/call-logs/2013-05-30-alex-aotb-prototype/new/vhub_live.pid',
+                   'wait_time_before_calling_back': 10},
+      'VoipIO': { 'allowed_hosts': '',
+                  'allowed_phone_numbers': '(^[234567])',
+                  'allowed_users': '(^[234567])',
+                  'debug': True,
+                  'domain': 'vystadial.ms.mff.cuni.cz',
+                  'forbidden_hosts': '',
+                  'forbidden_phone_number': '(^112$|^150$|^155$|^156$|^158$)',
+                  'forbidden_users': '(^112$|^150$|^155$|^156$|^158$)',
+    # this line was removed since it included a password
+                  'pjsip_log_level': 3,
+                  'reject_calls': False,
+                  'user': '800899998'},
+      'WebHub': { 'port': 8000},
+      'corpustools': { 'get_jasr_confnets': { 'frame_size': 256, 'rt_ratio': 0.2}}}
+-->
+  </config>
+  <dialogue_rec fname="all-2013-07-09-15-53-52.892036.played.wav" speaker="system" starttime="0.002"/>
+  <dialogue_rec fname="all-2013-07-09-15-53-52.892036.recorded.wav" speaker="user" starttime="0.006"/>
+  <header>
+    <host>kronos</host>
+    <date>2013-07-09 15:53:52 CEST</date>
+    <system>Alex On The Bus - Live</system>
+    <version>1.0</version>
+    <input_source type="voip"/>
+  </header>
+  <annotations>
+    <annotation date_saved="16/10/13, 12:26:18 " user="adela" program_version="6fa8e77278444d736414cbef825738997ada1481" id="315" trser_cookie_id="user:adela"/>
+    <annotation date_saved="16/10/13, 12:28:50 " user="adela" program_version="6fa8e77278444d736414cbef825738997ada1481" id="317" trser_cookie_id="user:adela"/>
+  </annotations>
+  <turn speaker="system" time="0.097" turn_number="1">
+    <dialogue_act time="0.103">hello()</dialogue_act>
+    <text time="0.115">Dobrý den. Hovor je nahráván. Více informací o této službě je na internetu. Jak Vám mohu pomoci. Můžete například říct ze zastávky poliklinika Barrandov na Zličín.</text>
+    <rec fname="tts-2013-07-09-15-53-53.032558.wav" starttime="0.143"/>
+    <barge-in time="7.398"/>
+  </turn>
+  <turn speaker="user" time="7.375" turn_number="1">
+    <rec endtime="8.403" fname="vad-2013-07-09-15-54-00.282409.wav" starttime="7.382"/>
+    <asr>
+      <hypothesis p="1.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="1.000">other()</interpretation>
+      <interpretation p="0.000">null()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="1.000">other()</dai>
+          <dai p="0.000">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="6fa8e77278444d736414cbef825738997ada1481" annotation="317" breaks_gold="0" is_gold="0" transcriber="adela" date="16/10/13, 12:28:50 ">(noise)</asr_transcription>
+    <asr_transcription some_breaks_gold="0" program_version="6fa8e77278444d736414cbef825738997ada1481" annotation="315" breaks_gold="0" is_gold="0" transcriber="adela" date="16/10/13, 12:26:18 ">(noise)</asr_transcription>
+  </turn>
+  <turn speaker="system" time="9.056" turn_number="2">
+    <dialogue_act time="9.065">notunderstood()&amp;help(inform="from_stop")</dialogue_act>
+    <text time="9.101">Nerozuměla jsem. Můžete to zopakovat? Můžete například říct chtěl bych jet z Anděla.</text>
+    <rec fname="tts-2013-07-09-15-54-02.018868.wav" starttime="9.125"/>
+    <barge-in time="14.437"/>
+  </turn>
+  <turn speaker="user" time="14.411" turn_number="2">
+    <rec endtime="20.610" fname="vad-2013-07-09-15-54-07.317602.wav" starttime="14.420"/>
+    <asr>
+      <hypothesis p="0.532">přestaň se nádraží holešovice do stanice českolipská</hypothesis>
+      <hypothesis p="0.062">přestaňte nádraží holešovice do stanice českolipská</hypothesis>
+      <hypothesis p="0.058">česká přestaň se nádraží holešovice do stanice českolipská</hypothesis>
+      <hypothesis p="0.053">český přestaň se nádraží holešovice do stanice českolipská</hypothesis>
+      <hypothesis p="0.049">české vědce stanice nádraží holešovice do stanice českolipská</hypothesis>
+      <hypothesis p="0.045">české přestaň se nádraží holešovice do stanice českolipská</hypothesis>
+      <hypothesis p="0.040">český výrobce stanice nádraží holešovice do stanice českolipská</hypothesis>
+      <hypothesis p="0.036">česká 3 stanice nádraží holešovice do stanice českolipská</hypothesis>
+      <hypothesis p="0.031">česká přestaňte nádraží holešovice do stanice českolipská</hypothesis>
+      <hypothesis p="0.027">přestanice nádraží holešovice do stanice českolipská</hypothesis>
+      <hypothesis p="0.022">český přestaňte nádraží holešovice do stanice českolipská</hypothesis>
+      <hypothesis p="0.018">česká přestanice nádraží holešovice do stanice českolipská</hypothesis>
+      <hypothesis p="0.013">české přestaňte nádraží holešovice do stanice českolipská</hypothesis>
+      <hypothesis p="0.009">přestaň se na nádraží holešovice do stanice českolipská</hypothesis>
+      <hypothesis p="0.004">české 33 stanice nádraží holešovice do stanice českolipská</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="0.982">inform(to_stop="Českolipská")&amp;inform(from_stop="Nádraží Holešovice")</interpretation>
+      <interpretation p="0.009">inform(to_stop="Českolipská")</interpretation>
+      <interpretation p="0.009">inform(to_stop="Českolipská")&amp;inform(from_stop="Nádraží Holešovice")&amp;inform(to_stop="Nádraží Holešovice")</interpretation>
+      <interpretation p="0.000">inform(to_stop="Českolipská")&amp;inform(to_stop="Nádraží Holešovice")</interpretation>
+      <interpretation p="0.000">null()</interpretation>
+      <interpretation p="0.000">inform(to_stop="Nádraží Holešovice")</interpretation>
+      <interpretation p="0.000">inform(from_stop="Nádraží Holešovice")</interpretation>
+      <interpretation p="0.000">other()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="1.000">inform(to_stop="Českolipská")</dai>
+          <dai p="0.000">null()</dai>
+        </dai_alternatives>
+        <dai_alternatives>
+          <dai p="0.991">inform(from_stop="Nádraží Holešovice")</dai>
+          <dai p="0.009">null()</dai>
+        </dai_alternatives>
+        <dai_alternatives>
+          <dai p="0.009">inform(to_stop="Nádraží Holešovice")</dai>
+          <dai p="0.991">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="6fa8e77278444d736414cbef825738997ada1481" annotation="317" breaks_gold="0" is_gold="0" transcriber="adela" date="16/10/13, 12:28:50 ">(unint) chci jet ze stanice Nádraží Holešovice do stanice Českolipská</asr_transcription>
+    <asr_transcription some_breaks_gold="0" program_version="6fa8e77278444d736414cbef825738997ada1481" annotation="315" breaks_gold="0" is_gold="0" transcriber="adela" date="16/10/13, 12:26:18 ">(unint) chci jet ze stanice Nádraží Holešovice do stanice Českolipská</asr_transcription>
+  </turn>
+  <turn speaker="system" time="23.386" turn_number="3">
+    <dialogue_act time="23.406">iconfirm(to_stop="Českolipská")&amp;iconfirm(from_stop="Nádraží Holešovice")&amp;inform(found_directions="true")&amp;inform(alternative="1")&amp;inform(vehicle="BUS")&amp;inform(line="201")&amp;inform(go_at="03:58")&amp;inform(enter_at="Nádraží Holešovice")&amp;inform(headsign="Bakovská")&amp;inform(exit_at="Českolipská")</dialogue_act>
+    <text time="23.551">Chcete jet do zastávky Českolipská. Chcete jet ze zastávky Nádraží Holešovice. Našla jsem následující spojení. Možnost první. Jeďte autobusem číslo 201 v 03:58 ze zastávky Nádraží Holešovice směrem Bakovská. Vystupte na zastávce Českolipská.</text>
+    <rec fname="tts-2013-07-09-15-54-16.476350.wav" starttime="23.580"/>
+    <barge-in time="30.801"/>
+  </turn>
+  <turn speaker="user" time="30.760" turn_number="3">
+    <rec endtime="31.772" fname="vad-2013-07-09-15-54-23.663558.wav" starttime="30.775"/>
+    <asr_transcription some_breaks_gold="0" program_version="6fa8e77278444d736414cbef825738997ada1481" annotation="315" breaks_gold="0" is_gold="0" transcriber="adela" date="16/10/13, 12:26:18 ">ano potvrzuji</asr_transcription>
+    <asr_transcription some_breaks_gold="0" program_version="6fa8e77278444d736414cbef825738997ada1481" annotation="317" breaks_gold="0" is_gold="0" transcriber="adela" date="16/10/13, 12:28:50 ">ano potvrzuji</asr_transcription>
+  </turn>
+  <turn speaker="user" time="32.145" turn_number="4">
+    <rec endtime="32.611" fname="vad-2013-07-09-15-54-25.048060.wav" starttime="32.169"/>
+    <asr>
+      <hypothesis p="0.551">ano prosím</hypothesis>
+      <hypothesis p="0.179">ano potvrzuji</hypothesis>
+      <hypothesis p="0.135">ano potvrzuje</hypothesis>
+      <hypothesis p="0.090">ano potvrzují</hypothesis>
+      <hypothesis p="0.045">ano</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="1.000">affirm()</interpretation>
+      <interpretation p="0.000">null()</interpretation>
+      <interpretation p="0.000">other()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="1.000">affirm()</dai>
+          <dai p="0.000">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="6fa8e77278444d736414cbef825738997ada1481" annotation="317" breaks_gold="0" is_gold="0" transcriber="adela" date="16/10/13, 12:28:50 ">ano</asr_transcription>
+    <asr_transcription some_breaks_gold="0" program_version="6fa8e77278444d736414cbef825738997ada1481" annotation="315" breaks_gold="0" is_gold="0" transcriber="adela" date="16/10/13, 12:26:18 ">ano</asr_transcription>
+    <asr>
+      <hypothesis p="0.318">ahoj</hypothesis>
+      <hypothesis p="0.239">aho</hypothesis>
+      <hypothesis p="0.205">ano</hypothesis>
+      <hypothesis p="0.159">hovno</hypothesis>
+      <hypothesis p="0.080">aha</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="0.294">null()</interpretation>
+      <interpretation p="0.268">other()</interpretation>
+      <interpretation p="0.137">hello()</interpretation>
+      <interpretation p="0.125">other()&amp;hello()</interpretation>
+      <interpretation p="0.076">affirm()</interpretation>
+      <interpretation p="0.069">other()&amp;affirm()</interpretation>
+      <interpretation p="0.032">other()&amp;hello()&amp;affirm()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="0.477">other()</dai>
+          <dai p="0.523">null()</dai>
+        </dai_alternatives>
+        <dai_alternatives>
+          <dai p="0.318">hello()</dai>
+          <dai p="0.682">null()</dai>
+        </dai_alternatives>
+        <dai_alternatives>
+          <dai p="0.205">affirm()</dai>
+          <dai p="0.795">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+  </turn>
+  <turn speaker="system" time="33.040" turn_number="4">
+    <dialogue_act time="33.059">inform(found_directions="true")&amp;inform(alternative="1")&amp;inform(vehicle="BUS")&amp;inform(line="201")&amp;inform(go_at="03:58")&amp;inform(enter_at="Nádraží Holešovice")&amp;inform(headsign="Bakovská")&amp;inform(exit_at="Českolipská")</dialogue_act>
+    <text time="33.162">Našla jsem následující spojení. Možnost první. Jeďte autobusem číslo 201 v 03:58 ze zastávky Nádraží Holešovice směrem Bakovská. Vystupte na zastávce Českolipská.</text>
+    <rec fname="tts-2013-07-09-15-54-26.085243.wav" starttime="33.203"/>
+  </turn>
+  <turn speaker="system" time="33.675" turn_number="5">
+    <dialogue_act time="33.711">inform(found_directions="true")&amp;inform(alternative="1")&amp;inform(vehicle="BUS")&amp;inform(line="201")&amp;inform(go_at="03:58")&amp;inform(enter_at="Nádraží Holešovice")&amp;inform(headsign="Bakovská")&amp;inform(exit_at="Českolipská")</dialogue_act>
+    <text time="33.820">Našla jsem následující spojení. Možnost první. Jeďte autobusem číslo 201 v 03:58 ze zastávky Nádraží Holešovice směrem Bakovská. Vystupte na zastávce Českolipská.</text>
+    <barge-in time="34.592"/>
+  </turn>
+  <turn speaker="user" time="34.542" turn_number="5">
+    <rec endtime="34.992" fname="vad-2013-07-09-15-54-27.443452.wav" starttime="34.563"/>
+    <asr>
+      <hypothesis p="1.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="1.000">other()</interpretation>
+      <interpretation p="0.000">null()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="1.000">other()</dai>
+          <dai p="0.000">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="6fa8e77278444d736414cbef825738997ada1481" annotation="317" breaks_gold="0" is_gold="0" transcriber="adela" date="16/10/13, 12:28:50 ">poslou-</asr_transcription>
+    <asr_transcription some_breaks_gold="0" program_version="6fa8e77278444d736414cbef825738997ada1481" annotation="315" breaks_gold="0" is_gold="0" transcriber="adela" date="16/10/13, 12:26:18 ">poslou-</asr_transcription>
+  </turn>
+  <turn speaker="system" time="35.451" turn_number="6">
+    <dialogue_act time="35.474">notunderstood()&amp;help(request="num_transfers")</dialogue_act>
+    <text time="35.509">Nerozuměla jsem. Můžete to zopakovat? Můžete se například zeptat kolik přestupů má nabídnutý spoj.</text>
+    <rec fname="tts-2013-07-09-15-54-28.435398.wav" starttime="35.541"/>
+    <barge-in time="38.603"/>
+  </turn>
+  <turn speaker="user" time="38.543" turn_number="6">
+    <rec endtime="39.017" fname="vad-2013-07-09-15-54-31.438244.wav" starttime="38.567"/>
+    <asr>
+      <hypothesis p="1.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="1.000">other()</interpretation>
+      <interpretation p="0.000">null()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="1.000">other()</dai>
+          <dai p="0.000">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="6fa8e77278444d736414cbef825738997ada1481" annotation="317" breaks_gold="0" is_gold="0" transcriber="adela" date="16/10/13, 12:28:50 ">(unint)</asr_transcription>
+    <asr_transcription some_breaks_gold="0" program_version="6fa8e77278444d736414cbef825738997ada1481" annotation="315" breaks_gold="0" is_gold="0" transcriber="adela" date="16/10/13, 12:26:18 ">(unint)</asr_transcription>
+  </turn>
+  <turn speaker="system" time="39.448" turn_number="7">
+    <dialogue_act time="39.488">notunderstood()&amp;help(inform="alternative_next")</dialogue_act>
+    <text time="39.533">Nerozuměla jsem. Můžete to zopakovat? Můžete mě požádat o další spoj.</text>
+    <rec fname="tts-2013-07-09-15-54-32.643513.wav" starttime="39.766"/>
+    <barge-in time="40.223"/>
+  </turn>
+  <turn speaker="user" time="40.138" turn_number="7">
+    <rec endtime="41.669" fname="vad-2013-07-09-15-54-33.037779.wav" starttime="40.169"/>
+    <asr>
+      <hypothesis p="0.597">čekám na vaši informaci</hypothesis>
+      <hypothesis p="0.101">čekám na informace</hypothesis>
+      <hypothesis p="0.086">čekám na informaci</hypothesis>
+      <hypothesis p="0.072">čekám na vaši pomoc</hypothesis>
+      <hypothesis p="0.058">čekám na vaši matku</hypothesis>
+      <hypothesis p="0.043">čekáme vaši informaci</hypothesis>
+      <hypothesis p="0.029">čekáme vaši pomoc</hypothesis>
+      <hypothesis p="0.014">čekáme vaši matku</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="0.809">other()</interpretation>
+      <interpretation p="0.091">other()&amp;help()</interpretation>
+      <interpretation p="0.091">null()</interpretation>
+      <interpretation p="0.010">help()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="0.899">other()</dai>
+          <dai p="0.101">null()</dai>
+        </dai_alternatives>
+        <dai_alternatives>
+          <dai p="0.101">help()</dai>
+          <dai p="0.899">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="6fa8e77278444d736414cbef825738997ada1481" annotation="317" breaks_gold="0" is_gold="0" transcriber="adela" date="16/10/13, 12:28:50 ">čekám na vaši informaci</asr_transcription>
+    <asr_transcription some_breaks_gold="0" program_version="6fa8e77278444d736414cbef825738997ada1481" annotation="315" breaks_gold="0" is_gold="0" transcriber="adela" date="16/10/13, 12:26:18 ">čekám na vaši informaci</asr_transcription>
+  </turn>
+  <turn speaker="system" time="42.987" turn_number="8">
+    <dialogue_act time="43.017">notunderstood()&amp;help(inform="alternative_prev")</dialogue_act>
+    <text time="43.062">Promiňte, nerozuměla jsem. Pokud chcete zjistit předchozí spoj, potom mě můžete požádat o předchozí spoj.</text>
+    <rec fname="tts-2013-07-09-15-54-35.993918.wav" starttime="43.107"/>
+  </turn>
+  <turn speaker="user" time="52.948" turn_number="8">
+    <rec endtime="55.753" fname="vad-2013-07-09-15-54-45.846223.wav" starttime="52.985"/>
+    <asr>
+      <hypothesis p="0.727">žádám o předchozí spoj</hypothesis>
+      <hypothesis p="0.068">žádám o předchozí spojit</hypothesis>
+      <hypothesis p="0.058">žádám o předchozí spoje</hypothesis>
+      <hypothesis p="0.049">žádám o předchozích spoj</hypothesis>
+      <hypothesis p="0.039">žádám o předchozí spojka</hypothesis>
+      <hypothesis p="0.029">žádám o předchozím spoj</hypothesis>
+      <hypothesis p="0.019">žádám o předchozí spojů</hypothesis>
+      <hypothesis p="0.010">žádám od předchozí spoj</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="0.633">inform(alternative="prev")</interpretation>
+      <interpretation p="0.163">inform(alternative="prev")&amp;other()</interpretation>
+      <interpretation p="0.163">null()</interpretation>
+      <interpretation p="0.042">other()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="0.795">inform(alternative="prev")</dai>
+          <dai p="0.205">null()</dai>
+        </dai_alternatives>
+        <dai_alternatives>
+          <dai p="0.205">other()</dai>
+          <dai p="0.795">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="6fa8e77278444d736414cbef825738997ada1481" annotation="317" breaks_gold="0" is_gold="0" transcriber="adela" date="16/10/13, 12:28:50 ">(hum) žádám o předchozí spoj</asr_transcription>
+    <asr_transcription some_breaks_gold="0" program_version="6fa8e77278444d736414cbef825738997ada1481" annotation="315" breaks_gold="0" is_gold="0" transcriber="adela" date="16/10/13, 12:26:18 ">(hum) žádám o předchozí spoj</asr_transcription>
+  </turn>
+  <turn speaker="system" time="57.274" turn_number="9">
+    <dialogue_act time="57.417">inform(found_directions="no_prev")</dialogue_act>
+    <text time="57.462">Už tady nemám žádné předchozí spojení.</text>
+    <rec fname="tts-2013-07-09-15-54-50.397050.wav" starttime="57.513"/>
+  </turn>
+  <turn speaker="user" time="62.552" turn_number="9">
+    <rec endtime="65.166" fname="vad-2013-07-09-15-54-55.448228.wav" starttime="62.591"/>
+    <asr>
+      <hypothesis p="0.645">takže následující spojení</hypothesis>
+      <hypothesis p="0.071">takže následující</hypothesis>
+      <hypothesis p="0.063">takže následujících pojmů</hypothesis>
+      <hypothesis p="0.055">takže následující fórum</hypothesis>
+      <hypothesis p="0.047">takže následující phone</hypothesis>
+      <hypothesis p="0.039">tak že následující spojení</hypothesis>
+      <hypothesis p="0.032">tak že následující</hypothesis>
+      <hypothesis p="0.024">tak že následujících pojmů</hypothesis>
+      <hypothesis p="0.016">takže následující pojmů</hypothesis>
+      <hypothesis p="0.008">takze následujících pojmů</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="0.468">inform(alternative="next")</interpretation>
+      <interpretation p="0.216">null()</interpretation>
+      <interpretation p="0.216">inform(alternative="next")&amp;other()</interpretation>
+      <interpretation p="0.100">other()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="0.684">inform(alternative="next")</dai>
+          <dai p="0.316">null()</dai>
+        </dai_alternatives>
+        <dai_alternatives>
+          <dai p="0.316">other()</dai>
+          <dai p="0.684">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="6fa8e77278444d736414cbef825738997ada1481" annotation="317" breaks_gold="0" is_gold="0" transcriber="adela" date="16/10/13, 12:28:50 ">takže následující spojení</asr_transcription>
+    <asr_transcription some_breaks_gold="0" program_version="6fa8e77278444d736414cbef825738997ada1481" annotation="315" breaks_gold="0" is_gold="0" transcriber="adela" date="16/10/13, 12:26:18 ">takže následující spojení</asr_transcription>
+  </turn>
+  <turn speaker="system" time="67.107" turn_number="10">
+    <dialogue_act time="67.149">inform(found_directions="next")&amp;inform(alternative="2")&amp;inform(vehicle="SUBWAY")&amp;inform(line="C")&amp;inform(go_at="03:54")&amp;inform(enter_at="Nádraží Holešovice")&amp;inform(headsign="Letňany")&amp;inform(exit_at="Střížkov")&amp;inform(transfer="true")&amp;inform(vehicle="BUS")&amp;inform(line="201")&amp;inform(go_at="04:11")&amp;inform(enter_at="Střížkov")&amp;inform(headsign="Bakovská")&amp;inform(exit_at="Českolipská")</dialogue_act>
+    <text time="67.436">Následující spojení. Možnost druhá. Jeďte metrem C v 03:54 ze zastávky Nádraží Holešovice směrem Letňany. Vystupte na zastávce Střížkov. A pak přestupte. Jeďte autobusem číslo 201 v 04:11 ze zastávky Střížkov směrem Bakovská. Vystupte na zastávce Českolipská.</text>
+    <rec fname="tts-2013-07-09-15-55-00.371290.wav" starttime="67.494"/>
+    <barge-in time="75.201"/>
+  </turn>
+  <turn speaker="user" time="75.109" turn_number="10">
+    <rec endtime="75.510" fname="vad-2013-07-09-15-55-08.004205.wav" starttime="75.154"/>
+    <asr>
+      <hypothesis p="1.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="1.000">other()</interpretation>
+      <interpretation p="0.000">null()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="1.000">other()</dai>
+          <dai p="0.000">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="6fa8e77278444d736414cbef825738997ada1481" annotation="317" breaks_gold="0" is_gold="0" transcriber="adela" date="16/10/13, 12:28:50 ">(noise)</asr_transcription>
+    <asr_transcription some_breaks_gold="0" program_version="6fa8e77278444d736414cbef825738997ada1481" annotation="315" breaks_gold="0" is_gold="0" transcriber="adela" date="16/10/13, 12:26:18 ">(noise)</asr_transcription>
+  </turn>
+  <turn speaker="system" time="75.908" turn_number="11">
+    <dialogue_act time="75.954">notunderstood()&amp;help(inform="alternative_abs")</dialogue_act>
+    <text time="76.006">Promiňte, nerozuměla jsem. Pokud chcete zopakovat konkrétní spoj, potom můžete například říct třetí spojení.</text>
+    <rec fname="tts-2013-07-09-15-55-08.944095.wav" starttime="76.063"/>
+  </turn>
+  <turn speaker="user" time="86.118" turn_number="11">
+    <rec endtime="89.040" fname="vad-2013-07-09-15-55-18.921877.wav" starttime="86.158"/>
+    <asr>
+      <hypothesis p="0.727">no tak jak chtěl bych si přečti spojení</hypothesis>
+      <hypothesis p="0.027">no tak jak chtěl bych se třetí spojení</hypothesis>
+      <hypothesis p="0.026">no tak jak chtěl bych si přečíst spojení</hypothesis>
+      <hypothesis p="0.024">no tak jak chtěl bych se předtím spojení</hypothesis>
+      <hypothesis p="0.023">no tak jak chtěl bych se přečti spojení</hypothesis>
+      <hypothesis p="0.022">no tak jak chtěl bychse přečti spojení</hypothesis>
+      <hypothesis p="0.020">no tak jak chtěl bych jet přečti spojení</hypothesis>
+      <hypothesis p="0.019">no tak jak chtěl bych přečti spojení</hypothesis>
+      <hypothesis p="0.017">no tak jak chtěl bych si přečti spojení s</hypothesis>
+      <hypothesis p="0.016">no tak jak chtěl bych se třetí spojení s</hypothesis>
+      <hypothesis p="0.014">tak jak chtěl bych si přečti spojení</hypothesis>
+      <hypothesis p="0.013">tak jak chtěl bych se třetí spojení</hypothesis>
+      <hypothesis p="0.012">no tak jak chtěl bych 5 přečti spojení</hypothesis>
+      <hypothesis p="0.010">na tak jak chtěl bych si přečti spojení</hypothesis>
+      <hypothesis p="0.009">na tak jak chtěl bych se třetí spojení</hypothesis>
+      <hypothesis p="0.007">no tak jak chtěl bych si přečti spojení a</hypothesis>
+      <hypothesis p="0.006">no tak jak chtěl bych si přečti spojení i</hypothesis>
+      <hypothesis p="0.004">no tak jak chtěl bych si přečti spojení z</hypothesis>
+      <hypothesis p="0.003">no tak jak chtěl bych se třetí spojení a</hypothesis>
+      <hypothesis p="0.001">noc tak jak chtěl bych si přečti spojení</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="0.869">other()</interpretation>
+      <interpretation p="0.063">other()&amp;inform(alternative="3")</interpretation>
+      <interpretation p="0.063">null()</interpretation>
+      <interpretation p="0.005">inform(alternative="3")</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="0.932">other()</dai>
+          <dai p="0.068">null()</dai>
+        </dai_alternatives>
+        <dai_alternatives>
+          <dai p="0.068">inform(alternative="3")</dai>
+          <dai p="0.932">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="6fa8e77278444d736414cbef825738997ada1481" annotation="317" breaks_gold="0" is_gold="0" transcriber="adela" date="16/10/13, 12:28:50 ">no tak chtěl bych třetí spojení</asr_transcription>
+    <asr_transcription some_breaks_gold="0" program_version="6fa8e77278444d736414cbef825738997ada1481" annotation="315" breaks_gold="0" is_gold="0" transcriber="adela" date="16/10/13, 12:26:18 ">no tak chtěl bych třetí spojení</asr_transcription>
+  </turn>
+  <turn speaker="system" time="91.354" turn_number="12">
+    <dialogue_act time="91.380">notunderstood()&amp;help(inform="alternative_last")</dialogue_act>
+    <text time="91.415">Nerozuměla jsem. Můžete to zopakovat? Můžete mě požádat o poslední nabídnutý spoj.</text>
+    <rec fname="tts-2013-07-09-15-55-24.340948.wav" starttime="91.443"/>
+  </turn>
+  <turn speaker="user" time="99.540" turn_number="12">
+    <rec endtime="102.139" fname="vad-2013-07-09-15-55-32.431332.wav" starttime="99.591"/>
+    <asr>
+      <hypothesis p="0.671">chtěl sem třetí spojení</hypothesis>
+      <hypothesis p="0.051">chtěl sem třetím spojení</hypothesis>
+      <hypothesis p="0.046">šel sem třetí spojení</hypothesis>
+      <hypothesis p="0.042">chtěl jsem třetí spojení</hypothesis>
+      <hypothesis p="0.038">chtěl sem předtím spojení</hypothesis>
+      <hypothesis p="0.034">chtěl sem třetích spojení</hypothesis>
+      <hypothesis p="0.030">šel sem předtím spojení</hypothesis>
+      <hypothesis p="0.025">chtěl sem s třetí spojení</hypothesis>
+      <hypothesis p="0.021">chtěl jsem třetím spojení</hypothesis>
+      <hypothesis p="0.017">chtěl sem třetí zpoždění</hypothesis>
+      <hypothesis p="0.013">chtěl sem třetí spojení s</hypothesis>
+      <hypothesis p="0.008">shell semena třetí spojení</hypothesis>
+      <hypothesis p="0.004">čelo sem třetí spojení</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="0.684">inform(alternative="3")</interpretation>
+      <interpretation p="0.143">null()</interpretation>
+      <interpretation p="0.143">inform(alternative="3")&amp;other()</interpretation>
+      <interpretation p="0.030">other()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="0.827">inform(alternative="3")</dai>
+          <dai p="0.173">null()</dai>
+        </dai_alternatives>
+        <dai_alternatives>
+          <dai p="0.173">other()</dai>
+          <dai p="0.827">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="6fa8e77278444d736414cbef825738997ada1481" annotation="317" breaks_gold="0" is_gold="0" transcriber="adela" date="16/10/13, 12:28:50 ">chtěl jsem třetí spojení</asr_transcription>
+    <asr_transcription some_breaks_gold="0" program_version="6fa8e77278444d736414cbef825738997ada1481" annotation="315" breaks_gold="0" is_gold="0" transcriber="adela" date="16/10/13, 12:26:18 ">chtěl jsem třetí spojení</asr_transcription>
+  </turn>
+  <turn speaker="system" time="104.022" turn_number="13">
+    <dialogue_act time="104.050"/>
+    <text time="104.082"/>
+    <rec fname="tts-2013-07-09-15-55-37.011086.wav" starttime="104.119"/>
+  </turn>
+</dialogue>

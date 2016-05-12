@@ -1,0 +1,1387 @@
+2013-07-08-19-38-07.560785-COT  VoipIO-1   : DEBUG      
+    CallCallback::on_state : Call with "Anonymous" <sip:anonymous@195.113.20.69> is CONNECTING last code = 200 (OK)
+
+2013-07-08-19-38-07.562910-COT  VoipIO-1   : DEBUG      
+    VoipIO::on_call_connecting
+
+2013-07-08-19-38-07.581694-COT  MainProcess : SYSTEM-LOG 
+    config = { 'ASR': { 'Google': { 'debug': False, 'language': 'cs', 'maxresults': 20},
+               'Julius': { 'adinnetport': 5530,
+                           'binary': '/usr/local/bin/julius',
+                           'debug': False,
+                           'hostname': 'localhost',
+                           'jconf': { '-adport': '5530',
+                                      '-b': '1000',
+                                      '-b2': '100',
+                                      '-cmnload': 'cmn.param',
+                                      '-cmnmapweight': '200',
+                                      '-cmnsave': 'cmn.param',
+                                      '-confnet': '',
+                                      '-fallback1pass': '',
+                                      '-gprune': 'safe',
+                                      '-h': '/home/jurcicek/vystadial-git/alex/resources/asr/voip_en/hmmdefs',
+                                      '-hlist': '/home/jurcicek/vystadial-git/alex/resources/asr/voip_en/tiedlist',
+                                      '-htkconf': '/home/jurcicek/vystadial-git/alex/resources/asr/voip_en/config',
+                                      '-input': 'adinnet',
+                                      '-iwsp': '',
+                                      '-iwsppenalty': '0.0',
+                                      '-lmp': '15.0 0.0',
+                                      '-lmp2': '15.0 0.0',
+                                      '-mapunk': 'UM',
+                                      '-module': '10500',
+                                      '-n': '50',
+                                      '-nlr': '/home/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_arpa_bigram',
+                                      '-no_ccd': '',
+                                      '-nrl': '/home/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_arpa_rev_bigram',
+                                      '-silhead': '<s>',
+                                      '-siltail': '</s>',
+                                      '-spmodel': 'sp',
+                                      '-tmix': '4',
+                                      '-v': '/home/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_dict'},
+                           'jconffile': 'julius.jconf',
+                           'killall': False,
+                           'logfile': 'julius.log',
+                           'msg_timeout': 0.3,
+                           'pidfile': 'julius.pid',
+                           'reuse_server': False,
+                           'serverport': 10500,
+                           'start_max_wait_time': 15,
+                           'start_wait_time': 0.5,
+                           'timeout': 2.0},
+               'Kaldi': { 'LM_scale': -6666.66,
+                          'hypothesis_type': 'nblist',
+                          'lat_depth': 666666,
+                          'model': 'TODO_path_to_model'},
+               'debug': True,
+               'type': 'Google'},
+      'AlexOnTheBus': { 'max_turns': 30},
+      'Analytics': Analytics(account_id='UA-41905278-1', domain_name='cuni.cz'),
+      'Audio': { 'sample_rate': 16000, 'samples_per_frame': 256},
+      'AudioIO': { 'debug': True, 'output_dir': './aio_call_log', 'play_buffer_size': 1024},
+      'DM': { 'PUfalRuleDM': { 'code_submit_url': None,
+                               'db_cfg': '/home/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/cued_data/CIRdbase_V7_noloc.txt',
+                               'ontology': '/home/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/ontology.cfg',
+                               'provide_code': False},
+              'UfalRuleDM': { 'code_submit_url': None,
+                              'db_cfg': '/home/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/cued_data/CIRdbase_V7_noloc.txt',
+                              'ontology': '/home/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/ontology.cfg',
+                              'provide_code': False},
+              'basic': { 'debug': True, 'silence_timeout': 10.0},
+              'debug': True,
+              'dialogue_policy': { 'type': <class 'alex.applications.AlexOnTheBus.aotb_hdc_policy.AOTBHDCPolicy'>},
+              'dialogue_state': { 'type': <class 'alex.components.dm.dddstate.DeterministicDiscriminativeDialogueState'>},
+              'input_timeout': 3.0,
+              'ontology': '/home/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/data/ontology.py',
+              'type': 'basic'},
+      'General': { 'debug': False, 'include': ['/home/jurcicek/vystadial-git/alex/resources/private/default.cfg']},
+      'Hub': { 'history_file': 'hub_history_hub.txt', 'history_length': 1000, 'main_loop_sleep_time': 0.002},
+      'Logging': { 'excepthook': ExceptionHook(
+            ExceptionHook
+              Hook Type: log
+              Hook Logger: SystemLogger(output_dir=./call_logs, stdout_log_level='DEBUG', stdout=True, file_log_level='DEBUG')),
+                   'session_logger': SessionLogger(),
+                   'system_logger': SystemLogger(output_dir=./call_logs, stdout_log_level='DEBUG', stdout=True, file_log_level='DEBUG'),
+                   'system_name': 'Alex On The Bus',
+                   'version': '1.0'},
+      'NLG': { 'Template': { 'model': '/home/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/nlg_templates.cfg'},
+               'debug': True,
+               'type': 'Template'},
+      'SHub': { 'history_file': 'hub_history_shub.txt', 'history_length': 1000},
+      'SLU': { 'cl-tracing': { 'cldb_fname': '/home/jurcicek/vystadial-git/alex/applications/CamInfoRest/data/database.py',
+                               'do_preprocessing': True,
+                               'features_type': ('ngram', 'ab_ngram'),
+                               'testing': { 'max_examples': None,
+                                            'min_perc': 80,
+                                            'model_fname': '/home/jurcicek/vystadial-git/alex/applications/CamInfoRest/models/130516_minf60-minfc35-mind60.slu_model.gz',
+                                            'renormalise': True,
+                                            'threshold': None,
+                                            'vanilla': True},
+                               'training': { 'abstractions': ('abstract',), 'models_dir': 'models'}},
+               'debug': True,
+               'type': <class 'alex.applications.AlexOnTheBus.aotb_slu.AOTBSLU'>,
+               <class 'alex.applications.AlexOnTheBus.aotb_slu.AOTBSLU'>: { 'cldb_fname': '/home/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/data/database.py',
+                                                                            'preprocessing_cls': <class 'alex.applications.AlexOnTheBus.aotb_preprocessing.AOTBSLUPreprocessing'>,
+                                                                            'training': { 'models_dir': 'models'}}},
+      'THub': { 'history_file': 'hub_history_thub.txt', 'history_length': 1000},
+      'TTS': { 'Flite': { 'debug': False,
+                          'preprocessing': '/home/jurcicek/vystadial-git/alex/resources/tts/prep_flite_en.cfg',
+                          'voice': 'kal16'},
+               'Google': { 'debug': False,
+                           'language': 'en',
+                           'preprocessing': '/home/jurcicek/vystadial-git/alex/resources/tts/prep_google_en.cfg'},
+               'SpeechTech': { 'debug': True,
+                               'login': 'filipjurcicek',
+    # this line was removed since it included a password
+                               'preprocessing': '/home/jurcicek/vystadial-git/alex/resources/tts/prep_speechtech_cs.cfg',
+                               'voice': 'Iva210'},
+               'VoiceRSS': { 'api_key': '3b6a9fca5d724b1c8ac34691586cdda1'},
+               'VoiceRss': { 'language': 'en-gb',
+                             'preprocessing': '/home/jurcicek/vystadial-git/alex/resources/tts/prep_voicerss_en.cfg'},
+               'debug': True,
+               'in_between_segments_silence': 0.1,
+               'type': 'SpeechTech'},
+      'VAD': { 'debug': False,
+               'decision_frames_sil': 25,
+               'decision_frames_speech': 10,
+               'decision_non_speech_threshold': 0.2,
+               'decision_speech_threshold': 0.7,
+               'gmm': { 'ceplifter': 22,
+                        'enormalise': True,
+                        'filter_length': 5,
+                        'frameshift': 160,
+                        'framesize': 512,
+                        'frontend': 'MFCC',
+                        'hifreq': 3800,
+                        'lofreq': 125,
+                        'numceps': 12,
+                        'numchans': 26,
+                        'preemcoef': 0.97,
+                        'sil_model': '/home/jurcicek/vystadial-git/alex/resources/vad/voip_en/vad_sil_sds_mfcc_m064_f100000.gmm',
+                        'speech_model': '/home/jurcicek/vystadial-git/alex/resources/vad/voip_en/vad_speech_sds_mfcc_m064_f100000.gmm',
+                        'useacc': True,
+                        'usec0': False,
+                        'usecmn': False,
+                        'usedelta': True,
+                        'usehamming': True,
+                        'usepower': True,
+                        'zmeansource': True},
+               'power': { 'adaptation_frames': 30, 'threshold': 70, 'threshold_multiplier': 1.0},
+               'speech_buffer_frames': 20,
+               'type': 'gmm'},
+      'VoipHub': { 'blacklist_for': 7200,
+                   'call_db': '/home/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/call_db.pckl',
+                   'hard_time_limit': 360,
+                   'hard_turn_limit': 120,
+                   'history_length': 1000,
+                   'last_period_max_num_calls': 100,
+                   'last_period_max_total_time': 7200,
+                   'limit_reached_message': u'D\u011bkujeme za zavol\xe1n\xed, ale u\u017e jste volali hodn\u011b. Pros\xedm zavolejte pozd\u011bji. Na shledanou.',
+                   'period': 172800,
+                   'pid_file': '/home/jurcicek/vystadial-git/alex/applications/vhub.pid',
+                   'wait_time_before_calling_back': 10},
+      'VoipIO': { 'allowed_hosts': '',
+                  'allowed_phone_numbers': '(^[234567])',
+                  'allowed_users': '(^[234567])',
+                  'debug': True,
+                  'domain': 'external.sip.mff.cuni.cz:5066',
+                  'forbidden_hosts': '',
+                  'forbidden_phone_number': '(^112$|^150$|^155$|^156$|^158$)',
+                  'forbidden_users': '(^112$|^150$|^155$|^156$|^158$)',
+    # this line was removed since it included a password
+                  'pjsip_log_level': 3,
+                  'reject_calls': False,
+                  'user': 'DEV-9889'},
+      'WebHub': { 'port': 8000},
+      'corpustools': { 'get_jasr_confnets': { 'frame_size': 256, 'rt_ratio': 0.2}}}
+
+2013-07-08-19-38-07.620855-COT  MainProcess : INFO       
+    #2      Time: 2013-07-08-19-38-07.563166-COT From: VoipIO     To: HUB        Command: call_connecting(remote_uri="anonymous") 
+
+2013-07-08-19-38-07.769714-COT  VoipIO-1   : DEBUG      
+    CallCallback::on_state : Call with "Anonymous" <sip:anonymous@195.113.20.69> is CONFIRMED last code = 200 (OK)
+
+2013-07-08-19-38-07.840523-COT  VoipIO-1   : DEBUG      
+    VoipIO::on_call_confirmed
+
+2013-07-08-19-38-07.845656-COT  MainProcess : INFO       
+    #3      Time: 2013-07-08-19-38-07.840931-COT From: VoipIO     To: HUB        Command: call_confirmed(remote_uri="anonymous") 
+
+2013-07-08-19-38-07.851723-COT  MainProcess : INFO       
+    
+    ========================================================================================================================
+    Incoming call from :          anonymous
+    ------------------------------------------------------------------------------------------------------------------------
+    Total calls:                  9
+    Total time (min):             17.9
+    Last period total calls:      7
+    Last period total time (min): 13.3
+    ------------------------------------------------------------------------------------------------------------------------
+    CALL ACCEPTED
+    ========================================================================================================================
+    
+
+2013-07-08-19-38-07.854283-COT  DM-5       : DEBUG      
+    #4      Time: 2013-07-08-19-38-07.848821-COT From: HUB        To: DM         Command: new_dialogue() 
+
+2013-07-08-19-38-07.865643-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    hello()
+    
+
+2013-07-08-19-38-07.872222-COT  MainProcess : INFO       
+    #5      Time: 2013-07-08-19-38-07.868750-COT From: DM         To: HUB        Hyp: hello() 
+
+2013-07-08-19-38-10.855115-COT  DM-5       : DEBUG      
+    #193    Time: 2013-07-08-19-38-10.850583-COT From: HUB        To: DM         Command: timeout(silence_time="1373330290.850") 
+
+2013-07-08-19-38-10.856310-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="1373330290.850")
+
+2013-07-08-19-38-10.857564-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="1373330290.850")
+
+2013-07-08-19-38-10.859698-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    silence_time = 1373330290.85
+    
+    
+    
+    
+
+2013-07-08-19-38-10.862200-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 1373330290.85}
+
+2013-07-08-19-38-10.864580-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    inform(silence_timeout="true")
+    
+
+2013-07-08-19-38-10.876089-COT  MainProcess : INFO       
+    #194    Time: 2013-07-08-19-38-10.872164-COT From: DM         To: HUB        Hyp: inform(silence_timeout="true") 
+
+2013-07-08-19-38-13.855539-COT  DM-5       : DEBUG      
+    #382    Time: 2013-07-08-19-38-13.851387-COT From: HUB        To: DM         Command: timeout(silence_time="1373330293.851") 
+
+2013-07-08-19-38-13.856370-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="1373330293.851")
+
+2013-07-08-19-38-13.857216-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="1373330293.851")
+
+2013-07-08-19-38-13.858263-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    silence_time = 1373330293.85
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-08-19-38-13.860215-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 1373330293.851}
+
+2013-07-08-19-38-13.861832-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    inform(silence_timeout="true")
+    
+
+2013-07-08-19-38-13.872623-COT  MainProcess : INFO       
+    #385    Time: 2013-07-08-19-38-13.869616-COT From: VAD        To: HUB        Command: speech_start(fname="vad-2013-07-08-19-38-13.853957.wav") 
+
+2013-07-08-19-38-13.876412-COT  ASR-3      : DEBUG      
+    ASR: speech_start(fname="vad-2013-07-08-19-38-13.853957.wav")
+
+2013-07-08-19-38-13.877903-COT  MainProcess : INFO       
+    #386    Time: 2013-07-08-19-38-13.871531-COT From: ASR        To: HUB        Command: asr_start(fname="vad-2013-07-08-19-38-13.853957.wav") 
+
+2013-07-08-19-38-13.886319-COT  MainProcess : INFO       
+    #387    Time: 2013-07-08-19-38-13.884472-COT From: DM         To: HUB        Hyp: inform(silence_timeout="true") 
+
+2013-07-08-19-38-17.838853-COT  ASR-3      : DEBUG      
+    ASR: speech_end(fname="vad-2013-07-08-19-38-13.853957.wav")
+
+2013-07-08-19-38-17.842175-COT  MainProcess : INFO       
+    #637    Time: 2013-07-08-19-38-17.835692-COT From: VAD        To: HUB        Command: speech_end(fname="vad-2013-07-08-19-38-13.853957.wav") 
+
+2013-07-08-19-38-18.092526-COT  MainProcess : INFO       
+    #655    Time: 2013-07-08-19-38-18.090034-COT From: VAD        To: HUB        Command: speech_start(fname="vad-2013-07-08-19-38-18.083953.wav") 
+
+2013-07-08-19-38-19.220209-COT  ASR-3      : DEBUG      
+    ASR Hypothesis
+    ------------------------------------------------------------
+    1.000 __silence__
+    0.000 __other__
+    
+
+2013-07-08-19-38-19.236819-COT  MainProcess : INFO       
+    #728    Time: 2013-07-08-19-38-19.232330-COT From: ASR        To: HUB        Command: asr_end(fname="vad-2013-07-08-19-38-13.853957.wav") 
+
+2013-07-08-19-38-19.241835-COT  SLU-4      : DEBUG      
+    SLU Hypothesis
+    ------------------------------------------------------------
+    1.000 silence()
+    
+
+2013-07-08-19-38-19.244038-COT  ASR-3      : DEBUG      
+    ASR: speech_start(fname="vad-2013-07-08-19-38-18.083953.wav")
+
+2013-07-08-19-38-19.246779-COT  MainProcess : INFO       
+    #730    Time: 2013-07-08-19-38-19.243288-COT From: ASR        To: HUB        Command: asr_start(fname="vad-2013-07-08-19-38-18.083953.wav") 
+
+2013-07-08-19-38-19.273666-COT  MainProcess : INFO       
+    #731    Time: 2013-07-08-19-38-19.270077-COT From: SLU        To: HUB        Command: slu_parsed(fname="vad-2013-07-08-19-38-13.853957.wav") 
+
+2013-07-08-19-38-19.276237-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence()
+
+2013-07-08-19-38-19.277100-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence()
+
+2013-07-08-19-38-19.285130-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    silence_time = 0.0
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-08-19-38-19.285874-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 0.0}
+
+2013-07-08-19-38-19.296145-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-19-38-19.304055-COT  MainProcess : INFO       
+    #737    Time: 2013-07-08-19-38-19.302326-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-19-38-22.117726-COT  ASR-3      : DEBUG      
+    ASR: speech_end(fname="vad-2013-07-08-19-38-18.083953.wav")
+
+2013-07-08-19-38-22.122113-COT  MainProcess : INFO       
+    #915    Time: 2013-07-08-19-38-22.115416-COT From: VAD        To: HUB        Command: speech_end(fname="vad-2013-07-08-19-38-18.083953.wav") 
+
+2013-07-08-19-38-22.382539-COT  MainProcess : INFO       
+    #933    Time: 2013-07-08-19-38-22.380191-COT From: VAD        To: HUB        Command: speech_start(fname="vad-2013-07-08-19-38-22.370590.wav") 
+
+2013-07-08-19-38-23.040992-COT  ASR-3      : DEBUG      
+    ASR Hypothesis
+    ------------------------------------------------------------
+    1.000 __silence__
+    0.000 __other__
+    
+
+2013-07-08-19-38-23.049452-COT  MainProcess : INFO       
+    #974    Time: 2013-07-08-19-38-23.047514-COT From: ASR        To: HUB        Command: asr_end(fname="vad-2013-07-08-19-38-18.083953.wav") 
+
+2013-07-08-19-38-23.051264-COT  SLU-4      : DEBUG      
+    SLU Hypothesis
+    ------------------------------------------------------------
+    1.000 silence()
+    
+
+2013-07-08-19-38-23.052765-COT  ASR-3      : DEBUG      
+    ASR: speech_start(fname="vad-2013-07-08-19-38-22.370590.wav")
+
+2013-07-08-19-38-23.054052-COT  MainProcess : INFO       
+    #976    Time: 2013-07-08-19-38-23.051028-COT From: ASR        To: HUB        Command: asr_start(fname="vad-2013-07-08-19-38-22.370590.wav") 
+
+2013-07-08-19-38-23.141033-COT  MainProcess : INFO       
+    #985    Time: 2013-07-08-19-38-23.136837-COT From: SLU        To: HUB        Command: slu_parsed(fname="vad-2013-07-08-19-38-18.083953.wav") 
+
+2013-07-08-19-38-23.142696-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence()
+
+2013-07-08-19-38-23.145330-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence()
+
+2013-07-08-19-38-23.147765-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    silence_time = 0.0
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-08-19-38-23.149362-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 0.0}
+
+2013-07-08-19-38-23.151844-COT  MainProcess : INFO       
+    #988    Time: 2013-07-08-19-38-23.147512-COT From: VAD        To: HUB        Command: speech_end(fname="vad-2013-07-08-19-38-22.370590.wav") 
+
+2013-07-08-19-38-23.172427-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-19-38-23.184695-COT  MainProcess : INFO       
+    #989    Time: 2013-07-08-19-38-23.180987-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-19-38-23.236891-COT  ASR-3      : DEBUG      
+    ASR: speech_end(fname="vad-2013-07-08-19-38-22.370590.wav")
+
+2013-07-08-19-38-23.607160-COT  MainProcess : INFO       
+    #1019   Time: 2013-07-08-19-38-23.603351-COT From: VAD        To: HUB        Command: speech_start(fname="vad-2013-07-08-19-38-23.589889.wav") 
+
+2013-07-08-19-38-23.668719-COT  ASR-3      : DEBUG      
+    ASR Hypothesis
+    ------------------------------------------------------------
+    1.000 __silence__
+    0.000 __other__
+    
+
+2013-07-08-19-38-23.689755-COT  MainProcess : INFO       
+    #1024   Time: 2013-07-08-19-38-23.687849-COT From: ASR        To: HUB        Command: asr_end(fname="vad-2013-07-08-19-38-22.370590.wav") 
+
+2013-07-08-19-38-23.692493-COT  SLU-4      : DEBUG      
+    SLU Hypothesis
+    ------------------------------------------------------------
+    1.000 silence()
+    
+
+2013-07-08-19-38-23.725914-COT  ASR-3      : DEBUG      
+    ASR: speech_start(fname="vad-2013-07-08-19-38-23.589889.wav")
+
+2013-07-08-19-38-23.727192-COT  MainProcess : INFO       
+    #1030   Time: 2013-07-08-19-38-23.713824-COT From: ASR        To: HUB        Command: asr_start(fname="vad-2013-07-08-19-38-23.589889.wav") 
+
+2013-07-08-19-38-23.741538-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence()
+
+2013-07-08-19-38-23.742639-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence()
+
+2013-07-08-19-38-23.757767-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    silence_time = 0.0
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-08-19-38-23.759975-COT  MainProcess : INFO       
+    #1031   Time: 2013-07-08-19-38-23.738968-COT From: SLU        To: HUB        Command: slu_parsed(fname="vad-2013-07-08-19-38-22.370590.wav") 
+
+2013-07-08-19-38-23.763544-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 0.0}
+
+2013-07-08-19-38-23.838968-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-19-38-23.862207-COT  MainProcess : INFO       
+    #1041   Time: 2013-07-08-19-38-23.859093-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-19-38-25.262767-COT  MainProcess : INFO       
+    #1131   Time: 2013-07-08-19-38-25.259994-COT From: VAD        To: HUB        Command: speech_end(fname="vad-2013-07-08-19-38-23.589889.wav") 
+
+2013-07-08-19-38-25.263640-COT  ASR-3      : DEBUG      
+    ASR: speech_end(fname="vad-2013-07-08-19-38-23.589889.wav")
+
+2013-07-08-19-38-25.839520-COT  ASR-3      : DEBUG      
+    ASR Hypothesis
+    ------------------------------------------------------------
+    1.000 __silence__
+    0.000 __other__
+    
+
+2013-07-08-19-38-25.854013-COT  MainProcess : INFO       
+    #1168   Time: 2013-07-08-19-38-25.851403-COT From: ASR        To: HUB        Command: asr_end(fname="vad-2013-07-08-19-38-23.589889.wav") 
+
+2013-07-08-19-38-25.855967-COT  SLU-4      : DEBUG      
+    SLU Hypothesis
+    ------------------------------------------------------------
+    1.000 silence()
+    
+
+2013-07-08-19-38-25.872192-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence()
+
+2013-07-08-19-38-25.873515-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence()
+
+2013-07-08-19-38-25.875869-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    silence_time = 0.0
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-08-19-38-25.876848-COT  MainProcess : INFO       
+    #1170   Time: 2013-07-08-19-38-25.870432-COT From: SLU        To: HUB        Command: slu_parsed(fname="vad-2013-07-08-19-38-23.589889.wav") 
+
+2013-07-08-19-38-25.882995-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 0.0}
+
+2013-07-08-19-38-25.912333-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-19-38-25.932791-COT  MainProcess : INFO       
+    #1176   Time: 2013-07-08-19-38-25.931433-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-19-38-28.265706-COT  DM-5       : DEBUG      
+    #1325   Time: 2013-07-08-19-38-28.264201-COT From: HUB        To: DM         Command: timeout(silence_time="3.001") 
+
+2013-07-08-19-38-28.267406-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="3.001")
+
+2013-07-08-19-38-28.268476-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="3.001")
+
+2013-07-08-19-38-28.272717-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    silence_time = 3.001
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-08-19-38-28.275667-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 3.001}
+
+2013-07-08-19-38-28.277160-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-19-38-28.332252-COT  MainProcess : INFO       
+    #1330   Time: 2013-07-08-19-38-28.331314-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-19-38-30.006168-COT  MainProcess : INFO       
+    #1436   Time: 2013-07-08-19-38-30.002293-COT From: VAD        To: HUB        Command: speech_start(fname="vad-2013-07-08-19-38-29.979318.wav") 
+
+2013-07-08-19-38-30.007236-COT  ASR-3      : DEBUG      
+    ASR: speech_start(fname="vad-2013-07-08-19-38-29.979318.wav")
+
+2013-07-08-19-38-30.008666-COT  MainProcess : INFO       
+    #1437   Time: 2013-07-08-19-38-30.003340-COT From: ASR        To: HUB        Command: asr_start(fname="vad-2013-07-08-19-38-29.979318.wav") 
+
+2013-07-08-19-38-30.383842-COT  ASR-3      : DEBUG      
+    ASR: speech_end(fname="vad-2013-07-08-19-38-29.979318.wav")
+
+2013-07-08-19-38-30.386252-COT  MainProcess : INFO       
+    #1463   Time: 2013-07-08-19-38-30.380832-COT From: VAD        To: HUB        Command: speech_end(fname="vad-2013-07-08-19-38-29.979318.wav") 
+
+2013-07-08-19-38-30.734688-COT  ASR-3      : DEBUG      
+    ASR Hypothesis
+    ------------------------------------------------------------
+    1.000 __silence__
+    0.000 __other__
+    
+
+2013-07-08-19-38-30.748226-COT  MainProcess : INFO       
+    #1485   Time: 2013-07-08-19-38-30.745070-COT From: ASR        To: HUB        Command: asr_end(fname="vad-2013-07-08-19-38-29.979318.wav") 
+
+2013-07-08-19-38-30.749042-COT  SLU-4      : DEBUG      
+    SLU Hypothesis
+    ------------------------------------------------------------
+    1.000 silence()
+    
+
+2013-07-08-19-38-30.765457-COT  MainProcess : INFO       
+    #1490   Time: 2013-07-08-19-38-30.761849-COT From: SLU        To: HUB        Command: slu_parsed(fname="vad-2013-07-08-19-38-29.979318.wav") 
+
+2013-07-08-19-38-30.768961-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence()
+
+2013-07-08-19-38-30.769346-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence()
+
+2013-07-08-19-38-30.769610-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    silence_time = 0.0
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-08-19-38-30.770094-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 0.0}
+
+2013-07-08-19-38-30.808543-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-19-38-30.830120-COT  MainProcess : INFO       
+    #1496   Time: 2013-07-08-19-38-30.826287-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-19-38-30.905594-COT  MainProcess : INFO       
+    #1502   Time: 2013-07-08-19-38-30.896002-COT From: VAD        To: HUB        Command: speech_start(fname="vad-2013-07-08-19-38-30.850358.wav") 
+
+2013-07-08-19-38-30.908535-COT  ASR-3      : DEBUG      
+    ASR: speech_start(fname="vad-2013-07-08-19-38-30.850358.wav")
+
+2013-07-08-19-38-30.913478-COT  MainProcess : INFO       
+    #1503   Time: 2013-07-08-19-38-30.897997-COT From: ASR        To: HUB        Command: asr_start(fname="vad-2013-07-08-19-38-30.850358.wav") 
+
+2013-07-08-19-38-31.413283-COT  ASR-3      : DEBUG      
+    ASR: speech_end(fname="vad-2013-07-08-19-38-30.850358.wav")
+
+2013-07-08-19-38-31.415503-COT  MainProcess : INFO       
+    #1537   Time: 2013-07-08-19-38-31.410364-COT From: VAD        To: HUB        Command: speech_end(fname="vad-2013-07-08-19-38-30.850358.wav") 
+
+2013-07-08-19-38-31.848702-COT  ASR-3      : DEBUG      
+    ASR Hypothesis
+    ------------------------------------------------------------
+    1.000 __silence__
+    0.000 __other__
+    
+
+2013-07-08-19-38-31.871173-COT  MainProcess : INFO       
+    #1566   Time: 2013-07-08-19-38-31.869739-COT From: ASR        To: HUB        Command: asr_end(fname="vad-2013-07-08-19-38-30.850358.wav") 
+
+2013-07-08-19-38-31.872562-COT  SLU-4      : DEBUG      
+    SLU Hypothesis
+    ------------------------------------------------------------
+    1.000 silence()
+    
+
+2013-07-08-19-38-31.891556-COT  MainProcess : INFO       
+    #1568   Time: 2013-07-08-19-38-31.889315-COT From: SLU        To: HUB        Command: slu_parsed(fname="vad-2013-07-08-19-38-30.850358.wav") 
+
+2013-07-08-19-38-31.893281-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence()
+
+2013-07-08-19-38-31.893806-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence()
+
+2013-07-08-19-38-31.895019-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    silence_time = 0.0
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-08-19-38-31.895990-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 0.0}
+
+2013-07-08-19-38-31.929027-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-19-38-31.947322-COT  MainProcess : INFO       
+    #1574   Time: 2013-07-08-19-38-31.944335-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-19-38-34.421210-COT  DM-5       : DEBUG      
+    #1731   Time: 2013-07-08-19-38-34.418327-COT From: HUB        To: DM         Command: timeout(silence_time="3.003") 
+
+2013-07-08-19-38-34.421767-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="3.003")
+
+2013-07-08-19-38-34.422233-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="3.003")
+
+2013-07-08-19-38-34.423075-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    silence_time = 3.003
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-08-19-38-34.424093-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 3.003}
+
+2013-07-08-19-38-34.425038-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-19-38-34.459080-COT  MainProcess : INFO       
+    #1734   Time: 2013-07-08-19-38-34.457304-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-19-38-34.557715-COT  MainProcess : INFO       
+    #1742   Time: 2013-07-08-19-38-34.555001-COT From: VAD        To: HUB        Command: speech_start(fname="vad-2013-07-08-19-38-34.533755.wav") 
+
+2013-07-08-19-38-34.559656-COT  ASR-3      : DEBUG      
+    ASR: speech_start(fname="vad-2013-07-08-19-38-34.533755.wav")
+
+2013-07-08-19-38-34.561640-COT  MainProcess : INFO       
+    #1743   Time: 2013-07-08-19-38-34.556511-COT From: ASR        To: HUB        Command: asr_start(fname="vad-2013-07-08-19-38-34.533755.wav") 
+
+2013-07-08-19-38-35.349387-COT  MainProcess : INFO       
+    #1793   Time: 2013-07-08-19-38-35.346826-COT From: VAD        To: HUB        Command: speech_end(fname="vad-2013-07-08-19-38-34.533755.wav") 
+
+2013-07-08-19-38-35.350438-COT  ASR-3      : DEBUG      
+    ASR: speech_end(fname="vad-2013-07-08-19-38-34.533755.wav")
+
+2013-07-08-19-38-35.775433-COT  ASR-3      : DEBUG      
+    ASR Hypothesis
+    ------------------------------------------------------------
+    1.000 __silence__
+    0.000 __other__
+    
+
+2013-07-08-19-38-35.793488-COT  MainProcess : INFO       
+    #1822   Time: 2013-07-08-19-38-35.789413-COT From: ASR        To: HUB        Command: asr_end(fname="vad-2013-07-08-19-38-34.533755.wav") 
+
+2013-07-08-19-38-35.794834-COT  SLU-4      : DEBUG      
+    SLU Hypothesis
+    ------------------------------------------------------------
+    1.000 silence()
+    
+
+2013-07-08-19-38-35.814413-COT  MainProcess : INFO       
+    #1828   Time: 2013-07-08-19-38-35.812704-COT From: SLU        To: HUB        Command: slu_parsed(fname="vad-2013-07-08-19-38-34.533755.wav") 
+
+2013-07-08-19-38-35.815236-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence()
+
+2013-07-08-19-38-35.816410-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence()
+
+2013-07-08-19-38-35.818862-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    silence_time = 0.0
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-08-19-38-35.821819-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 0.0}
+
+2013-07-08-19-38-35.848139-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-19-38-35.872096-COT  MainProcess : INFO       
+    #1831   Time: 2013-07-08-19-38-35.868025-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-19-38-37.882287-COT  MainProcess : INFO       
+    #1960   Time: 2013-07-08-19-38-37.879488-COT From: VAD        To: HUB        Command: speech_start(fname="vad-2013-07-08-19-38-37.852734.wav") 
+
+2013-07-08-19-38-37.883569-COT  ASR-3      : DEBUG      
+    ASR: speech_start(fname="vad-2013-07-08-19-38-37.852734.wav")
+
+2013-07-08-19-38-37.884901-COT  MainProcess : INFO       
+    #1961   Time: 2013-07-08-19-38-37.880909-COT From: ASR        To: HUB        Command: asr_start(fname="vad-2013-07-08-19-38-37.852734.wav") 
+
+2013-07-08-19-38-38.449691-COT  ASR-3      : DEBUG      
+    ASR: speech_end(fname="vad-2013-07-08-19-38-37.852734.wav")
+
+2013-07-08-19-38-38.452392-COT  MainProcess : INFO       
+    #1999   Time: 2013-07-08-19-38-38.447948-COT From: VAD        To: HUB        Command: speech_end(fname="vad-2013-07-08-19-38-37.852734.wav") 
+
+2013-07-08-19-38-38.762177-COT  ASR-3      : DEBUG      
+    ASR Hypothesis
+    ------------------------------------------------------------
+    1.000 __silence__
+    0.000 __other__
+    
+
+2013-07-08-19-38-38.782130-COT  MainProcess : INFO       
+    #2020   Time: 2013-07-08-19-38-38.779710-COT From: ASR        To: HUB        Command: asr_end(fname="vad-2013-07-08-19-38-37.852734.wav") 
+
+2013-07-08-19-38-38.784113-COT  SLU-4      : DEBUG      
+    SLU Hypothesis
+    ------------------------------------------------------------
+    1.000 silence()
+    
+
+2013-07-08-19-38-38.804531-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence()
+
+2013-07-08-19-38-38.805028-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence()
+
+2013-07-08-19-38-38.806035-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    silence_time = 0.0
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-08-19-38-38.806695-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 0.0}
+
+2013-07-08-19-38-38.808912-COT  MainProcess : INFO       
+    #2022   Time: 2013-07-08-19-38-38.800435-COT From: SLU        To: HUB        Command: slu_parsed(fname="vad-2013-07-08-19-38-37.852734.wav") 
+
+2013-07-08-19-38-38.847888-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-19-38-38.866331-COT  MainProcess : INFO       
+    #2028   Time: 2013-07-08-19-38-38.862155-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-19-38-41.455445-COT  DM-5       : DEBUG      
+    #2193   Time: 2013-07-08-19-38-41.453412-COT From: HUB        To: DM         Command: timeout(silence_time="3.001") 
+
+2013-07-08-19-38-41.456429-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="3.001")
+
+2013-07-08-19-38-41.456941-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="3.001")
+
+2013-07-08-19-38-41.458078-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    silence_time = 3.001
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-08-19-38-41.458926-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 3.001}
+
+2013-07-08-19-38-41.460253-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-19-38-41.493066-COT  MainProcess : INFO       
+    #2194   Time: 2013-07-08-19-38-41.489995-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-19-38-43.778838-COT  MainProcess : INFO       
+    #2340   Time: 2013-07-08-19-38-43.773635-COT From: VAD        To: HUB        Command: speech_start(fname="vad-2013-07-08-19-38-43.742698.wav") 
+
+2013-07-08-19-38-43.781116-COT  ASR-3      : DEBUG      
+    ASR: speech_start(fname="vad-2013-07-08-19-38-43.742698.wav")
+
+2013-07-08-19-38-43.782040-COT  MainProcess : INFO       
+    #2341   Time: 2013-07-08-19-38-43.775981-COT From: ASR        To: HUB        Command: asr_start(fname="vad-2013-07-08-19-38-43.742698.wav") 
+
+2013-07-08-19-38-44.720970-COT  MainProcess : INFO       
+    #2403   Time: 2013-07-08-19-38-44.718354-COT From: VAD        To: HUB        Command: speech_end(fname="vad-2013-07-08-19-38-43.742698.wav") 
+
+2013-07-08-19-38-44.722444-COT  ASR-3      : DEBUG      
+    ASR: speech_end(fname="vad-2013-07-08-19-38-43.742698.wav")
+
+2013-07-08-19-38-45.444670-COT  ASR-3      : DEBUG      
+    ASR Hypothesis
+    ------------------------------------------------------------
+    0.667 hello
+    0.133 celou
+    0.100 cello
+    0.067 přelouč
+    0.033 celou noc
+    0.000 __other__
+    
+
+2013-07-08-19-38-45.468790-COT  MainProcess : INFO       
+    #2450   Time: 2013-07-08-19-38-45.466913-COT From: ASR        To: HUB        Command: asr_end(fname="vad-2013-07-08-19-38-43.742698.wav") 
+
+2013-07-08-19-38-46.166621-COT  SLU-4      : DEBUG      
+    SLU Hypothesis
+    ------------------------------------------------------------
+    1.000 other()
+    
+
+2013-07-08-19-38-46.222746-COT  MainProcess : INFO       
+    #2498   Time: 2013-07-08-19-38-46.218311-COT From: SLU        To: HUB        Command: slu_parsed(fname="vad-2013-07-08-19-38-43.742698.wav") 
+
+2013-07-08-19-38-46.223295-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: other()
+
+2013-07-08-19-38-46.223883-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: other()
+
+2013-07-08-19-38-46.226293-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = other
+    silence_time = 0.0
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-08-19-38-46.227326-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 0.0}
+
+2013-07-08-19-38-46.267494-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    notunderstood()&help(inform="from_stop")
+    
+
+2013-07-08-19-38-46.314113-COT  MainProcess : INFO       
+    #2508   Time: 2013-07-08-19-38-46.312522-COT From: DM         To: HUB        Hyp: notunderstood()&help(inform="from_stop") 
+
+2013-07-08-19-38-47.739100-COT  DM-5       : DEBUG      
+    #2596   Time: 2013-07-08-19-38-47.732954-COT From: HUB        To: DM         Command: timeout(silence_time="3.012") 
+
+2013-07-08-19-38-47.740067-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="3.012")
+
+2013-07-08-19-38-47.750609-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="3.012")
+
+2013-07-08-19-38-47.752034-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = none
+    route_alternative = none
+    silence_time = 3.012
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-08-19-38-47.755641-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 3.012}
+
+2013-07-08-19-38-47.757207-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-19-38-47.865616-COT  MainProcess : INFO       
+    #2606   Time: 2013-07-08-19-38-47.863376-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-19-38-50.737012-COT  DM-5       : DEBUG      
+    #2787   Time: 2013-07-08-19-38-50.733556-COT From: HUB        To: DM         Command: timeout(silence_time="6.012") 
+
+2013-07-08-19-38-50.737597-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="6.012")
+
+2013-07-08-19-38-50.738179-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="6.012")
+
+2013-07-08-19-38-50.739151-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = none
+    route_alternative = none
+    silence_time = 6.012
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-08-19-38-50.740491-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 6.012}
+
+2013-07-08-19-38-50.741547-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-19-38-50.782430-COT  MainProcess : INFO       
+    #2790   Time: 2013-07-08-19-38-50.778443-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-19-38-53.265321-COT  MainProcess : INFO       
+    #2946   Time: 2013-07-08-19-38-53.261651-COT From: VAD        To: HUB        Command: speech_start(fname="vad-2013-07-08-19-38-53.224692.wav") 
+
+2013-07-08-19-38-53.268413-COT  ASR-3      : DEBUG      
+    ASR: speech_start(fname="vad-2013-07-08-19-38-53.224692.wav")
+
+2013-07-08-19-38-53.272008-COT  MainProcess : INFO       
+    #2947   Time: 2013-07-08-19-38-53.263972-COT From: ASR        To: HUB        Command: asr_start(fname="vad-2013-07-08-19-38-53.224692.wav") 
+
+2013-07-08-19-38-55.998742-COT  ASR-3      : DEBUG      
+    ASR: speech_end(fname="vad-2013-07-08-19-38-53.224692.wav")
+
+2013-07-08-19-38-56.000653-COT  MainProcess : INFO       
+    #3121   Time: 2013-07-08-19-38-55.997089-COT From: VAD        To: HUB        Command: speech_end(fname="vad-2013-07-08-19-38-53.224692.wav") 
+
+2013-07-08-19-38-57.518665-COT  ASR-3      : DEBUG      
+    ASR Hypothesis
+    ------------------------------------------------------------
+    0.173 těším se
+    0.165 těšíme se
+    0.147 slyšíme se
+    0.129 šíře
+    0.110 těšíme se máš
+    0.092 těším se máš
+    0.074 slyšíme se máš
+    0.055 ším se máš
+    0.037 těšim se máš
+    0.018 kde slyšíme se
+    0.000 __other__
+    
+
+2013-07-08-19-38-57.580610-COT  MainProcess : INFO       
+    #3222   Time: 2013-07-08-19-38-57.579206-COT From: ASR        To: HUB        Command: asr_end(fname="vad-2013-07-08-19-38-53.224692.wav") 
+
+2013-07-08-19-38-58.092481-COT  SLU-4      : DEBUG      
+    SLU Hypothesis
+    ------------------------------------------------------------
+    1.000 other()
+    
+
+2013-07-08-19-38-58.120126-COT  MainProcess : INFO       
+    #3256   Time: 2013-07-08-19-38-58.118498-COT From: SLU        To: HUB        Command: slu_parsed(fname="vad-2013-07-08-19-38-53.224692.wav") 
+
+2013-07-08-19-38-58.122006-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: other()
+
+2013-07-08-19-38-58.123128-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: other()
+
+2013-07-08-19-38-58.125056-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = other
+    alternative = none
+    from_stop = none
+    route_alternative = none
+    silence_time = 0.0
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-08-19-38-58.125966-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 0.0}
+
+2013-07-08-19-38-58.172109-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    notunderstood()&help(inform="time")
+    
+
+2013-07-08-19-38-58.205098-COT  MainProcess : INFO       
+    #3263   Time: 2013-07-08-19-38-58.197054-COT From: DM         To: HUB        Hyp: notunderstood()&help(inform="time") 
+
+2013-07-08-19-38-59.004656-COT  DM-5       : DEBUG      
+    #3315   Time: 2013-07-08-19-38-59.002288-COT From: HUB        To: DM         Command: timeout(silence_time="3.001") 
+
+2013-07-08-19-38-59.005267-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="3.001")
+
+2013-07-08-19-38-59.005938-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="3.001")
+
+2013-07-08-19-38-59.006998-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = none
+    route_alternative = none
+    silence_time = 3.001
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-08-19-38-59.007866-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 3.001}
+
+2013-07-08-19-38-59.008745-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-19-38-59.055603-COT  MainProcess : INFO       
+    #3320   Time: 2013-07-08-19-38-59.054182-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-19-39-02.007100-COT  DM-5       : DEBUG      
+    #3505   Time: 2013-07-08-19-39-02.003443-COT From: HUB        To: DM         Command: timeout(silence_time="6.003") 
+
+2013-07-08-19-39-02.008163-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="6.003")
+
+2013-07-08-19-39-02.008915-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="6.003")
+
+2013-07-08-19-39-02.009977-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = none
+    route_alternative = none
+    silence_time = 6.003
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-08-19-39-02.011806-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state update
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 6.003}
+
+2013-07-08-19-39-02.014261-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-08-19-39-02.064942-COT  MainProcess : INFO       
+    #3510   Time: 2013-07-08-19-39-02.062542-COT From: DM         To: HUB        Hyp: silence() 
+
+2013-07-08-19-39-03.345255-COT  ASR-3      : EXCEPTION  
+    Uncaught exception in ASR process.
+    Traceback (most recent call last):
+      File "/home/jurcicek/vystadial-git/alex/components/hub/asr.py", line 214, in run
+        time.sleep(self.cfg['Hub']['main_loop_sleep_time'])
+    KeyboardInterrupt
+    
+
+2013-07-08-19-39-03.347217-COT  NLG-6      : EXCEPTION  
+    Uncaught exception in NLG process.
+    Traceback (most recent call last):
+      File "/home/jurcicek/vystadial-git/alex/components/hub/nlg.py", line 123, in run
+        time.sleep(self.cfg['Hub']['main_loop_sleep_time'])
+    KeyboardInterrupt
+    
+
+2013-07-08-19-39-03.349708-COT  SLU-4      : EXCEPTION  
+    Uncaught exception in SLU process.
+    Traceback (most recent call last):
+      File "/home/jurcicek/vystadial-git/alex/components/hub/slu.py", line 136, in run
+        time.sleep(self.cfg['Hub']['main_loop_sleep_time'])
+    KeyboardInterrupt
+    
+
+2013-07-08-19-39-03.352309-COT  TTS-7      : EXCEPTION  
+    Uncaught exception in the TTS process.
+    Traceback (most recent call last):
+      File "/home/jurcicek/vystadial-git/alex/components/hub/tts.py", line 180, in run
+        time.sleep(self.cfg['Hub']['main_loop_sleep_time'])
+    KeyboardInterrupt
+    
+
+2013-07-08-19-39-03.355760-COT  MainProcess : EXCEPTION  
+    Uncaught exception in VHUB process.
+    Traceback (most recent call last):
+      File "./vhub.py", line 124, in run
+        time.sleep(self.cfg['Hub']['main_loop_sleep_time'])
+    KeyboardInterrupt
+    
+
+2013-07-08-19-39-03.361300-COT  VAD-2      : EXCEPTION  
+    Uncaught exception in the VAD process.
+    Traceback (most recent call last):
+      File "/home/jurcicek/vystadial-git/alex/components/hub/vad.py", line 246, in run
+        time.sleep(self.cfg['Hub']['main_loop_sleep_time'])
+    KeyboardInterrupt
+    
+
+2013-07-08-19-39-03.362713-COT  DM-5       : EXCEPTION  
+    Uncaught exception in the DM process.
+    Traceback (most recent call last):
+      File "/home/jurcicek/vystadial-git/alex/components/hub/dm.py", line 181, in run
+        time.sleep(self.cfg['Hub']['main_loop_sleep_time'])
+    KeyboardInterrupt
+    
+
+2013-07-08-19-39-04.305799-COT  VoipIO-1   : DEBUG      
+    CallCallback::on_state : Call with "Anonymous" <sip:anonymous@195.113.20.69> is DISCONNCTD last code = 200 (Normal call clearing)
+

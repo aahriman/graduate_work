@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dialogue>
+    <config>
+        <!--    config = { 'ASR': { 'Google': { 'debug': False, 'language': 'cs', 'maxresults': 20},
+               'Julius': { 'adinnetport': 5530,
+                           'binary': '/usr/local/bin/julius',
+                           'debug': False,
+                           'hostname': 'localhost',
+                           'jconf': { '-adport': '5530',
+                                      '-b': '1000',
+                                      '-b2': '100',
+                                      '-cmnload': 'cmn.param',
+                                      '-cmnmapweight': '200',
+                                      '-cmnsave': 'cmn.param',
+                                      '-confnet': '',
+                                      '-fallback1pass': '',
+                                      '-gprune': 'safe',
+                                      '-h': '/mnt/h/jurcicek/vystadial-git/alex/resources/asr/voip_en/hmmdefs',
+                                      '-hlist': '/mnt/h/jurcicek/vystadial-git/alex/resources/asr/voip_en/tiedlist',
+                                      '-htkconf': '/mnt/h/jurcicek/vystadial-git/alex/resources/asr/voip_en/config',
+                                      '-input': 'adinnet',
+                                      '-iwsp': '',
+                                      '-iwsppenalty': '0.0',
+                                      '-lmp': '15.0 0.0',
+                                      '-lmp2': '15.0 0.0',
+                                      '-mapunk': 'UM',
+                                      '-module': '10500',
+                                      '-n': '50',
+                                      '-nlr': '/mnt/h/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_arpa_bigram',
+                                      '-no_ccd': '',
+                                      '-nrl': '/mnt/h/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_arpa_rev_bigram',
+                                      '-silhead': '<s>',
+                                      '-siltail': '</s>',
+                                      '-spmodel': 'sp',
+                                      '-tmix': '4',
+                                      '-v': '/mnt/h/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_dict'},
+                           'jconffile': 'julius.jconf',
+                           'killall': False,
+                           'logfile': 'julius.log',
+                           'pidfile': 'julius.pid',
+                           'reuse_server': False,
+                           'serverport': 10500,
+                           'start_max_wait_time': 15,
+                           'start_wait_time': 0.5,
+                           'timeout': 2.0},
+               'debug': True,
+               'type': 'Google'},
+      'AlexOnTheBus': { 'max_turns': 30},
+      'Audio': { 'sample_rate': 16000, 'samples_per_frame': 256},
+      'AudioIO': { 'debug': True, 'output_dir': './aio_call_log', 'play_buffer_size': 1024},
+      'DM': { 'Dummy': { 'debug': True},
+              'PUfalRuleDM': { 'code_submit_url': None,
+                               'db_cfg': '/mnt/h/jurcicek/vystadial-git/alex/applications/CamInfoRest/cued_data/CIRdbase_V7_noloc.txt',
+                               'ontology': '/mnt/h/jurcicek/vystadial-git/alex/applications/CamInfoRest/ontology.cfg',
+                               'provide_code': False},
+              'UfalRuleDM': { 'code_submit_url': None,
+                              'db_cfg': '/mnt/h/jurcicek/vystadial-git/alex/applications/CamInfoRest/cued_data/CIRdbase_V7_noloc.txt',
+                              'ontology': '/mnt/h/jurcicek/vystadial-git/alex/applications/CamInfoRest/ontology.cfg',
+                              'provide_code': False},
+              'debug': True,
+              'type': <class 'alex.applications.AlexOnTheBus.aotb_dm.AOTBDM'>},
+      'General': { 'include': ['/mnt/h/jurcicek/vystadial-git/alex/resources/private/default.cfg']},
+      'Hub': { 'history_file': 'hub_history_hub.txt', 'history_length': 1000, 'main_loop_sleep_time': 0.005},
+      'Logging': { 'session_logger': SessionLogger(),
+                   'system_logger': SystemLogger(stdout_log_level='ERROR', stdout=True, file_log_level='ERROR', output_dir=./call_logs),
+                   'system_name': 'Default alex',
+                   'version': '1.0'},
+      'NLG': { 'Template': { 'model': '/mnt/h/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/nlg_templates.cfg'},
+               'debug': True,
+               'type': <class 'alex.applications.AlexOnTheBus.aotb_nlg.AOTBNLG'>},
+      'SHub': { 'history_file': 'hub_history_shub.txt', 'history_length': 1000},
+      'SLU': { 'AOTBSLU': { 'cldb_fname': '/mnt/h/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/data/database.py',
+                            'preprocessing_cls': <class 'alex.applications.AlexOnTheBus.aotb_preprocessing.AOTBSLUPreprocessing'>},
+               'cl-tracing': { 'cldb_fname': '/mnt/h/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/data/database.py',
+                               'do_preprocessing': True,
+                               'features_type': ('ngram',),
+                               'testing': { 'max_examples': None,
+                                            'min_perc': 80,
+                                            'model_fname': '/mnt/h/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/models/130516_minf60-minfc35-mind60.slu_model.gz',
+                                            'renormalise': True,
+                                            'threshold': None,
+                                            'vanilla': True},
+                               'training': { 'models_dir': 'models'}},
+               'debug': True,
+               'type': <class 'alex.applications.AlexOnTheBus.aotb_slu.AOTBSLU'>},
+      'THub': { 'history_file': 'hub_history_thub.txt', 'history_length': 1000},
+      'TTS': { 'Flite': { 'debug': False, 'voice': 'kal16'},
+               'Google': { 'debug': False, 'language': 'cs', 'rate': 2.0},
+               'SpeechTech': { 'debug': True,
+                               'login': 'filipjurcicek',
+    # this line was removed since it included a password
+                               'voice': 'Iva210'},
+               'VoiceRSS': { 'api_key': '3b6a9fca5d724b1c8ac34691586cdda1', 'language': 'en-gb'},
+               'debug': True,
+               'type': 'SpeechTech'},
+      'VAD': { 'debug': False,
+               'decision_frames_sil': 25,
+               'decision_frames_speech': 10,
+               'decision_non_speech_threshold': 0.2,
+               'decision_speech_threshold': 0.7,
+               'gmm': { 'ceplifter': 22,
+                        'enormalise': True,
+                        'filter_length': 5,
+                        'frameshift': 160,
+                        'framesize': 512,
+                        'frontend': 'MFCC',
+                        'hifreq': 3800,
+                        'lofreq': 125,
+                        'numceps': 12,
+                        'numchans': 26,
+                        'preemcoef': 0.97,
+                        'sil_model': '/mnt/h/jurcicek/vystadial-git/alex/resources/vad/voip_en/vad_sil_sds_mfcc_m064_f100000.gmm',
+                        'speech_model': '/mnt/h/jurcicek/vystadial-git/alex/resources/vad/voip_en/vad_speech_sds_mfcc_m064_f100000.gmm',
+                        'useacc': True,
+                        'usec0': False,
+                        'usecmn': False,
+                        'usedelta': True,
+                        'usehamming': True,
+                        'usepower': True,
+                        'zmeansource': True},
+               'power': { 'adaptation_frames': 30, 'threshold': 70, 'threshold_multiplier': 1.0},
+               'speech_buffer_frames': 20,
+               'type': 'gmm'},
+      'VoipHub': { 'hard_time_limit': 360,
+                   'hard_turn_limit': 40,
+                   'history_length': 1000,
+                   'wait_time_before_calling_back': 10},
+      'VoipIO': { 'allowed_hosts': '',
+                  'allowed_phone_numbers': '(^[234567])',
+                  'allowed_users': '(^[234567])',
+                  'debug': True,
+                  'domain': 'external.sip.mff.cuni.cz:5066',
+                  'forbidden_hosts': '',
+                  'forbidden_phone_number': '(^112$|^150$|^155$|^156$|^158$)',
+                  'forbidden_users': '(^112$|^150$|^155$|^156$|^158$)',
+    # this line was removed since it included a password
+                  'pjsip_log_level': 3,
+                  'reject_calls': False,
+                  'user': 'DEV-9889'},
+      'WebHub': { 'port': 8000}}
+-->
+    </config>
+    <header>
+        <host>loki.ms.mff.cuni.cz</host>
+        <date>2013-06-10 16:54:19 CEST</date>
+        <system>Default alex</system>
+        <version>1.0</version>
+        <input_source type="voip"/>
+    </header>
+    <dialogue_rec endtime="360.221" fname="all-2013-06-10-16-54-19.244447.played.wav" speaker="system" starttime="0.068"/>
+    <dialogue_rec endtime="360.274" fname="all-2013-06-10-16-54-19.244447.recorded.wav" speaker="user" starttime="0.103"/>
+    <turn speaker="system" time="0.211" turn_number="1">
+        <dialogue_act time="0.228">hello()</dialogue_act>
+        <text time="0.282">Dobrý den, dovolali jste se na informace o veřejné dopravě v Praze. Hovor je nahráván. Více informací o této službě je na internetu. Odkud a kam chcete jet? </text>
+        <rec endtime="14.560" fname="tts-2013-06-10-16-54-21.280897.wav" starttime="2.082"/>
+        <barge-in time="13.265"/>
+    </turn>
+    <turn speaker="user" time="13.204" turn_number="1">
+        <rec endtime="14.801" fname="vad-2013-06-10-16-54-32.402691.wav" starttime="13.227"/>
+    </turn>
+    <turn speaker="user" time="15.062" turn_number="2">
+        <rec endtime="15.700" fname="vad-2013-06-10-16-54-34.268004.wav" starttime="15.078"/>
+        <asr>
+            <hypothesis p="0.596">poliklinika barrandov</hypothesis>
+            <hypothesis p="0.116">poliklinika barandov</hypothesis>
+            <hypothesis p="0.096">jak poliklinika barrandov</hypothesis>
+            <hypothesis p="0.077">jak poliklinika barandov</hypothesis>
+            <hypothesis p="0.058">však poliklinika barrandov</hypothesis>
+            <hypothesis p="0.039">poliklinika barrandov i</hypothesis>
+            <hypothesis p="0.019">však poliklinika barandov</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <asr>
+            <hypothesis p="0.329">naďa</hypothesis>
+            <hypothesis p="0.247">na anděla</hypothesis>
+            <hypothesis p="0.178">nail</hypothesis>
+            <hypothesis p="0.164">na anděl</hypothesis>
+            <hypothesis p="0.082">nagel</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+    </turn>
+    <turn speaker="system" time="16.218" turn_number="2">
+        <dialogue_act time="16.237">notunderstood()&amp;help(from_stop)</dialogue_act>
+        <text time="16.290">Ještě jednou prosím. </text>
+    </turn>
+    <turn speaker="system" time="16.458" turn_number="3">
+        <dialogue_act time="16.479">notunderstood()&amp;help(from_stop)</dialogue_act>
+        <text time="16.517">Můžete to zopakovat? </text>
+        <rec endtime="18.994" fname="tts-2013-06-10-16-54-36.065623.wav" starttime="16.866"/>
+        <rec endtime="21.120" fname="tts-2013-06-10-16-54-36.582761.wav" starttime="19.020"/>
+    </turn>
+    <turn speaker="user" time="22.226" turn_number="3">
+        <rec endtime="23.382" fname="vad-2013-06-10-16-54-41.431422.wav" starttime="22.248"/>
+        <asr>
+            <hypothesis p="0.768">poliklinika barrandov</hypothesis>
+            <hypothesis p="0.051">poliklinika barandov</hypothesis>
+            <hypothesis p="0.045">poliklinika brandýs</hypothesis>
+            <hypothesis p="0.039">poliklinika barrandov i</hypothesis>
+            <hypothesis p="0.032">poliklinika brno</hypothesis>
+            <hypothesis p="0.026">polikliniky brandýs</hypothesis>
+            <hypothesis p="0.019">poliklinika barandov i</hypothesis>
+            <hypothesis p="0.013">poliklinika brandýs i</hypothesis>
+            <hypothesis p="0.006">poliklinika brno i</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+    </turn>
+    <turn speaker="system" time="24.240" turn_number="4">
+        <dialogue_act time="24.265">notunderstood()&amp;help(from_stop)</dialogue_act>
+        <text time="24.303">Můžete to zopakovat? Můžete například říct ze zastávky poliklinika Barandov.</text>
+        <rec endtime="31.534" fname="tts-2013-06-10-16-54-44.516163.wav" starttime="25.316"/>
+        <barge-in time="30.354"/>
+    </turn>
+    <turn speaker="user" time="30.289" turn_number="4">
+        <rec endtime="32.095" fname="vad-2013-06-10-16-54-49.493138.wav" starttime="30.315"/>
+        <asr>
+            <hypothesis p="0.642">z poliklinika barrandov</hypothesis>
+            <hypothesis p="0.042">z poliklinika barandov</hypothesis>
+            <hypothesis p="0.040">poliklinika barrandov</hypothesis>
+            <hypothesis p="0.037">za poliklinika barrandov</hypothesis>
+            <hypothesis p="0.034">poliklinika barandov</hypothesis>
+            <hypothesis p="0.032">z polikliniky barandov</hypothesis>
+            <hypothesis p="0.029">za poliklinika barandov</hypothesis>
+            <hypothesis p="0.026">cz poliklinika barrandov</hypothesis>
+            <hypothesis p="0.024">zet poliklinika barrandov</hypothesis>
+            <hypothesis p="0.021">z polikliniky brandýs</hypothesis>
+            <hypothesis p="0.018">cz poliklinika barandov</hypothesis>
+            <hypothesis p="0.016">zet poliklinika barandov</hypothesis>
+            <hypothesis p="0.013">z poliklinika barrandov i</hypothesis>
+            <hypothesis p="0.011">z poliklinika barrandov praha</hypothesis>
+            <hypothesis p="0.008">zoo poliklinika barrandov</hypothesis>
+            <hypothesis p="0.005">zš poliklinika barrandov</hypothesis>
+            <hypothesis p="0.003">za polikliniky barandov</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+    </turn>
+    <turn speaker="system" time="33.701" turn_number="5">
+        <dialogue_act time="33.727">notunderstood()&amp;help(from_stop)</dialogue_act>
+        <text time="33.767">Ještě jednou prosím. </text>
+        <rec endtime="36.469" fname="tts-2013-06-10-16-54-53.527196.wav" starttime="34.330"/>
+    </turn>
+    <turn speaker="user" time="42.193" turn_number="5">
+        <rec endtime="43.101" fname="vad-2013-06-10-16-55-01.396720.wav" starttime="42.224"/>
+        <asr>
+            <hypothesis p="0.830">na malostranskou</hypothesis>
+            <hypothesis p="0.031">malostranská</hypothesis>
+            <hypothesis p="0.028">demonstrace</hypothesis>
+            <hypothesis p="0.025">na mostecku</hypothesis>
+            <hypothesis p="0.022">na malostranskou i</hypothesis>
+            <hypothesis p="0.019">malostranská i</hypothesis>
+            <hypothesis p="0.015">demonstrace i</hypothesis>
+            <hypothesis p="0.012">na mostecku i</hypothesis>
+            <hypothesis p="0.009">na malostranskou i i</hypothesis>
+            <hypothesis p="0.006">malostranská i i</hypothesis>
+            <hypothesis p="0.003">demonstrace i i</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+    </turn>
+    <turn speaker="system" time="44.093" turn_number="6">
+        <dialogue_act time="44.117">notunderstood()&amp;help(from_stop)</dialogue_act>
+        <text time="44.165">Nerozuměla jsem. Jěště jednou prosím. Můžete například říct ze zastávky Anděl.</text>
+        <rec endtime="52.648" fname="tts-2013-06-10-16-55-04.627856.wav" starttime="45.430"/>
+    </turn>
+    <turn speaker="user" time="55.950" turn_number="6">
+        <rec endtime="56.478" fname="vad-2013-06-10-16-55-15.152848.wav" starttime="55.967"/>
+        <asr>
+            <hypothesis p="0.271">anděla</hypothesis>
+            <hypothesis p="0.217">anděl</hypothesis>
+            <hypothesis p="0.188">mám dělat</hypothesis>
+            <hypothesis p="0.162">dělat</hypothesis>
+            <hypothesis p="0.108">mám děla</hypothesis>
+            <hypothesis p="0.054">děla</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+    </turn>
+    <turn speaker="system" time="57.274" turn_number="7">
+        <dialogue_act time="57.303">notunderstood()&amp;help(from_stop)</dialogue_act>
+        <text time="57.359">Nerozuměla jsem. Jěště jednou prosím. Můžete například říct chtěla bych jet ze zastávky poliklinika Barandov.</text>
+        <rec endtime="67.045" fname="tts-2013-06-10-16-55-17.801659.wav" starttime="58.605"/>
+    </turn>
+    <turn speaker="user" time="83.471" turn_number="7">
+        <rec endtime="84.191" fname="vad-2013-06-10-16-55-42.673762.wav" starttime="83.479"/>
+        <asr>
+            <hypothesis p="0.479">zadělat</hypothesis>
+            <hypothesis p="0.080">za dělat</hypothesis>
+            <hypothesis p="0.074">záděra</hypothesis>
+            <hypothesis p="0.067">za dělal</hypothesis>
+            <hypothesis p="0.060">za děláš</hypothesis>
+            <hypothesis p="0.053">honza dělat</hypothesis>
+            <hypothesis p="0.047">zadělat a</hypothesis>
+            <hypothesis p="0.040">za dělat a</hypothesis>
+            <hypothesis p="0.033">honza děláš</hypothesis>
+            <hypothesis p="0.027">zadělala</hypothesis>
+            <hypothesis p="0.020">zadělala a</hypothesis>
+            <hypothesis p="0.013">záděra a</hypothesis>
+            <hypothesis p="0.007">honza dělat a</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+    </turn>
+    <turn speaker="system" time="85.300" turn_number="8">
+        <dialogue_act time="85.326">notunderstood()&amp;help(from_stop)</dialogue_act>
+        <text time="85.378">Můžete to zopakovat? Můžete například říct ze zastávky poliklinika Barandov.</text>
+        <rec endtime="92.788" fname="tts-2013-06-10-16-55-45.815722.wav" starttime="86.619"/>
+    </turn>
+    <turn speaker="user" time="94.047" turn_number="8">
+        <rec endtime="94.739" fname="vad-2013-06-10-16-55-53.246562.wav" starttime="94.077"/>
+        <asr>
+            <hypothesis p="0.356">záděra</hypothesis>
+            <hypothesis p="0.258">zelenka</hypothesis>
+            <hypothesis p="0.193">janka</hypothesis>
+            <hypothesis p="0.129">zámky</hypothesis>
+            <hypothesis p="0.064">zaňka</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+    </turn>
+    <turn speaker="system" time="95.516" turn_number="9">
+        <dialogue_act time="95.545">notunderstood()&amp;help(from_stop)</dialogue_act>
+        <text time="95.588">Můžete to zopakovat? Můžete například říct chtěla bych jet z Malostranského náměstí.</text>
+        <rec endtime="103.203" fname="tts-2013-06-10-16-55-56.026297.wav" starttime="96.829"/>
+    </turn>
+    <turn speaker="user" time="104.026" turn_number="9">
+        <rec endtime="104.921" fname="vad-2013-06-10-16-56-03.227427.wav" starttime="104.057"/>
+        <asr>
+            <hypothesis p="0.655">z anděla</hypothesis>
+            <hypothesis p="0.063">za anděl</hypothesis>
+            <hypothesis p="0.057">z anděl</hypothesis>
+            <hypothesis p="0.050">za anděla</hypothesis>
+            <hypothesis p="0.044">z androida</hypothesis>
+            <hypothesis p="0.038">v anděl</hypothesis>
+            <hypothesis p="0.031">ze anděl</hypothesis>
+            <hypothesis p="0.025">zoo anděl</hypothesis>
+            <hypothesis p="0.019">ze anděla</hypothesis>
+            <hypothesis p="0.013">zoo anděla</hypothesis>
+            <hypothesis p="0.006">v anděla</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+    </turn>
+    <turn speaker="system" time="106.051" turn_number="10">
+        <dialogue_act time="106.088">iconfirm(from_stop=&quot;anděl&quot;)&amp;request(to_stop)</dialogue_act>
+        <text time="106.124">Ze zastávky anděl. Kam chcete jet?</text>
+        <rec endtime="110.285" fname="tts-2013-06-10-16-56-06.112108.wav" starttime="106.915"/>
+    </turn>
+    <turn speaker="user" time="112.093" turn_number="10">
+        <rec endtime="112.975" fname="vad-2013-06-10-16-56-11.294702.wav" starttime="112.125"/>
+        <asr>
+            <hypothesis p="0.601">na zvonečku</hypothesis>
+            <hypothesis p="0.160">na vlásku</hypothesis>
+            <hypothesis p="0.120">na zvonařce</hypothesis>
+            <hypothesis p="0.080">na vršku</hypothesis>
+            <hypothesis p="0.040">na dvanáctku</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+    </turn>
+    <turn speaker="system" time="113.761" turn_number="11">
+        <dialogue_act time="113.792">notunderstood()&amp;help(to_stop)</dialogue_act>
+        <text time="113.831">Nerozuměla jsem. Jěště jednou prosím. Můžete například říct na Zličín.</text>
+        <rec endtime="121.324" fname="tts-2013-06-10-16-56-14.051783.wav" starttime="114.858"/>
+    </turn>
+    <turn speaker="user" time="122.194" turn_number="11">
+        <rec endtime="123.170" fname="vad-2013-06-10-16-56-21.395401.wav" starttime="122.235"/>
+        <asr>
+            <hypothesis p="0.732">na karlovo náměstí</hypothesis>
+            <hypothesis p="0.049">karlovo náměstí</hypothesis>
+            <hypothesis p="0.044">na karlově náměstí</hypothesis>
+            <hypothesis p="0.039">na karlova náměstí</hypothesis>
+            <hypothesis p="0.034">karlova náměstí</hypothesis>
+            <hypothesis p="0.029">na karlovo náměstí a</hypothesis>
+            <hypothesis p="0.024">na karlovo námněstí</hypothesis>
+            <hypothesis p="0.019">jana karlova náměstí</hypothesis>
+            <hypothesis p="0.015">dna karlova náměstí</hypothesis>
+            <hypothesis p="0.010">na karlově náměstí a</hypothesis>
+            <hypothesis p="0.005">karlovo námněstí</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+    </turn>
+    <turn speaker="system" time="124.144" turn_number="12">
+        <dialogue_act time="124.177">notunderstood()&amp;help(to_stop)</dialogue_act>
+        <text time="124.220">Ještě jednou prosím. </text>
+        <rec endtime="126.967" fname="tts-2013-06-10-16-56-23.981538.wav" starttime="124.792"/>
+    </turn>
+    <turn speaker="user" time="135.516" turn_number="12">
+        <rec endtime="136.867" fname="vad-2013-06-10-16-56-34.716514.wav" starttime="135.590"/>
+        <asr>
+            <hypothesis p="0.906">na karlovo náměstí</hypothesis>
+            <hypothesis p="0.027">na karlovo náměstí a</hypothesis>
+            <hypothesis p="0.022">na karlově náměstí</hypothesis>
+            <hypothesis p="0.018">na karlovo náměstí i</hypothesis>
+            <hypothesis p="0.013">na karlovo námněstí</hypothesis>
+            <hypothesis p="0.009">na karlově náměstí i</hypothesis>
+            <hypothesis p="0.004">na karlovo námněstí i</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+    </turn>
+    <turn speaker="system" time="137.680" turn_number="13">
+        <dialogue_act time="137.718">notunderstood()&amp;help(to_stop)</dialogue_act>
+        <text time="137.776">Ještě jednou prosím. </text>
+        <rec endtime="140.727" fname="tts-2013-06-10-16-56-37.759435.wav" starttime="138.560"/>
+    </turn>
+    <turn speaker="user" time="150.244" turn_number="13">
+        <rec endtime="150.946" fname="vad-2013-06-10-16-56-49.441953.wav" starttime="150.276"/>
+        <asr>
+            <hypothesis p="0.226">na poříčí</hypothesis>
+            <hypothesis p="0.210">nad orlicí</hypothesis>
+            <hypothesis p="0.188">na tyči</hypothesis>
+            <hypothesis p="0.151">matriční</hypothesis>
+            <hypothesis p="0.113">metličky</hypothesis>
+            <hypothesis p="0.075">líčí</hypothesis>
+            <hypothesis p="0.038">matiční</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+    </turn>
+    <turn speaker="system" time="151.781" turn_number="14">
+        <dialogue_act time="151.818">notunderstood()&amp;help(to_stop)</dialogue_act>
+        <text time="151.865">Ještě jednou prosím. Můžete například říct na Žižkov.</text>
+        <rec endtime="157.100" fname="tts-2013-06-10-16-56-51.854720.wav" starttime="152.658"/>
+    </turn>
+    <turn speaker="user" time="159.206" turn_number="14">
+        <rec endtime="160.038" fname="vad-2013-06-10-16-56-58.402127.wav" starttime="159.243"/>
+        <asr>
+            <hypothesis p="0.696">na žižkov</hypothesis>
+            <hypothesis p="0.087">ne žižkov</hypothesis>
+            <hypothesis p="0.072">dne žižkov</hypothesis>
+            <hypothesis p="0.058">na žižkov i</hypothesis>
+            <hypothesis p="0.043">na žižkově</hypothesis>
+            <hypothesis p="0.029">na žižkov se</hypothesis>
+            <hypothesis p="0.014">ne žižkov i</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+    </turn>
+    <turn speaker="system" time="160.851" turn_number="15">
+        <dialogue_act time="160.886">notunderstood()&amp;help(to_stop)</dialogue_act>
+        <text time="160.944">Nerozuměla jsem. Jěště jednou prosím. </text>
+        <rec endtime="165.164" fname="tts-2013-06-10-16-57-00.952345.wav" starttime="161.754"/>
+    </turn>
+    <turn speaker="user" time="186.652" turn_number="15">
+        <rec endtime="187.044" fname="vad-2013-06-10-16-57-25.851450.wav" starttime="186.687"/>
+        <asr>
+            <hypothesis p="0.525">žižkov</hypothesis>
+            <hypothesis p="0.105">vyškov</hypothesis>
+            <hypothesis p="0.092">výškov</hypothesis>
+            <hypothesis p="0.079">jirkov</hypothesis>
+            <hypothesis p="0.066">žižkov i</hypothesis>
+            <hypothesis p="0.053">vyškov i</hypothesis>
+            <hypothesis p="0.040">výškov i</hypothesis>
+            <hypothesis p="0.026">jirkov i</hypothesis>
+            <hypothesis p="0.013">vítkov i</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+    </turn>
+    <turn speaker="system" time="187.848" turn_number="16">
+        <dialogue_act time="187.886">notunderstood()&amp;help(to_stop)</dialogue_act>
+        <text time="187.932">Ještě jednou prosím. Můžete například říct chtěla bych jet na Zvonařku.</text>
+        <rec endtime="194.294" fname="tts-2013-06-10-16-57-28.137352.wav" starttime="188.946"/>
+    </turn>
+    <turn speaker="user" time="195.811" turn_number="16">
+        <rec endtime="196.772" fname="vad-2013-06-10-16-57-35.006650.wav" starttime="195.878"/>
+        <asr>
+            <hypothesis p="0.661">na dvanáctku</hypothesis>
+            <hypothesis p="0.075">na vlásku</hypothesis>
+            <hypothesis p="0.066">na vršku</hypothesis>
+            <hypothesis p="0.056">na dvanáctku a</hypothesis>
+            <hypothesis p="0.047">na zvonařce</hypothesis>
+            <hypothesis p="0.038">na vršku a</hypothesis>
+            <hypothesis p="0.028">na vlásku a</hypothesis>
+            <hypothesis p="0.019">na zvonařce a</hypothesis>
+            <hypothesis p="0.009">na zvonařkou a</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+    </turn>
+    <turn speaker="system" time="197.732" turn_number="17">
+        <dialogue_act time="197.770">notunderstood()&amp;help(to_stop)</dialogue_act>
+        <text time="197.819">Nerozuměla jsem. Jěště jednou prosím. Můžete například říct chtěla bych jet na Zličín.</text>
+        <rec endtime="206.171" fname="tts-2013-06-10-16-57-38.037008.wav" starttime="198.845"/>
+    </turn>
+    <turn speaker="user" time="208.735" turn_number="17">
+        <rec endtime="210.067" fname="vad-2013-06-10-16-57-47.933400.wav" starttime="208.774"/>
+        <asr>
+            <hypothesis p="0.595">najdi p pavlová</hypothesis>
+            <hypothesis p="0.048">najít p pavlová</hypothesis>
+            <hypothesis p="0.045">najdi pepa pavlova</hypothesis>
+            <hypothesis p="0.042">najdi pepa pavlová</hypothesis>
+            <hypothesis p="0.039">najdi pavel pavlova</hypothesis>
+            <hypothesis p="0.036">najdi pepa havlová</hypothesis>
+            <hypothesis p="0.033">najdi pavel havlová</hypothesis>
+            <hypothesis p="0.030">najprv pavlova</hypothesis>
+            <hypothesis p="0.027">najít eva pavlova</hypothesis>
+            <hypothesis p="0.024">najdi eva pavlova</hypothesis>
+            <hypothesis p="0.021">najdi pavel pavlová</hypothesis>
+            <hypothesis p="0.018">najít pavlová</hypothesis>
+            <hypothesis p="0.015">najprv havlová</hypothesis>
+            <hypothesis p="0.012">najít pavlova</hypothesis>
+            <hypothesis p="0.009">najdi pavlová</hypothesis>
+            <hypothesis p="0.006">najít eva havlová</hypothesis>
+            <hypothesis p="0.003">najde pavlová</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+    </turn>
+    <turn speaker="system" time="211.663" turn_number="18">
+        <dialogue_act time="211.698">notunderstood()&amp;help(to_stop)</dialogue_act>
+        <text time="211.767">Ještě jednou prosím. Můžete například říct chtěla bych jet na Žižkov.</text>
+        <rec endtime="218.111" fname="tts-2013-06-10-16-57-51.970870.wav" starttime="212.784"/>
+    </turn>
+    <turn speaker="user" time="221.715" turn_number="18">
+        <rec endtime="222.483" fname="vad-2013-06-10-16-58-00.910033.wav" starttime="221.758"/>
+        <asr>
+            <hypothesis p="0.742">na barandov</hypothesis>
+            <hypothesis p="0.103">na barrandov</hypothesis>
+            <hypothesis p="0.078">na barandově</hypothesis>
+            <hypothesis p="0.052">na barrandově</hypothesis>
+            <hypothesis p="0.026">na barandov tv</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+    </turn>
+    <turn speaker="system" time="223.147" turn_number="19">
+        <dialogue_act time="223.193">notunderstood()&amp;help(to_stop)</dialogue_act>
+        <text time="223.238">Můžete to zopakovat? Můžete například říct chtěla bych jet na Zvonařku.</text>
+        <rec endtime="229.623" fname="tts-2013-06-10-16-58-03.447741.wav" starttime="224.254"/>
+    </turn>
+    <turn speaker="user" time="233.241" turn_number="19">
+        <rec endtime="234.318" fname="vad-2013-06-10-16-58-12.435248.wav" starttime="233.284"/>
+        <asr>
+            <hypothesis p="0.723">na karlovo náměstí</hypothesis>
+            <hypothesis p="0.069">karlovo náměstí</hypothesis>
+            <hypothesis p="0.059">na karlově náměstí</hypothesis>
+            <hypothesis p="0.049">karlova náměstí</hypothesis>
+            <hypothesis p="0.040">smetanovo náměstí</hypothesis>
+            <hypothesis p="0.030">na karlova náměstí</hypothesis>
+            <hypothesis p="0.020">dna karlova náměstí</hypothesis>
+            <hypothesis p="0.010">jana karlova náměstí</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+    </turn>
+    <turn speaker="system" time="235.144" turn_number="20">
+        <dialogue_act time="235.185">notunderstood()&amp;help(to_stop)</dialogue_act>
+        <text time="235.235">Nerozuměla jsem. Jěště jednou prosím. Můžete například říct na Zvonařku.</text>
+        <rec endtime="242.887" fname="tts-2013-06-10-16-58-15.661045.wav" starttime="236.466"/>
+    </turn>
+    <turn speaker="user" time="254.936" turn_number="20">
+        <rec endtime="255.775" fname="vad-2013-06-10-16-58-34.131347.wav" starttime="254.982"/>
+        <asr>
+            <hypothesis p="0.742">na vršku</hypothesis>
+            <hypothesis p="0.103">na vlásku</hypothesis>
+            <hypothesis p="0.077">na vrtačku</hypothesis>
+            <hypothesis p="0.052">na dvanáctku</hypothesis>
+            <hypothesis p="0.026">na zvonečku</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+    </turn>
+    <turn speaker="system" time="256.717" turn_number="21">
+        <dialogue_act time="256.775">notunderstood()&amp;help(to_stop)</dialogue_act>
+        <text time="256.876">Ještě jednou prosím. Můžete například říct na Zličín.</text>
+        <rec endtime="263.110" fname="tts-2013-06-10-16-58-37.085782.wav" starttime="257.900"/>
+    </turn>
+    <turn speaker="user" time="264.406" turn_number="21">
+        <rec endtime="265.238" fname="vad-2013-06-10-16-58-43.600327.wav" starttime="264.434"/>
+        <asr>
+            <hypothesis p="0.906">na zličín</hypothesis>
+            <hypothesis p="0.021">na zličíně</hypothesis>
+            <hypothesis p="0.018">na zličín a</hypothesis>
+            <hypothesis p="0.016">na zličín i</hypothesis>
+            <hypothesis p="0.013">na zličíně i</hypothesis>
+            <hypothesis p="0.010">na zličín a i</hypothesis>
+            <hypothesis p="0.008">na zličín i i</hypothesis>
+            <hypothesis p="0.005">na zličíně i i</hypothesis>
+            <hypothesis p="0.003">na zličín a i i</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+    </turn>
+    <turn speaker="system" time="266.434" turn_number="22">
+        <dialogue_act time="266.478">iconfirm(to_stop=&quot;zličín&quot;)&amp;inform(alternatives=&quot;4&quot;)&amp;inform(alternative=&quot;1&quot;)&amp;inform(vehicle=&quot;SUBWAY&quot;)&amp;inform(line=&quot;B&quot;)&amp;inform(go_at=&quot;05:04&quot;)&amp;inform(enter_at=&quot;Anděl&quot;)&amp;inform(headsign=&quot;Zličín&quot;)&amp;inform(exit_at=&quot;Zličín&quot;)</dialogue_act>
+        <text time="266.567">Do zastávky zličín. Našla jsem čtyři cesty. Možnost první. Jeďte metrem B v 05:04 ze zastávky Anděl směrem Zličín. Vystupte na zastávce Zličín.</text>
+        <rec fname="tts-2013-06-10-16-58-47.479873.wav" starttime="268.292"/>
+        <barge-in time="277.631"/>
+    </turn>
+    <turn speaker="user" time="277.540" turn_number="22">
+        <rec endtime="278.235" fname="vad-2013-06-10-16-58-56.733434.wav" starttime="277.587"/>
+        <asr>
+            <hypothesis p="0.858">další</hypothesis>
+            <hypothesis p="0.047">dalším</hypothesis>
+            <hypothesis p="0.038">další a</hypothesis>
+            <hypothesis p="0.028">další e</hypothesis>
+            <hypothesis p="0.019">další vtip</hypothesis>
+            <hypothesis p="0.009">dalším e</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+    </turn>
+    <turn speaker="system" time="279.240" turn_number="23">
+        <dialogue_act time="279.287">inform(alternative=&quot;2&quot;)&amp;inform(vehicle=&quot;SUBWAY&quot;)&amp;inform(line=&quot;B&quot;)&amp;inform(go_at=&quot;05:07&quot;)&amp;inform(enter_at=&quot;Anděl&quot;)&amp;inform(headsign=&quot;Zličín&quot;)&amp;inform(exit_at=&quot;Zličín&quot;)</dialogue_act>
+        <text time="279.358">Možnost druhá. Jeďte metrem B v 05:07 ze zastávky Anděl směrem Zličín. Vystupte na zastávce Zličín.</text>
+        <rec fname="tts-2013-06-10-16-59-00.062870.wav" starttime="280.876"/>
+        <barge-in time="282.885"/>
+    </turn>
+    <turn speaker="user" time="282.784" turn_number="23">
+        <rec endtime="283.411" fname="vad-2013-06-10-16-59-01.977094.wav" starttime="282.831"/>
+        <asr>
+            <hypothesis p="0.845">další</hypothesis>
+            <hypothesis p="0.062">dalším</hypothesis>
+            <hypothesis p="0.047">delší</hypothesis>
+            <hypothesis p="0.031">dušní</hypothesis>
+            <hypothesis p="0.016">vršní</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+    </turn>
+    <turn speaker="system" time="284.390" turn_number="24">
+        <dialogue_act time="284.439">inform(alternative=&quot;3&quot;)&amp;inform(vehicle=&quot;SUBWAY&quot;)&amp;inform(line=&quot;B&quot;)&amp;inform(go_at=&quot;05:10&quot;)&amp;inform(enter_at=&quot;Anděl&quot;)&amp;inform(headsign=&quot;Zličín&quot;)&amp;inform(exit_at=&quot;Zličín&quot;)</dialogue_act>
+        <text time="284.516">Možnost třetí. Jeďte metrem B v 05:10 ze zastávky Anděl směrem Zličín. Vystupte na zastávce Zličín.</text>
+        <rec fname="tts-2013-06-10-16-59-05.181153.wav" starttime="286.053"/>
+        <barge-in time="291.212"/>
+    </turn>
+    <turn speaker="user" time="291.108" turn_number="24">
+        <rec endtime="291.761" fname="vad-2013-06-10-16-59-10.300352.wav" starttime="291.155"/>
+        <asr>
+            <hypothesis p="0.328">bohém</hypothesis>
+            <hypothesis p="0.246">zbohem</hypothesis>
+            <hypothesis p="0.181">sbohem</hypothesis>
+            <hypothesis p="0.164">bazén</hypothesis>
+            <hypothesis p="0.082">bohem</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+    </turn>
+    <turn speaker="system" time="292.616" turn_number="25">
+        <dialogue_act time="292.665">notunderstood()</dialogue_act>
+        <text time="292.738">Můžete to zopakovat?</text>
+        <rec endtime="295.472" fname="tts-2013-06-10-16-59-12.506190.wav" starttime="293.318"/>
+    </turn>
+    <turn speaker="user" time="296.029" turn_number="25">
+        <rec endtime="296.551" fname="vad-2013-06-10-16-59-15.222258.wav" starttime="296.074"/>
+        <asr>
+            <hypothesis p="0.450">sbohem</hypothesis>
+            <hypothesis p="0.220">zbohem</hypothesis>
+            <hypothesis p="0.165">sport</hypothesis>
+            <hypothesis p="0.110">skladem</hypothesis>
+            <hypothesis p="0.055">spojení</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+    </turn>
+    <turn speaker="system" time="297.476" turn_number="26">
+        <dialogue_act time="297.526">notunderstood()</dialogue_act>
+        <text time="297.579">Ještě jednou prosím.</text>
+        <rec endtime="300.547" fname="tts-2013-06-10-16-59-17.546690.wav" starttime="298.357"/>
+        <barge-in time="300.355"/>
+    </turn>
+    <turn speaker="user" time="300.250" turn_number="26">
+        <rec endtime="301.032" fname="vad-2013-06-10-16-59-19.445124.wav" starttime="300.301"/>
+        <asr>
+            <hypothesis p="1.000">__other__</hypothesis>
+        </asr>
+    </turn>
+    <turn speaker="system" time="301.375" turn_number="27">
+        <dialogue_act time="301.429">notunderstood()</dialogue_act>
+        <text time="301.482">Ještě jednou prosím.</text>
+        <rec endtime="304.257" fname="tts-2013-06-10-16-59-21.237301.wav" starttime="302.052"/>
+    </turn>
+</dialogue>

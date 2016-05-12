@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dialogue>
+    <config>
+        <!--    config = { 'ASR': { 'Google': { 'debug': False, 'language': 'cs', 'maxresults': 20},
+               'Julius': { 'adinnetport': 5530,
+                           'binary': '/usr/local/bin/julius',
+                           'debug': False,
+                           'hostname': 'localhost',
+                           'jconf': { '-adport': '5530',
+                                      '-b': '1000',
+                                      '-b2': '100',
+                                      '-cmnload': 'cmn.param',
+                                      '-cmnmapweight': '200',
+                                      '-cmnsave': 'cmn.param',
+                                      '-confnet': '',
+                                      '-fallback1pass': '',
+                                      '-gprune': 'safe',
+                                      '-h': '/home/jurcicek/vystadial-git/alex/resources/asr/voip_en/hmmdefs',
+                                      '-hlist': '/home/jurcicek/vystadial-git/alex/resources/asr/voip_en/tiedlist',
+                                      '-htkconf': '/home/jurcicek/vystadial-git/alex/resources/asr/voip_en/config',
+                                      '-input': 'adinnet',
+                                      '-iwsp': '',
+                                      '-iwsppenalty': '0.0',
+                                      '-lmp': '15.0 0.0',
+                                      '-lmp2': '15.0 0.0',
+                                      '-mapunk': 'UM',
+                                      '-module': '10500',
+                                      '-n': '50',
+                                      '-nlr': '/home/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_arpa_bigram',
+                                      '-no_ccd': '',
+                                      '-nrl': '/home/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_arpa_rev_bigram',
+                                      '-silhead': '<s>',
+                                      '-siltail': '</s>',
+                                      '-spmodel': 'sp',
+                                      '-tmix': '4',
+                                      '-v': '/home/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_dict'},
+                           'jconffile': 'julius.jconf',
+                           'killall': False,
+                           'logfile': 'julius.log',
+                           'msg_timeout': 0.3,
+                           'pidfile': 'julius.pid',
+                           'reuse_server': False,
+                           'serverport': 10500,
+                           'start_max_wait_time': 15,
+                           'start_wait_time': 0.5,
+                           'timeout': 2.0},
+               'Kaldi': { 'LM_scale': -6666.66,
+                          'hypothesis_type': 'nblist',
+                          'lat_depth': 666666,
+                          'model': 'TODO_path_to_model'},
+               'debug': True,
+               'type': 'Google'},
+      'AlexOnTheBus': { 'max_turns': 30},
+      'Analytics': Analytics(account_id='UA-41905278-1', domain_name='cuni.cz'),
+      'Audio': { 'sample_rate': 16000, 'samples_per_frame': 256},
+      'AudioIO': { 'debug': True, 'output_dir': './aio_call_log', 'play_buffer_size': 1024},
+      'DM': { 'PUfalRuleDM': { 'code_submit_url': None,
+                               'db_cfg': '/home/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/cued_data/CIRdbase_V7_noloc.txt',
+                               'ontology': '/home/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/ontology.cfg',
+                               'provide_code': False},
+              'UfalRuleDM': { 'code_submit_url': None,
+                              'db_cfg': '/home/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/cued_data/CIRdbase_V7_noloc.txt',
+                              'ontology': '/home/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/ontology.cfg',
+                              'provide_code': False},
+              'basic': { 'debug': True, 'silence_timeout': 10.0},
+              'debug': True,
+              'dialogue_policy': { 'type': <class 'alex.applications.AlexOnTheBus.aotb_hdc_policy.AOTBHDCPolicy'>},
+              'dialogue_state': { 'type': <class 'alex.components.dm.dddstate.DeterministicDiscriminativeDialogueState'>},
+              'input_timeout': 3.0,
+              'ontology': '/home/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/data/ontology.py',
+              'type': 'basic'},
+      'General': { 'debug': False, 'include': ['/home/jurcicek/vystadial-git/alex/resources/private/default.cfg']},
+      'Hub': { 'history_file': 'hub_history_hub.txt', 'history_length': 1000, 'main_loop_sleep_time': 0.002},
+      'Logging': { 'excepthook': ExceptionHook(
+            ExceptionHook
+              Hook Type: log
+              Hook Logger: SystemLogger(output_dir=./call_logs, stdout_log_level='DEBUG', stdout=True, file_log_level='DEBUG')),
+                   'session_logger': SessionLogger(),
+                   'system_logger': SystemLogger(output_dir=./call_logs, stdout_log_level='DEBUG', stdout=True, file_log_level='DEBUG'),
+                   'system_name': 'Alex On The Bus',
+                   'version': '1.0'},
+      'NLG': { 'Template': { 'model': '/home/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/nlg_templates.cfg'},
+               'debug': True,
+               'type': 'Template'},
+      'SHub': { 'history_file': 'hub_history_shub.txt', 'history_length': 1000},
+      'SLU': { 'cl-tracing': { 'cldb_fname': '/home/jurcicek/vystadial-git/alex/applications/CamInfoRest/data/database.py',
+                               'do_preprocessing': True,
+                               'features_type': ('ngram', 'ab_ngram'),
+                               'testing': { 'max_examples': None,
+                                            'min_perc': 80,
+                                            'model_fname': '/home/jurcicek/vystadial-git/alex/applications/CamInfoRest/models/130516_minf60-minfc35-mind60.slu_model.gz',
+                                            'renormalise': True,
+                                            'threshold': None,
+                                            'vanilla': True},
+                               'training': { 'abstractions': ('abstract',), 'models_dir': 'models'}},
+               'debug': True,
+               'type': <class 'alex.applications.AlexOnTheBus.aotb_slu.AOTBSLU'>,
+               <class 'alex.applications.AlexOnTheBus.aotb_slu.AOTBSLU'>: { 'cldb_fname': '/home/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/data/database.py',
+                                                                            'preprocessing_cls': <class 'alex.applications.AlexOnTheBus.aotb_preprocessing.AOTBSLUPreprocessing'>,
+                                                                            'training': { 'models_dir': 'models'}}},
+      'THub': { 'history_file': 'hub_history_thub.txt', 'history_length': 1000},
+      'TTS': { 'Flite': { 'debug': False,
+                          'preprocessing': '/home/jurcicek/vystadial-git/alex/resources/tts/prep_flite_en.cfg',
+                          'voice': 'kal16'},
+               'Google': { 'debug': False,
+                           'language': 'en',
+                           'preprocessing': '/home/jurcicek/vystadial-git/alex/resources/tts/prep_google_en.cfg'},
+               'SpeechTech': { 'debug': True,
+                               'login': 'filipjurcicek',
+    # this line was removed since it included a password
+                               'preprocessing': '/home/jurcicek/vystadial-git/alex/resources/tts/prep_speechtech_cs.cfg',
+                               'voice': 'Iva210'},
+               'VoiceRSS': { 'api_key': '3b6a9fca5d724b1c8ac34691586cdda1'},
+               'VoiceRss': { 'language': 'en-gb',
+                             'preprocessing': '/home/jurcicek/vystadial-git/alex/resources/tts/prep_voicerss_en.cfg'},
+               'debug': True,
+               'in_between_segments_silence': 0.1,
+               'type': 'SpeechTech'},
+      'VAD': { 'debug': False,
+               'decision_frames_sil': 25,
+               'decision_frames_speech': 10,
+               'decision_non_speech_threshold': 0.2,
+               'decision_speech_threshold': 0.7,
+               'gmm': { 'ceplifter': 22,
+                        'enormalise': True,
+                        'filter_length': 5,
+                        'frameshift': 160,
+                        'framesize': 512,
+                        'frontend': 'MFCC',
+                        'hifreq': 3800,
+                        'lofreq': 125,
+                        'numceps': 12,
+                        'numchans': 26,
+                        'preemcoef': 0.97,
+                        'sil_model': '/home/jurcicek/vystadial-git/alex/resources/vad/voip_en/vad_sil_sds_mfcc_m064_f100000.gmm',
+                        'speech_model': '/home/jurcicek/vystadial-git/alex/resources/vad/voip_en/vad_speech_sds_mfcc_m064_f100000.gmm',
+                        'useacc': True,
+                        'usec0': False,
+                        'usecmn': False,
+                        'usedelta': True,
+                        'usehamming': True,
+                        'usepower': True,
+                        'zmeansource': True},
+               'power': { 'adaptation_frames': 30, 'threshold': 70, 'threshold_multiplier': 1.0},
+               'speech_buffer_frames': 20,
+               'type': 'gmm'},
+      'VoipHub': { 'blacklist_for': 7200,
+                   'call_db': '/home/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/call_db.pckl',
+                   'hard_time_limit': 360,
+                   'hard_turn_limit': 120,
+                   'history_length': 1000,
+                   'last_period_max_num_calls': 100,
+                   'last_period_max_total_time': 7200,
+                   'limit_reached_message': u'D\u011bkujeme za zavol\xe1n\xed, ale u\u017e jste volali hodn\u011b. Pros\xedm zavolejte pozd\u011bji. Na shledanou.',
+                   'period': 172800,
+                   'pid_file': '/home/jurcicek/vystadial-git/alex/applications/vhub.pid',
+                   'wait_time_before_calling_back': 10},
+      'VoipIO': { 'allowed_hosts': '',
+                  'allowed_phone_numbers': '(^[234567])',
+                  'allowed_users': '(^[234567])',
+                  'debug': True,
+                  'domain': 'external.sip.mff.cuni.cz:5066',
+                  'forbidden_hosts': '',
+                  'forbidden_phone_number': '(^112$|^150$|^155$|^156$|^158$)',
+                  'forbidden_users': '(^112$|^150$|^155$|^156$|^158$)',
+    # this line was removed since it included a password
+                  'pjsip_log_level': 3,
+                  'reject_calls': False,
+                  'user': 'DEV-9889'},
+      'WebHub': { 'port': 8000},
+      'corpustools': { 'get_jasr_confnets': { 'frame_size': 256, 'rt_ratio': 0.2}}}
+-->
+    </config>
+    <header>
+        <host>filip-VirtualBox</host>
+        <date>2013-07-08 19:15:02 COT</date>
+        <system>Alex On The Bus</system>
+        <version>1.0</version>
+        <input_source type="voip"/>
+    </header>
+    <dialogue_rec endtime="51.190" fname="all-2013-07-08-19-15-02.495430.played.wav" speaker="system" starttime="0.194"/>
+    <dialogue_rec endtime="51.224" fname="all-2013-07-08-19-15-02.495430.recorded.wav" speaker="user" starttime="0.197"/>
+    <turn speaker="system" time="0.222" turn_number="1">
+        <dialogue_state>
+            <slot name="ludait">none</slot>
+        </dialogue_state>
+        <dialogue_act time="0.230">hello()</dialogue_act>
+        <text time="0.246">Dobrý den, dovolali jste se na informace o veřejné dopravě v Praze. Tato experimentální služba je poskytována laboratoří výzkumu hlasových dialogových systémů na Ústavu Formální a Aplikované Lingvistiky na Karlově Univerzitě. Hovor je nahráván. Více informací o této službě je na internetu. Jak Vám mohu pomoci. </text>
+        <rec fname="tts-2013-07-08-19-15-02.559822.wav" starttime="0.270"/>
+    </turn>
+    <turn speaker="user" time="12.509" turn_number="1">
+        <rec endtime="14.731" fname="vad-2013-07-08-19-15-14.810409.wav" starttime="12.513"/>
+        <asr>
+            <hypothesis p="0.567">chtěl bych jet do stávky poliklinika barrandov</hypothesis>
+            <hypothesis p="0.051">chtěl bych jet do stávky poliklinika barandov</hypothesis>
+            <hypothesis p="0.048">chtěl bych se dostat poliklinika barrandov</hypothesis>
+            <hypothesis p="0.045">chtěl bych jet zpátky poliklinika barrandov</hypothesis>
+            <hypothesis p="0.041">chtěl bych je do stávky poliklinika barrandov</hypothesis>
+            <hypothesis p="0.038">chtěl bych zastavit poliklinika barrandov</hypothesis>
+            <hypothesis p="0.035">chtěl bych se dostat poliklinika barandov</hypothesis>
+            <hypothesis p="0.032">chtěl bych jet zpátky poliklinika barandov</hypothesis>
+            <hypothesis p="0.029">chtěl bych jedno stávky poliklinika barrandov</hypothesis>
+            <hypothesis p="0.025">chtěl bych je do stávky poliklinika barandov</hypothesis>
+            <hypothesis p="0.022">chtěl bych zastavit poliklinika barandov</hypothesis>
+            <hypothesis p="0.019">chtěl bych do stávky poliklinika barrandov</hypothesis>
+            <hypothesis p="0.016">chtěl bych jedno stávky poliklinika barandov</hypothesis>
+            <hypothesis p="0.013">chtěl bych jít do stávky poliklinika barrandov</hypothesis>
+            <hypothesis p="0.010">chtěl bych jedl stávky poliklinika barrandov</hypothesis>
+            <hypothesis p="0.006">chtěl bych jeden stávky poliklinika barrandov</hypothesis>
+            <hypothesis p="0.003">chtěl bych do stávky poliklinika barandov</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="0.519">inform(to_stop=&quot;Poliklinika Barrandov&quot;)</interpretation>
+            <interpretation p="0.202">inform(to_stop=&quot;Poliklinika Barrandov&quot;)&amp;inform(=&quot;Poliklinika Barrandov&quot;)</interpretation>
+            <interpretation p="0.202">null()</interpretation>
+            <interpretation p="0.078">inform(=&quot;Poliklinika Barrandov&quot;)</interpretation>
+            <interpretation p="0.000">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="0.720">inform(to_stop=&quot;Poliklinika Barrandov&quot;)</dai>
+                    <dai p="0.280">null()</dai>
+                </dai_alternatives>
+                <dai_alternatives>
+                    <dai p="0.280">inform(=&quot;Poliklinika Barrandov&quot;)</dai>
+                    <dai p="0.720">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="17.236" turn_number="2">
+        <dialogue_state>
+            <slot name="ludait">none</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="to_stop">Poliklinika Barrandov</slot>
+        </dialogue_state>
+        <dialogue_act time="17.254">iconfirm(to_stop=&quot;Poliklinika Barrandov&quot;)&amp;request(from_stop)</dialogue_act>
+        <barge-in time="17.270"/>
+        <text time="17.301">Do zastávky Poliklinika Barrandov. Z jaké zastávky chcete jet?</text>
+    </turn>
+    <turn speaker="user" time="19.853" turn_number="2">
+        <rec endtime="21.273" fname="vad-2013-07-08-19-15-22.156067.wav" starttime="19.858"/>
+        <asr>
+            <hypothesis p="1.000">__silence__</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">silence()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <interpretation p="0.000">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">silence()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="21.802" turn_number="3">
+        <dialogue_state>
+            <slot name="ludait">silence</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">none</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="to_stop">Poliklinika Barrandov</slot>
+            <slot name="rh_to_stop">system-informed</slot>
+            <slot name="ch_to_stop">system-informed</slot>
+            <slot name="sh_to_stop">system-informed</slot>
+        </dialogue_state>
+        <dialogue_act time="21.826">silence()</dialogue_act>
+    </turn>
+    <turn speaker="user" time="24.204" turn_number="3">
+        <rec endtime="24.658" fname="vad-2013-07-08-19-15-26.506858.wav" starttime="24.213"/>
+        <asr>
+            <hypothesis p="1.000">__silence__</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">silence()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <interpretation p="0.000">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">silence()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="25.263" turn_number="4">
+        <dialogue_state>
+            <slot name="ludait">silence</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">none</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="to_stop">Poliklinika Barrandov</slot>
+            <slot name="rh_to_stop">system-informed</slot>
+            <slot name="ch_to_stop">system-informed</slot>
+            <slot name="sh_to_stop">system-informed</slot>
+        </dialogue_state>
+        <dialogue_act time="25.289">silence()</dialogue_act>
+    </turn>
+    <turn speaker="user" time="26.137" turn_number="4">
+        <rec endtime="27.608" fname="vad-2013-07-08-19-15-28.438764.wav" starttime="26.146"/>
+        <asr>
+            <hypothesis p="1.000">__silence__</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">silence()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <interpretation p="0.000">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">silence()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="user" time="27.995" turn_number="5">
+        <rec endtime="28.808" fname="vad-2013-07-08-19-15-30.297207.wav" starttime="28.007"/>
+        <asr>
+            <hypothesis p="1.000">__silence__</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">silence()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <interpretation p="0.000">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">silence()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="28.556" turn_number="5">
+        <dialogue_state>
+            <slot name="ludait">silence</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">none</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="to_stop">Poliklinika Barrandov</slot>
+            <slot name="rh_to_stop">system-informed</slot>
+            <slot name="ch_to_stop">system-informed</slot>
+            <slot name="sh_to_stop">system-informed</slot>
+        </dialogue_state>
+        <dialogue_act time="28.619">silence()</dialogue_act>
+    </turn>
+    <turn speaker="user" time="29.454" turn_number="6">
+        <rec endtime="31.890" fname="vad-2013-07-08-19-15-31.721844.wav" starttime="29.481"/>
+        <asr>
+            <hypothesis p="1.000">__silence__</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">silence()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <interpretation p="0.000">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">silence()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="29.468" turn_number="6">
+        <dialogue_state>
+            <slot name="ludait">silence</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">none</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="to_stop">Poliklinika Barrandov</slot>
+            <slot name="rh_to_stop">system-informed</slot>
+            <slot name="ch_to_stop">system-informed</slot>
+            <slot name="sh_to_stop">system-informed</slot>
+        </dialogue_state>
+        <dialogue_act time="29.550">silence()</dialogue_act>
+    </turn>
+    <turn speaker="system" time="33.861" turn_number="7">
+        <dialogue_state>
+            <slot name="ludait">silence</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">none</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="to_stop">Poliklinika Barrandov</slot>
+            <slot name="rh_to_stop">system-informed</slot>
+            <slot name="ch_to_stop">system-informed</slot>
+            <slot name="sh_to_stop">system-informed</slot>
+        </dialogue_state>
+        <dialogue_act time="33.906">silence()</dialogue_act>
+    </turn>
+    <turn speaker="user" time="33.958" turn_number="7">
+        <rec endtime="34.781" fname="vad-2013-07-08-19-15-36.257211.wav" starttime="33.973"/>
+        <asr>
+            <hypothesis p="1.000">__silence__</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">silence()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <interpretation p="0.000">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">silence()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="user" time="35.032" turn_number="8">
+        <rec endtime="36.182" fname="vad-2013-07-08-19-15-37.328582.wav" starttime="35.048"/>
+        <asr>
+            <hypothesis p="1.000">__silence__</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">silence()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <interpretation p="0.000">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">silence()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="35.314" turn_number="8">
+        <dialogue_state>
+            <slot name="ludait">silence</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">none</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="to_stop">Poliklinika Barrandov</slot>
+            <slot name="rh_to_stop">system-informed</slot>
+            <slot name="ch_to_stop">system-informed</slot>
+            <slot name="sh_to_stop">system-informed</slot>
+        </dialogue_state>
+        <dialogue_act time="35.382">silence()</dialogue_act>
+    </turn>
+    <turn speaker="user" time="37.664" turn_number="9">
+        <rec endtime="39.968" fname="vad-2013-07-08-19-15-39.961001.wav" starttime="37.681"/>
+        <asr>
+            <hypothesis p="1.000">__silence__</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">silence()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <interpretation p="0.000">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">silence()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="37.952" turn_number="9">
+        <dialogue_state>
+            <slot name="ludait">silence</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">none</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="to_stop">Poliklinika Barrandov</slot>
+            <slot name="rh_to_stop">system-informed</slot>
+            <slot name="ch_to_stop">system-informed</slot>
+            <slot name="sh_to_stop">system-informed</slot>
+        </dialogue_state>
+        <dialogue_act time="38.025">silence()</dialogue_act>
+    </turn>
+    <turn speaker="user" time="40.893" turn_number="10">
+        <rec endtime="44.071" fname="vad-2013-07-08-19-15-43.154884.wav" starttime="40.922"/>
+        <asr>
+            <hypothesis p="0.386">nashledanou</hypothesis>
+            <hypothesis p="0.205">na shledanou</hypothesis>
+            <hypothesis p="0.164">naschledanou</hypothesis>
+            <hypothesis p="0.123">na hledanou</hypothesis>
+            <hypothesis p="0.082">nashledanou a</hypothesis>
+            <hypothesis p="0.041">na shledanou a</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">bye()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <interpretation p="0.000">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">bye()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="40.989" turn_number="10">
+        <dialogue_state>
+            <slot name="ludait">silence</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">none</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="to_stop">Poliklinika Barrandov</slot>
+            <slot name="rh_to_stop">system-informed</slot>
+            <slot name="ch_to_stop">system-informed</slot>
+            <slot name="sh_to_stop">system-informed</slot>
+        </dialogue_state>
+        <dialogue_act time="41.062">silence()</dialogue_act>
+    </turn>
+    <turn speaker="user" time="44.499" turn_number="11">
+        <rec endtime="45.532" fname="vad-2013-07-08-19-15-46.797863.wav" starttime="44.520"/>
+        <asr>
+            <hypothesis p="1.000">__silence__</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">silence()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <interpretation p="0.000">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">silence()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="45.710" turn_number="11">
+        <dialogue_state>
+            <slot name="ludait">bye</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">none</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="to_stop">Poliklinika Barrandov</slot>
+            <slot name="rh_to_stop">system-informed</slot>
+            <slot name="ch_to_stop">system-informed</slot>
+            <slot name="sh_to_stop">system-informed</slot>
+        </dialogue_state>
+        <dialogue_act time="45.775">bye()</dialogue_act>
+        <text time="45.861">Na shledanou.</text>
+        <rec fname="tts-2013-07-08-19-15-48.184080.wav" starttime="45.986"/>
+    </turn>
+    <turn speaker="user" time="45.824" turn_number="12">
+        <rec endtime="47.895" fname="vad-2013-07-08-19-15-48.097084.wav" starttime="45.889"/>
+        <asr>
+            <hypothesis p="1.000">__silence__</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">silence()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <interpretation p="0.000">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">silence()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="46.203" turn_number="12">
+        <dialogue_state>
+            <slot name="ludait">silence</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">none</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="to_stop">Poliklinika Barrandov</slot>
+            <slot name="rh_to_stop">system-informed</slot>
+            <slot name="ch_to_stop">system-informed</slot>
+            <slot name="sh_to_stop">system-informed</slot>
+        </dialogue_state>
+        <dialogue_act time="46.274">silence()</dialogue_act>
+    </turn>
+    <turn speaker="system" time="48.828" turn_number="13">
+        <dialogue_state>
+            <slot name="ludait">silence</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">none</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="to_stop">Poliklinika Barrandov</slot>
+            <slot name="rh_to_stop">system-informed</slot>
+            <slot name="ch_to_stop">system-informed</slot>
+            <slot name="sh_to_stop">system-informed</slot>
+        </dialogue_state>
+        <dialogue_act time="48.907">silence()</dialogue_act>
+    </turn>
+    <turn speaker="system" time="50.932" turn_number="14">
+        <dialogue_act time="50.990">silence()</dialogue_act>
+    </turn>
+    <turn speaker="user" time="51.027" turn_number="13">
+        <rec fname="vad-2013-07-08-19-15-53.298017.wav" starttime="51.066"/>
+    </turn>
+</dialogue>

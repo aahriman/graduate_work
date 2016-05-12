@@ -1,0 +1,1944 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dialogue>
+  <config>
+    <!--    config = { 'ASR': { 'Google': { 'debug': False, 'language': 'cs', 'maxresults': 20},
+               'Julius': { 'adinnetport': 5530,
+                           'binary': '/usr/local/bin/julius',
+                           'debug': False,
+                           'hostname': 'localhost',
+                           'jconf': { '-adport': '5530',
+                                      '-b': '1000',
+                                      '-b2': '100',
+                                      '-cmnload': 'cmn.param',
+                                      '-cmnmapweight': '200',
+                                      '-cmnsave': 'cmn.param',
+                                      '-confnet': '',
+                                      '-fallback1pass': '',
+                                      '-gprune': 'safe',
+                                      '-h': '/mnt/h/jurcicek/vystadial-git/alex/resources/asr/voip_en/hmmdefs',
+                                      '-hlist': '/mnt/h/jurcicek/vystadial-git/alex/resources/asr/voip_en/tiedlist',
+                                      '-htkconf': '/mnt/h/jurcicek/vystadial-git/alex/resources/asr/voip_en/config',
+                                      '-input': 'adinnet',
+                                      '-iwsp': '',
+                                      '-iwsppenalty': '0.0',
+                                      '-lmp': '15.0 0.0',
+                                      '-lmp2': '15.0 0.0',
+                                      '-mapunk': 'UM',
+                                      '-module': '10500',
+                                      '-n': '50',
+                                      '-nlr': '/mnt/h/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_arpa_bigram',
+                                      '-no_ccd': '',
+                                      '-nrl': '/mnt/h/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_arpa_rev_bigram',
+                                      '-silhead': '<s>',
+                                      '-siltail': '</s>',
+                                      '-spmodel': 'sp',
+                                      '-tmix': '4',
+                                      '-v': '/mnt/h/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_dict'},
+                           'jconffile': 'julius.jconf',
+                           'killall': False,
+                           'logfile': 'julius.log',
+                           'msg_timeout': 0.3,
+                           'pidfile': 'julius.pid',
+                           'reuse_server': False,
+                           'serverport': 10500,
+                           'start_max_wait_time': 15,
+                           'start_wait_time': 0.5,
+                           'timeout': 2.0},
+               'Kaldi': { 'LM_scale': -6666.66,
+                          'hypothesis_type': 'nblist',
+                          'lat_depth': 666666,
+                          'model': 'TODO_path_to_model'},
+               'debug': True,
+               'type': 'Google'},
+      'AlexOnTheBus': { 'max_turns': 120},
+      'Analytics': Analytics(account_id='UA-41905278-1', domain_name='cuni.cz'),
+      'Audio': { 'sample_rate': 16000, 'samples_per_frame': 256},
+      'AudioIO': { 'debug': True, 'output_dir': './aio_call_log', 'play_buffer_size': 1024},
+      'DM': { 'PUfalRuleDM': { 'code_submit_url': None,
+                               'db_cfg': '/mnt/h/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/cued_data/CIRdbase_V7_noloc.txt',
+                               'ontology': '/mnt/h/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/ontology.cfg',
+                               'provide_code': False},
+              'UfalRuleDM': { 'code_submit_url': None,
+                              'db_cfg': '/mnt/h/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/cued_data/CIRdbase_V7_noloc.txt',
+                              'ontology': '/mnt/h/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/ontology.cfg',
+                              'provide_code': False},
+              'basic': { 'debug': True, 'silence_timeout': 10.0},
+              'debug': True,
+              'dialogue_policy': { 'type': <class 'alex.applications.AlexOnTheBus.aotb_hdc_policy.AOTBHDCPolicy'>},
+              'dialogue_state': { 'type': <class 'alex.components.dm.dddstate.DeterministicDiscriminativeDialogueState'>},
+              'input_timeout': 3.0,
+              'ontology': '/mnt/h/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/data/ontology.py',
+              'type': 'basic'},
+      'General': { 'debug': False, 'include': ['/mnt/h/jurcicek/vystadial-git/alex/resources/private/default.cfg']},
+      'Hub': { 'history_file': 'hub_history_hub.txt', 'history_length': 1000, 'main_loop_sleep_time': 0.002},
+      'Logging': { 'excepthook': ExceptionHook(
+            ExceptionHook
+              Hook Type: log
+              Hook Logger: SystemLogger(output_dir=./call_logs, stdout_log_level='DEBUG', stdout=True, file_log_level='DEBUG')),
+                   'session_logger': SessionLogger(),
+                   'system_logger': SystemLogger(output_dir=/net/projects/vystadial/data/call-logs/2013-05-30-alex-aotb-prototype/new, stdout_log_level='DEBUG', stdout=True, file_log_level='DEBUG'),
+                   'system_name': u'Alex On The Bus - Live',
+                   'version': u'1.0'},
+      'NLG': { 'Template': { 'model': '/mnt/h/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/nlg_templates.cfg'},
+               'debug': True,
+               'type': 'Template'},
+      'SHub': { 'history_file': 'hub_history_shub.txt', 'history_length': 1000},
+      'SLU': { 'cl-tracing': { 'cldb_fname': '/mnt/h/jurcicek/vystadial-git/alex/applications/CamInfoRest/data/database.py',
+                               'do_preprocessing': True,
+                               'features_type': ('ngram', 'ab_ngram'),
+                               'testing': { 'max_examples': None,
+                                            'min_perc': 80,
+                                            'model_fname': '/mnt/h/jurcicek/vystadial-git/alex/applications/CamInfoRest/models/130516_minf60-minfc35-mind60.slu_model.gz',
+                                            'renormalise': True,
+                                            'threshold': None,
+                                            'vanilla': True},
+                               'training': { 'abstractions': ('abstract',), 'models_dir': 'models'}},
+               'debug': True,
+               'type': <class 'alex.applications.AlexOnTheBus.aotb_slu.AOTBSLU'>,
+               <class 'alex.applications.AlexOnTheBus.aotb_slu.AOTBSLU'>: { 'cldb_fname': '/mnt/h/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/data/database.py',
+                                                                            'preprocessing_cls': <class 'alex.applications.AlexOnTheBus.aotb_preprocessing.AOTBSLUPreprocessing'>,
+                                                                            'training': { 'models_dir': 'models'}}},
+      'THub': { 'history_file': 'hub_history_thub.txt', 'history_length': 1000},
+      'TTS': { 'Flite': { 'debug': False,
+                          'preprocessing': '/mnt/h/jurcicek/vystadial-git/alex/resources/tts/prep_flite_en.cfg',
+                          'voice': 'kal16'},
+               'Google': { 'debug': False,
+                           'language': 'en',
+                           'preprocessing': '/mnt/h/jurcicek/vystadial-git/alex/resources/tts/prep_google_en.cfg'},
+               'SpeechTech': { 'debug': True,
+                               'login': 'filipjurcicek',
+    # this line was removed since it included a password
+                               'preprocessing': '/mnt/h/jurcicek/vystadial-git/alex/resources/tts/prep_speechtech_cs.cfg',
+                               'voice': 'Iva210'},
+               'VoiceRSS': { 'api_key': '3b6a9fca5d724b1c8ac34691586cdda1'},
+               'VoiceRss': { 'language': 'en-gb',
+                             'preprocessing': '/mnt/h/jurcicek/vystadial-git/alex/resources/tts/prep_voicerss_en.cfg'},
+               'debug': True,
+               'in_between_segments_silence': 0.1,
+               'type': 'SpeechTech'},
+      'VAD': { 'debug': False,
+               'decision_frames_sil': 25,
+               'decision_frames_speech': 10,
+               'decision_non_speech_threshold': 0.2,
+               'decision_speech_threshold': 0.7,
+               'gmm': { 'ceplifter': 22,
+                        'enormalise': True,
+                        'filter_length': 5,
+                        'frameshift': 160,
+                        'framesize': 512,
+                        'frontend': 'MFCC',
+                        'hifreq': 3800,
+                        'lofreq': 125,
+                        'numceps': 12,
+                        'numchans': 26,
+                        'preemcoef': 0.97,
+                        'sil_model': '/mnt/h/jurcicek/vystadial-git/alex/resources/vad/voip_en/vad_sil_sds_mfcc_m064_f100000.gmm',
+                        'speech_model': '/mnt/h/jurcicek/vystadial-git/alex/resources/vad/voip_en/vad_speech_sds_mfcc_m064_f100000.gmm',
+                        'useacc': True,
+                        'usec0': False,
+                        'usecmn': False,
+                        'usedelta': True,
+                        'usehamming': True,
+                        'usepower': True,
+                        'zmeansource': True},
+               'power': { 'adaptation_frames': 30, 'threshold': 70, 'threshold_multiplier': 1.0},
+               'speech_buffer_frames': 20,
+               'type': 'gmm'},
+      'VoipHub': { 'blacklist_for': 7200,
+                   'call_db': u'/net/projects/vystadial/data/call-logs/2013-05-30-alex-aotb-prototype/new/call_db.pckl',
+                   'hard_time_limit': 360,
+                   'hard_turn_limit': 120,
+                   'history_length': 1000,
+                   'last_period_max_num_calls': 20,
+                   'last_period_max_total_time': 1800,
+                   'limit_reached_message': u'D\u011bkujeme za zavol\xe1n\xed, ale u\u017e jste volali hodn\u011b. Pros\xedm zavolejte pozd\u011bji. Na shledanou.',
+                   'period': 172800,
+                   'pid_file': u'/net/projects/vystadial/data/call-logs/2013-05-30-alex-aotb-prototype/new/vhub_live.pid',
+                   'wait_time_before_calling_back': 10},
+      'VoipIO': { 'allowed_hosts': '',
+                  'allowed_phone_numbers': '(^[234567])',
+                  'allowed_users': '(^[234567])',
+                  'debug': True,
+                  'domain': 'vystadial.ms.mff.cuni.cz',
+                  'forbidden_hosts': '',
+                  'forbidden_phone_number': '(^112$|^150$|^155$|^156$|^158$)',
+                  'forbidden_users': '(^112$|^150$|^155$|^156$|^158$)',
+    # this line was removed since it included a password
+                  'pjsip_log_level': 3,
+                  'reject_calls': False,
+                  'user': '800899998'},
+      'WebHub': { 'port': 8000},
+      'corpustools': { 'get_jasr_confnets': { 'frame_size': 256, 'rt_ratio': 0.2}}}
+-->
+  </config>
+  <dialogue_rec endtime="207.660" fname="all-2013-07-12-01-37-33.588621.played.wav" speaker="system" starttime="0.002"/>
+  <dialogue_rec endtime="207.776" fname="all-2013-07-12-01-37-33.588621.recorded.wav" speaker="user" starttime="0.006"/>
+  <header>
+    <host>kronos</host>
+    <date>2013-07-12 01:37:33 CEST</date>
+    <system>Alex On The Bus - Live</system>
+    <version>1.0</version>
+    <input_source type="voip"/>
+  </header>
+  <annotations>
+    <annotation date_saved="25/09/13, 08:33:25 " user="adela" program_version="39cb520703772eefc677cacf439b2f1a6cbd6066" id="244"/>
+  </annotations>
+  <turn speaker="system" time="0.079" turn_number="1">
+    <dialogue_state>
+      <slot name="ludait">none</slot>
+    </dialogue_state>
+    <dialogue_act time="0.102">hello()</dialogue_act>
+    <text time="0.127">Dobrý den. Tato experimentální služba je poskytována laboratoří výzkumu hlasových dialogových systémů na Ústavu Formální a Aplikované Lingvistiky na Karlově Univerzitě. Hovor je nahráván. Více informací o této službě je na internetu. Jak Vám mohu pomoci. Můžete například říct z Malostranského náměstí na Žižkov.</text>
+    <rec fname="tts-2013-07-12-01-37-33.745496.wav" starttime="0.149"/>
+  </turn>
+  <turn speaker="system" time="27.887" turn_number="2">
+    <dialogue_act time="27.895">silence()</dialogue_act>
+  </turn>
+  <turn speaker="user" time="29.191" turn_number="1">
+    <rec endtime="29.939" fname="vad-2013-07-12-01-38-02.800393.wav" starttime="29.199"/>
+    <asr>
+      <hypothesis p="0.337">svět</hypothesis>
+      <hypothesis p="0.221">přijet</hypothesis>
+      <hypothesis p="0.177">si jet</hypothesis>
+      <hypothesis p="0.133">5</hypothesis>
+      <hypothesis p="0.088">viet</hypothesis>
+      <hypothesis p="0.044">jet</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="1.000">other()</interpretation>
+      <interpretation p="0.000">null()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="1.000">other()</dai>
+          <dai p="0.000">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="39cb520703772eefc677cacf439b2f1a6cbd6066" annotation="244" breaks_gold="0" is_gold="0" transcriber="adela" date="25/09/13, 08:33:25 ">chci jet</asr_transcription>
+  </turn>
+  <turn speaker="user" time="30.317" turn_number="2">
+    <rec endtime="31.888" fname="vad-2013-07-12-01-38-03.926507.wav" starttime="30.324"/>
+    <asr>
+      <hypothesis p="0.911">divoké šárky</hypothesis>
+      <hypothesis p="0.016">znělka šárky</hypothesis>
+      <hypothesis p="0.015">divoké šárky a</hypothesis>
+      <hypothesis p="0.013">divoké šárky i</hypothesis>
+      <hypothesis p="0.011">violka šárky</hypothesis>
+      <hypothesis p="0.010">délka šárky</hypothesis>
+      <hypothesis p="0.008">značka šárky</hypothesis>
+      <hypothesis p="0.006">znělka šárky a</hypothesis>
+      <hypothesis p="0.005">znělka šárky i</hypothesis>
+      <hypothesis p="0.003">výuka šárky</hypothesis>
+      <hypothesis p="0.002">divoké šárky a i</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="1.000">other()</interpretation>
+      <interpretation p="0.000">null()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="1.000">other()</dai>
+          <dai p="0.000">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="39cb520703772eefc677cacf439b2f1a6cbd6066" annotation="244" breaks_gold="0" is_gold="0" transcriber="adela" date="25/09/13, 08:33:25 ">z Divoké Šárky</asr_transcription>
+  </turn>
+  <turn speaker="system" time="30.794" turn_number="3">
+    <dialogue_state>
+      <slot name="ludait">other</slot>
+      <slot name="silence_time">0.0</slot>
+    </dialogue_state>
+    <dialogue_act time="30.815">notunderstood()&amp;help(inform="from_stop")</dialogue_act>
+    <text time="30.843">Nerozuměla jsem. Můžete například říct chtěl bych jet z Anděla.</text>
+    <rec fname="tts-2013-07-12-01-38-04.461279.wav" starttime="30.869"/>
+  </turn>
+  <turn speaker="system" time="33.240" turn_number="4">
+    <dialogue_state>
+      <slot name="ludait">other</slot>
+      <slot name="alternative">none</slot>
+      <slot name="from_stop">none</slot>
+      <slot name="route_alternative">none</slot>
+      <slot name="silence_time">0.0</slot>
+    </dialogue_state>
+    <dialogue_act time="33.277">notunderstood()&amp;help(inform="from_stop")</dialogue_act>
+    <barge-in time="33.300"/>
+    <text time="33.370">Nerozuměla jsem. Můžete to zopakovat? Můžete například říct chtěl bych jet z Anděla.</text>
+    <rec fname="tts-2013-07-12-01-38-06.990513.wav" starttime="33.404"/>
+  </turn>
+  <turn speaker="user" time="34.771" turn_number="3">
+    <rec endtime="36.172" fname="vad-2013-07-12-01-38-08.378042.wav" starttime="34.785"/>
+    <asr>
+      <hypothesis p="0.933">divoká šárka</hypothesis>
+      <hypothesis p="0.044">divoká šárka i</hypothesis>
+      <hypothesis p="0.022">divoká šárka a</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="1.000">inform(="Divoká Šárka")</interpretation>
+      <interpretation p="0.000">null()</interpretation>
+      <interpretation p="0.000">other()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="1.000">inform(="Divoká Šárka")</dai>
+          <dai p="0.000">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="39cb520703772eefc677cacf439b2f1a6cbd6066" annotation="244" breaks_gold="0" is_gold="0" transcriber="adela" date="25/09/13, 08:33:25 ">Divoká Šárka</asr_transcription>
+  </turn>
+  <turn speaker="system" time="36.915" turn_number="5">
+    <dialogue_state>
+      <slot name="ludait">none</slot>
+      <slot name="alternative">none</slot>
+      <slot name="from_stop">none</slot>
+      <slot name="route_alternative">none</slot>
+      <slot name="silence_time">0.0</slot>
+    </dialogue_state>
+    <dialogue_act time="36.948">confirm(from_centre="true")</dialogue_act>
+    <barge-in time="36.971"/>
+    <text time="37.037">Jedete z centra?</text>
+    <rec fname="tts-2013-07-12-01-38-10.659654.wav" starttime="37.071"/>
+  </turn>
+  <turn speaker="user" time="41.427" turn_number="4">
+    <rec endtime="43.048" fname="vad-2013-07-12-01-38-15.032692.wav" starttime="41.444"/>
+    <asr>
+      <hypothesis p="0.722">divoké šárky</hypothesis>
+      <hypothesis p="0.186">divoké šárky a</hypothesis>
+      <hypothesis p="0.093">divoké šárky i</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="1.000">other()</interpretation>
+      <interpretation p="0.000">null()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="1.000">other()</dai>
+          <dai p="0.000">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="39cb520703772eefc677cacf439b2f1a6cbd6066" annotation="244" breaks_gold="0" is_gold="0" transcriber="adela" date="25/09/13, 08:33:25 ">jedu z Divoké Šárky</asr_transcription>
+  </turn>
+  <turn speaker="system" time="43.866" turn_number="6">
+    <dialogue_state>
+      <slot name="ludait">other</slot>
+      <slot name="alternative">none</slot>
+      <slot name="from_centre">none</slot>
+      <slot name="from_stop">none</slot>
+      <slot name="route_alternative">none</slot>
+      <slot name="silence_time">0.0</slot>
+      <slot name="time">none</slot>
+      <slot name="to_stop">none</slot>
+    </dialogue_state>
+    <dialogue_act time="43.907">notunderstood()&amp;help(request="help")</dialogue_act>
+    <text time="43.940">Nerozuměla jsem. Pokud nevíte jak se se mnou bavit nebo co říct zeptejte se na nápovědu nebo požádejte o pomoc.</text>
+    <rec fname="tts-2013-07-12-01-38-17.566566.wav" starttime="43.971"/>
+  </turn>
+  <turn speaker="user" time="47.814" turn_number="5">
+    <rec endtime="49.830" fname="vad-2013-07-12-01-38-21.421034.wav" starttime="47.826"/>
+    <asr>
+      <hypothesis p="0.723">zastávka divoká šárka</hypothesis>
+      <hypothesis p="0.069">divoká šárka</hypothesis>
+      <hypothesis p="0.059">zastávka divoká šárka i</hypothesis>
+      <hypothesis p="0.049">tah divoká šárka</hypothesis>
+      <hypothesis p="0.040">nah divoká šárka</hypothesis>
+      <hypothesis p="0.030">ah divoká šárka</hypothesis>
+      <hypothesis p="0.020">kah divoká šárka</hypothesis>
+      <hypothesis p="0.010">divoká šárka i</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="1.000">inform(="Divoká Šárka")</interpretation>
+      <interpretation p="0.000">null()</interpretation>
+      <interpretation p="0.000">other()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="1.000">inform(="Divoká Šárka")</dai>
+          <dai p="0.000">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="39cb520703772eefc677cacf439b2f1a6cbd6066" annotation="244" breaks_gold="0" is_gold="0" transcriber="adela" date="25/09/13, 08:33:25 ">zastávka Divoká Šárka</asr_transcription>
+  </turn>
+  <turn speaker="system" time="51.077" turn_number="7">
+    <dialogue_state>
+      <slot name="ludait">none</slot>
+      <slot name="alternative">none</slot>
+      <slot name="from_centre">none</slot>
+      <slot name="from_stop">none</slot>
+      <slot name="route_alternative">none</slot>
+      <slot name="silence_time">0.0</slot>
+      <slot name="time">none</slot>
+      <slot name="to_stop">none</slot>
+    </dialogue_state>
+    <dialogue_act time="51.120">request(from_stop)&amp;request(to_stop)</dialogue_act>
+    <barge-in time="51.150"/>
+    <text time="51.234">Odkud a kam chcete jet?</text>
+    <rec fname="tts-2013-07-12-01-38-24.870320.wav" starttime="51.278"/>
+  </turn>
+  <turn speaker="user" time="56.158" turn_number="6">
+    <rec endtime="58.413" fname="vad-2013-07-12-01-38-29.762979.wav" starttime="56.178"/>
+    <asr>
+      <hypothesis p="0.585">jedu z divoká šárka</hypothesis>
+      <hypothesis p="0.069">divoká šárka</hypothesis>
+      <hypothesis p="0.063">jak z divoká šárka</hypothesis>
+      <hypothesis p="0.057">jedno z divoká šárka</hypothesis>
+      <hypothesis p="0.050">jeden z divoká šárka</hypothesis>
+      <hypothesis p="0.044">jedu divoká šárka</hypothesis>
+      <hypothesis p="0.038">jedna z divoká šárka</hypothesis>
+      <hypothesis p="0.031">jedu ze divoká šárka</hypothesis>
+      <hypothesis p="0.025">je to z divoká šárka</hypothesis>
+      <hypothesis p="0.019">jak rozebrat divoká šárka</hypothesis>
+      <hypothesis p="0.013">jeden divoká šárka</hypothesis>
+      <hypothesis p="0.006">jedu z divoká šárka i</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="0.732">inform(from_stop="Divoká Šárka")</interpretation>
+      <interpretation p="0.124">null()</interpretation>
+      <interpretation p="0.124">inform(from_stop="Divoká Šárka")&amp;inform(="Divoká Šárka")</interpretation>
+      <interpretation p="0.021">inform(="Divoká Šárka")</interpretation>
+      <interpretation p="0.000">other()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="0.855">inform(from_stop="Divoká Šárka")</dai>
+          <dai p="0.145">null()</dai>
+        </dai_alternatives>
+        <dai_alternatives>
+          <dai p="0.145">inform(="Divoká Šárka")</dai>
+          <dai p="0.855">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="39cb520703772eefc677cacf439b2f1a6cbd6066" annotation="244" breaks_gold="0" is_gold="0" transcriber="adela" date="25/09/13, 08:33:25 ">jedu ze zastávky Divoká Šárka</asr_transcription>
+  </turn>
+  <turn speaker="system" time="59.860" turn_number="8">
+    <dialogue_state>
+      <slot name="ludait">none</slot>
+      <slot name="alternative">none</slot>
+      <slot name="from_centre">none</slot>
+      <slot name="from_stop">Divoká Šárka</slot>
+      <slot name="route_alternative">none</slot>
+      <slot name="silence_time">0.0</slot>
+      <slot name="time">none</slot>
+      <slot name="to_centre">none</slot>
+      <slot name="to_stop">none</slot>
+    </dialogue_state>
+    <dialogue_act time="60.007">iconfirm(from_stop="Divoká Šárka")&amp;request(to_stop)</dialogue_act>
+    <text time="60.051">Ze zastávky Divoká Šárka. Do jaké zastávky chcete jet?</text>
+    <rec fname="tts-2013-07-12-01-38-33.681544.wav" starttime="60.090"/>
+  </turn>
+  <turn speaker="user" time="67.885" turn_number="7">
+    <rec endtime="69.211" fname="vad-2013-07-12-01-38-41.489742.wav" starttime="67.904"/>
+    <asr>
+      <hypothesis p="0.933">olšanské hřbitovy</hypothesis>
+      <hypothesis p="0.027">olšanské hřbitovy i</hypothesis>
+      <hypothesis p="0.020">olšanské hřbitovy a</hypothesis>
+      <hypothesis p="0.013">olšanské hřbitovy iv</hypothesis>
+      <hypothesis p="0.007">olšanské hřbitovy i i</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="1.000">inform(="Olšanské hřbitovy")</interpretation>
+      <interpretation p="0.000">null()</interpretation>
+      <interpretation p="0.000">other()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="1.000">inform(="Olšanské hřbitovy")</dai>
+          <dai p="0.000">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="39cb520703772eefc677cacf439b2f1a6cbd6066" annotation="244" breaks_gold="0" is_gold="0" transcriber="adela" date="25/09/13, 08:33:25 ">Olšanské Hřbitovy</asr_transcription>
+  </turn>
+  <turn speaker="system" time="69.740" turn_number="9">
+    <dialogue_state>
+      <slot name="ludait">none</slot>
+      <slot name="alternative">none</slot>
+      <slot name="from_centre">none</slot>
+      <slot name="from_stop">Divoká Šárka</slot>
+      <slot name="route_alternative">none</slot>
+      <slot name="silence_time">0.0</slot>
+      <slot name="time">none</slot>
+      <slot name="to_centre">none</slot>
+      <slot name="to_stop">Olšanské hřbitovy</slot>
+      <slot name="rh_from_stop">system-informed</slot>
+      <slot name="ch_from_stop">system-informed</slot>
+      <slot name="sh_from_stop">system-informed</slot>
+    </dialogue_state>
+    <dialogue_act time="69.991">iconfirm(to_stop="Olšanské hřbitovy")&amp;inform(found_directions="true")&amp;inform(alternative="1")&amp;inform(vehicle="BUS")&amp;inform(line="510")&amp;inform(go_at="01:41")&amp;inform(enter_at="Divoká Šárka")&amp;inform(headsign="Na Beránku")&amp;inform(exit_at="Štěpánská")&amp;inform(transfer="true")&amp;inform(vehicle="TRAM")&amp;inform(line="51")&amp;inform(go_at="02:34")&amp;inform(enter_at="Štěpánská")&amp;inform(headsign="Radošovická")&amp;inform(exit_at="Olšanské hřbitovy")</dialogue_act>
+    <text time="70.236">Dobře, do zastávky Olšanské hřbitovy. Našla jsem následující spojení. Možnost první. Jeďte autobusem číslo 510 v 01:41 ze zastávky Divoká Šárka směrem Na Beránku. Vystupte na zastávce Štěpánská. A pak přestupte. Jeďte tramvají číslo 51 v 02:34 ze zastávky Štěpánská směrem Radošovická. Vystupte na zastávce Olšanské hřbitovy.</text>
+    <rec fname="tts-2013-07-12-01-38-43.862204.wav" starttime="70.267"/>
+  </turn>
+  <turn speaker="user" time="100.059" turn_number="8">
+    <rec endtime="101.731" fname="vad-2013-07-12-01-39-13.655937.wav" starttime="100.100"/>
+    <asr>
+      <hypothesis p="0.440">děkuju</hypothesis>
+      <hypothesis p="0.224">děkuji</hypothesis>
+      <hypothesis p="0.168">děku</hypothesis>
+      <hypothesis p="0.112">jakub</hypothesis>
+      <hypothesis p="0.056">dekuju</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="0.441">thankyou()</interpretation>
+      <interpretation p="0.223">null()</interpretation>
+      <interpretation p="0.223">thankyou()&amp;other()</interpretation>
+      <interpretation p="0.113">other()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="0.664">thankyou()</dai>
+          <dai p="0.336">null()</dai>
+        </dai_alternatives>
+        <dai_alternatives>
+          <dai p="0.336">other()</dai>
+          <dai p="0.664">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="39cb520703772eefc677cacf439b2f1a6cbd6066" annotation="244" breaks_gold="0" is_gold="0" transcriber="adela" date="25/09/13, 08:33:25 ">to stačí, děkuju</asr_transcription>
+  </turn>
+  <turn speaker="system" time="102.860" turn_number="10">
+    <dialogue_state>
+      <slot name="ludait">thankyou</slot>
+      <slot name="alternative">none</slot>
+      <slot name="from_centre">none</slot>
+      <slot name="from_stop">Divoká Šárka</slot>
+      <slot name="route_alternative">0</slot>
+      <slot name="silence_time">0.0</slot>
+      <slot name="time">none</slot>
+      <slot name="to_centre">none</slot>
+      <slot name="to_stop">Olšanské hřbitovy</slot>
+      <slot name="rh_alternative">system-informed</slot>
+      <slot name="rh_enter_at">system-informed</slot>
+      <slot name="rh_exit_at">system-informed</slot>
+      <slot name="rh_found_directions">system-informed</slot>
+      <slot name="rh_from_stop">system-informed</slot>
+      <slot name="rh_go_at">system-informed</slot>
+      <slot name="rh_headsign">system-informed</slot>
+      <slot name="rh_line">system-informed</slot>
+      <slot name="rh_to_stop">system-informed</slot>
+      <slot name="rh_transfer">system-informed</slot>
+      <slot name="rh_vehicle">system-informed</slot>
+      <slot name="ch_alternative">system-informed</slot>
+      <slot name="ch_enter_at">system-informed</slot>
+      <slot name="ch_exit_at">system-informed</slot>
+      <slot name="ch_found_directions">system-informed</slot>
+      <slot name="ch_from_stop">system-informed</slot>
+      <slot name="ch_go_at">system-informed</slot>
+      <slot name="ch_headsign">system-informed</slot>
+      <slot name="ch_line">system-informed</slot>
+      <slot name="ch_to_stop">system-informed</slot>
+      <slot name="ch_transfer">system-informed</slot>
+      <slot name="ch_vehicle">system-informed</slot>
+      <slot name="sh_alternative">system-informed</slot>
+      <slot name="sh_enter_at">system-informed</slot>
+      <slot name="sh_exit_at">system-informed</slot>
+      <slot name="sh_found_directions">system-informed</slot>
+      <slot name="sh_from_stop">system-informed</slot>
+      <slot name="sh_go_at">system-informed</slot>
+      <slot name="sh_headsign">system-informed</slot>
+      <slot name="sh_line">system-informed</slot>
+      <slot name="sh_to_stop">system-informed</slot>
+      <slot name="sh_transfer">system-informed</slot>
+      <slot name="sh_vehicle">system-informed</slot>
+    </dialogue_state>
+    <dialogue_act time="102.931">inform(cordiality="true")&amp;hello()</dialogue_act>
+    <barge-in time="102.977"/>
+    <text time="103.073">Nemáte zač. S čím Vám mohu ještě pomoci.</text>
+    <rec fname="tts-2013-07-12-01-39-16.718475.wav" starttime="103.119"/>
+  </turn>
+  <turn speaker="user" time="103.271" turn_number="9">
+    <rec endtime="104.176" fname="vad-2013-07-12-01-39-16.869203.wav" starttime="103.307"/>
+    <asr>
+      <hypothesis p="0.332">tati</hypothesis>
+      <hypothesis p="0.249">taky</hypothesis>
+      <hypothesis p="0.170">pečky</hypothesis>
+      <hypothesis p="0.166">ati</hypothesis>
+      <hypothesis p="0.083">testy</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="1.000">other()</interpretation>
+      <interpretation p="0.000">null()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="1.000">other()</dai>
+          <dai p="0.000">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="39cb520703772eefc677cacf439b2f1a6cbd6066" annotation="244" breaks_gold="0" is_gold="0" transcriber="adela" date="25/09/13, 08:33:25 ">stačí</asr_transcription>
+  </turn>
+  <turn speaker="system" time="105.149" turn_number="11">
+    <dialogue_state>
+      <slot name="ludait">other</slot>
+      <slot name="alternative">none</slot>
+      <slot name="from_centre">none</slot>
+      <slot name="from_stop">Divoká Šárka</slot>
+      <slot name="route_alternative">0</slot>
+      <slot name="silence_time">0.0</slot>
+      <slot name="time">none</slot>
+      <slot name="to_centre">none</slot>
+      <slot name="to_stop">Olšanské hřbitovy</slot>
+      <slot name="rh_alternative">system-informed</slot>
+      <slot name="rh_cordiality">system-informed</slot>
+      <slot name="rh_enter_at">system-informed</slot>
+      <slot name="rh_exit_at">system-informed</slot>
+      <slot name="rh_found_directions">system-informed</slot>
+      <slot name="rh_from_stop">system-informed</slot>
+      <slot name="rh_go_at">system-informed</slot>
+      <slot name="rh_headsign">system-informed</slot>
+      <slot name="rh_line">system-informed</slot>
+      <slot name="rh_to_stop">system-informed</slot>
+      <slot name="rh_transfer">system-informed</slot>
+      <slot name="rh_vehicle">system-informed</slot>
+      <slot name="ch_alternative">system-informed</slot>
+      <slot name="ch_cordiality">system-informed</slot>
+      <slot name="ch_enter_at">system-informed</slot>
+      <slot name="ch_exit_at">system-informed</slot>
+      <slot name="ch_found_directions">system-informed</slot>
+      <slot name="ch_from_stop">system-informed</slot>
+      <slot name="ch_go_at">system-informed</slot>
+      <slot name="ch_headsign">system-informed</slot>
+      <slot name="ch_line">system-informed</slot>
+      <slot name="ch_to_stop">system-informed</slot>
+      <slot name="ch_transfer">system-informed</slot>
+      <slot name="ch_vehicle">system-informed</slot>
+      <slot name="sh_alternative">system-informed</slot>
+      <slot name="sh_cordiality">system-informed</slot>
+      <slot name="sh_enter_at">system-informed</slot>
+      <slot name="sh_exit_at">system-informed</slot>
+      <slot name="sh_found_directions">system-informed</slot>
+      <slot name="sh_from_stop">system-informed</slot>
+      <slot name="sh_go_at">system-informed</slot>
+      <slot name="sh_headsign">system-informed</slot>
+      <slot name="sh_line">system-informed</slot>
+      <slot name="sh_to_stop">system-informed</slot>
+      <slot name="sh_transfer">system-informed</slot>
+      <slot name="sh_vehicle">system-informed</slot>
+    </dialogue_state>
+    <dialogue_act time="105.238">notunderstood()&amp;help(request="from_stop")</dialogue_act>
+    <barge-in time="105.293"/>
+    <text time="105.398">Promiňte, nerozuměla jsem. Můžete to zopakovat? Můžete se například zeptat z jaké zastávky jede nabídnutý spoj.</text>
+    <rec fname="tts-2013-07-12-01-39-19.052610.wav" starttime="105.483"/>
+  </turn>
+  <turn speaker="user" time="111.874" turn_number="10">
+    <rec endtime="113.433" fname="vad-2013-07-12-01-39-25.473827.wav" starttime="111.968"/>
+    <asr>
+      <hypothesis p="0.448">kolik zítra jedeš</hypothesis>
+      <hypothesis p="0.055">v kolik zítra jedeš</hypothesis>
+      <hypothesis p="0.052">kolik bere zítra</hypothesis>
+      <hypothesis p="0.049">kolik zítra jdeš</hypothesis>
+      <hypothesis p="0.047">kolik bere zítra v 10</hypothesis>
+      <hypothesis p="0.044">v kolik zítra jdeš</hypothesis>
+      <hypothesis p="0.041">kolik bere zítra deštník</hypothesis>
+      <hypothesis p="0.038">kolik zítra</hypothesis>
+      <hypothesis p="0.035">kolik zítra v 10</hypothesis>
+      <hypothesis p="0.032">kolik zítra deštník</hypothesis>
+      <hypothesis p="0.029">v kolik jede zítra</hypothesis>
+      <hypothesis p="0.026">kolik bere zítra jdeš</hypothesis>
+      <hypothesis p="0.023">kolik se zítra v 10</hypothesis>
+      <hypothesis p="0.020">kolik se zítra</hypothesis>
+      <hypothesis p="0.017">v kolik jede zítra v 10</hypothesis>
+      <hypothesis p="0.015">kolik jede zítra</hypothesis>
+      <hypothesis p="0.012">v kolik jede zítra deštník</hypothesis>
+      <hypothesis p="0.009">kolik bere zítra jedeš</hypothesis>
+      <hypothesis p="0.006">v kolik se zítra v 10</hypothesis>
+      <hypothesis p="0.003">kolik se zítra deštník</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="1.000">other()</interpretation>
+      <interpretation p="0.000">null()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="1.000">other()</dai>
+          <dai p="0.000">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="39cb520703772eefc677cacf439b2f1a6cbd6066" annotation="244" breaks_gold="0" is_gold="0" transcriber="adela" date="25/09/13, 08:33:25 ">v kolik to jede zítra v deset? </asr_transcription>
+  </turn>
+  <turn speaker="system" time="115.218" turn_number="12">
+    <dialogue_state>
+      <slot name="ludait">other</slot>
+      <slot name="alternative">none</slot>
+      <slot name="from_centre">none</slot>
+      <slot name="from_stop">Divoká Šárka</slot>
+      <slot name="route_alternative">0</slot>
+      <slot name="silence_time">0.0</slot>
+      <slot name="time">none</slot>
+      <slot name="to_centre">none</slot>
+      <slot name="to_stop">Olšanské hřbitovy</slot>
+      <slot name="rh_alternative">system-informed</slot>
+      <slot name="rh_cordiality">system-informed</slot>
+      <slot name="rh_enter_at">system-informed</slot>
+      <slot name="rh_exit_at">system-informed</slot>
+      <slot name="rh_found_directions">system-informed</slot>
+      <slot name="rh_from_stop">system-informed</slot>
+      <slot name="rh_go_at">system-informed</slot>
+      <slot name="rh_headsign">system-informed</slot>
+      <slot name="rh_line">system-informed</slot>
+      <slot name="rh_to_stop">system-informed</slot>
+      <slot name="rh_transfer">system-informed</slot>
+      <slot name="rh_vehicle">system-informed</slot>
+      <slot name="ch_alternative">system-informed</slot>
+      <slot name="ch_cordiality">system-informed</slot>
+      <slot name="ch_enter_at">system-informed</slot>
+      <slot name="ch_exit_at">system-informed</slot>
+      <slot name="ch_found_directions">system-informed</slot>
+      <slot name="ch_from_stop">system-informed</slot>
+      <slot name="ch_go_at">system-informed</slot>
+      <slot name="ch_headsign">system-informed</slot>
+      <slot name="ch_line">system-informed</slot>
+      <slot name="ch_to_stop">system-informed</slot>
+      <slot name="ch_transfer">system-informed</slot>
+      <slot name="ch_vehicle">system-informed</slot>
+      <slot name="sh_alternative">system-informed</slot>
+      <slot name="sh_cordiality">system-informed</slot>
+      <slot name="sh_enter_at">system-informed</slot>
+      <slot name="sh_exit_at">system-informed</slot>
+      <slot name="sh_found_directions">system-informed</slot>
+      <slot name="sh_from_stop">system-informed</slot>
+      <slot name="sh_go_at">system-informed</slot>
+      <slot name="sh_headsign">system-informed</slot>
+      <slot name="sh_line">system-informed</slot>
+      <slot name="sh_to_stop">system-informed</slot>
+      <slot name="sh_transfer">system-informed</slot>
+      <slot name="sh_vehicle">system-informed</slot>
+    </dialogue_state>
+    <dialogue_act time="115.298">notunderstood()&amp;help(inform="alternative_last")</dialogue_act>
+    <text time="115.357">Nerozuměla jsem. Pokud chcete zopakovat nabídnutý spoj, tak si o to řekněte.</text>
+    <rec fname="tts-2013-07-12-01-39-28.995090.wav" starttime="115.405"/>
+  </turn>
+  <turn speaker="user" time="117.102" turn_number="11">
+    <rec endtime="118.221" fname="vad-2013-07-12-01-39-30.699329.wav" starttime="117.136"/>
+    <asr>
+      <hypothesis p="0.439">také zastávky</hypothesis>
+      <hypothesis p="0.075">jaké zastávky</hypothesis>
+      <hypothesis p="0.069">ski</hypothesis>
+      <hypothesis p="0.064">nah</hypothesis>
+      <hypothesis p="0.059">tah</hypothesis>
+      <hypothesis p="0.053">také mám taky</hypothesis>
+      <hypothesis p="0.048">tak taky</hypothesis>
+      <hypothesis p="0.043">také ski</hypothesis>
+      <hypothesis p="0.037">tak e zastávky</hypothesis>
+      <hypothesis p="0.032">tak ski</hypothesis>
+      <hypothesis p="0.027">velké zastávky</hypothesis>
+      <hypothesis p="0.021">jak ski</hypothesis>
+      <hypothesis p="0.016">nah ski</hypothesis>
+      <hypothesis p="0.011">tah ski</hypothesis>
+      <hypothesis p="0.005">sex ski</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="1.000">other()</interpretation>
+      <interpretation p="0.000">null()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="1.000">other()</dai>
+          <dai p="0.000">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="39cb520703772eefc677cacf439b2f1a6cbd6066" annotation="244" breaks_gold="0" is_gold="0" transcriber="adela" date="25/09/13, 08:33:25 ">z jaké zastávky?</asr_transcription>
+  </turn>
+  <turn speaker="user" time="118.385" turn_number="12">
+    <rec endtime="119.585" fname="vad-2013-07-12-01-39-31.982093.wav" starttime="118.419"/>
+    <asr>
+      <hypothesis p="1.000">__silence__</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="1.000">silence()</interpretation>
+      <interpretation p="0.000">null()</interpretation>
+      <interpretation p="0.000">other()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="1.000">silence()</dai>
+          <dai p="0.000">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="39cb520703772eefc677cacf439b2f1a6cbd6066" annotation="244" breaks_gold="0" is_gold="0" transcriber="adela" date="25/09/13, 08:33:25 ">z jaké zastávky?</asr_transcription>
+  </turn>
+  <turn speaker="system" time="119.626" turn_number="13">
+    <dialogue_state>
+      <slot name="ludait">other</slot>
+      <slot name="alternative">none</slot>
+      <slot name="from_centre">none</slot>
+      <slot name="from_stop">Divoká Šárka</slot>
+      <slot name="route_alternative">0</slot>
+      <slot name="silence_time">0.0</slot>
+      <slot name="time">none</slot>
+      <slot name="to_centre">none</slot>
+      <slot name="to_stop">Olšanské hřbitovy</slot>
+      <slot name="rh_alternative">system-informed</slot>
+      <slot name="rh_cordiality">system-informed</slot>
+      <slot name="rh_enter_at">system-informed</slot>
+      <slot name="rh_exit_at">system-informed</slot>
+      <slot name="rh_found_directions">system-informed</slot>
+      <slot name="rh_from_stop">system-informed</slot>
+      <slot name="rh_go_at">system-informed</slot>
+      <slot name="rh_headsign">system-informed</slot>
+      <slot name="rh_line">system-informed</slot>
+      <slot name="rh_to_stop">system-informed</slot>
+      <slot name="rh_transfer">system-informed</slot>
+      <slot name="rh_vehicle">system-informed</slot>
+      <slot name="ch_alternative">system-informed</slot>
+      <slot name="ch_cordiality">system-informed</slot>
+      <slot name="ch_enter_at">system-informed</slot>
+      <slot name="ch_exit_at">system-informed</slot>
+      <slot name="ch_found_directions">system-informed</slot>
+      <slot name="ch_from_stop">system-informed</slot>
+      <slot name="ch_go_at">system-informed</slot>
+      <slot name="ch_headsign">system-informed</slot>
+      <slot name="ch_line">system-informed</slot>
+      <slot name="ch_to_stop">system-informed</slot>
+      <slot name="ch_transfer">system-informed</slot>
+      <slot name="ch_vehicle">system-informed</slot>
+      <slot name="sh_alternative">system-informed</slot>
+      <slot name="sh_cordiality">system-informed</slot>
+      <slot name="sh_enter_at">system-informed</slot>
+      <slot name="sh_exit_at">system-informed</slot>
+      <slot name="sh_found_directions">system-informed</slot>
+      <slot name="sh_from_stop">system-informed</slot>
+      <slot name="sh_go_at">system-informed</slot>
+      <slot name="sh_headsign">system-informed</slot>
+      <slot name="sh_line">system-informed</slot>
+      <slot name="sh_to_stop">system-informed</slot>
+      <slot name="sh_transfer">system-informed</slot>
+      <slot name="sh_vehicle">system-informed</slot>
+    </dialogue_state>
+    <dialogue_act time="119.717">notunderstood()&amp;help(request="to_stop")</dialogue_act>
+    <barge-in time="119.773"/>
+    <text time="119.869">Nerozuměla jsem. Ještě jednou prosím. Můžete se například zeptat kam jede nabídnutý spoj.</text>
+    <rec fname="tts-2013-07-12-01-39-33.509628.wav" starttime="119.934"/>
+  </turn>
+  <turn speaker="system" time="120.109" turn_number="14">
+    <dialogue_state>
+      <slot name="ludait">silence</slot>
+      <slot name="alternative">none</slot>
+      <slot name="from_centre">none</slot>
+      <slot name="from_stop">Divoká Šárka</slot>
+      <slot name="route_alternative">0</slot>
+      <slot name="silence_time">0.0</slot>
+      <slot name="time">none</slot>
+      <slot name="to_centre">none</slot>
+      <slot name="to_stop">Olšanské hřbitovy</slot>
+      <slot name="rh_alternative">system-informed</slot>
+      <slot name="rh_cordiality">system-informed</slot>
+      <slot name="rh_enter_at">system-informed</slot>
+      <slot name="rh_exit_at">system-informed</slot>
+      <slot name="rh_found_directions">system-informed</slot>
+      <slot name="rh_from_stop">system-informed</slot>
+      <slot name="rh_go_at">system-informed</slot>
+      <slot name="rh_headsign">system-informed</slot>
+      <slot name="rh_line">system-informed</slot>
+      <slot name="rh_to_stop">system-informed</slot>
+      <slot name="rh_transfer">system-informed</slot>
+      <slot name="rh_vehicle">system-informed</slot>
+      <slot name="ch_alternative">system-informed</slot>
+      <slot name="ch_cordiality">system-informed</slot>
+      <slot name="ch_enter_at">system-informed</slot>
+      <slot name="ch_exit_at">system-informed</slot>
+      <slot name="ch_found_directions">system-informed</slot>
+      <slot name="ch_from_stop">system-informed</slot>
+      <slot name="ch_go_at">system-informed</slot>
+      <slot name="ch_headsign">system-informed</slot>
+      <slot name="ch_line">system-informed</slot>
+      <slot name="ch_to_stop">system-informed</slot>
+      <slot name="ch_transfer">system-informed</slot>
+      <slot name="ch_vehicle">system-informed</slot>
+      <slot name="sh_alternative">system-informed</slot>
+      <slot name="sh_cordiality">system-informed</slot>
+      <slot name="sh_enter_at">system-informed</slot>
+      <slot name="sh_exit_at">system-informed</slot>
+      <slot name="sh_found_directions">system-informed</slot>
+      <slot name="sh_from_stop">system-informed</slot>
+      <slot name="sh_go_at">system-informed</slot>
+      <slot name="sh_headsign">system-informed</slot>
+      <slot name="sh_line">system-informed</slot>
+      <slot name="sh_to_stop">system-informed</slot>
+      <slot name="sh_transfer">system-informed</slot>
+      <slot name="sh_vehicle">system-informed</slot>
+    </dialogue_state>
+    <dialogue_act time="120.261">silence()</dialogue_act>
+  </turn>
+  <turn speaker="user" time="120.423" turn_number="13">
+    <rec endtime="120.929" fname="vad-2013-07-12-01-39-34.014925.wav" starttime="120.470"/>
+    <asr>
+      <hypothesis p="1.000">__silence__</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="1.000">silence()</interpretation>
+      <interpretation p="0.000">null()</interpretation>
+      <interpretation p="0.000">other()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="1.000">silence()</dai>
+          <dai p="0.000">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="39cb520703772eefc677cacf439b2f1a6cbd6066" annotation="244" breaks_gold="0" is_gold="0" transcriber="adela" date="25/09/13, 08:33:25 ">(noise)</asr_transcription>
+  </turn>
+  <turn speaker="system" time="121.281" turn_number="15">
+    <dialogue_state>
+      <slot name="ludait">silence</slot>
+      <slot name="alternative">none</slot>
+      <slot name="from_centre">none</slot>
+      <slot name="from_stop">Divoká Šárka</slot>
+      <slot name="route_alternative">0</slot>
+      <slot name="silence_time">0.0</slot>
+      <slot name="time">none</slot>
+      <slot name="to_centre">none</slot>
+      <slot name="to_stop">Olšanské hřbitovy</slot>
+      <slot name="rh_alternative">system-informed</slot>
+      <slot name="rh_cordiality">system-informed</slot>
+      <slot name="rh_enter_at">system-informed</slot>
+      <slot name="rh_exit_at">system-informed</slot>
+      <slot name="rh_found_directions">system-informed</slot>
+      <slot name="rh_from_stop">system-informed</slot>
+      <slot name="rh_go_at">system-informed</slot>
+      <slot name="rh_headsign">system-informed</slot>
+      <slot name="rh_line">system-informed</slot>
+      <slot name="rh_to_stop">system-informed</slot>
+      <slot name="rh_transfer">system-informed</slot>
+      <slot name="rh_vehicle">system-informed</slot>
+      <slot name="ch_alternative">system-informed</slot>
+      <slot name="ch_cordiality">system-informed</slot>
+      <slot name="ch_enter_at">system-informed</slot>
+      <slot name="ch_exit_at">system-informed</slot>
+      <slot name="ch_found_directions">system-informed</slot>
+      <slot name="ch_from_stop">system-informed</slot>
+      <slot name="ch_go_at">system-informed</slot>
+      <slot name="ch_headsign">system-informed</slot>
+      <slot name="ch_line">system-informed</slot>
+      <slot name="ch_to_stop">system-informed</slot>
+      <slot name="ch_transfer">system-informed</slot>
+      <slot name="ch_vehicle">system-informed</slot>
+      <slot name="sh_alternative">system-informed</slot>
+      <slot name="sh_cordiality">system-informed</slot>
+      <slot name="sh_enter_at">system-informed</slot>
+      <slot name="sh_exit_at">system-informed</slot>
+      <slot name="sh_found_directions">system-informed</slot>
+      <slot name="sh_from_stop">system-informed</slot>
+      <slot name="sh_go_at">system-informed</slot>
+      <slot name="sh_headsign">system-informed</slot>
+      <slot name="sh_line">system-informed</slot>
+      <slot name="sh_to_stop">system-informed</slot>
+      <slot name="sh_transfer">system-informed</slot>
+      <slot name="sh_vehicle">system-informed</slot>
+    </dialogue_state>
+    <dialogue_act time="121.384">silence()</dialogue_act>
+  </turn>
+  <turn speaker="user" time="123.413" turn_number="14">
+    <rec endtime="125.478" fname="vad-2013-07-12-01-39-36.987701.wav" starttime="123.604"/>
+    <asr>
+      <hypothesis p="0.244">jak jede</hypothesis>
+      <hypothesis p="0.116">jede</hypothesis>
+      <hypothesis p="0.107">přijede</hypothesis>
+      <hypothesis p="0.097">párky jede</hypothesis>
+      <hypothesis p="0.087">jaké jede</hypothesis>
+      <hypothesis p="0.078">jedeme</hypothesis>
+      <hypothesis p="0.068">jedete</hypothesis>
+      <hypothesis p="0.058">jak jedete</hypothesis>
+      <hypothesis p="0.048">ski jede</hypothesis>
+      <hypothesis p="0.039">jak přijede</hypothesis>
+      <hypothesis p="0.029">věk jede</hypothesis>
+      <hypothesis p="0.019">párky jedete</hypothesis>
+      <hypothesis p="0.010">věk přijede</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="1.000">other()</interpretation>
+      <interpretation p="0.000">null()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="1.000">other()</dai>
+          <dai p="0.000">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="39cb520703772eefc677cacf439b2f1a6cbd6066" annotation="244" breaks_gold="0" is_gold="0" transcriber="adela" date="25/09/13, 08:33:25 ">z jaké zastávky jede</asr_transcription>
+  </turn>
+  <turn speaker="user" time="126.115" turn_number="15">
+    <rec endtime="127.425" fname="vad-2013-07-12-01-39-39.687758.wav" starttime="126.204"/>
+    <asr>
+      <hypothesis p="0.518">ten spoj</hypothesis>
+      <hypothesis p="0.048">tento pokoj</hypothesis>
+      <hypothesis p="0.046">ahoj</hypothesis>
+      <hypothesis p="0.043">pojď</hypothesis>
+      <hypothesis p="0.041">poj</hypothesis>
+      <hypothesis p="0.038">spoj</hypothesis>
+      <hypothesis p="0.036">ten pojď</hypothesis>
+      <hypothesis p="0.033">tv ahoj</hypothesis>
+      <hypothesis p="0.030">ten poj</hypothesis>
+      <hypothesis p="0.028">tv pojď</hypothesis>
+      <hypothesis p="0.025">tento pojď</hypothesis>
+      <hypothesis p="0.023">tv poj</hypothesis>
+      <hypothesis p="0.020">tv spoj</hypothesis>
+      <hypothesis p="0.018">tento poj</hypothesis>
+      <hypothesis p="0.015">samsung ahoj</hypothesis>
+      <hypothesis p="0.013">samsung pojď</hypothesis>
+      <hypothesis p="0.010">ems pojď</hypothesis>
+      <hypothesis p="0.008">ms pojď</hypothesis>
+      <hypothesis p="0.005">ems poj</hypothesis>
+      <hypothesis p="0.003">kemp pojď</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="0.821">other()</interpretation>
+      <interpretation p="0.085">other()&amp;hello()</interpretation>
+      <interpretation p="0.085">null()</interpretation>
+      <interpretation p="0.009">hello()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="0.906">other()</dai>
+          <dai p="0.094">null()</dai>
+        </dai_alternatives>
+        <dai_alternatives>
+          <dai p="0.094">hello()</dai>
+          <dai p="0.906">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="39cb520703772eefc677cacf439b2f1a6cbd6066" annotation="244" breaks_gold="0" is_gold="0" transcriber="adela" date="25/09/13, 08:33:25 ">ten spoj</asr_transcription>
+  </turn>
+  <turn speaker="system" time="127.330" turn_number="16">
+    <dialogue_state>
+      <slot name="ludait">other</slot>
+      <slot name="alternative">none</slot>
+      <slot name="from_centre">none</slot>
+      <slot name="from_stop">Divoká Šárka</slot>
+      <slot name="route_alternative">0</slot>
+      <slot name="silence_time">0.0</slot>
+      <slot name="time">none</slot>
+      <slot name="to_centre">none</slot>
+      <slot name="to_stop">Olšanské hřbitovy</slot>
+      <slot name="rh_alternative">system-informed</slot>
+      <slot name="rh_cordiality">system-informed</slot>
+      <slot name="rh_enter_at">system-informed</slot>
+      <slot name="rh_exit_at">system-informed</slot>
+      <slot name="rh_found_directions">system-informed</slot>
+      <slot name="rh_from_stop">system-informed</slot>
+      <slot name="rh_go_at">system-informed</slot>
+      <slot name="rh_headsign">system-informed</slot>
+      <slot name="rh_line">system-informed</slot>
+      <slot name="rh_to_stop">system-informed</slot>
+      <slot name="rh_transfer">system-informed</slot>
+      <slot name="rh_vehicle">system-informed</slot>
+      <slot name="ch_alternative">system-informed</slot>
+      <slot name="ch_cordiality">system-informed</slot>
+      <slot name="ch_enter_at">system-informed</slot>
+      <slot name="ch_exit_at">system-informed</slot>
+      <slot name="ch_found_directions">system-informed</slot>
+      <slot name="ch_from_stop">system-informed</slot>
+      <slot name="ch_go_at">system-informed</slot>
+      <slot name="ch_headsign">system-informed</slot>
+      <slot name="ch_line">system-informed</slot>
+      <slot name="ch_to_stop">system-informed</slot>
+      <slot name="ch_transfer">system-informed</slot>
+      <slot name="ch_vehicle">system-informed</slot>
+      <slot name="sh_alternative">system-informed</slot>
+      <slot name="sh_cordiality">system-informed</slot>
+      <slot name="sh_enter_at">system-informed</slot>
+      <slot name="sh_exit_at">system-informed</slot>
+      <slot name="sh_found_directions">system-informed</slot>
+      <slot name="sh_from_stop">system-informed</slot>
+      <slot name="sh_go_at">system-informed</slot>
+      <slot name="sh_headsign">system-informed</slot>
+      <slot name="sh_line">system-informed</slot>
+      <slot name="sh_to_stop">system-informed</slot>
+      <slot name="sh_transfer">system-informed</slot>
+      <slot name="sh_vehicle">system-informed</slot>
+    </dialogue_state>
+    <dialogue_act time="127.686">notunderstood()</dialogue_act>
+    <barge-in time="127.842"/>
+    <text time="128.066">Nerozuměla jsem.</text>
+    <rec fname="tts-2013-07-12-01-39-41.754187.wav" starttime="128.425"/>
+  </turn>
+  <turn speaker="system" time="129.926" turn_number="17">
+    <dialogue_state>
+      <slot name="ludait">other</slot>
+      <slot name="alternative">none</slot>
+      <slot name="from_centre">none</slot>
+      <slot name="from_stop">Divoká Šárka</slot>
+      <slot name="route_alternative">0</slot>
+      <slot name="silence_time">0.0</slot>
+      <slot name="time">none</slot>
+      <slot name="to_centre">none</slot>
+      <slot name="to_stop">Olšanské hřbitovy</slot>
+      <slot name="rh_alternative">system-informed</slot>
+      <slot name="rh_cordiality">system-informed</slot>
+      <slot name="rh_enter_at">system-informed</slot>
+      <slot name="rh_exit_at">system-informed</slot>
+      <slot name="rh_found_directions">system-informed</slot>
+      <slot name="rh_from_stop">system-informed</slot>
+      <slot name="rh_go_at">system-informed</slot>
+      <slot name="rh_headsign">system-informed</slot>
+      <slot name="rh_line">system-informed</slot>
+      <slot name="rh_to_stop">system-informed</slot>
+      <slot name="rh_transfer">system-informed</slot>
+      <slot name="rh_vehicle">system-informed</slot>
+      <slot name="ch_alternative">system-informed</slot>
+      <slot name="ch_cordiality">system-informed</slot>
+      <slot name="ch_enter_at">system-informed</slot>
+      <slot name="ch_exit_at">system-informed</slot>
+      <slot name="ch_found_directions">system-informed</slot>
+      <slot name="ch_from_stop">system-informed</slot>
+      <slot name="ch_go_at">system-informed</slot>
+      <slot name="ch_headsign">system-informed</slot>
+      <slot name="ch_line">system-informed</slot>
+      <slot name="ch_to_stop">system-informed</slot>
+      <slot name="ch_transfer">system-informed</slot>
+      <slot name="ch_vehicle">system-informed</slot>
+      <slot name="sh_alternative">system-informed</slot>
+      <slot name="sh_cordiality">system-informed</slot>
+      <slot name="sh_enter_at">system-informed</slot>
+      <slot name="sh_exit_at">system-informed</slot>
+      <slot name="sh_found_directions">system-informed</slot>
+      <slot name="sh_from_stop">system-informed</slot>
+      <slot name="sh_go_at">system-informed</slot>
+      <slot name="sh_headsign">system-informed</slot>
+      <slot name="sh_line">system-informed</slot>
+      <slot name="sh_to_stop">system-informed</slot>
+      <slot name="sh_transfer">system-informed</slot>
+      <slot name="sh_vehicle">system-informed</slot>
+    </dialogue_state>
+    <dialogue_act time="130.206">notunderstood()&amp;help(inform="alternative_last")</dialogue_act>
+    <barge-in time="130.304"/>
+    <text time="130.448">Nerozuměla jsem. Pokud chcete zopakovat nabídnutý spoj, tak si o to řekněte.</text>
+    <rec fname="tts-2013-07-12-01-39-44.111139.wav" starttime="130.552"/>
+  </turn>
+  <turn speaker="user" time="133.328" turn_number="16">
+    <rec endtime="133.703" fname="vad-2013-07-12-01-39-46.898866.wav" starttime="133.424"/>
+    <asr>
+      <hypothesis p="1.000">__silence__</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="1.000">silence()</interpretation>
+      <interpretation p="0.000">null()</interpretation>
+      <interpretation p="0.000">other()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="1.000">silence()</dai>
+          <dai p="0.000">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="39cb520703772eefc677cacf439b2f1a6cbd6066" annotation="244" breaks_gold="0" is_gold="0" transcriber="adela" date="25/09/13, 08:33:25 ">(unint)</asr_transcription>
+  </turn>
+  <turn speaker="system" time="134.348" turn_number="18">
+    <dialogue_state>
+      <slot name="ludait">silence</slot>
+      <slot name="alternative">none</slot>
+      <slot name="from_centre">none</slot>
+      <slot name="from_stop">Divoká Šárka</slot>
+      <slot name="route_alternative">0</slot>
+      <slot name="silence_time">0.0</slot>
+      <slot name="time">none</slot>
+      <slot name="to_centre">none</slot>
+      <slot name="to_stop">Olšanské hřbitovy</slot>
+      <slot name="rh_alternative">system-informed</slot>
+      <slot name="rh_cordiality">system-informed</slot>
+      <slot name="rh_enter_at">system-informed</slot>
+      <slot name="rh_exit_at">system-informed</slot>
+      <slot name="rh_found_directions">system-informed</slot>
+      <slot name="rh_from_stop">system-informed</slot>
+      <slot name="rh_go_at">system-informed</slot>
+      <slot name="rh_headsign">system-informed</slot>
+      <slot name="rh_line">system-informed</slot>
+      <slot name="rh_to_stop">system-informed</slot>
+      <slot name="rh_transfer">system-informed</slot>
+      <slot name="rh_vehicle">system-informed</slot>
+      <slot name="ch_alternative">system-informed</slot>
+      <slot name="ch_cordiality">system-informed</slot>
+      <slot name="ch_enter_at">system-informed</slot>
+      <slot name="ch_exit_at">system-informed</slot>
+      <slot name="ch_found_directions">system-informed</slot>
+      <slot name="ch_from_stop">system-informed</slot>
+      <slot name="ch_go_at">system-informed</slot>
+      <slot name="ch_headsign">system-informed</slot>
+      <slot name="ch_line">system-informed</slot>
+      <slot name="ch_to_stop">system-informed</slot>
+      <slot name="ch_transfer">system-informed</slot>
+      <slot name="ch_vehicle">system-informed</slot>
+      <slot name="sh_alternative">system-informed</slot>
+      <slot name="sh_cordiality">system-informed</slot>
+      <slot name="sh_enter_at">system-informed</slot>
+      <slot name="sh_exit_at">system-informed</slot>
+      <slot name="sh_found_directions">system-informed</slot>
+      <slot name="sh_from_stop">system-informed</slot>
+      <slot name="sh_go_at">system-informed</slot>
+      <slot name="sh_headsign">system-informed</slot>
+      <slot name="sh_line">system-informed</slot>
+      <slot name="sh_to_stop">system-informed</slot>
+      <slot name="sh_transfer">system-informed</slot>
+      <slot name="sh_vehicle">system-informed</slot>
+    </dialogue_state>
+    <dialogue_act time="134.533">silence()</dialogue_act>
+  </turn>
+  <turn speaker="user" time="134.869" turn_number="17">
+    <rec endtime="136.111" fname="vad-2013-07-12-01-39-48.357958.wav" starttime="134.945"/>
+    <asr>
+      <hypothesis p="1.000">__silence__</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="1.000">silence()</interpretation>
+      <interpretation p="0.000">null()</interpretation>
+      <interpretation p="0.000">other()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="1.000">silence()</dai>
+          <dai p="0.000">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="39cb520703772eefc677cacf439b2f1a6cbd6066" annotation="244" breaks_gold="0" is_gold="0" transcriber="adela" date="25/09/13, 08:33:25 ">já jsem nic neříkala</asr_transcription>
+  </turn>
+  <turn speaker="system" time="136.962" turn_number="19">
+    <dialogue_state>
+      <slot name="ludait">silence</slot>
+      <slot name="alternative">none</slot>
+      <slot name="from_centre">none</slot>
+      <slot name="from_stop">Divoká Šárka</slot>
+      <slot name="route_alternative">0</slot>
+      <slot name="silence_time">0.0</slot>
+      <slot name="time">none</slot>
+      <slot name="to_centre">none</slot>
+      <slot name="to_stop">Olšanské hřbitovy</slot>
+      <slot name="rh_alternative">system-informed</slot>
+      <slot name="rh_cordiality">system-informed</slot>
+      <slot name="rh_enter_at">system-informed</slot>
+      <slot name="rh_exit_at">system-informed</slot>
+      <slot name="rh_found_directions">system-informed</slot>
+      <slot name="rh_from_stop">system-informed</slot>
+      <slot name="rh_go_at">system-informed</slot>
+      <slot name="rh_headsign">system-informed</slot>
+      <slot name="rh_line">system-informed</slot>
+      <slot name="rh_to_stop">system-informed</slot>
+      <slot name="rh_transfer">system-informed</slot>
+      <slot name="rh_vehicle">system-informed</slot>
+      <slot name="ch_alternative">system-informed</slot>
+      <slot name="ch_cordiality">system-informed</slot>
+      <slot name="ch_enter_at">system-informed</slot>
+      <slot name="ch_exit_at">system-informed</slot>
+      <slot name="ch_found_directions">system-informed</slot>
+      <slot name="ch_from_stop">system-informed</slot>
+      <slot name="ch_go_at">system-informed</slot>
+      <slot name="ch_headsign">system-informed</slot>
+      <slot name="ch_line">system-informed</slot>
+      <slot name="ch_to_stop">system-informed</slot>
+      <slot name="ch_transfer">system-informed</slot>
+      <slot name="ch_vehicle">system-informed</slot>
+      <slot name="sh_alternative">system-informed</slot>
+      <slot name="sh_cordiality">system-informed</slot>
+      <slot name="sh_enter_at">system-informed</slot>
+      <slot name="sh_exit_at">system-informed</slot>
+      <slot name="sh_found_directions">system-informed</slot>
+      <slot name="sh_from_stop">system-informed</slot>
+      <slot name="sh_go_at">system-informed</slot>
+      <slot name="sh_headsign">system-informed</slot>
+      <slot name="sh_line">system-informed</slot>
+      <slot name="sh_to_stop">system-informed</slot>
+      <slot name="sh_transfer">system-informed</slot>
+      <slot name="sh_vehicle">system-informed</slot>
+    </dialogue_state>
+    <dialogue_act time="137.203">silence()</dialogue_act>
+  </turn>
+  <turn speaker="system" time="140.390" turn_number="20">
+    <dialogue_act time="140.505">silence()</dialogue_act>
+  </turn>
+  <turn speaker="user" time="140.613" turn_number="18">
+    <rec endtime="142.621" fname="vad-2013-07-12-01-39-54.163262.wav" starttime="140.705"/>
+    <asr>
+      <hypothesis p="0.629">říkám si o to</hypothesis>
+      <hypothesis p="0.082">říkal si o to</hypothesis>
+      <hypothesis p="0.072">říkám si auto</hypothesis>
+      <hypothesis p="0.062">říkal si auto</hypothesis>
+      <hypothesis p="0.051">říkám si o to s</hypothesis>
+      <hypothesis p="0.041">řeka života</hypothesis>
+      <hypothesis p="0.031">říkal si o to s</hypothesis>
+      <hypothesis p="0.021">řikám si auto</hypothesis>
+      <hypothesis p="0.010">řeka si auto</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="1.000">other()</interpretation>
+      <interpretation p="0.000">null()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="1.000">other()</dai>
+          <dai p="0.000">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="39cb520703772eefc677cacf439b2f1a6cbd6066" annotation="244" breaks_gold="0" is_gold="0" transcriber="adela" date="25/09/13, 08:33:25 ">říkám si o to (laugh)</asr_transcription>
+  </turn>
+  <turn speaker="user" time="143.083" turn_number="19">
+    <rec endtime="144.354" fname="vad-2013-07-12-01-39-56.666893.wav" starttime="143.232"/>
+    <asr>
+      <hypothesis p="0.578">odkud pojede</hypothesis>
+      <hypothesis p="0.065">odkud to jede</hypothesis>
+      <hypothesis p="0.060">odkud pojedeš</hypothesis>
+      <hypothesis p="0.054">pokud pojede</hypothesis>
+      <hypothesis p="0.049">pokud to jede</hypothesis>
+      <hypothesis p="0.043">pokus to jede</hypothesis>
+      <hypothesis p="0.038">od kud to jede</hypothesis>
+      <hypothesis p="0.032">pokud pojedeš</hypothesis>
+      <hypothesis p="0.027">kokot to jede</hypothesis>
+      <hypothesis p="0.022">odkud pojede i</hypothesis>
+      <hypothesis p="0.016">pokud pojede i</hypothesis>
+      <hypothesis p="0.011">odkud to jede i</hypothesis>
+      <hypothesis p="0.005">odkud jede i</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="0.508">request(from_stop)</interpretation>
+      <interpretation p="0.205">null()</interpretation>
+      <interpretation p="0.205">request(from_stop)&amp;other()</interpretation>
+      <interpretation p="0.082">other()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="0.713">request(from_stop)</dai>
+          <dai p="0.287">null()</dai>
+        </dai_alternatives>
+        <dai_alternatives>
+          <dai p="0.287">other()</dai>
+          <dai p="0.713">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="39cb520703772eefc677cacf439b2f1a6cbd6066" annotation="244" breaks_gold="0" is_gold="0" transcriber="adela" date="25/09/13, 08:33:25 ">odkud to jede?</asr_transcription>
+  </turn>
+  <turn speaker="system" time="144.426" turn_number="21">
+    <dialogue_state>
+      <slot name="ludait">other</slot>
+      <slot name="alternative">none</slot>
+      <slot name="from_centre">none</slot>
+      <slot name="from_stop">Divoká Šárka</slot>
+      <slot name="route_alternative">0</slot>
+      <slot name="silence_time">0.0</slot>
+      <slot name="time">none</slot>
+      <slot name="to_centre">none</slot>
+      <slot name="to_stop">Olšanské hřbitovy</slot>
+      <slot name="rh_alternative">system-informed</slot>
+      <slot name="rh_cordiality">system-informed</slot>
+      <slot name="rh_enter_at">system-informed</slot>
+      <slot name="rh_exit_at">system-informed</slot>
+      <slot name="rh_found_directions">system-informed</slot>
+      <slot name="rh_from_stop">system-informed</slot>
+      <slot name="rh_go_at">system-informed</slot>
+      <slot name="rh_headsign">system-informed</slot>
+      <slot name="rh_line">system-informed</slot>
+      <slot name="rh_to_stop">system-informed</slot>
+      <slot name="rh_transfer">system-informed</slot>
+      <slot name="rh_vehicle">system-informed</slot>
+      <slot name="ch_alternative">system-informed</slot>
+      <slot name="ch_cordiality">system-informed</slot>
+      <slot name="ch_enter_at">system-informed</slot>
+      <slot name="ch_exit_at">system-informed</slot>
+      <slot name="ch_found_directions">system-informed</slot>
+      <slot name="ch_from_stop">system-informed</slot>
+      <slot name="ch_go_at">system-informed</slot>
+      <slot name="ch_headsign">system-informed</slot>
+      <slot name="ch_line">system-informed</slot>
+      <slot name="ch_to_stop">system-informed</slot>
+      <slot name="ch_transfer">system-informed</slot>
+      <slot name="ch_vehicle">system-informed</slot>
+      <slot name="sh_alternative">system-informed</slot>
+      <slot name="sh_cordiality">system-informed</slot>
+      <slot name="sh_enter_at">system-informed</slot>
+      <slot name="sh_exit_at">system-informed</slot>
+      <slot name="sh_found_directions">system-informed</slot>
+      <slot name="sh_from_stop">system-informed</slot>
+      <slot name="sh_go_at">system-informed</slot>
+      <slot name="sh_headsign">system-informed</slot>
+      <slot name="sh_line">system-informed</slot>
+      <slot name="sh_to_stop">system-informed</slot>
+      <slot name="sh_transfer">system-informed</slot>
+      <slot name="sh_vehicle">system-informed</slot>
+    </dialogue_state>
+    <dialogue_act time="144.590">notunderstood()&amp;help(request="to_stop")</dialogue_act>
+    <text time="144.744">Promiňte, nerozuměla jsem. Můžete se například zeptat do jaké zastávky jede nabídnutý spoj.</text>
+    <rec fname="tts-2013-07-12-01-39-58.408565.wav" starttime="144.905"/>
+  </turn>
+  <turn speaker="system" time="146.435" turn_number="22">
+    <dialogue_state>
+      <slot name="ludait">none</slot>
+      <slot name="alternative">none</slot>
+      <slot name="from_centre">none</slot>
+      <slot name="from_stop">Divoká Šárka</slot>
+      <slot name="route_alternative">0</slot>
+      <slot name="silence_time">0.0</slot>
+      <slot name="time">none</slot>
+      <slot name="to_centre">none</slot>
+      <slot name="to_stop">Olšanské hřbitovy</slot>
+      <slot name="rh_alternative">system-informed</slot>
+      <slot name="rh_cordiality">system-informed</slot>
+      <slot name="rh_enter_at">system-informed</slot>
+      <slot name="rh_exit_at">system-informed</slot>
+      <slot name="rh_found_directions">system-informed</slot>
+      <slot name="rh_from_stop">user-requested</slot>
+      <slot name="rh_go_at">system-informed</slot>
+      <slot name="rh_headsign">system-informed</slot>
+      <slot name="rh_line">system-informed</slot>
+      <slot name="rh_to_stop">system-informed</slot>
+      <slot name="rh_transfer">system-informed</slot>
+      <slot name="rh_vehicle">system-informed</slot>
+      <slot name="ch_alternative">system-informed</slot>
+      <slot name="ch_cordiality">system-informed</slot>
+      <slot name="ch_enter_at">system-informed</slot>
+      <slot name="ch_exit_at">system-informed</slot>
+      <slot name="ch_found_directions">system-informed</slot>
+      <slot name="ch_from_stop">system-informed</slot>
+      <slot name="ch_go_at">system-informed</slot>
+      <slot name="ch_headsign">system-informed</slot>
+      <slot name="ch_line">system-informed</slot>
+      <slot name="ch_to_stop">system-informed</slot>
+      <slot name="ch_transfer">system-informed</slot>
+      <slot name="ch_vehicle">system-informed</slot>
+      <slot name="sh_alternative">system-informed</slot>
+      <slot name="sh_cordiality">system-informed</slot>
+      <slot name="sh_enter_at">system-informed</slot>
+      <slot name="sh_exit_at">system-informed</slot>
+      <slot name="sh_found_directions">system-informed</slot>
+      <slot name="sh_from_stop">system-informed</slot>
+      <slot name="sh_go_at">system-informed</slot>
+      <slot name="sh_headsign">system-informed</slot>
+      <slot name="sh_line">system-informed</slot>
+      <slot name="sh_to_stop">system-informed</slot>
+      <slot name="sh_transfer">system-informed</slot>
+      <slot name="sh_vehicle">system-informed</slot>
+    </dialogue_state>
+    <dialogue_act time="146.735">inform(from_stop="Divoká Šárka")&amp;inform(vehicle="BUS")&amp;inform(line="510")&amp;inform(headsign="Na Beránku")</dialogue_act>
+    <barge-in time="146.875"/>
+    <text time="147.114">Ze zastávky Divoká Šárka. Jeďte autobusem číslo 510 směrem Na Beránku.</text>
+    <rec fname="tts-2013-07-12-01-40-00.865627.wav" starttime="147.311"/>
+  </turn>
+  <turn speaker="system" time="157.131" turn_number="23">
+    <dialogue_act time="157.225">silence()</dialogue_act>
+  </turn>
+  <turn speaker="user" time="157.691" turn_number="20">
+    <rec endtime="159.453" fname="vad-2013-07-12-01-40-11.267372.wav" starttime="157.776"/>
+    <asr>
+      <hypothesis p="0.631">jak tam pojedu zítra</hypothesis>
+      <hypothesis p="0.041">kolik tam pojedu zítra</hypothesis>
+      <hypothesis p="0.039">kolik je tam pojedu zítra</hypothesis>
+      <hypothesis p="0.036">tam pojedu zítra</hypothesis>
+      <hypothesis p="0.034">skoro tam pojedu zítra</hypothesis>
+      <hypothesis p="0.031">pojedu zítra</hypothesis>
+      <hypothesis p="0.029">r jak tam pojedu zítra</hypothesis>
+      <hypothesis p="0.027">jak tam půjdu zítra</hypothesis>
+      <hypothesis p="0.024">kolo jak tam pojedu zítra</hypothesis>
+      <hypothesis p="0.022">kolik tam půjdu zítra</hypothesis>
+      <hypothesis p="0.019">jak tam dojdu zítra</hypothesis>
+      <hypothesis p="0.017">kam pojedeme zítra</hypothesis>
+      <hypothesis p="0.014">kolik pojedu zítra</hypothesis>
+      <hypothesis p="0.012">ahoj jak tam pojedu zítra</hypothesis>
+      <hypothesis p="0.010">kolik je tam půjdu zítra</hypothesis>
+      <hypothesis p="0.007">skoro jak tam pojedu zítra</hypothesis>
+      <hypothesis p="0.005">kolik tam dojdu zítra</hypothesis>
+      <hypothesis p="0.002">jak tam pojedu až zítra</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="0.976">other()</interpretation>
+      <interpretation p="0.012">other()&amp;hello()</interpretation>
+      <interpretation p="0.012">null()</interpretation>
+      <interpretation p="0.000">hello()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="0.988">other()</dai>
+          <dai p="0.012">null()</dai>
+        </dai_alternatives>
+        <dai_alternatives>
+          <dai p="0.012">hello()</dai>
+          <dai p="0.988">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="39cb520703772eefc677cacf439b2f1a6cbd6066" annotation="244" breaks_gold="0" is_gold="0" transcriber="adela" date="25/09/13, 08:33:25 ">v ko- (hum) jak tam pojedu zítra? </asr_transcription>
+  </turn>
+  <turn speaker="user" time="159.850" turn_number="21">
+    <rec endtime="161.575" fname="vad-2013-07-12-01-40-13.429456.wav" starttime="160.017"/>
+    <asr>
+      <hypothesis p="0.643">ve čtyři hodiny odpoledne</hypothesis>
+      <hypothesis p="0.055">ve 4 hodiny odpoledne</hypothesis>
+      <hypothesis p="0.050">ve čtyři hodin odpoledne</hypothesis>
+      <hypothesis p="0.046">ve čtyři hodiny odpoledne s</hypothesis>
+      <hypothesis p="0.041">ve 4 hodiny odpoledne s</hypothesis>
+      <hypothesis p="0.037">ve čtyři hodiny odpoledne a</hypothesis>
+      <hypothesis p="0.032">ve 4 hodiny odpoledne a</hypothesis>
+      <hypothesis p="0.027">ve čtyři hodiny odpoledne i</hypothesis>
+      <hypothesis p="0.023">ve 4 hodiny odpoledne i</hypothesis>
+      <hypothesis p="0.018">čtyři hodin odpoledne</hypothesis>
+      <hypothesis p="0.014">ve čtyři hodin odpoledne s</hypothesis>
+      <hypothesis p="0.009">ve čtyři hodin odpoledne a</hypothesis>
+      <hypothesis p="0.005">ve čtyři hodin odpoledne i</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="0.690">inform(time="4:00")</interpretation>
+      <interpretation p="0.141">inform(time="4:00")&amp;other()</interpretation>
+      <interpretation p="0.141">null()</interpretation>
+      <interpretation p="0.029">other()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="0.831">inform(time="4:00")</dai>
+          <dai p="0.169">null()</dai>
+        </dai_alternatives>
+        <dai_alternatives>
+          <dai p="0.169">other()</dai>
+          <dai p="0.831">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="39cb520703772eefc677cacf439b2f1a6cbd6066" annotation="244" breaks_gold="0" is_gold="0" transcriber="adela" date="25/09/13, 08:33:25 ">ve čtyři hodiny odpoledne</asr_transcription>
+  </turn>
+  <turn speaker="system" time="161.233" turn_number="24">
+    <dialogue_state>
+      <slot name="ludait">other</slot>
+      <slot name="alternative">none</slot>
+      <slot name="from_centre">none</slot>
+      <slot name="from_stop">Divoká Šárka</slot>
+      <slot name="route_alternative">0</slot>
+      <slot name="silence_time">0.0</slot>
+      <slot name="time">none</slot>
+      <slot name="to_centre">none</slot>
+      <slot name="to_stop">Olšanské hřbitovy</slot>
+      <slot name="rh_alternative">system-informed</slot>
+      <slot name="rh_cordiality">system-informed</slot>
+      <slot name="rh_enter_at">system-informed</slot>
+      <slot name="rh_exit_at">system-informed</slot>
+      <slot name="rh_found_directions">system-informed</slot>
+      <slot name="rh_from_stop">system-informed</slot>
+      <slot name="rh_go_at">system-informed</slot>
+      <slot name="rh_headsign">system-informed</slot>
+      <slot name="rh_line">system-informed</slot>
+      <slot name="rh_to_stop">system-informed</slot>
+      <slot name="rh_transfer">system-informed</slot>
+      <slot name="rh_vehicle">system-informed</slot>
+      <slot name="ch_alternative">system-informed</slot>
+      <slot name="ch_cordiality">system-informed</slot>
+      <slot name="ch_enter_at">system-informed</slot>
+      <slot name="ch_exit_at">system-informed</slot>
+      <slot name="ch_found_directions">system-informed</slot>
+      <slot name="ch_from_stop">system-informed</slot>
+      <slot name="ch_go_at">system-informed</slot>
+      <slot name="ch_headsign">system-informed</slot>
+      <slot name="ch_line">system-informed</slot>
+      <slot name="ch_to_stop">system-informed</slot>
+      <slot name="ch_transfer">system-informed</slot>
+      <slot name="ch_vehicle">system-informed</slot>
+      <slot name="sh_alternative">system-informed</slot>
+      <slot name="sh_cordiality">system-informed</slot>
+      <slot name="sh_enter_at">system-informed</slot>
+      <slot name="sh_exit_at">system-informed</slot>
+      <slot name="sh_found_directions">system-informed</slot>
+      <slot name="sh_from_stop">system-informed</slot>
+      <slot name="sh_go_at">system-informed</slot>
+      <slot name="sh_headsign">system-informed</slot>
+      <slot name="sh_line">system-informed</slot>
+      <slot name="sh_to_stop">system-informed</slot>
+      <slot name="sh_transfer">system-informed</slot>
+      <slot name="sh_vehicle">system-informed</slot>
+    </dialogue_state>
+    <dialogue_act time="161.489">notunderstood()&amp;help(inform="alternative_abs")</dialogue_act>
+    <text time="161.660">Nerozuměla jsem. Pokud chcete zopakovat konkrétní spoj, potom můžete například říct třetí spojení.</text>
+    <rec fname="tts-2013-07-12-01-40-15.324894.wav" starttime="161.775"/>
+  </turn>
+  <turn speaker="system" time="163.055" turn_number="25">
+    <dialogue_state>
+      <slot name="ludait">none</slot>
+      <slot name="alternative">none</slot>
+      <slot name="from_centre">none</slot>
+      <slot name="from_stop">Divoká Šárka</slot>
+      <slot name="route_alternative">0</slot>
+      <slot name="silence_time">0.0</slot>
+      <slot name="time">4:00</slot>
+      <slot name="to_centre">none</slot>
+      <slot name="to_stop">Olšanské hřbitovy</slot>
+      <slot name="rh_alternative">system-informed</slot>
+      <slot name="rh_cordiality">system-informed</slot>
+      <slot name="rh_enter_at">system-informed</slot>
+      <slot name="rh_exit_at">system-informed</slot>
+      <slot name="rh_found_directions">system-informed</slot>
+      <slot name="rh_from_stop">system-informed</slot>
+      <slot name="rh_go_at">system-informed</slot>
+      <slot name="rh_headsign">system-informed</slot>
+      <slot name="rh_line">system-informed</slot>
+      <slot name="rh_to_stop">system-informed</slot>
+      <slot name="rh_transfer">system-informed</slot>
+      <slot name="rh_vehicle">system-informed</slot>
+      <slot name="ch_alternative">system-informed</slot>
+      <slot name="ch_cordiality">system-informed</slot>
+      <slot name="ch_enter_at">system-informed</slot>
+      <slot name="ch_exit_at">system-informed</slot>
+      <slot name="ch_found_directions">system-informed</slot>
+      <slot name="ch_from_stop">system-informed</slot>
+      <slot name="ch_go_at">system-informed</slot>
+      <slot name="ch_headsign">system-informed</slot>
+      <slot name="ch_line">system-informed</slot>
+      <slot name="ch_to_stop">system-informed</slot>
+      <slot name="ch_transfer">system-informed</slot>
+      <slot name="ch_vehicle">system-informed</slot>
+      <slot name="sh_alternative">system-informed</slot>
+      <slot name="sh_cordiality">system-informed</slot>
+      <slot name="sh_enter_at">system-informed</slot>
+      <slot name="sh_exit_at">system-informed</slot>
+      <slot name="sh_found_directions">system-informed</slot>
+      <slot name="sh_from_stop">system-informed</slot>
+      <slot name="sh_go_at">system-informed</slot>
+      <slot name="sh_headsign">system-informed</slot>
+      <slot name="sh_line">system-informed</slot>
+      <slot name="sh_to_stop">system-informed</slot>
+      <slot name="sh_transfer">system-informed</slot>
+      <slot name="sh_vehicle">system-informed</slot>
+    </dialogue_state>
+    <dialogue_act time="163.606">iconfirm(time="4:00")&amp;inform(found_directions="true")&amp;inform(alternative="1")&amp;inform(vehicle="BUS")&amp;inform(line="X51")&amp;inform(go_at="04:18")&amp;inform(enter_at="Divoká Šárka")&amp;inform(headsign="Špejchar")&amp;inform(exit_at="Hradčanská")&amp;inform(transfer="true")&amp;inform(vehicle="SUBWAY")&amp;inform(line="A")&amp;inform(go_at="04:41")&amp;inform(enter_at="Hradčanská")&amp;inform(headsign="Depo Hostivař")&amp;inform(exit_at="Flora")</dialogue_act>
+    <barge-in time="163.783"/>
+    <text time="164.241">Dobře, v 4:00. Našla jsem následující spojení. Možnost první. Jeďte autobusem číslo X51 v 04:18 ze zastávky Divoká Šárka směrem Špejchar. Vystupte na zastávce Hradčanská. A pak přestupte. Jeďte metrem A v 04:41 ze zastávky Hradčanská směrem Depo Hostivař. Vystupte na zastávce Flora.</text>
+    <rec fname="tts-2013-07-12-01-40-17.944923.wav" starttime="164.380"/>
+  </turn>
+  <turn speaker="user" time="165.261" turn_number="22">
+    <rec endtime="167.104" fname="vad-2013-07-12-01-40-18.827286.wav" starttime="165.356"/>
+    <asr>
+      <hypothesis p="0.686">ve čtyři hodiny odpoledne</hypothesis>
+      <hypothesis p="0.063">ve 4 hodiny odpoledne</hypothesis>
+      <hypothesis p="0.056">ve čtyři hodin odpoledne</hypothesis>
+      <hypothesis p="0.049">ve čtyři hodiny odpoledne a</hypothesis>
+      <hypothesis p="0.042">ve 4 hodiny odpoledne a</hypothesis>
+      <hypothesis p="0.035">ve čtyři hodiny odpoledne i</hypothesis>
+      <hypothesis p="0.028">ve čtyři hodiny odpoledne s</hypothesis>
+      <hypothesis p="0.021">ve 4 hodiny odpoledne i</hypothesis>
+      <hypothesis p="0.014">ve 4 hodiny odpoledne s</hypothesis>
+      <hypothesis p="0.007">čtyři hodin odpoledne</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="0.728">inform(time="4:00")</interpretation>
+      <interpretation p="0.125">inform(time="4:00")&amp;other()</interpretation>
+      <interpretation p="0.125">null()</interpretation>
+      <interpretation p="0.022">other()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="0.853">inform(time="4:00")</dai>
+          <dai p="0.147">null()</dai>
+        </dai_alternatives>
+        <dai_alternatives>
+          <dai p="0.147">other()</dai>
+          <dai p="0.853">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="39cb520703772eefc677cacf439b2f1a6cbd6066" annotation="244" breaks_gold="0" is_gold="0" transcriber="adela" date="25/09/13, 08:33:25 ">ve čtyři hodiny odpoledne</asr_transcription>
+  </turn>
+  <turn speaker="system" time="169.136" turn_number="26">
+    <dialogue_state>
+      <slot name="ludait">none</slot>
+      <slot name="alternative">none</slot>
+      <slot name="from_centre">none</slot>
+      <slot name="from_stop">Divoká Šárka</slot>
+      <slot name="route_alternative">0</slot>
+      <slot name="silence_time">0.0</slot>
+      <slot name="time">4:00</slot>
+      <slot name="to_centre">none</slot>
+      <slot name="to_stop">Olšanské hřbitovy</slot>
+      <slot name="rh_alternative">system-informed</slot>
+      <slot name="rh_cordiality">system-informed</slot>
+      <slot name="rh_enter_at">system-informed</slot>
+      <slot name="rh_exit_at">system-informed</slot>
+      <slot name="rh_found_directions">system-informed</slot>
+      <slot name="rh_from_stop">system-informed</slot>
+      <slot name="rh_go_at">system-informed</slot>
+      <slot name="rh_headsign">system-informed</slot>
+      <slot name="rh_line">system-informed</slot>
+      <slot name="rh_time">system-informed</slot>
+      <slot name="rh_to_stop">system-informed</slot>
+      <slot name="rh_transfer">system-informed</slot>
+      <slot name="rh_vehicle">system-informed</slot>
+      <slot name="ch_alternative">system-informed</slot>
+      <slot name="ch_cordiality">system-informed</slot>
+      <slot name="ch_enter_at">system-informed</slot>
+      <slot name="ch_exit_at">system-informed</slot>
+      <slot name="ch_found_directions">system-informed</slot>
+      <slot name="ch_from_stop">system-informed</slot>
+      <slot name="ch_go_at">system-informed</slot>
+      <slot name="ch_headsign">system-informed</slot>
+      <slot name="ch_line">system-informed</slot>
+      <slot name="ch_time">system-informed</slot>
+      <slot name="ch_to_stop">system-informed</slot>
+      <slot name="ch_transfer">system-informed</slot>
+      <slot name="ch_vehicle">system-informed</slot>
+      <slot name="sh_alternative">system-informed</slot>
+      <slot name="sh_cordiality">system-informed</slot>
+      <slot name="sh_enter_at">system-informed</slot>
+      <slot name="sh_exit_at">system-informed</slot>
+      <slot name="sh_found_directions">system-informed</slot>
+      <slot name="sh_from_stop">system-informed</slot>
+      <slot name="sh_go_at">system-informed</slot>
+      <slot name="sh_headsign">system-informed</slot>
+      <slot name="sh_line">system-informed</slot>
+      <slot name="sh_time">system-informed</slot>
+      <slot name="sh_to_stop">system-informed</slot>
+      <slot name="sh_transfer">system-informed</slot>
+      <slot name="sh_vehicle">system-informed</slot>
+    </dialogue_state>
+    <dialogue_act time="169.474">inform(found_directions="true")&amp;inform(alternative="1")&amp;inform(vehicle="BUS")&amp;inform(line="X51")&amp;inform(go_at="04:18")&amp;inform(enter_at="Divoká Šárka")&amp;inform(headsign="Špejchar")&amp;inform(exit_at="Hradčanská")&amp;inform(transfer="true")&amp;inform(vehicle="SUBWAY")&amp;inform(line="A")&amp;inform(go_at="04:41")&amp;inform(enter_at="Hradčanská")&amp;inform(headsign="Depo Hostivař")&amp;inform(exit_at="Flora")</dialogue_act>
+    <barge-in time="169.600"/>
+    <text time="171.025">Našla jsem následující spojení. Možnost první. Jeďte autobusem číslo X51 v 04:18 ze zastávky Divoká Šárka směrem Špejchar. Vystupte na zastávce Hradčanská. A pak přestupte. Jeďte metrem A v 04:41 ze zastávky Hradčanská směrem Depo Hostivař. Vystupte na zastávce Flora.</text>
+    <rec fname="tts-2013-07-12-01-40-24.726467.wav" starttime="171.188"/>
+  </turn>
+  <turn speaker="user" time="184.527" turn_number="23">
+    <rec endtime="186.096" fname="vad-2013-07-12-01-40-37.985928.wav" starttime="184.633"/>
+    <asr>
+      <hypothesis p="1.000">__silence__</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="1.000">silence()</interpretation>
+      <interpretation p="0.000">null()</interpretation>
+      <interpretation p="0.000">other()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="1.000">silence()</dai>
+          <dai p="0.000">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="39cb520703772eefc677cacf439b2f1a6cbd6066" annotation="244" breaks_gold="0" is_gold="0" transcriber="adela" date="25/09/13, 08:33:25 ">(noise)</asr_transcription>
+  </turn>
+  <turn speaker="user" time="186.875" turn_number="24">
+    <rec endtime="188.958" fname="vad-2013-07-12-01-40-40.448454.wav" starttime="187.146"/>
+    <asr>
+      <hypothesis p="1.000">__silence__</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="1.000">silence()</interpretation>
+      <interpretation p="0.000">null()</interpretation>
+      <interpretation p="0.000">other()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="1.000">silence()</dai>
+          <dai p="0.000">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="39cb520703772eefc677cacf439b2f1a6cbd6066" annotation="244" breaks_gold="0" is_gold="0" transcriber="adela" date="25/09/13, 08:33:25 ">(unint)</asr_transcription>
+  </turn>
+  <turn speaker="system" time="186.974" turn_number="27">
+    <dialogue_state>
+      <slot name="ludait">silence</slot>
+      <slot name="alternative">none</slot>
+      <slot name="from_centre">none</slot>
+      <slot name="from_stop">Divoká Šárka</slot>
+      <slot name="route_alternative">0</slot>
+      <slot name="silence_time">0.0</slot>
+      <slot name="time">4:00</slot>
+      <slot name="to_centre">none</slot>
+      <slot name="to_stop">Olšanské hřbitovy</slot>
+      <slot name="rh_alternative">system-informed</slot>
+      <slot name="rh_cordiality">system-informed</slot>
+      <slot name="rh_enter_at">system-informed</slot>
+      <slot name="rh_exit_at">system-informed</slot>
+      <slot name="rh_found_directions">system-informed</slot>
+      <slot name="rh_from_stop">system-informed</slot>
+      <slot name="rh_go_at">system-informed</slot>
+      <slot name="rh_headsign">system-informed</slot>
+      <slot name="rh_line">system-informed</slot>
+      <slot name="rh_time">system-informed</slot>
+      <slot name="rh_to_stop">system-informed</slot>
+      <slot name="rh_transfer">system-informed</slot>
+      <slot name="rh_vehicle">system-informed</slot>
+      <slot name="ch_alternative">system-informed</slot>
+      <slot name="ch_cordiality">system-informed</slot>
+      <slot name="ch_enter_at">system-informed</slot>
+      <slot name="ch_exit_at">system-informed</slot>
+      <slot name="ch_found_directions">system-informed</slot>
+      <slot name="ch_from_stop">system-informed</slot>
+      <slot name="ch_go_at">system-informed</slot>
+      <slot name="ch_headsign">system-informed</slot>
+      <slot name="ch_line">system-informed</slot>
+      <slot name="ch_time">system-informed</slot>
+      <slot name="ch_to_stop">system-informed</slot>
+      <slot name="ch_transfer">system-informed</slot>
+      <slot name="ch_vehicle">system-informed</slot>
+      <slot name="sh_alternative">system-informed</slot>
+      <slot name="sh_cordiality">system-informed</slot>
+      <slot name="sh_enter_at">system-informed</slot>
+      <slot name="sh_exit_at">system-informed</slot>
+      <slot name="sh_found_directions">system-informed</slot>
+      <slot name="sh_from_stop">system-informed</slot>
+      <slot name="sh_go_at">system-informed</slot>
+      <slot name="sh_headsign">system-informed</slot>
+      <slot name="sh_line">system-informed</slot>
+      <slot name="sh_time">system-informed</slot>
+      <slot name="sh_to_stop">system-informed</slot>
+      <slot name="sh_transfer">system-informed</slot>
+      <slot name="sh_vehicle">system-informed</slot>
+    </dialogue_state>
+    <dialogue_act time="187.461">silence()</dialogue_act>
+  </turn>
+  <turn speaker="system" time="190.154" turn_number="28">
+    <dialogue_state>
+      <slot name="ludait">silence</slot>
+      <slot name="alternative">none</slot>
+      <slot name="from_centre">none</slot>
+      <slot name="from_stop">Divoká Šárka</slot>
+      <slot name="route_alternative">0</slot>
+      <slot name="silence_time">0.0</slot>
+      <slot name="time">4:00</slot>
+      <slot name="to_centre">none</slot>
+      <slot name="to_stop">Olšanské hřbitovy</slot>
+      <slot name="rh_alternative">system-informed</slot>
+      <slot name="rh_cordiality">system-informed</slot>
+      <slot name="rh_enter_at">system-informed</slot>
+      <slot name="rh_exit_at">system-informed</slot>
+      <slot name="rh_found_directions">system-informed</slot>
+      <slot name="rh_from_stop">system-informed</slot>
+      <slot name="rh_go_at">system-informed</slot>
+      <slot name="rh_headsign">system-informed</slot>
+      <slot name="rh_line">system-informed</slot>
+      <slot name="rh_time">system-informed</slot>
+      <slot name="rh_to_stop">system-informed</slot>
+      <slot name="rh_transfer">system-informed</slot>
+      <slot name="rh_vehicle">system-informed</slot>
+      <slot name="ch_alternative">system-informed</slot>
+      <slot name="ch_cordiality">system-informed</slot>
+      <slot name="ch_enter_at">system-informed</slot>
+      <slot name="ch_exit_at">system-informed</slot>
+      <slot name="ch_found_directions">system-informed</slot>
+      <slot name="ch_from_stop">system-informed</slot>
+      <slot name="ch_go_at">system-informed</slot>
+      <slot name="ch_headsign">system-informed</slot>
+      <slot name="ch_line">system-informed</slot>
+      <slot name="ch_time">system-informed</slot>
+      <slot name="ch_to_stop">system-informed</slot>
+      <slot name="ch_transfer">system-informed</slot>
+      <slot name="ch_vehicle">system-informed</slot>
+      <slot name="sh_alternative">system-informed</slot>
+      <slot name="sh_cordiality">system-informed</slot>
+      <slot name="sh_enter_at">system-informed</slot>
+      <slot name="sh_exit_at">system-informed</slot>
+      <slot name="sh_found_directions">system-informed</slot>
+      <slot name="sh_from_stop">system-informed</slot>
+      <slot name="sh_go_at">system-informed</slot>
+      <slot name="sh_headsign">system-informed</slot>
+      <slot name="sh_line">system-informed</slot>
+      <slot name="sh_time">system-informed</slot>
+      <slot name="sh_to_stop">system-informed</slot>
+      <slot name="sh_transfer">system-informed</slot>
+      <slot name="sh_vehicle">system-informed</slot>
+    </dialogue_state>
+    <dialogue_act time="190.359">silence()</dialogue_act>
+  </turn>
+  <turn speaker="user" time="200.337" turn_number="25">
+    <rec endtime="202.099" fname="vad-2013-07-12-01-40-53.905249.wav" starttime="200.438"/>
+    <asr>
+      <hypothesis p="0.752">děkuju za úplně úžasná</hypothesis>
+      <hypothesis p="0.025">děkuji za úplně úžasná</hypothesis>
+      <hypothesis p="0.023">dekuju za úplně úžasná</hypothesis>
+      <hypothesis p="0.022">děkuj za úplně úžasná</hypothesis>
+      <hypothesis p="0.021">děkuju za úplně už astma</hypothesis>
+      <hypothesis p="0.020">dekuji za úplně úžasná</hypothesis>
+      <hypothesis p="0.018">děkuju za úplně úžasné</hypothesis>
+      <hypothesis p="0.017">děkuji za úplně už astma</hypothesis>
+      <hypothesis p="0.016">děkuju za úplně úžasná a</hypothesis>
+      <hypothesis p="0.014">děkuji za úplně úžasné</hypothesis>
+      <hypothesis p="0.013">děkuju za úplně úžasná i</hypothesis>
+      <hypothesis p="0.012">dekuju za úplně už astma</hypothesis>
+      <hypothesis p="0.010">děkuj za úplně už astma</hypothesis>
+      <hypothesis p="0.009">děkuji za úplně úžasná a</hypothesis>
+      <hypothesis p="0.008">dekuju za úplně úžasné</hypothesis>
+      <hypothesis p="0.007">děkuj za úplně úžasné</hypothesis>
+      <hypothesis p="0.005">děkuji za úplně úžasná i</hypothesis>
+      <hypothesis p="0.004">dekuji za úplně už astma</hypothesis>
+      <hypothesis p="0.003">dekuju za úplně úžasná a</hypothesis>
+      <hypothesis p="0.001">děkuj za úplně úžasná a</hypothesis>
+      <hypothesis p="0.000">__other__</hypothesis>
+    </asr>
+    <slu>
+      <interpretation p="0.793">thankyou()</interpretation>
+      <interpretation p="0.098">null()</interpretation>
+      <interpretation p="0.098">thankyou()&amp;other()</interpretation>
+      <interpretation p="0.012">other()</interpretation>
+      <confnet>
+        <dai_alternatives>
+          <dai p="0.891">thankyou()</dai>
+          <dai p="0.109">null()</dai>
+        </dai_alternatives>
+        <dai_alternatives>
+          <dai p="0.109">other()</dai>
+          <dai p="0.891">null()</dai>
+        </dai_alternatives>
+      </confnet>
+    </slu>
+    <asr_transcription some_breaks_gold="0" program_version="39cb520703772eefc677cacf439b2f1a6cbd6066" annotation="244" breaks_gold="0" is_gold="0" transcriber="adela" date="25/09/13, 08:33:25 ">děkuju, jste úplně úžasná</asr_transcription>
+  </turn>
+  <turn speaker="system" time="200.627" turn_number="29">
+    <dialogue_act time="200.751">silence()</dialogue_act>
+  </turn>
+  <turn speaker="system" time="203.929" turn_number="30">
+    <dialogue_state>
+      <slot name="ludait">thankyou</slot>
+      <slot name="alternative">none</slot>
+      <slot name="from_centre">none</slot>
+      <slot name="from_stop">Divoká Šárka</slot>
+      <slot name="route_alternative">0</slot>
+      <slot name="silence_time">0.0</slot>
+      <slot name="time">4:00</slot>
+      <slot name="to_centre">none</slot>
+      <slot name="to_stop">Olšanské hřbitovy</slot>
+      <slot name="rh_alternative">system-informed</slot>
+      <slot name="rh_cordiality">system-informed</slot>
+      <slot name="rh_enter_at">system-informed</slot>
+      <slot name="rh_exit_at">system-informed</slot>
+      <slot name="rh_found_directions">system-informed</slot>
+      <slot name="rh_from_stop">system-informed</slot>
+      <slot name="rh_go_at">system-informed</slot>
+      <slot name="rh_headsign">system-informed</slot>
+      <slot name="rh_line">system-informed</slot>
+      <slot name="rh_time">system-informed</slot>
+      <slot name="rh_to_stop">system-informed</slot>
+      <slot name="rh_transfer">system-informed</slot>
+      <slot name="rh_vehicle">system-informed</slot>
+      <slot name="ch_alternative">system-informed</slot>
+      <slot name="ch_cordiality">system-informed</slot>
+      <slot name="ch_enter_at">system-informed</slot>
+      <slot name="ch_exit_at">system-informed</slot>
+      <slot name="ch_found_directions">system-informed</slot>
+      <slot name="ch_from_stop">system-informed</slot>
+      <slot name="ch_go_at">system-informed</slot>
+      <slot name="ch_headsign">system-informed</slot>
+      <slot name="ch_line">system-informed</slot>
+      <slot name="ch_time">system-informed</slot>
+      <slot name="ch_to_stop">system-informed</slot>
+      <slot name="ch_transfer">system-informed</slot>
+      <slot name="ch_vehicle">system-informed</slot>
+      <slot name="sh_alternative">system-informed</slot>
+      <slot name="sh_cordiality">system-informed</slot>
+      <slot name="sh_enter_at">system-informed</slot>
+      <slot name="sh_exit_at">system-informed</slot>
+      <slot name="sh_found_directions">system-informed</slot>
+      <slot name="sh_from_stop">system-informed</slot>
+      <slot name="sh_go_at">system-informed</slot>
+      <slot name="sh_headsign">system-informed</slot>
+      <slot name="sh_line">system-informed</slot>
+      <slot name="sh_time">system-informed</slot>
+      <slot name="sh_to_stop">system-informed</slot>
+      <slot name="sh_transfer">system-informed</slot>
+      <slot name="sh_vehicle">system-informed</slot>
+    </dialogue_state>
+    <dialogue_act time="204.276">inform(cordiality="true")&amp;hello()</dialogue_act>
+    <text time="204.421">Nemáte zač. S čím Vám mohu ještě pomoci.</text>
+    <rec fname="tts-2013-07-12-01-40-58.111797.wav" starttime="204.636"/>
+  </turn>
+</dialogue>

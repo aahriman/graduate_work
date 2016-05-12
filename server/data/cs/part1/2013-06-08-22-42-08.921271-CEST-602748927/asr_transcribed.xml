@@ -1,0 +1,517 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dialogue>
+  <config>
+    <!--    config = { 'ASR': { 'Google': { 'debug': False, 'language': 'cs'},
+               'Julius': { 'adinnetport': 5530,
+                           'binary': '/usr/local/bin/julius',
+                           'debug': False,
+                           'hostname': 'localhost',
+                           'jconf': { '-adport': '5530',
+                                      '-b': '1000',
+                                      '-b2': '100',
+                                      '-cmnload': 'cmn.param',
+                                      '-cmnmapweight': '200',
+                                      '-cmnsave': 'cmn.param',
+                                      '-confnet': '',
+                                      '-fallback1pass': '',
+                                      '-gprune': 'safe',
+                                      '-h': '/mnt/h/jurcicek/vystadial-git/alex/resources/asr/voip_en/hmmdefs',
+                                      '-hlist': '/mnt/h/jurcicek/vystadial-git/alex/resources/asr/voip_en/tiedlist',
+                                      '-htkconf': '/mnt/h/jurcicek/vystadial-git/alex/resources/asr/voip_en/config',
+                                      '-input': 'adinnet',
+                                      '-iwsp': '',
+                                      '-iwsppenalty': '0.0',
+                                      '-lmp': '15.0 0.0',
+                                      '-lmp2': '15.0 0.0',
+                                      '-mapunk': 'UM',
+                                      '-module': '10500',
+                                      '-n': '50',
+                                      '-nlr': '/mnt/h/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_arpa_bigram',
+                                      '-no_ccd': '',
+                                      '-nrl': '/mnt/h/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_arpa_rev_bigram',
+                                      '-silhead': '<s>',
+                                      '-siltail': '</s>',
+                                      '-spmodel': 'sp',
+                                      '-tmix': '4',
+                                      '-v': '/mnt/h/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_dict'},
+                           'jconffile': 'julius.jconf',
+                           'killall': False,
+                           'logfile': 'julius.log',
+                           'pidfile': 'julius.pid',
+                           'reuse_server': False,
+                           'serverport': 10500,
+                           'start_max_wait_time': 15,
+                           'start_wait_time': 0.5,
+                           'timeout': 2.0},
+               'debug': True,
+               'type': 'Google'},
+      'Audio': { 'sample_rate': 16000, 'samples_per_frame': 256},
+      'AudioIO': { 'debug': True, 'output_dir': './aio_call_log', 'play_buffer_size': 1024},
+      'DM': { 'Dummy': { 'debug': True},
+              'PUfalRuleDM': { 'code_submit_url': None,
+                               'db_cfg': '/mnt/h/jurcicek/vystadial-git/alex/applications/CamInfoRest/cued_data/CIRdbase_V7_noloc.txt',
+                               'ontology': '/mnt/h/jurcicek/vystadial-git/alex/applications/CamInfoRest/ontology.cfg',
+                               'provide_code': False},
+              'UfalRuleDM': { 'code_submit_url': None,
+                              'db_cfg': '/mnt/h/jurcicek/vystadial-git/alex/applications/CamInfoRest/cued_data/CIRdbase_V7_noloc.txt',
+                              'ontology': '/mnt/h/jurcicek/vystadial-git/alex/applications/CamInfoRest/ontology.cfg',
+                              'provide_code': False},
+              'debug': True,
+              'type': <class 'alex.applications.AlexOnTheBus.aotb_dm.AOTBDM'>},
+      'General': { 'include': ['/mnt/h/jurcicek/vystadial-git/alex/resources/private/default.cfg']},
+      'Hub': { 'history_file': 'hub_history_hub.txt', 'history_length': 1000, 'main_loop_sleep_time': 0.005},
+      'Logging': { 'session_logger': SessionLogger(),
+                   'system_logger': SystemLogger(stdout_log_level='ERROR', stdout=True, file_log_level='ERROR', output_dir=/net/projects/vystadial/data/call-logs/2013-05-30-alex-aotb-prototype),
+                   'system_name': 'Alex On The Bus - Live',
+                   'version': '1.0'},
+      'NLG': { 'Template': { 'model': '/mnt/h/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/nlg_templates.cfg'},
+               'debug': True,
+               'type': <class 'alex.applications.AlexOnTheBus.aotb_nlg.AOTBNLG'>},
+      'SHub': { 'history_file': 'hub_history_shub.txt', 'history_length': 1000},
+      'SLU': { 'AOTBSLU': { 'cldb_fname': '/mnt/h/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/data/database.py',
+                            'preprocessing_cls': <class 'alex.applications.AlexOnTheBus.aotb_preprocessing.AOTBSLUPreprocessing'>},
+               'cl-tracing': { 'cldb_fname': '/mnt/h/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/data/database.py',
+                               'do_preprocessing': True,
+                               'features_type': ('ngram',),
+                               'testing': { 'max_examples': None,
+                                            'min_perc': 80,
+                                            'model_fname': '/mnt/h/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/models/130516_minf60-minfc35-mind60.slu_model.gz',
+                                            'renormalise': True,
+                                            'threshold': None,
+                                            'vanilla': True}},
+               'debug': True,
+               'type': <class 'alex.applications.AlexOnTheBus.aotb_slu.AOTBSLU'>},
+      'THub': { 'history_file': 'hub_history_thub.txt', 'history_length': 1000},
+      'TTS': { 'Flite': { 'debug': False, 'voice': 'kal16'},
+               'Google': { 'debug': False, 'language': 'cs', 'rate': 2.0},
+               'SpeechTech': { 'debug': True,
+                               'login': 'filipjurcicek',
+    # this line was removed since it included a password
+                               'voice': 'Iva210'},
+               'VoiceRSS': { 'api_key': '3b6a9fca5d724b1c8ac34691586cdda1', 'language': 'en-gb'},
+               'debug': True,
+               'type': 'SpeechTech'},
+      'VAD': { 'debug': False,
+               'decision_frames_sil': 25,
+               'decision_frames_speech': 10,
+               'decision_non_speech_threshold': 0.2,
+               'decision_speech_threshold': 0.7,
+               'gmm': { 'ceplifter': 22,
+                        'enormalise': True,
+                        'filter_length': 5,
+                        'frameshift': 160,
+                        'framesize': 512,
+                        'frontend': 'MFCC',
+                        'hifreq': 3800,
+                        'lofreq': 125,
+                        'numceps': 12,
+                        'numchans': 26,
+                        'preemcoef': 0.97,
+                        'sil_model': '/mnt/h/jurcicek/vystadial-git/alex/resources/vad/voip_en/vad_sil_sds_mfcc_m064_f100000.gmm',
+                        'speech_model': '/mnt/h/jurcicek/vystadial-git/alex/resources/vad/voip_en/vad_speech_sds_mfcc_m064_f100000.gmm',
+                        'useacc': True,
+                        'usec0': False,
+                        'usecmn': False,
+                        'usedelta': True,
+                        'usehamming': True,
+                        'usepower': True,
+                        'zmeansource': True},
+               'power': { 'adaptation_frames': 30, 'threshold': 70, 'threshold_multiplier': 1.0},
+               'speech_buffer_frames': 20,
+               'type': 'gmm'},
+      'VoipHub': { 'history_length': 1000, 'wait_time_before_calling_back': 10},
+      'VoipIO': { 'allowed_hosts': '',
+                  'allowed_phone_numbers': '(^[234567])',
+                  'allowed_users': '(^[234567])',
+                  'debug': True,
+                  'domain': 'vystadial.ms.mff.cuni.cz',
+                  'forbidden_hosts': '',
+                  'forbidden_phone_number': '(^112$|^150$|^155$|^156$|^158$)',
+                  'forbidden_users': '(^112$|^150$|^155$|^156$|^158$)',
+    # this line was removed since it included a password
+                  'pjsip_log_level': 3,
+                  'reject_calls': False,
+                  'user': '800899998'},
+      'WebHub': { 'port': 8000}}
+-->
+  </config>
+  <dialogue_rec endtime="230.837" fname="all-2013-06-08-22-42-08.951956.played.wav" speaker="system" starttime="0.003"/>
+  <dialogue_rec endtime="230.866" fname="all-2013-06-08-22-42-08.951956.recorded.wav" speaker="user" starttime="0.008"/>
+  <header>
+    <host>loki.ms.mff.cuni.cz</host>
+    <date>2013-06-08 22:42:08 CEST</date>
+    <system>Alex On The Bus - Live</system>
+    <version>1.0</version>
+    <input_source type="voip"/>
+  </header>
+  <annotations>
+    <annotation date_saved="14/07/13, 23:24:51 " user="adela" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" id="59"></annotation>
+  </annotations>
+  <turn speaker="system" time="0.096" turn_number="1">
+    <dialogue_act time="0.104">hello()</dialogue_act>
+    <text time="0.129">Dobrý den, dovolali jste se na informace o veřejné dopravě v Praze. Hovor je nahráván. Více informací o této službě je na internetu. Odkud a kam chcete jet? Můžete například říct chtěla bych jet z Malostranského náměstí na Zličín.</text>
+  </turn>
+  <turn speaker="user" time="22.205" turn_number="1">
+    <rec endtime="24.709" fname="vad-2013-06-08-22-42-31.165159.wav" starttime="22.214"/>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">(noise) chtěl bych jet ze Zličína</asr_transcription>
+  </turn>
+  <turn speaker="user" time="24.899" turn_number="2">
+    <rec endtime="25.734" fname="vad-2013-06-08-22-42-33.859050.wav" starttime="24.907"/>
+    <asr>
+      <hypothesis p="-1.000">chtěl bych jet do jičína</hypothesis>
+    </asr>
+    <asr>
+      <hypothesis p="-1.000">anděl</hypothesis>
+    </asr>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">na Anděl</asr_transcription>
+  </turn>
+  <turn speaker="system" time="25.530" turn_number="2">
+    <dialogue_act time="25.539">notunderstood()&amp;help(from_stop)</dialogue_act>
+    <text time="25.561">Můžete to zopakovat? </text>
+  </turn>
+  <turn speaker="system" time="26.198" turn_number="3">
+    <dialogue_act time="26.208">notunderstood()&amp;help(from_stop)</dialogue_act>
+    <text time="26.237">Nerozuměla jsem. Jěště jednou prosím. Můžete například říct ze zastávky poliklinika Barandov.</text>
+  </turn>
+  <turn speaker="user" time="38.409" turn_number="3">
+    <rec endtime="39.677" fname="vad-2013-06-08-22-42-47.368824.wav" starttime="38.419"/>
+    <asr>
+      <hypothesis p="-1.000">ze zličína</hypothesis>
+    </asr>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">ze Zličína</asr_transcription>
+  </turn>
+  <turn speaker="system" time="40.313" turn_number="4">
+    <dialogue_act time="40.324">iconfirm(from_stop="zličín")&amp;request(to_stop)</dialogue_act>
+    <text time="40.357">Ze zastávky zličín. Kam chcete jet?</text>
+  </turn>
+  <turn speaker="user" time="41.148" turn_number="4">
+    <rec endtime="41.722" fname="vad-2013-06-08-22-42-50.106960.wav" starttime="41.157"/>
+    <asr>
+      <hypothesis p="-1.000">na</hypothesis>
+    </asr>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">na</asr_transcription>
+  </turn>
+  <turn speaker="system" time="42.188" turn_number="5">
+    <dialogue_act time="42.199">notunderstood()&amp;help(to_stop)</dialogue_act>
+    <text time="42.227">Nerozuměla jsem. Jěště jednou prosím. Můžete například říct na Zličín.</text>
+  </turn>
+  <turn speaker="user" time="47.305" turn_number="5">
+    <rec endtime="47.943" fname="vad-2013-06-08-22-42-56.264726.wav" starttime="47.316"/>
+    <asr>
+      <hypothesis p="-1.000"/>
+    </asr>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">(unint)</asr_transcription>
+  </turn>
+  <turn speaker="system" time="48.553" turn_number="6">
+    <dialogue_act time="48.564">notunderstood()&amp;help(to_stop)</dialogue_act>
+    <text time="48.584">Nerozuměla jsem. Jěště jednou prosím. Můžete například říct chtěla bych jet na Zvonařku.</text>
+  </turn>
+  <turn speaker="user" time="60.804" turn_number="6">
+    <rec endtime="61.827" fname="vad-2013-06-08-22-43-09.757398.wav" starttime="60.815"/>
+    <asr>
+      <hypothesis p="-1.000">na barandov</hypothesis>
+    </asr>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">na Barrandov</asr_transcription>
+  </turn>
+  <turn speaker="system" time="62.318" turn_number="7">
+    <dialogue_act time="62.330">notunderstood()&amp;help(to_stop)</dialogue_act>
+    <text time="62.359">Ještě jednou prosím. Můžete například říct na Zvonařku.</text>
+  </turn>
+  <turn speaker="user" time="69.506" turn_number="7">
+    <rec endtime="70.665" fname="vad-2013-06-08-22-43-18.464787.wav" starttime="69.518"/>
+    <asr>
+      <hypothesis p="-1.000">na florenci</hypothesis>
+    </asr>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">na Florenc</asr_transcription>
+  </turn>
+  <turn speaker="system" time="71.159" turn_number="8">
+    <dialogue_act time="71.171">notunderstood()&amp;help(to_stop)</dialogue_act>
+    <text time="71.199">Nerozuměla jsem. Jěště jednou prosím. Můžete například říct na Žižkov.</text>
+  </turn>
+  <turn speaker="user" time="80.265" turn_number="8">
+    <rec endtime="80.841" fname="vad-2013-06-08-22-43-29.223373.wav" starttime="80.278"/>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">na</asr_transcription>
+  </turn>
+  <turn speaker="user" time="81.149" turn_number="9">
+    <rec endtime="81.916" fname="vad-2013-06-08-22-43-30.107044.wav" starttime="81.165"/>
+    <asr>
+      <hypothesis p="-1.000">nám</hypothesis>
+    </asr>
+    <asr>
+      <hypothesis p="-1.000">florenc</hypothesis>
+    </asr>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">Florenc</asr_transcription>
+  </turn>
+  <turn speaker="system" time="81.349" turn_number="9">
+    <dialogue_act time="81.362">notunderstood()&amp;help(to_stop)</dialogue_act>
+    <text time="81.385">Ještě jednou prosím. </text>
+  </turn>
+  <turn speaker="system" time="82.520" turn_number="10">
+    <dialogue_act time="82.533">notunderstood()&amp;help(to_stop)</dialogue_act>
+    <text time="82.561">Můžete to zopakovat? Můžete například říct chtěla bych jet na Žižkov.</text>
+  </turn>
+  <turn speaker="user" time="85.243" turn_number="10">
+    <rec endtime="85.571" fname="vad-2013-06-08-22-43-34.200793.wav" starttime="85.257"/>
+    <asr>
+      <hypothesis p="-1.000"/>
+    </asr>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">(noise)</asr_transcription>
+  </turn>
+  <turn speaker="system" time="85.949" turn_number="11">
+    <dialogue_act time="85.963">notunderstood()&amp;help(to_stop)</dialogue_act>
+    <text time="85.995">Můžete to zopakovat? Můžete například říct chtěla bych jet na Žižkov.</text>
+  </turn>
+  <turn speaker="user" time="96.774" turn_number="11">
+    <rec endtime="97.857" fname="vad-2013-06-08-22-43-45.730047.wav" starttime="96.791"/>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">chtěl bych jet na</asr_transcription>
+  </turn>
+  <turn speaker="user" time="98.176" turn_number="12">
+    <rec endtime="98.940" fname="vad-2013-06-08-22-43-47.133890.wav" starttime="98.190"/>
+    <asr>
+      <hypothesis p="-1.000">chtěl bych 1</hypothesis>
+    </asr>
+    <asr>
+      <hypothesis p="-1.000">florenc</hypothesis>
+    </asr>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">Florenc</asr_transcription>
+  </turn>
+  <turn speaker="system" time="98.686" turn_number="12">
+    <dialogue_act time="98.700">iconfirm(time="1:00")&amp;request(to_stop)</dialogue_act>
+    <text time="98.728">V 1:00. Kam chcete jet?</text>
+  </turn>
+  <turn speaker="system" time="99.396" turn_number="13">
+    <dialogue_act time="99.414">notunderstood()&amp;help(to_stop)</dialogue_act>
+    <text time="99.447">Ještě jednou prosím. </text>
+  </turn>
+  <turn speaker="user" time="106.376" turn_number="13">
+    <rec endtime="108.293" fname="vad-2013-06-08-22-43-55.333270.wav" starttime="106.396"/>
+    <asr>
+      <hypothesis p="-1.000">chtěl bych 1 florenc</hypothesis>
+    </asr>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">chtěl bych jet na Florenc</asr_transcription>
+  </turn>
+  <turn speaker="system" time="109.133" turn_number="14">
+    <dialogue_act time="109.148">notunderstood()&amp;help(to_stop)</dialogue_act>
+    <text time="109.177">Nerozuměla jsem. Jěště jednou prosím. </text>
+  </turn>
+  <turn speaker="user" time="115.091" turn_number="14">
+    <rec endtime="116.411" fname="vad-2013-06-08-22-44-04.047772.wav" starttime="115.107"/>
+    <asr>
+      <hypothesis p="-1.000">na florenci</hypothesis>
+    </asr>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">na Florenc</asr_transcription>
+  </turn>
+  <turn speaker="system" time="116.986" turn_number="15">
+    <dialogue_act time="117.002">notunderstood()&amp;help(to_stop)</dialogue_act>
+    <text time="117.035">Nerozuměla jsem. Jěště jednou prosím. </text>
+  </turn>
+  <turn speaker="user" time="122.934" turn_number="15">
+    <rec endtime="124.028" fname="vad-2013-06-08-22-44-11.852704.wav" starttime="122.950"/>
+    <asr>
+      <hypothesis p="-1.000">do brna</hypothesis>
+    </asr>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">do Brna</asr_transcription>
+  </turn>
+  <turn speaker="system" time="124.543" turn_number="16">
+    <dialogue_act time="124.559">notunderstood()&amp;help(to_stop)</dialogue_act>
+    <text time="124.585">Nerozuměla jsem. Jěště jednou prosím. </text>
+  </turn>
+  <turn speaker="user" time="125.064" turn_number="16">
+    <rec endtime="125.631" fname="vad-2013-06-08-22-44-14.020632.wav" starttime="125.084"/>
+    <asr>
+      <hypothesis p="-1.000"/>
+    </asr>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">(noise)</asr_transcription>
+  </turn>
+  <turn speaker="system" time="126.013" turn_number="17">
+    <dialogue_act time="126.030">notunderstood()&amp;help(to_stop)</dialogue_act>
+    <text time="126.058">Můžete to zopakovat? </text>
+  </turn>
+  <turn speaker="user" time="132.411" turn_number="17">
+    <rec endtime="133.249" fname="vad-2013-06-08-22-44-21.366908.wav" starttime="132.429"/>
+    <asr>
+      <hypothesis p="-1.000">na florenci</hypothesis>
+    </asr>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">na Florenc</asr_transcription>
+  </turn>
+  <turn speaker="system" time="133.772" turn_number="18">
+    <dialogue_act time="133.790">notunderstood()&amp;help(to_stop)</dialogue_act>
+    <text time="133.823">Nerozuměla jsem. Jěště jednou prosím. </text>
+  </turn>
+  <turn speaker="user" time="140.685" turn_number="18">
+    <rec endtime="144.001" fname="vad-2013-06-08-22-44-29.640446.wav" starttime="140.703"/>
+    <asr>
+      <hypothesis p="-1.000">na malostranské náměstí</hypothesis>
+    </asr>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">(noise) na Malostranské náměstí</asr_transcription>
+  </turn>
+  <turn speaker="system" time="145.225" turn_number="19">
+    <dialogue_act time="145.243">iconfirm(to_stop="malostranské náměstí")&amp;inform(alternatives="4")&amp;inform(alternative="1")&amp;inform(vehicle="BUS")&amp;inform(line="180")&amp;inform(go_at="01:03")&amp;inform(enter_at="Sídliště Zličín")&amp;inform(headsign="Dejvická")&amp;inform(exit_at="Vypich")&amp;inform(transfer="True")&amp;inform(vehicle="TRAM")&amp;inform(line="22")&amp;inform(go_at="01:30")&amp;inform(enter_at="Vypich")&amp;inform(headsign="Nádraží Hostivař")&amp;inform(exit_at="Malostranské náměstí")</dialogue_act>
+    <text time="145.525">Chcete jet do zastávky malostranské náměstí. Našla jsem čtyři cesty. Možnost první. Jeďte autobusem číslo 180 v 01:03 ze zastávky Sídliště Zličín směrem Dejvická. Vystupte na zastávce Vypich. A pak přestupte. Jeďte tramvají číslo 22 v 01:30 ze zastávky Vypich směrem Nádraží Hostivař. Vystupte na zastávce Malostranské náměstí.</text>
+  </turn>
+  <turn speaker="user" time="181.704" turn_number="19">
+    <rec endtime="183.881" fname="vad-2013-06-08-22-45-10.655828.wav" starttime="181.723"/>
+    <asr>
+      <hypothesis p="-1.000">děkuju dobrý</hypothesis>
+    </asr>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">tak ti děkuju, dobrý</asr_transcription>
+  </turn>
+  <turn speaker="system" time="184.892" turn_number="20">
+    <dialogue_act time="184.912">notunderstood()</dialogue_act>
+    <text time="184.951">Ještě jednou prosím.</text>
+  </turn>
+  <turn speaker="user" time="185.298" turn_number="20">
+    <rec endtime="186.322" fname="vad-2013-06-08-22-45-14.250583.wav" starttime="185.319"/>
+    <asr>
+      <hypothesis p="-1.000">super</hypothesis>
+    </asr>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">díky, super</asr_transcription>
+  </turn>
+  <turn speaker="system" time="186.793" turn_number="21">
+    <dialogue_act time="186.816">notunderstood()</dialogue_act>
+    <text time="186.852">Ještě jednou prosím.</text>
+  </turn>
+  <turn speaker="user" time="188.693" turn_number="21">
+    <rec endtime="189.247" fname="vad-2013-06-08-22-45-17.644457.wav" starttime="188.713"/>
+    <asr>
+      <hypothesis p="-1.000"/>
+    </asr>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">(noise)</asr_transcription>
+  </turn>
+  <turn speaker="system" time="189.639" turn_number="22">
+    <dialogue_act time="189.661">notunderstood()</dialogue_act>
+    <text time="189.695">Můžete to zopakovat?</text>
+  </turn>
+  <turn speaker="user" time="190.848" turn_number="22">
+    <rec endtime="191.562" fname="vad-2013-06-08-22-45-19.798970.wav" starttime="190.869"/>
+    <asr>
+      <hypothesis p="-1.000">děkuju</hypothesis>
+    </asr>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">děkuju</asr_transcription>
+  </turn>
+  <turn speaker="system" time="192.079" turn_number="23">
+    <dialogue_act time="192.100">notunderstood()</dialogue_act>
+    <text time="192.136">Můžete to zopakovat?</text>
+  </turn>
+  <turn speaker="user" time="195.845" turn_number="23">
+    <rec endtime="196.623" fname="vad-2013-06-08-22-45-24.796647.wav" starttime="195.866"/>
+    <asr>
+      <hypothesis p="-1.000">děkuju</hypothesis>
+    </asr>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">děkuju</asr_transcription>
+  </turn>
+  <turn speaker="system" time="197.099" turn_number="24">
+    <dialogue_act time="197.124">notunderstood()</dialogue_act>
+    <text time="197.157">Nerozuměla jsem. Jěště jednou prosím.</text>
+  </turn>
+  <turn speaker="user" time="202.707" turn_number="24">
+    <rec endtime="203.404" fname="vad-2013-06-08-22-45-31.657721.wav" starttime="202.729"/>
+    <asr>
+      <hypothesis p="-1.000">konec</hypothesis>
+    </asr>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">konec</asr_transcription>
+  </turn>
+  <turn speaker="system" time="203.845" turn_number="25">
+    <dialogue_act time="203.867">notunderstood()</dialogue_act>
+    <text time="203.905">Ještě jednou prosím.</text>
+  </turn>
+  <turn speaker="user" time="207.447" turn_number="25">
+    <rec endtime="208.781" fname="vad-2013-06-08-22-45-36.396673.wav" starttime="207.469"/>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">(unint) má ukončit Luky</asr_transcription>
+  </turn>
+  <turn speaker="user" time="208.961" turn_number="26">
+    <rec endtime="211.312" fname="vad-2013-06-08-22-45-37.911805.wav" starttime="208.984"/>
+    <asr>
+      <hypothesis p="-1.000"/>
+    </asr>
+    <asr>
+      <hypothesis p="-1.000">napsáno</hypothesis>
+    </asr>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">já nevim na shledanou, na shledanou</asr_transcription>
+  </turn>
+  <turn speaker="system" time="209.630" turn_number="26">
+    <dialogue_act time="209.653">notunderstood()</dialogue_act>
+    <text time="209.691">Ještě jednou prosím.</text>
+  </turn>
+  <turn speaker="system" time="212.126" turn_number="27">
+    <dialogue_act time="212.149">notunderstood()</dialogue_act>
+    <text time="212.183">Můžete to zopakovat?</text>
+  </turn>
+  <turn speaker="user" time="213.652" turn_number="27">
+    <rec endtime="214.154" fname="vad-2013-06-08-22-45-42.606049.wav" starttime="213.675"/>
+    <asr>
+      <hypothesis p="-1.000"/>
+    </asr>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">(noise)</asr_transcription>
+  </turn>
+  <turn speaker="system" time="214.644" turn_number="28">
+    <dialogue_act time="214.671">notunderstood()</dialogue_act>
+    <text time="214.716">Můžete to zopakovat?</text>
+  </turn>
+  <turn speaker="user" time="215.683" turn_number="28">
+    <rec endtime="216.719" fname="vad-2013-06-08-22-45-44.636086.wav" starttime="215.710"/>
+    <asr>
+      <hypothesis p="-1.000">tahle noc</hypothesis>
+    </asr>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">na shledanou</asr_transcription>
+  </turn>
+  <turn speaker="system" time="217.602" turn_number="29">
+    <dialogue_act time="217.628">notunderstood()</dialogue_act>
+    <text time="217.669">Ještě jednou prosím.</text>
+  </turn>
+  <turn speaker="user" time="218.184" turn_number="29">
+    <rec endtime="219.590" fname="vad-2013-06-08-22-45-47.132716.wav" starttime="218.212"/>
+    <asr>
+      <hypothesis p="-1.000">čau</hypothesis>
+    </asr>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">(noise) čau</asr_transcription>
+  </turn>
+  <turn speaker="system" time="220.440" turn_number="30">
+    <dialogue_act time="220.468">notunderstood()</dialogue_act>
+    <text time="220.502">Nerozuměla jsem. Jěště jednou prosím.</text>
+  </turn>
+  <turn speaker="user" time="221.129" turn_number="30">
+    <rec endtime="222.356" fname="vad-2013-06-08-22-45-50.078421.wav" starttime="221.155"/>
+    <asr>
+      <hypothesis p="-1.000">ahoj</hypothesis>
+    </asr>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">áhoj</asr_transcription>
+  </turn>
+  <turn speaker="system" time="222.874" turn_number="31">
+    <dialogue_act time="222.903">notunderstood()</dialogue_act>
+    <text time="222.944">Nerozuměla jsem. Jěště jednou prosím.</text>
+  </turn>
+  <turn speaker="user" time="223.825" turn_number="31">
+    <rec endtime="224.274" fname="vad-2013-06-08-22-45-52.777332.wav" starttime="223.853"/>
+    <asr>
+      <hypothesis p="-1.000"/>
+    </asr>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">(unint)</asr_transcription>
+  </turn>
+  <turn speaker="system" time="224.744" turn_number="32">
+    <dialogue_act time="224.774">notunderstood()</dialogue_act>
+    <text time="224.811">Můžete to zopakovat?</text>
+  </turn>
+  <turn speaker="user" time="225.865" turn_number="32">
+    <rec endtime="226.711" fname="vad-2013-06-08-22-45-54.814789.wav" starttime="225.892"/>
+    <asr>
+      <hypothesis p="-1.000"/>
+    </asr>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">už nikam ne</asr_transcription>
+  </turn>
+  <turn speaker="system" time="227.505" turn_number="33">
+    <dialogue_act time="227.531">notunderstood()</dialogue_act>
+    <text time="227.579">Můžete to zopakovat?</text>
+  </turn>
+  <turn speaker="user" time="227.985" turn_number="33">
+    <rec endtime="228.305" fname="vad-2013-06-08-22-45-56.937082.wav" starttime="228.015"/>
+    <asr>
+      <hypothesis p="-1.000"/>
+    </asr>
+    <asr_transcription transcriber="adela" breaks_gold="0" is_gold="0" some_breaks_gold="0" annotation="59" program_version="58bb322ba5485738e59c942db5ed1bba22aa75c0" date="14/07/13, 23:24:51 ">(noise)</asr_transcription>
+  </turn>
+  <turn speaker="system" time="228.668" turn_number="34">
+    <dialogue_act time="228.695">notunderstood()</dialogue_act>
+    <text time="228.740">Nerozuměla jsem. Jěště jednou prosím.</text>
+  </turn>
+</dialogue>

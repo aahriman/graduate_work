@@ -1,0 +1,2141 @@
+2013-07-03-08-42-27.948023-COT  VoipIO-1   : DEBUG      
+    CallCallback::on_media_state : Media is now active
+
+2013-07-03-08-42-27.948637-COT  VoipIO-1   : DEBUG      
+    CallCallback::on_state : Call with "245501010" <sip:245501010@195.113.20.69> is CONNECTING last code = 200 (OK)
+
+2013-07-03-08-42-27.949031-COT  VoipIO-1   : DEBUG      
+    VoipIO::on_call_connecting
+
+2013-07-03-08-42-27.965544-COT  MainProcess : SYSTEM-LOG 
+    config = { 'ASR': { 'Google': { 'debug': False, 'language': 'cs', 'maxresults': 20},
+               'Julius': { 'adinnetport': 5530,
+                           'binary': '/usr/local/bin/julius',
+                           'debug': False,
+                           'hostname': 'localhost',
+                           'jconf': { '-adport': '5530',
+                                      '-b': '1000',
+                                      '-b2': '100',
+                                      '-cmnload': 'cmn.param',
+                                      '-cmnmapweight': '200',
+                                      '-cmnsave': 'cmn.param',
+                                      '-confnet': '',
+                                      '-fallback1pass': '',
+                                      '-gprune': 'safe',
+                                      '-h': '/home/jurcicek/vystadial-git/alex/resources/asr/voip_en/hmmdefs',
+                                      '-hlist': '/home/jurcicek/vystadial-git/alex/resources/asr/voip_en/tiedlist',
+                                      '-htkconf': '/home/jurcicek/vystadial-git/alex/resources/asr/voip_en/config',
+                                      '-input': 'adinnet',
+                                      '-iwsp': '',
+                                      '-iwsppenalty': '0.0',
+                                      '-lmp': '15.0 0.0',
+                                      '-lmp2': '15.0 0.0',
+                                      '-mapunk': 'UM',
+                                      '-module': '10500',
+                                      '-n': '50',
+                                      '-nlr': '/home/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_arpa_bigram',
+                                      '-no_ccd': '',
+                                      '-nrl': '/home/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_arpa_rev_bigram',
+                                      '-silhead': '<s>',
+                                      '-siltail': '</s>',
+                                      '-spmodel': 'sp',
+                                      '-tmix': '4',
+                                      '-v': '/home/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_dict'},
+                           'jconffile': 'julius.jconf',
+                           'killall': False,
+                           'logfile': 'julius.log',
+                           'msg_timeout': 0.3,
+                           'pidfile': 'julius.pid',
+                           'reuse_server': False,
+                           'serverport': 10500,
+                           'start_max_wait_time': 15,
+                           'start_wait_time': 0.5,
+                           'timeout': 2.0},
+               'Kaldi': { 'LM_scale': -6666.66,
+                          'hypothesis_type': 'nblist',
+                          'lat_depth': 666666,
+                          'model': 'TODO_path_to_model'},
+               'debug': True,
+               'type': 'Google'},
+      'AlexOnTheBus': { 'max_turns': 30},
+      'Analytics': Analytics(account_id='UA-41905278-1', domain_name='cuni.cz'),
+      'Audio': { 'sample_rate': 16000, 'samples_per_frame': 256},
+      'AudioIO': { 'debug': True, 'output_dir': './aio_call_log', 'play_buffer_size': 1024},
+      'DM': { 'PUfalRuleDM': { 'code_submit_url': None,
+                               'db_cfg': '/home/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/cued_data/CIRdbase_V7_noloc.txt',
+                               'ontology': '/home/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/ontology.cfg',
+                               'provide_code': False},
+              'UfalRuleDM': { 'code_submit_url': None,
+                              'db_cfg': '/home/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/cued_data/CIRdbase_V7_noloc.txt',
+                              'ontology': '/home/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/ontology.cfg',
+                              'provide_code': False},
+              'basic': { 'debug': True, 'silence_timeout': 10.0},
+              'debug': True,
+              'dialogue_policy': { 'type': <class 'alex.applications.AlexOnTheBus.aotb_hdc_policy.AOTBHDCPolicy'>},
+              'dialogue_state': { 'type': <class 'alex.components.dm.dddstate.DeterministicDiscriminativeDialogueState'>},
+              'input_timeout': 3.0,
+              'ontology': '/home/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/data/ontology.py',
+              'type': 'basic'},
+      'General': { 'debug': False, 'include': ['/home/jurcicek/vystadial-git/alex/resources/private/default.cfg']},
+      'Hub': { 'history_file': 'hub_history_hub.txt', 'history_length': 1000, 'main_loop_sleep_time': 0.002},
+      'Logging': { 'excepthook': ExceptionHook(
+            ExceptionHook
+              Hook Type: log
+              Hook Logger: SystemLogger(output_dir=./call_logs, stdout_log_level='DEBUG', stdout=True, file_log_level='DEBUG')),
+                   'session_logger': SessionLogger(),
+                   'system_logger': SystemLogger(output_dir=./call_logs, stdout_log_level='DEBUG', stdout=True, file_log_level='DEBUG'),
+                   'system_name': 'Alex On The Bus',
+                   'version': '1.0'},
+      'NLG': { 'Template': { 'model': '/home/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/nlg_templates.cfg'},
+               'debug': True,
+               'type': 'Template'},
+      'SHub': { 'history_file': 'hub_history_shub.txt', 'history_length': 1000},
+      'SLU': { 'cl-tracing': { 'cldb_fname': '/home/jurcicek/vystadial-git/alex/applications/CamInfoRest/data/database.py',
+                               'do_preprocessing': True,
+                               'features_type': ('ngram', 'ab_ngram'),
+                               'testing': { 'max_examples': None,
+                                            'min_perc': 80,
+                                            'model_fname': '/home/jurcicek/vystadial-git/alex/applications/CamInfoRest/models/130516_minf60-minfc35-mind60.slu_model.gz',
+                                            'renormalise': True,
+                                            'threshold': None,
+                                            'vanilla': True},
+                               'training': { 'abstractions': ('abstract',), 'models_dir': 'models'}},
+               'debug': True,
+               'type': <class 'alex.applications.AlexOnTheBus.aotb_slu.AOTBSLU'>,
+               <class 'alex.applications.AlexOnTheBus.aotb_slu.AOTBSLU'>: { 'cldb_fname': '/home/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/data/database.py',
+                                                                            'preprocessing_cls': <class 'alex.applications.AlexOnTheBus.aotb_preprocessing.AOTBSLUPreprocessing'>,
+                                                                            'training': { 'models_dir': 'models'}}},
+      'THub': { 'history_file': 'hub_history_thub.txt', 'history_length': 1000},
+      'TTS': { 'Flite': { 'debug': False,
+                          'preprocessing': '/home/jurcicek/vystadial-git/alex/resources/tts/prep_flite_en.cfg',
+                          'voice': 'kal16'},
+               'Google': { 'debug': False,
+                           'language': 'en',
+                           'preprocessing': '/home/jurcicek/vystadial-git/alex/resources/tts/prep_google_en.cfg'},
+               'SpeechTech': { 'debug': True,
+                               'login': 'filipjurcicek',
+    # this line was removed since it included a password
+                               'preprocessing': '/home/jurcicek/vystadial-git/alex/resources/tts/prep_speechtech_cs.cfg',
+                               'voice': 'Iva210'},
+               'VoiceRSS': { 'api_key': '3b6a9fca5d724b1c8ac34691586cdda1'},
+               'VoiceRss': { 'language': 'en-gb',
+                             'preprocessing': '/home/jurcicek/vystadial-git/alex/resources/tts/prep_voicerss_en.cfg'},
+               'debug': True,
+               'in_between_segments_silence': 0.1,
+               'type': 'SpeechTech'},
+      'VAD': { 'debug': False,
+               'decision_frames_sil': 25,
+               'decision_frames_speech': 10,
+               'decision_non_speech_threshold': 0.2,
+               'decision_speech_threshold': 0.7,
+               'gmm': { 'ceplifter': 22,
+                        'enormalise': True,
+                        'filter_length': 5,
+                        'frameshift': 160,
+                        'framesize': 512,
+                        'frontend': 'MFCC',
+                        'hifreq': 3800,
+                        'lofreq': 125,
+                        'numceps': 12,
+                        'numchans': 26,
+                        'preemcoef': 0.97,
+                        'sil_model': '/home/jurcicek/vystadial-git/alex/resources/vad/voip_en/vad_sil_sds_mfcc_m064_f100000.gmm',
+                        'speech_model': '/home/jurcicek/vystadial-git/alex/resources/vad/voip_en/vad_speech_sds_mfcc_m064_f100000.gmm',
+                        'useacc': True,
+                        'usec0': False,
+                        'usecmn': False,
+                        'usedelta': True,
+                        'usehamming': True,
+                        'usepower': True,
+                        'zmeansource': True},
+               'power': { 'adaptation_frames': 30, 'threshold': 70, 'threshold_multiplier': 1.0},
+               'speech_buffer_frames': 20,
+               'type': 'gmm'},
+      'VoipHub': { 'blacklist_for': 7200,
+                   'call_db': '/home/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/call_db.pckl',
+                   'hard_time_limit': 360,
+                   'hard_turn_limit': 40,
+                   'history_length': 1000,
+                   'last_period_max_num_calls': 100,
+                   'last_period_max_total_time': 7200,
+                   'limit_reached_message': u'D\u011bkujeme za zavol\xe1n\xed, ale u\u017e jste volali hodn\u011b. Pros\xedm zavolejte pozd\u011bji. Na shledanou.',
+                   'period': 172800,
+                   'pid_file': '/home/jurcicek/vystadial-git/alex/applications/vhub.pid',
+                   'wait_time_before_calling_back': 10},
+      'VoipIO': { 'allowed_hosts': '',
+                  'allowed_phone_numbers': '(^[234567])',
+                  'allowed_users': '(^[234567])',
+                  'debug': True,
+                  'domain': 'external.sip.mff.cuni.cz:5066',
+                  'forbidden_hosts': '',
+                  'forbidden_phone_number': '(^112$|^150$|^155$|^156$|^158$)',
+                  'forbidden_users': '(^112$|^150$|^155$|^156$|^158$)',
+    # this line was removed since it included a password
+                  'pjsip_log_level': 3,
+                  'reject_calls': False,
+                  'user': 'DEV-9889'},
+      'WebHub': { 'port': 8000},
+      'corpustools': { 'get_jasr_confnets': { 'frame_size': 256, 'rt_ratio': 0.2}}}
+
+2013-07-03-08-42-27.992935-COT  MainProcess : INFO       
+    #2      Time: 2013-07-03-08-42-27.949151-COT From: VoipIO     To: HUB        Command: call_connecting(remote_uri="245501010") 
+
+2013-07-03-08-42-28.158703-COT  VoipIO-1   : DEBUG      
+    CallCallback::on_state : Call with "245501010" <sip:245501010@195.113.20.69> is CONFIRMED last code = 200 (OK)
+
+2013-07-03-08-42-28.167959-COT  VoipIO-1   : DEBUG      
+    VoipIO::on_call_confirmed
+
+2013-07-03-08-42-28.169076-COT  MainProcess : INFO       
+    #3      Time: 2013-07-03-08-42-28.168096-COT From: VoipIO     To: HUB        Command: call_confirmed(remote_uri="245501010") 
+
+2013-07-03-08-42-28.172137-COT  MainProcess : INFO       
+    
+    ========================================================================================================================
+    Incoming call from :          245501010
+    ------------------------------------------------------------------------------------------------------------------------
+    Total calls:                  66
+    Total time (min):             80.7
+    Last period total calls:      0
+    Last period total time (min): 0.0
+    ------------------------------------------------------------------------------------------------------------------------
+    CALL ACCEPTED
+    ========================================================================================================================
+    
+
+2013-07-03-08-42-28.175949-COT  DM-5       : DEBUG      
+    #4      Time: 2013-07-03-08-42-28.171088-COT From: HUB        To: DM         Command: new_dialogue() 
+
+2013-07-03-08-42-28.177987-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    hello()
+    
+
+2013-07-03-08-42-28.195253-COT  MainProcess : INFO       
+    #6      Time: 2013-07-03-08-42-28.191508-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-42-28.198802-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Dobrý den. Hovor je nahráván. Více informací o této službě je na internetu. Jak Vám mohu pomoci. 
+    
+
+2013-07-03-08-42-28.211646-COT  MainProcess : INFO       
+    #7      Time: 2013-07-03-08-42-28.210720-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-42-28.214419-COT  MainProcess : INFO       
+    #9      Time: 2013-07-03-08-42-28.212216-COT From: TTS        To: HUB        Command: tts_start(user_id="None",text="Dobrý den. Hovor je nahráván. Více informací o této službě je na internetu. Jak Vám mohu pomoci. ") 
+
+2013-07-03-08-42-28.240888-COT  MainProcess : INFO       
+    #11     Time: 2013-07-03-08-42-28.216198-COT From: VoipIO     To: HUB        Command: play_utterance_start(user_id="None",fname="tts-2013-07-03-08-42-28.211744.wav") 
+
+2013-07-03-08-42-28.320089-COT  MainProcess : INFO       
+    #516    Time: 2013-07-03-08-42-28.317366-COT From: TTS        To: HUB        Command: tts_end(user_id="None",text="Dobrý den. Hovor je nahráván. Více informací o této službě je na internetu. Jak Vám mohu pomoci. ",fname="tts-2013-07-03-08-42-28.211744.wav",log="true") 
+
+2013-07-03-08-42-36.114034-COT  MainProcess : INFO       
+    #965    Time: 2013-07-03-08-42-35.518167-COT From: VoipIO     To: HUB        Command: play_utterance_end(user_id="None",fname="tts-2013-07-03-08-42-28.211744.wav) 
+
+2013-07-03-08-42-39.119801-COT  DM-5       : DEBUG      
+    #1194   Time: 2013-07-03-08-42-39.116612-COT From: HUB        To: DM         Command: timeout(silence_time="3.002") 
+
+2013-07-03-08-42-39.122003-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="3.002")
+
+2013-07-03-08-42-39.122714-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="3.002")
+
+2013-07-03-08-42-39.124610-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    silence_time = 3.002
+    
+    
+    
+    
+
+2013-07-03-08-42-39.126536-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 3.002}
+
+2013-07-03-08-42-39.128285-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-03-08-42-39.138857-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    DM sent 'silence()' therefore generating nothing
+    
+
+2013-07-03-08-42-39.141037-COT  MainProcess : INFO       
+    #1195   Time: 2013-07-03-08-42-39.136163-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-42-39.145628-COT  MainProcess : INFO       
+    #1197   Time: 2013-07-03-08-42-39.144412-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-42-42.121512-COT  DM-5       : DEBUG      
+    #1385   Time: 2013-07-03-08-42-42.118649-COT From: HUB        To: DM         Command: timeout(silence_time="6.004") 
+
+2013-07-03-08-42-42.122564-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="6.004")
+
+2013-07-03-08-42-42.123720-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="6.004")
+
+2013-07-03-08-42-42.125523-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    silence_time = 6.004
+    
+    
+    
+    
+
+2013-07-03-08-42-42.127350-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 6.004}
+
+2013-07-03-08-42-42.128682-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-03-08-42-42.135819-COT  MainProcess : INFO       
+    #1387   Time: 2013-07-03-08-42-42.134781-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-42-42.137346-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    DM sent 'silence()' therefore generating nothing
+    
+
+2013-07-03-08-42-42.145075-COT  MainProcess : INFO       
+    #1389   Time: 2013-07-03-08-42-42.141917-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-42-45.122702-COT  DM-5       : DEBUG      
+    #1575   Time: 2013-07-03-08-42-45.120023-COT From: HUB        To: DM         Command: timeout(silence_time="9.006") 
+
+2013-07-03-08-42-45.123500-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="9.006")
+
+2013-07-03-08-42-45.124335-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="9.006")
+
+2013-07-03-08-42-45.125279-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    silence_time = 9.006
+    
+    
+    
+    
+
+2013-07-03-08-42-45.126848-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 9.006}
+
+2013-07-03-08-42-45.128382-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-03-08-42-45.140412-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    DM sent 'silence()' therefore generating nothing
+    
+
+2013-07-03-08-42-45.142887-COT  MainProcess : INFO       
+    #1579   Time: 2013-07-03-08-42-45.137083-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-42-45.147213-COT  MainProcess : INFO       
+    #1581   Time: 2013-07-03-08-42-45.146166-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-42-48.123605-COT  DM-5       : DEBUG      
+    #1766   Time: 2013-07-03-08-42-48.122207-COT From: HUB        To: DM         Command: timeout(silence_time="12.008") 
+
+2013-07-03-08-42-48.125350-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="12.008")
+
+2013-07-03-08-42-48.126056-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="12.008")
+
+2013-07-03-08-42-48.127111-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    silence_time = 12.008
+    
+    
+    
+    
+
+2013-07-03-08-42-48.128394-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 12.008}
+
+2013-07-03-08-42-48.130118-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    inform(silence_timeout="true")
+    
+
+2013-07-03-08-42-48.137938-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Haló, jste tam ještě?
+    
+
+2013-07-03-08-42-48.138815-COT  MainProcess : INFO       
+    #1770   Time: 2013-07-03-08-42-48.136351-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-42-48.144748-COT  MainProcess : INFO       
+    #1773   Time: 2013-07-03-08-42-48.143024-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-42-48.148629-COT  MainProcess : INFO       
+    #1775   Time: 2013-07-03-08-42-48.145153-COT From: TTS        To: HUB        Command: tts_start(user_id="None",text="Haló, jste tam ještě?") 
+
+2013-07-03-08-42-48.161532-COT  MainProcess : INFO       
+    #1777   Time: 2013-07-03-08-42-48.148826-COT From: VoipIO     To: HUB        Command: play_utterance_start(user_id="None",fname="tts-2013-07-03-08-42-48.145065.wav") 
+
+2013-07-03-08-42-57.248874-COT  MainProcess : INFO       
+    #2347   Time: 2013-07-03-08-42-57.245348-COT From: VAD        To: HUB        Command: speech_start(fname="vad-2013-07-03-08-42-57.233259.wav") 
+
+2013-07-03-08-42-57.251746-COT  ASR-3      : DEBUG      
+    ASR: speech_start()
+
+2013-07-03-08-42-57.258660-COT  NLG-6      : DEBUG      
+    #2349   Time: 2013-07-03-08-42-57.257504-COT From: HUB        To: NLG        Command: flush() 
+
+2013-07-03-08-42-57.259814-COT  MainProcess : INFO       
+    #2348   Time: 2013-07-03-08-42-57.247852-COT From: ASR        To: HUB        Command: asr_start() 
+
+2013-07-03-08-42-57.260635-COT  MainProcess : INFO       
+    #2350   Time: 2013-07-03-08-42-57.258803-COT From: NLG        To: HUB        Command: flushed() 
+
+2013-07-03-08-42-57.623058-COT  ASR-3      : DEBUG      
+    ASR: speech_end()
+
+2013-07-03-08-42-57.625020-COT  MainProcess : INFO       
+    #2377   Time: 2013-07-03-08-42-57.621606-COT From: VAD        To: HUB        Command: speech_end(fname="vad-2013-07-03-08-42-57.233259.wav") 
+
+2013-07-03-08-42-58.015337-COT  ASR-3      : DEBUG      
+    ASR Hypothesis
+    ------------------------------------------------------------
+    1.000 __other__
+    
+
+2013-07-03-08-42-58.028205-COT  SLU-4      : DEBUG      
+    SLU Hypothesis
+    ------------------------------------------------------------
+    1.000 other()
+    
+
+2013-07-03-08-42-58.030841-COT  MainProcess : INFO       
+    #2402   Time: 2013-07-03-08-42-58.022530-COT From: ASR        To: HUB        Command: asr_end() 
+
+2013-07-03-08-42-58.040674-COT  MainProcess : INFO       
+    #2404   Time: 2013-07-03-08-42-58.039348-COT From: SLU        To: HUB        Command: slu_parsed() 
+
+2013-07-03-08-42-58.044279-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: other()
+
+2013-07-03-08-42-58.044778-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: other()
+
+2013-07-03-08-42-58.045481-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = other
+    silence_time = 12.008
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-03-08-42-58.046369-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 12.008}
+
+2013-07-03-08-42-58.047207-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    notunderstood()&help(repeat)
+    
+
+2013-07-03-08-42-58.059097-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Nerozuměla jsem. Můžete mě požádat o zopakování poslední věty.
+    
+
+2013-07-03-08-42-58.060929-COT  MainProcess : INFO       
+    #2410   Time: 2013-07-03-08-42-58.057665-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-42-58.068489-COT  MainProcess : INFO       
+    #2412   Time: 2013-07-03-08-42-58.067333-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-42-58.383802-COT  MainProcess : INFO       
+    #2561   Time: 2013-07-03-08-42-58.380656-COT From: TTS        To: HUB        Command: tts_end(user_id="None",text="Haló, jste tam ještě?",fname="tts-2013-07-03-08-42-48.145065.wav",log="true") 
+
+2013-07-03-08-42-58.386807-COT  TTS-7      : DEBUG      
+    #2351   Time: 2013-07-03-08-42-57.261178-COT From: HUB        To: TTS        Command: flush() 
+
+2013-07-03-08-42-58.389358-COT  MainProcess : INFO       
+    #2562   Time: 2013-07-03-08-42-58.387044-COT From: TTS        To: HUB        Command: flushed() 
+
+2013-07-03-08-42-58.391243-COT  VoipIO-1   : DEBUG      
+    #2563   Time: 2013-07-03-08-42-58.389708-COT From: HUB        To: VIO        Command: flush_out() 
+
+2013-07-03-08-42-58.392522-COT  MainProcess : INFO       
+    #2564   Time: 2013-07-03-08-42-58.391610-COT From: VoipIO     To: HUB        Command: flushed_out() 
+
+2013-07-03-08-42-58.628144-COT  ASR-3      : DEBUG      
+    ASR: speech_start()
+
+2013-07-03-08-42-58.630547-COT  MainProcess : INFO       
+    #2580   Time: 2013-07-03-08-42-58.626704-COT From: VAD        To: HUB        Command: speech_start(fname="vad-2013-07-03-08-42-58.568687.wav") 
+
+2013-07-03-08-42-58.632821-COT  MainProcess : INFO       
+    #2581   Time: 2013-07-03-08-42-58.626958-COT From: ASR        To: HUB        Command: asr_start() 
+
+2013-07-03-08-43-00.814773-COT  MainProcess : INFO       
+    #2721   Time: 2013-07-03-08-43-00.812360-COT From: VAD        To: HUB        Command: speech_end(fname="vad-2013-07-03-08-42-58.568687.wav") 
+
+2013-07-03-08-43-00.815666-COT  ASR-3      : DEBUG      
+    ASR: speech_end()
+
+2013-07-03-08-43-01.494679-COT  ASR-3      : DEBUG      
+    ASR Hypothesis
+    ------------------------------------------------------------
+    1.000 __other__
+    
+
+2013-07-03-08-43-01.501982-COT  MainProcess : INFO       
+    #2762   Time: 2013-07-03-08-43-01.500507-COT From: ASR        To: HUB        Command: asr_end() 
+
+2013-07-03-08-43-01.503049-COT  SLU-4      : DEBUG      
+    SLU Hypothesis
+    ------------------------------------------------------------
+    1.000 other()
+    
+
+2013-07-03-08-43-01.510461-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: other()
+
+2013-07-03-08-43-01.510938-COT  MainProcess : INFO       
+    #2767   Time: 2013-07-03-08-43-01.508180-COT From: SLU        To: HUB        Command: slu_parsed() 
+
+2013-07-03-08-43-01.511489-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: other()
+
+2013-07-03-08-43-01.512126-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = other
+    alternative = none
+    route_alternative = none
+    silence_time = 12.008
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-03-08-43-01.514026-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 12.008}
+
+2013-07-03-08-43-01.515684-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    notunderstood()&help(inform="from_stop")
+    
+
+2013-07-03-08-43-01.528614-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Nerozuměla jsem. Můžete například říct ze zastávky Malostranské náměstí.
+    
+
+2013-07-03-08-43-01.532004-COT  MainProcess : INFO       
+    #2770   Time: 2013-07-03-08-43-01.527034-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-43-01.538584-COT  MainProcess : INFO       
+    #2772   Time: 2013-07-03-08-43-01.535754-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-43-01.541600-COT  MainProcess : INFO       
+    #2774   Time: 2013-07-03-08-43-01.537845-COT From: TTS        To: HUB        Command: tts_start(user_id="None",text="Nerozuměla jsem. Můžete například říct ze zastávky Malostranské náměstí.") 
+
+2013-07-03-08-43-01.553827-COT  MainProcess : INFO       
+    #2776   Time: 2013-07-03-08-43-01.543531-COT From: VoipIO     To: HUB        Command: play_utterance_start(user_id="None",fname="tts-2013-07-03-08-43-01.537747.wav") 
+
+2013-07-03-08-43-01.720963-COT  MainProcess : INFO       
+    #3156   Time: 2013-07-03-08-43-01.718532-COT From: TTS        To: HUB        Command: tts_end(user_id="None",text="Nerozuměla jsem. Můžete například říct ze zastávky Malostranské náměstí.",fname="tts-2013-07-03-08-43-01.537747.wav",log="true") 
+
+2013-07-03-08-43-05.821036-COT  MainProcess : INFO       
+    #3414   Time: 2013-07-03-08-43-05.816775-COT From: VAD        To: HUB        Command: speech_start(fname="vad-2013-07-03-08-43-05.803602.wav") 
+
+2013-07-03-08-43-05.822613-COT  ASR-3      : DEBUG      
+    ASR: speech_start()
+
+2013-07-03-08-43-05.833466-COT  MainProcess : INFO       
+    #3415   Time: 2013-07-03-08-43-05.819905-COT From: ASR        To: HUB        Command: asr_start() 
+
+2013-07-03-08-43-05.834301-COT  NLG-6      : DEBUG      
+    #3416   Time: 2013-07-03-08-43-05.830981-COT From: HUB        To: NLG        Command: flush() 
+
+2013-07-03-08-43-05.837756-COT  MainProcess : INFO       
+    #3417   Time: 2013-07-03-08-43-05.834499-COT From: NLG        To: HUB        Command: flushed() 
+
+2013-07-03-08-43-05.844161-COT  TTS-7      : DEBUG      
+    #3418   Time: 2013-07-03-08-43-05.841761-COT From: HUB        To: TTS        Command: flush() 
+
+2013-07-03-08-43-05.846978-COT  MainProcess : INFO       
+    #3419   Time: 2013-07-03-08-43-05.844317-COT From: TTS        To: HUB        Command: flushed() 
+
+2013-07-03-08-43-05.849120-COT  VoipIO-1   : DEBUG      
+    #3420   Time: 2013-07-03-08-43-05.847275-COT From: HUB        To: VIO        Command: flush_out() 
+
+2013-07-03-08-43-05.850264-COT  MainProcess : INFO       
+    #3421   Time: 2013-07-03-08-43-05.849305-COT From: VoipIO     To: HUB        Command: flushed_out() 
+
+2013-07-03-08-43-08.381768-COT  MainProcess : INFO       
+    #3583   Time: 2013-07-03-08-43-08.379533-COT From: VAD        To: HUB        Command: speech_end(fname="vad-2013-07-03-08-43-05.803602.wav") 
+
+2013-07-03-08-43-08.385255-COT  ASR-3      : DEBUG      
+    ASR: speech_end()
+
+2013-07-03-08-43-08.714254-COT  MainProcess : INFO       
+    #3605   Time: 2013-07-03-08-43-08.710898-COT From: VAD        To: HUB        Command: speech_start(fname="vad-2013-07-03-08-43-08.690514.wav") 
+
+2013-07-03-08-43-09.288951-COT  ASR-3      : DEBUG      
+    ASR Hypothesis
+    ------------------------------------------------------------
+    1.000 __other__
+    
+
+2013-07-03-08-43-09.298983-COT  ASR-3      : DEBUG      
+    ASR: speech_start()
+
+2013-07-03-08-43-09.299599-COT  SLU-4      : DEBUG      
+    SLU Hypothesis
+    ------------------------------------------------------------
+    1.000 other()
+    
+
+2013-07-03-08-43-09.300883-COT  MainProcess : INFO       
+    #3642   Time: 2013-07-03-08-43-09.295782-COT From: ASR        To: HUB        Command: asr_end() 
+
+2013-07-03-08-43-09.303709-COT  MainProcess : INFO       
+    #3644   Time: 2013-07-03-08-43-09.298323-COT From: ASR        To: HUB        Command: asr_start() 
+
+2013-07-03-08-43-09.306574-COT  MainProcess : INFO       
+    #3645   Time: 2013-07-03-08-43-09.305496-COT From: SLU        To: HUB        Command: slu_parsed() 
+
+2013-07-03-08-43-09.307622-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: other()
+
+2013-07-03-08-43-09.308297-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: other()
+
+2013-07-03-08-43-09.310468-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = other
+    alternative = none
+    from_stop = none
+    route_alternative = none
+    silence_time = 12.008
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-03-08-43-09.311529-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 12.008}
+
+2013-07-03-08-43-09.312247-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    notunderstood()&help(inform="from_stop")
+    
+
+2013-07-03-08-43-09.327415-COT  MainProcess : INFO       
+    #3649   Time: 2013-07-03-08-43-09.326539-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-43-09.330525-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Promiňte, nerozuměla jsem. Můžete například říct chtěl bych jet ze zastávky Malostranské náměstí.
+    
+
+2013-07-03-08-43-09.340370-COT  MainProcess : INFO       
+    #3653   Time: 2013-07-03-08-43-09.337171-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-43-09.348594-COT  MainProcess : INFO       
+    #3655   Time: 2013-07-03-08-43-09.341841-COT From: TTS        To: HUB        Command: tts_start(user_id="None",text="Promiňte, nerozuměla jsem. Můžete například říct chtěl bych jet ze zastávky Malostranské náměstí.") 
+
+2013-07-03-08-43-09.391711-COT  MainProcess : INFO       
+    #3657   Time: 2013-07-03-08-43-09.348941-COT From: VoipIO     To: HUB        Command: play_utterance_start(user_id="None",fname="tts-2013-07-03-08-43-09.339585.wav") 
+
+2013-07-03-08-43-09.453298-COT  MainProcess : INFO       
+    #4145   Time: 2013-07-03-08-43-09.450912-COT From: TTS        To: HUB        Command: tts_end(user_id="None",text="Promiňte, nerozuměla jsem. Můžete například říct chtěl bych jet ze zastávky Malostranské náměstí.",fname="tts-2013-07-03-08-43-09.339585.wav",log="true") 
+
+2013-07-03-08-43-10.671633-COT  ASR-3      : DEBUG      
+    ASR: speech_end()
+
+2013-07-03-08-43-10.674357-COT  MainProcess : INFO       
+    #4223   Time: 2013-07-03-08-43-10.668502-COT From: VAD        To: HUB        Command: speech_end(fname="vad-2013-07-03-08-43-08.690514.wav") 
+
+2013-07-03-08-43-11.468332-COT  ASR-3      : DEBUG      
+    ASR Hypothesis
+    ------------------------------------------------------------
+    1.000 __other__
+    
+
+2013-07-03-08-43-11.479066-COT  MainProcess : INFO       
+    #4272   Time: 2013-07-03-08-43-11.477381-COT From: ASR        To: HUB        Command: asr_end() 
+
+2013-07-03-08-43-11.481360-COT  SLU-4      : DEBUG      
+    SLU Hypothesis
+    ------------------------------------------------------------
+    1.000 other()
+    
+
+2013-07-03-08-43-11.495458-COT  MainProcess : INFO       
+    #4276   Time: 2013-07-03-08-43-11.494235-COT From: SLU        To: HUB        Command: slu_parsed() 
+
+2013-07-03-08-43-11.497371-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: other()
+
+2013-07-03-08-43-11.498074-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: other()
+
+2013-07-03-08-43-11.499608-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = other
+    alternative = none
+    from_stop = none
+    route_alternative = none
+    silence_time = 12.008
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-03-08-43-11.500510-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 12.008}
+
+2013-07-03-08-43-11.501490-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    notunderstood()&help(inform="time")
+    
+
+2013-07-03-08-43-11.522437-COT  MainProcess : INFO       
+    #4280   Time: 2013-07-03-08-43-11.521659-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-43-11.525820-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Promiňte, nerozuměla jsem. Můžete to zopakovat? Můžete například říct v kolik hodin chcete jet.
+    
+
+2013-07-03-08-43-11.543771-COT  MainProcess : INFO       
+    #4282   Time: 2013-07-03-08-43-11.540857-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-43-11.546667-COT  MainProcess : INFO       
+    #4284   Time: 2013-07-03-08-43-11.543987-COT From: TTS        To: HUB        Command: tts_start(user_id="None",text="Promiňte, nerozuměla jsem. Můžete to zopakovat? Můžete například říct v kolik hodin chcete jet.") 
+
+2013-07-03-08-43-11.632280-COT  MainProcess : INFO       
+    #4767   Time: 2013-07-03-08-43-11.628442-COT From: TTS        To: HUB        Command: tts_end(user_id="None",text="Promiňte, nerozuměla jsem. Můžete to zopakovat? Můžete například říct v kolik hodin chcete jet.",fname="tts-2013-07-03-08-43-11.543858.wav",log="true") 
+
+2013-07-03-08-43-17.008665-COT  MainProcess : INFO       
+    #5080   Time: 2013-07-03-08-43-16.634481-COT From: VoipIO     To: HUB        Command: play_utterance_end(user_id="None",fname="tts-2013-07-03-08-43-09.339585.wav) 
+
+2013-07-03-08-43-17.011564-COT  MainProcess : INFO       
+    #5081   Time: 2013-07-03-08-43-16.637702-COT From: VoipIO     To: HUB        Command: play_utterance_start(user_id="None",fname="tts-2013-07-03-08-43-11.543858.wav") 
+
+2013-07-03-08-43-24.561313-COT  MainProcess : INFO       
+    #5534   Time: 2013-07-03-08-43-23.860060-COT From: VoipIO     To: HUB        Command: play_utterance_end(user_id="None",fname="tts-2013-07-03-08-43-11.543858.wav) 
+
+2013-07-03-08-43-27.566432-COT  DM-5       : DEBUG      
+    #5767   Time: 2013-07-03-08-43-27.562442-COT From: HUB        To: DM         Command: timeout(silence_time="3.001") 
+
+2013-07-03-08-43-27.567986-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="3.001")
+
+2013-07-03-08-43-27.568933-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="3.001")
+
+2013-07-03-08-43-27.571679-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = none
+    route_alternative = none
+    silence_time = 3.001
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-03-08-43-27.573517-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 3.001}
+
+2013-07-03-08-43-27.574387-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-03-08-43-27.594695-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    DM sent 'silence()' therefore generating nothing
+    
+
+2013-07-03-08-43-27.596017-COT  MainProcess : INFO       
+    #5768   Time: 2013-07-03-08-43-27.592871-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-43-27.611028-COT  MainProcess : INFO       
+    #5770   Time: 2013-07-03-08-43-27.609804-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-43-30.567017-COT  DM-5       : DEBUG      
+    #5958   Time: 2013-07-03-08-43-30.564282-COT From: HUB        To: DM         Command: timeout(silence_time="6.003") 
+
+2013-07-03-08-43-30.567743-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="6.003")
+
+2013-07-03-08-43-30.568372-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="6.003")
+
+2013-07-03-08-43-30.571120-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = none
+    route_alternative = none
+    silence_time = 6.003
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-03-08-43-30.572370-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 6.003}
+
+2013-07-03-08-43-30.573680-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-03-08-43-30.601731-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    DM sent 'silence()' therefore generating nothing
+    
+
+2013-07-03-08-43-30.603714-COT  MainProcess : INFO       
+    #5960   Time: 2013-07-03-08-43-30.599044-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-43-30.613381-COT  MainProcess : INFO       
+    #5962   Time: 2013-07-03-08-43-30.612371-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-43-33.568317-COT  DM-5       : DEBUG      
+    #6147   Time: 2013-07-03-08-43-33.565496-COT From: HUB        To: DM         Command: timeout(silence_time="9.004") 
+
+2013-07-03-08-43-33.568752-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="9.004")
+
+2013-07-03-08-43-33.569076-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="9.004")
+
+2013-07-03-08-43-33.569447-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = none
+    route_alternative = none
+    silence_time = 9.004
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-03-08-43-33.570103-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 9.004}
+
+2013-07-03-08-43-33.570810-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-03-08-43-33.592695-COT  MainProcess : INFO       
+    #6152   Time: 2013-07-03-08-43-33.589803-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-43-33.598488-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    DM sent 'silence()' therefore generating nothing
+    
+
+2013-07-03-08-43-33.610841-COT  MainProcess : INFO       
+    #6154   Time: 2013-07-03-08-43-33.609225-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-43-36.571599-COT  DM-5       : DEBUG      
+    #6339   Time: 2013-07-03-08-43-36.568513-COT From: HUB        To: DM         Command: timeout(silence_time="12.007") 
+
+2013-07-03-08-43-36.572206-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="12.007")
+
+2013-07-03-08-43-36.572957-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="12.007")
+
+2013-07-03-08-43-36.573910-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = none
+    route_alternative = none
+    silence_time = 12.007
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-03-08-43-36.574965-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 12.007}
+
+2013-07-03-08-43-36.576009-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    inform(silence_timeout="true")
+    
+
+2013-07-03-08-43-36.597285-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Haló, slyšíme se?
+    
+
+2013-07-03-08-43-36.602827-COT  MainProcess : INFO       
+    #6344   Time: 2013-07-03-08-43-36.594972-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-43-36.610740-COT  MainProcess : INFO       
+    #6346   Time: 2013-07-03-08-43-36.607930-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-43-36.617307-COT  MainProcess : INFO       
+    #6348   Time: 2013-07-03-08-43-36.614659-COT From: TTS        To: HUB        Command: tts_start(user_id="None",text="Haló, slyšíme se?") 
+
+2013-07-03-08-43-36.631217-COT  MainProcess : INFO       
+    #6350   Time: 2013-07-03-08-43-36.617146-COT From: VoipIO     To: HUB        Command: play_utterance_start(user_id="None",fname="tts-2013-07-03-08-43-36.609930.wav") 
+
+2013-07-03-08-43-39.896705-COT  MainProcess : INFO       
+    #6669   Time: 2013-07-03-08-43-39.895470-COT From: TTS        To: HUB        Command: tts_end(user_id="None",text="Haló, slyšíme se?",fname="tts-2013-07-03-08-43-36.609930.wav",log="true") 
+
+2013-07-03-08-43-41.712603-COT  MainProcess : INFO       
+    #6754   Time: 2013-07-03-08-43-41.223783-COT From: VoipIO     To: HUB        Command: play_utterance_end(user_id="None",fname="tts-2013-07-03-08-43-36.609930.wav) 
+
+2013-07-03-08-43-44.718369-COT  DM-5       : DEBUG      
+    #6975   Time: 2013-07-03-08-43-44.714941-COT From: HUB        To: DM         Command: timeout(silence_time="3.002") 
+
+2013-07-03-08-43-44.720393-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="3.002")
+
+2013-07-03-08-43-44.720889-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="3.002")
+
+2013-07-03-08-43-44.721789-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = none
+    route_alternative = none
+    silence_time = 3.002
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-03-08-43-44.722765-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 3.002}
+
+2013-07-03-08-43-44.723476-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-03-08-43-44.890316-COT  MainProcess : INFO       
+    #6984   Time: 2013-07-03-08-43-44.888060-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-43-44.892342-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    DM sent 'silence()' therefore generating nothing
+    
+
+2013-07-03-08-43-45.038089-COT  MainProcess : INFO       
+    #6997   Time: 2013-07-03-08-43-45.035300-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-43-47.719928-COT  DM-5       : DEBUG      
+    #7166   Time: 2013-07-03-08-43-47.717058-COT From: HUB        To: DM         Command: timeout(silence_time="6.004") 
+
+2013-07-03-08-43-47.720596-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="6.004")
+
+2013-07-03-08-43-47.721370-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="6.004")
+
+2013-07-03-08-43-47.723029-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = none
+    route_alternative = none
+    silence_time = 6.004
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-03-08-43-47.724990-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 6.004}
+
+2013-07-03-08-43-47.726026-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-03-08-43-47.761273-COT  MainProcess : INFO       
+    #7168   Time: 2013-07-03-08-43-47.760282-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-43-47.763352-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    DM sent 'silence()' therefore generating nothing
+    
+
+2013-07-03-08-43-47.776840-COT  MainProcess : INFO       
+    #7170   Time: 2013-07-03-08-43-47.773371-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-43-50.722547-COT  DM-5       : DEBUG      
+    #7355   Time: 2013-07-03-08-43-50.718595-COT From: HUB        To: DM         Command: timeout(silence_time="9.006") 
+
+2013-07-03-08-43-50.723384-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="9.006")
+
+2013-07-03-08-43-50.724151-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="9.006")
+
+2013-07-03-08-43-50.726584-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = none
+    route_alternative = none
+    silence_time = 9.006
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-03-08-43-50.728320-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 9.006}
+
+2013-07-03-08-43-50.729729-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-03-08-43-50.754662-COT  MainProcess : INFO       
+    #7360   Time: 2013-07-03-08-43-50.753321-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-43-50.756416-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    DM sent 'silence()' therefore generating nothing
+    
+
+2013-07-03-08-43-50.775424-COT  MainProcess : INFO       
+    #7362   Time: 2013-07-03-08-43-50.768478-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-43-53.725478-COT  DM-5       : DEBUG      
+    #7547   Time: 2013-07-03-08-43-53.721986-COT From: HUB        To: DM         Command: timeout(silence_time="12.009") 
+
+2013-07-03-08-43-53.726268-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="12.009")
+
+2013-07-03-08-43-53.727976-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="12.009")
+
+2013-07-03-08-43-53.729972-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = none
+    route_alternative = none
+    silence_time = 12.009
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-03-08-43-53.731691-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 12.009}
+
+2013-07-03-08-43-53.732816-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    inform(silence_timeout="true")
+    
+
+2013-07-03-08-43-53.768927-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Haló, jste tam ještě?
+    
+
+2013-07-03-08-43-53.773524-COT  MainProcess : INFO       
+    #7552   Time: 2013-07-03-08-43-53.765883-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-43-53.784001-COT  MainProcess : INFO       
+    #7554   Time: 2013-07-03-08-43-53.781552-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-43-53.784882-COT  MainProcess : INFO       
+    #7556   Time: 2013-07-03-08-43-53.782401-COT From: TTS        To: HUB        Command: tts_start(user_id="None",text="Haló, jste tam ještě?") 
+
+2013-07-03-08-43-53.818475-COT  MainProcess : INFO       
+    #7558   Time: 2013-07-03-08-43-53.787462-COT From: VoipIO     To: HUB        Command: play_utterance_start(user_id="None",fname="tts-2013-07-03-08-43-53.782265.wav") 
+
+2013-07-03-08-43-53.825916-COT  MainProcess : INFO       
+    #7689   Time: 2013-07-03-08-43-53.823203-COT From: TTS        To: HUB        Command: tts_end(user_id="None",text="Haló, jste tam ještě?",fname="tts-2013-07-03-08-43-53.782265.wav",log="true") 
+
+2013-07-03-08-43-55.854634-COT  MainProcess : INFO       
+    #7791   Time: 2013-07-03-08-43-55.422374-COT From: VoipIO     To: HUB        Command: play_utterance_end(user_id="None",fname="tts-2013-07-03-08-43-53.782265.wav) 
+
+2013-07-03-08-43-58.860220-COT  DM-5       : DEBUG      
+    #8008   Time: 2013-07-03-08-43-58.857229-COT From: HUB        To: DM         Command: timeout(silence_time="3.002") 
+
+2013-07-03-08-43-58.860851-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="3.002")
+
+2013-07-03-08-43-58.861433-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="3.002")
+
+2013-07-03-08-43-58.862698-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = none
+    route_alternative = none
+    silence_time = 3.002
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-03-08-43-58.864118-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 3.002}
+
+2013-07-03-08-43-58.865023-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-03-08-43-58.891470-COT  MainProcess : INFO       
+    #8009   Time: 2013-07-03-08-43-58.890012-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-43-58.896530-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    DM sent 'silence()' therefore generating nothing
+    
+
+2013-07-03-08-43-58.913943-COT  MainProcess : INFO       
+    #8011   Time: 2013-07-03-08-43-58.911088-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-44-01.862997-COT  DM-5       : DEBUG      
+    #8198   Time: 2013-07-03-08-44-01.860452-COT From: HUB        To: DM         Command: timeout(silence_time="6.006") 
+
+2013-07-03-08-44-01.863710-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="6.006")
+
+2013-07-03-08-44-01.864390-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="6.006")
+
+2013-07-03-08-44-01.865369-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = none
+    route_alternative = none
+    silence_time = 6.006
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-03-08-44-01.866127-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 6.006}
+
+2013-07-03-08-44-01.867041-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-03-08-44-01.898600-COT  MainProcess : INFO       
+    #8201   Time: 2013-07-03-08-44-01.895833-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-44-01.899947-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    DM sent 'silence()' therefore generating nothing
+    
+
+2013-07-03-08-44-01.911857-COT  MainProcess : INFO       
+    #8203   Time: 2013-07-03-08-44-01.910535-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-44-04.866570-COT  DM-5       : DEBUG      
+    #8388   Time: 2013-07-03-08-44-04.863795-COT From: HUB        To: DM         Command: timeout(silence_time="9.009") 
+
+2013-07-03-08-44-04.867337-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="9.009")
+
+2013-07-03-08-44-04.867918-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="9.009")
+
+2013-07-03-08-44-04.868776-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = none
+    route_alternative = none
+    silence_time = 9.009
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-03-08-44-04.870431-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 9.009}
+
+2013-07-03-08-44-04.872118-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-03-08-44-04.899078-COT  MainProcess : INFO       
+    #8393   Time: 2013-07-03-08-44-04.897074-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-44-04.900228-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    DM sent 'silence()' therefore generating nothing
+    
+
+2013-07-03-08-44-04.934562-COT  MainProcess : INFO       
+    #8396   Time: 2013-07-03-08-44-04.927559-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-44-07.870139-COT  DM-5       : DEBUG      
+    #8580   Time: 2013-07-03-08-44-07.865973-COT From: HUB        To: DM         Command: timeout(silence_time="12.011") 
+
+2013-07-03-08-44-07.870803-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="12.011")
+
+2013-07-03-08-44-07.871515-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="12.011")
+
+2013-07-03-08-44-07.873108-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = none
+    route_alternative = none
+    silence_time = 12.011
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-03-08-44-07.874593-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 12.011}
+
+2013-07-03-08-44-07.876048-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    inform(silence_timeout="true")
+    
+
+2013-07-03-08-44-07.913639-COT  MainProcess : INFO       
+    #8585   Time: 2013-07-03-08-44-07.912061-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-44-07.914678-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Haló, jste tam ještě?
+    
+
+2013-07-03-08-44-07.978073-COT  MainProcess : INFO       
+    #8591   Time: 2013-07-03-08-44-07.965684-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-44-07.978979-COT  MainProcess : INFO       
+    #8593   Time: 2013-07-03-08-44-07.966280-COT From: TTS        To: HUB        Command: tts_start(user_id="None",text="Haló, jste tam ještě?") 
+
+2013-07-03-08-44-07.985881-COT  MainProcess : INFO       
+    #8595   Time: 2013-07-03-08-44-07.967762-COT From: VoipIO     To: HUB        Command: play_utterance_start(user_id="None",fname="tts-2013-07-03-08-44-07.966162.wav") 
+
+2013-07-03-08-44-07.998814-COT  MainProcess : INFO       
+    #8723   Time: 2013-07-03-08-44-07.995310-COT From: TTS        To: HUB        Command: tts_end(user_id="None",text="Haló, jste tam ještě?",fname="tts-2013-07-03-08-44-07.966162.wav",log="true") 
+
+2013-07-03-08-44-10.002423-COT  MainProcess : INFO       
+    #8828   Time: 2013-07-03-08-44-09.625357-COT From: VoipIO     To: HUB        Command: play_utterance_end(user_id="None",fname="tts-2013-07-03-08-44-07.966162.wav) 
+
+2013-07-03-08-44-13.004040-COT  DM-5       : DEBUG      
+    #9041   Time: 2013-07-03-08-44-13.003036-COT From: HUB        To: DM         Command: timeout(silence_time="3.000") 
+
+2013-07-03-08-44-13.004888-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="3.000")
+
+2013-07-03-08-44-13.005900-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="3.000")
+
+2013-07-03-08-44-13.007859-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = none
+    route_alternative = none
+    silence_time = 3.0
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-03-08-44-13.008891-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 3.0}
+
+2013-07-03-08-44-13.011371-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-03-08-44-13.045316-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    DM sent 'silence()' therefore generating nothing
+    
+
+2013-07-03-08-44-13.046512-COT  MainProcess : INFO       
+    #9042   Time: 2013-07-03-08-44-13.038394-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-44-13.063102-COT  MainProcess : INFO       
+    #9046   Time: 2013-07-03-08-44-13.060454-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-44-16.006785-COT  DM-5       : DEBUG      
+    #9231   Time: 2013-07-03-08-44-16.003639-COT From: HUB        To: DM         Command: timeout(silence_time="6.001") 
+
+2013-07-03-08-44-16.007797-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="6.001")
+
+2013-07-03-08-44-16.008740-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="6.001")
+
+2013-07-03-08-44-16.014113-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = none
+    route_alternative = none
+    silence_time = 6.001
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-03-08-44-16.015793-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 6.001}
+
+2013-07-03-08-44-16.016707-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-03-08-44-16.048711-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    DM sent 'silence()' therefore generating nothing
+    
+
+2013-07-03-08-44-16.050870-COT  MainProcess : INFO       
+    #9234   Time: 2013-07-03-08-44-16.046420-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-44-16.062107-COT  MainProcess : INFO       
+    #9236   Time: 2013-07-03-08-44-16.060353-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-44-19.009894-COT  DM-5       : DEBUG      
+    #9422   Time: 2013-07-03-08-44-19.006979-COT From: HUB        To: DM         Command: timeout(silence_time="9.004") 
+
+2013-07-03-08-44-19.011370-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="9.004")
+
+2013-07-03-08-44-19.012160-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="9.004")
+
+2013-07-03-08-44-19.015303-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = none
+    route_alternative = none
+    silence_time = 9.004
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-03-08-44-19.018003-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 9.004}
+
+2013-07-03-08-44-19.018804-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-03-08-44-19.089891-COT  MainProcess : INFO       
+    #9430   Time: 2013-07-03-08-44-19.086653-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-44-19.091726-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    DM sent 'silence()' therefore generating nothing
+    
+
+2013-07-03-08-44-19.141752-COT  MainProcess : INFO       
+    #9434   Time: 2013-07-03-08-44-19.139635-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-44-22.012336-COT  DM-5       : DEBUG      
+    #9613   Time: 2013-07-03-08-44-22.009097-COT From: HUB        To: DM         Command: timeout(silence_time="12.006") 
+
+2013-07-03-08-44-22.013331-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="12.006")
+
+2013-07-03-08-44-22.014427-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="12.006")
+
+2013-07-03-08-44-22.015921-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = none
+    route_alternative = none
+    silence_time = 12.006
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-03-08-44-22.016756-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 12.006}
+
+2013-07-03-08-44-22.017671-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    inform(silence_timeout="true")
+    
+
+2013-07-03-08-44-22.051665-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Haló, mohu Vám s něčím pomoci.
+    
+
+2013-07-03-08-44-22.054482-COT  MainProcess : INFO       
+    #9618   Time: 2013-07-03-08-44-22.048880-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-44-22.070474-COT  MainProcess : INFO       
+    #9620   Time: 2013-07-03-08-44-22.067760-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-44-22.070912-COT  MainProcess : INFO       
+    #9622   Time: 2013-07-03-08-44-22.069611-COT From: TTS        To: HUB        Command: tts_start(user_id="None",text="Haló, mohu Vám s něčím pomoci.") 
+
+2013-07-03-08-44-22.093224-COT  MainProcess : INFO       
+    #9624   Time: 2013-07-03-08-44-22.071345-COT From: VoipIO     To: HUB        Command: play_utterance_start(user_id="None",fname="tts-2013-07-03-08-44-22.069480.wav") 
+
+2013-07-03-08-44-25.609145-COT  MainProcess : INFO       
+    #10018  Time: 2013-07-03-08-44-25.594444-COT From: TTS        To: HUB        Command: tts_end(user_id="None",text="Haló, mohu Vám s něčím pomoci.",fname="tts-2013-07-03-08-44-22.069480.wav",log="true") 
+
+2013-07-03-08-44-28.371058-COT  MainProcess : INFO       
+    #10187  Time: 2013-07-03-08-44-28.257313-COT From: VoipIO     To: HUB        Command: play_utterance_end(user_id="None",fname="tts-2013-07-03-08-44-22.069480.wav) 
+
+2013-07-03-08-44-31.374256-COT  DM-5       : DEBUG      
+    #10384  Time: 2013-07-03-08-44-31.372175-COT From: HUB        To: DM         Command: timeout(silence_time="3.001") 
+
+2013-07-03-08-44-31.374982-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="3.001")
+
+2013-07-03-08-44-31.376525-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="3.001")
+
+2013-07-03-08-44-31.378211-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = none
+    route_alternative = none
+    silence_time = 3.001
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-03-08-44-31.379573-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 3.001}
+
+2013-07-03-08-44-31.381524-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-03-08-44-31.408615-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    DM sent 'silence()' therefore generating nothing
+    
+
+2013-07-03-08-44-31.413517-COT  MainProcess : INFO       
+    #10385  Time: 2013-07-03-08-44-31.405982-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-44-31.428680-COT  MainProcess : INFO       
+    #10389  Time: 2013-07-03-08-44-31.427565-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-44-34.376137-COT  DM-5       : DEBUG      
+    #10574  Time: 2013-07-03-08-44-34.372233-COT From: HUB        To: DM         Command: timeout(silence_time="6.001") 
+
+2013-07-03-08-44-34.378041-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="6.001")
+
+2013-07-03-08-44-34.378652-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="6.001")
+
+2013-07-03-08-44-34.381999-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = none
+    route_alternative = none
+    silence_time = 6.001
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-03-08-44-34.383612-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 6.001}
+
+2013-07-03-08-44-34.385097-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-03-08-44-34.483870-COT  MainProcess : INFO       
+    #10581  Time: 2013-07-03-08-44-34.480541-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-44-34.487071-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    DM sent 'silence()' therefore generating nothing
+    
+
+2013-07-03-08-44-34.518966-COT  MainProcess : INFO       
+    #10587  Time: 2013-07-03-08-44-34.514108-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-44-37.377627-COT  DM-5       : DEBUG      
+    #10764  Time: 2013-07-03-08-44-37.373522-COT From: HUB        To: DM         Command: timeout(silence_time="9.002") 
+
+2013-07-03-08-44-37.378510-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="9.002")
+
+2013-07-03-08-44-37.379682-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="9.002")
+
+2013-07-03-08-44-37.381850-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = none
+    route_alternative = none
+    silence_time = 9.002
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-03-08-44-37.383085-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 9.002}
+
+2013-07-03-08-44-37.384733-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-03-08-44-37.423975-COT  MainProcess : INFO       
+    #10769  Time: 2013-07-03-08-44-37.421013-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-44-37.426117-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    DM sent 'silence()' therefore generating nothing
+    
+
+2013-07-03-08-44-37.440159-COT  MainProcess : INFO       
+    #10772  Time: 2013-07-03-08-44-37.439302-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-44-40.378291-COT  DM-5       : DEBUG      
+    #10956  Time: 2013-07-03-08-44-40.375223-COT From: HUB        To: DM         Command: timeout(silence_time="12.004") 
+
+2013-07-03-08-44-40.378977-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="12.004")
+
+2013-07-03-08-44-40.380042-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="12.004")
+
+2013-07-03-08-44-40.381834-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = none
+    route_alternative = none
+    silence_time = 12.004
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-03-08-44-40.382770-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 12.004}
+
+2013-07-03-08-44-40.383882-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    inform(silence_timeout="true")
+    
+
+2013-07-03-08-44-40.419761-COT  MainProcess : INFO       
+    #10961  Time: 2013-07-03-08-44-40.418427-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-44-40.421961-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Haló, slyšíme se?
+    
+
+2013-07-03-08-44-40.438675-COT  MainProcess : INFO       
+    #10963  Time: 2013-07-03-08-44-40.436126-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-44-40.439688-COT  MainProcess : INFO       
+    #10965  Time: 2013-07-03-08-44-40.437555-COT From: TTS        To: HUB        Command: tts_start(user_id="None",text="Haló, slyšíme se?") 
+
+2013-07-03-08-44-40.478245-COT  MainProcess : INFO       
+    #11082  Time: 2013-07-03-08-44-40.459363-COT From: TTS        To: HUB        Command: tts_end(user_id="None",text="Haló, slyšíme se?",fname="tts-2013-07-03-08-44-40.437465.wav",log="true") 
+
+2013-07-03-08-44-40.521868-COT  MainProcess : INFO       
+    #10967  Time: 2013-07-03-08-44-40.440056-COT From: VoipIO     To: HUB        Command: play_utterance_start(user_id="None",fname="tts-2013-07-03-08-44-40.437465.wav") 
+
+2013-07-03-08-44-42.384545-COT  MainProcess : INFO       
+    #11159  Time: 2013-07-03-08-44-41.632251-COT From: VoipIO     To: HUB        Command: play_utterance_end(user_id="None",fname="tts-2013-07-03-08-44-40.437465.wav) 
+
+2013-07-03-08-44-45.388416-COT  DM-5       : DEBUG      
+    #11395  Time: 2013-07-03-08-44-45.385157-COT From: HUB        To: DM         Command: timeout(silence_time="3.000") 
+
+2013-07-03-08-44-45.390124-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="3.000")
+
+2013-07-03-08-44-45.390911-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="3.000")
+
+2013-07-03-08-44-45.393212-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = none
+    route_alternative = none
+    silence_time = 3.0
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-03-08-44-45.394264-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 3.0}
+
+2013-07-03-08-44-45.395281-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-03-08-44-45.430841-COT  MainProcess : INFO       
+    #11397  Time: 2013-07-03-08-44-45.427610-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-44-45.431506-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    DM sent 'silence()' therefore generating nothing
+    
+
+2013-07-03-08-44-45.450782-COT  MainProcess : INFO       
+    #11401  Time: 2013-07-03-08-44-45.444482-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-44-48.390926-COT  DM-5       : DEBUG      
+    #11586  Time: 2013-07-03-08-44-48.386825-COT From: HUB        To: DM         Command: timeout(silence_time="6.002") 
+
+2013-07-03-08-44-48.391945-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="6.002")
+
+2013-07-03-08-44-48.392840-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="6.002")
+
+2013-07-03-08-44-48.395138-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = none
+    route_alternative = none
+    silence_time = 6.002
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-03-08-44-48.397145-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 6.002}
+
+2013-07-03-08-44-48.398463-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    silence()
+    
+
+2013-07-03-08-44-48.428994-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    DM sent 'silence()' therefore generating nothing
+    
+
+2013-07-03-08-44-48.429632-COT  MainProcess : INFO       
+    #11589  Time: 2013-07-03-08-44-48.427032-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-44-48.452725-COT  MainProcess : INFO       
+    #11591  Time: 2013-07-03-08-44-48.449361-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-44-51.390502-COT  DM-5       : DEBUG      
+    #11776  Time: 2013-07-03-08-44-51.386951-COT From: HUB        To: DM         Command: timeout(silence_time="9.002") 
+
+2013-07-03-08-44-51.392017-COT  DM-5       : DEBUG      
+    DDDState Dialogue Act in: silence(time="9.002")
+
+2013-07-03-08-44-51.392722-COT  DM-5       : DEBUG      
+    Context Resolution - Dialogue Act: silence(time="9.002")
+
+2013-07-03-08-44-51.394780-COT  DM-5       : DEBUG      
+    DDDState - Dialogue state content:
+    
+    ludait = silence
+    alternative = none
+    from_stop = none
+    route_alternative = none
+    silence_time = 9.002
+    
+    rh_silence_timeout = system-informed
+    
+    ch_silence_timeout = system-informed
+    
+    sh_silence_timeout = system-informed
+    
+
+2013-07-03-08-44-51.396489-COT  DM-5       : DEBUG      
+    DDDState
+    
+    Requested slots:
+    {}
+    Confirmed slots:
+    {}
+    Non-informed slots:
+    {u'silence_time': 9.002}
+
+2013-07-03-08-44-51.397724-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    bye()&inform(toolong="true")
+    
+
+2013-07-03-08-44-51.443992-COT  MainProcess : INFO       
+    #11781  Time: 2013-07-03-08-44-51.441581-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-08-44-51.445209-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Moc děkujeme za zavolání, ale tento hovor již přesáhl maximální povolenou délku. Na shledanou.
+    
+
+2013-07-03-08-44-51.452187-COT  MainProcess : INFO       
+    #11783  Time: 2013-07-03-08-44-51.441862-COT From: DM         To: HUB        Command: hangup() 
+
+2013-07-03-08-44-51.463508-COT  MainProcess : INFO       
+    #11786  Time: 2013-07-03-08-44-51.458630-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-08-44-51.465209-COT  MainProcess : INFO       
+    #11788  Time: 2013-07-03-08-44-51.459952-COT From: TTS        To: HUB        Command: tts_start(user_id="None",text="Moc děkujeme za zavolání, ale tento hovor již přesáhl maximální povolenou délku. Na shledanou.") 
+
+2013-07-03-08-44-51.505541-COT  MainProcess : INFO       
+    #11790  Time: 2013-07-03-08-44-51.464445-COT From: VoipIO     To: HUB        Command: play_utterance_start(user_id="None",fname="tts-2013-07-03-08-44-51.459855.wav") 
+
+2013-07-03-08-44-51.581399-COT  MainProcess : INFO       
+    #12250  Time: 2013-07-03-08-44-51.580001-COT From: TTS        To: HUB        Command: tts_end(user_id="None",text="Moc děkujeme za zavolání, ale tento hovor již přesáhl maximální povolenou délku. Na shledanou.",fname="tts-2013-07-03-08-44-51.459855.wav",log="true") 
+
+2013-07-03-08-44-58.705353-COT  MainProcess : INFO       
+    #12651  Time: 2013-07-03-08-44-57.955498-COT From: VoipIO     To: HUB        Command: play_utterance_end(user_id="None",fname="tts-2013-07-03-08-44-51.459855.wav) 
+
+2013-07-03-08-45-00.710795-COT  VoipIO-1   : DEBUG      
+    #12824  Time: 2013-07-03-08-45-00.707012-COT From: HUB        To: VoipIO     Command: hangup() 
+
+2013-07-03-08-45-00.711882-COT  VoipIO-1   : DEBUG      
+    Hangup the call
+
+2013-07-03-08-45-00.967559-COT  VoipIO-1   : DEBUG      
+    CallCallback::on_state : Call with "245501010" <sip:245501010@195.113.20.69> is DISCONNCTD last code = 603 ()
+
+2013-07-03-08-45-00.999760-COT  VoipIO-1   : DEBUG      
+    VoipIO::on_call_disconnected
+
+2013-07-03-08-45-01.001484-COT  MainProcess : INFO       
+    #12841  Time: 2013-07-03-08-45-00.999910-COT From: VoipIO     To: HUB        Command: call_disconnected(remote_uri="245501010") 
+

@@ -1,0 +1,378 @@
+2013-07-03-09-18-48.897500-COT  VoipIO-1   : DEBUG      
+    CallCallback::on_media_state : Media is now active
+
+2013-07-03-09-18-48.898816-COT  VoipIO-1   : DEBUG      
+    CallCallback::on_state : Call with "Jurcicek Filip" <sip:9888@195.113.20.69> is CONNECTING last code = 200 (OK)
+
+2013-07-03-09-18-48.900337-COT  VoipIO-1   : DEBUG      
+    VoipIO::on_call_connecting
+
+2013-07-03-09-18-48.917455-COT  MainProcess : SYSTEM-LOG 
+    config = { 'ASR': { 'Google': { 'debug': False, 'language': 'cs', 'maxresults': 20},
+               'Julius': { 'adinnetport': 5530,
+                           'binary': '/usr/local/bin/julius',
+                           'debug': False,
+                           'hostname': 'localhost',
+                           'jconf': { '-adport': '5530',
+                                      '-b': '1000',
+                                      '-b2': '100',
+                                      '-cmnload': 'cmn.param',
+                                      '-cmnmapweight': '200',
+                                      '-cmnsave': 'cmn.param',
+                                      '-confnet': '',
+                                      '-fallback1pass': '',
+                                      '-gprune': 'safe',
+                                      '-h': '/home/jurcicek/vystadial-git/alex/resources/asr/voip_en/hmmdefs',
+                                      '-hlist': '/home/jurcicek/vystadial-git/alex/resources/asr/voip_en/tiedlist',
+                                      '-htkconf': '/home/jurcicek/vystadial-git/alex/resources/asr/voip_en/config',
+                                      '-input': 'adinnet',
+                                      '-iwsp': '',
+                                      '-iwsppenalty': '0.0',
+                                      '-lmp': '15.0 0.0',
+                                      '-lmp2': '15.0 0.0',
+                                      '-mapunk': 'UM',
+                                      '-module': '10500',
+                                      '-n': '50',
+                                      '-nlr': '/home/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_arpa_bigram',
+                                      '-no_ccd': '',
+                                      '-nrl': '/home/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_arpa_rev_bigram',
+                                      '-silhead': '<s>',
+                                      '-siltail': '</s>',
+                                      '-spmodel': 'sp',
+                                      '-tmix': '4',
+                                      '-v': '/home/jurcicek/vystadial-git/alex/resources/lm/caminfo/julius_dict'},
+                           'jconffile': 'julius.jconf',
+                           'killall': False,
+                           'logfile': 'julius.log',
+                           'msg_timeout': 0.3,
+                           'pidfile': 'julius.pid',
+                           'reuse_server': False,
+                           'serverport': 10500,
+                           'start_max_wait_time': 15,
+                           'start_wait_time': 0.5,
+                           'timeout': 2.0},
+               'Kaldi': { 'LM_scale': -6666.66,
+                          'hypothesis_type': 'nblist',
+                          'lat_depth': 666666,
+                          'model': 'TODO_path_to_model'},
+               'debug': True,
+               'type': 'Google'},
+      'AlexOnTheBus': { 'max_turns': 30},
+      'Analytics': Analytics(account_id='UA-41905278-1', domain_name='cuni.cz'),
+      'Audio': { 'sample_rate': 16000, 'samples_per_frame': 256},
+      'AudioIO': { 'debug': True, 'output_dir': './aio_call_log', 'play_buffer_size': 1024},
+      'DM': { 'PUfalRuleDM': { 'code_submit_url': None,
+                               'db_cfg': '/home/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/cued_data/CIRdbase_V7_noloc.txt',
+                               'ontology': '/home/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/ontology.cfg',
+                               'provide_code': False},
+              'UfalRuleDM': { 'code_submit_url': None,
+                              'db_cfg': '/home/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/cued_data/CIRdbase_V7_noloc.txt',
+                              'ontology': '/home/jurcicek/vystadial-git/alex/resources/../applications/CamInfoRest/ontology.cfg',
+                              'provide_code': False},
+              'basic': { 'debug': True, 'silence_timeout': 10.0},
+              'debug': True,
+              'dialogue_policy': { 'type': <class 'alex.applications.AlexOnTheBus.aotb_hdc_policy.AOTBHDCPolicy'>},
+              'dialogue_state': { 'type': <class 'alex.components.dm.dddstate.DeterministicDiscriminativeDialogueState'>},
+              'input_timeout': 3.0,
+              'ontology': '/home/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/data/ontology.py',
+              'type': 'basic'},
+      'General': { 'debug': False, 'include': ['/home/jurcicek/vystadial-git/alex/resources/private/default.cfg']},
+      'Hub': { 'history_file': 'hub_history_hub.txt', 'history_length': 1000, 'main_loop_sleep_time': 0.002},
+      'Logging': { 'excepthook': ExceptionHook(
+            ExceptionHook
+              Hook Type: log
+              Hook Logger: SystemLogger(output_dir=./call_logs, stdout_log_level='DEBUG', stdout=True, file_log_level='DEBUG')),
+                   'session_logger': SessionLogger(),
+                   'system_logger': SystemLogger(output_dir=./call_logs, stdout_log_level='DEBUG', stdout=True, file_log_level='DEBUG'),
+                   'system_name': 'Alex On The Bus',
+                   'version': '1.0'},
+      'NLG': { 'Template': { 'model': '/home/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/nlg_templates.cfg'},
+               'debug': True,
+               'type': 'Template'},
+      'SHub': { 'history_file': 'hub_history_shub.txt', 'history_length': 1000},
+      'SLU': { 'cl-tracing': { 'cldb_fname': '/home/jurcicek/vystadial-git/alex/applications/CamInfoRest/data/database.py',
+                               'do_preprocessing': True,
+                               'features_type': ('ngram', 'ab_ngram'),
+                               'testing': { 'max_examples': None,
+                                            'min_perc': 80,
+                                            'model_fname': '/home/jurcicek/vystadial-git/alex/applications/CamInfoRest/models/130516_minf60-minfc35-mind60.slu_model.gz',
+                                            'renormalise': True,
+                                            'threshold': None,
+                                            'vanilla': True},
+                               'training': { 'abstractions': ('abstract',), 'models_dir': 'models'}},
+               'debug': True,
+               'type': <class 'alex.applications.AlexOnTheBus.aotb_slu.AOTBSLU'>,
+               <class 'alex.applications.AlexOnTheBus.aotb_slu.AOTBSLU'>: { 'cldb_fname': '/home/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/data/database.py',
+                                                                            'preprocessing_cls': <class 'alex.applications.AlexOnTheBus.aotb_preprocessing.AOTBSLUPreprocessing'>,
+                                                                            'training': { 'models_dir': 'models'}}},
+      'THub': { 'history_file': 'hub_history_thub.txt', 'history_length': 1000},
+      'TTS': { 'Flite': { 'debug': False,
+                          'preprocessing': '/home/jurcicek/vystadial-git/alex/resources/tts/prep_flite_en.cfg',
+                          'voice': 'kal16'},
+               'Google': { 'debug': False,
+                           'language': 'en',
+                           'preprocessing': '/home/jurcicek/vystadial-git/alex/resources/tts/prep_google_en.cfg'},
+               'SpeechTech': { 'debug': True,
+                               'login': 'filipjurcicek',
+    # this line was removed since it included a password
+                               'preprocessing': '/home/jurcicek/vystadial-git/alex/resources/tts/prep_speechtech_cs.cfg',
+                               'voice': 'Iva210'},
+               'VoiceRSS': { 'api_key': '3b6a9fca5d724b1c8ac34691586cdda1'},
+               'VoiceRss': { 'language': 'en-gb',
+                             'preprocessing': '/home/jurcicek/vystadial-git/alex/resources/tts/prep_voicerss_en.cfg'},
+               'debug': True,
+               'in_between_segments_silence': 0.1,
+               'type': 'SpeechTech'},
+      'VAD': { 'debug': False,
+               'decision_frames_sil': 25,
+               'decision_frames_speech': 10,
+               'decision_non_speech_threshold': 0.2,
+               'decision_speech_threshold': 0.7,
+               'gmm': { 'ceplifter': 22,
+                        'enormalise': True,
+                        'filter_length': 5,
+                        'frameshift': 160,
+                        'framesize': 512,
+                        'frontend': 'MFCC',
+                        'hifreq': 3800,
+                        'lofreq': 125,
+                        'numceps': 12,
+                        'numchans': 26,
+                        'preemcoef': 0.97,
+                        'sil_model': '/home/jurcicek/vystadial-git/alex/resources/vad/voip_en/vad_sil_sds_mfcc_m064_f100000.gmm',
+                        'speech_model': '/home/jurcicek/vystadial-git/alex/resources/vad/voip_en/vad_speech_sds_mfcc_m064_f100000.gmm',
+                        'useacc': True,
+                        'usec0': False,
+                        'usecmn': False,
+                        'usedelta': True,
+                        'usehamming': True,
+                        'usepower': True,
+                        'zmeansource': True},
+               'power': { 'adaptation_frames': 30, 'threshold': 70, 'threshold_multiplier': 1.0},
+               'speech_buffer_frames': 20,
+               'type': 'gmm'},
+      'VoipHub': { 'blacklist_for': 7200,
+                   'call_db': '/home/jurcicek/vystadial-git/alex/applications/AlexOnTheBus/call_db.pckl',
+                   'hard_time_limit': 360,
+                   'hard_turn_limit': 40,
+                   'history_length': 1000,
+                   'last_period_max_num_calls': 100,
+                   'last_period_max_total_time': 7200,
+                   'limit_reached_message': u'D\u011bkujeme za zavol\xe1n\xed, ale u\u017e jste volali hodn\u011b. Pros\xedm zavolejte pozd\u011bji. Na shledanou.',
+                   'period': 172800,
+                   'pid_file': '/home/jurcicek/vystadial-git/alex/applications/vhub.pid',
+                   'wait_time_before_calling_back': 10},
+      'VoipIO': { 'allowed_hosts': '',
+                  'allowed_phone_numbers': '(^[234567])',
+                  'allowed_users': '(^[234567])',
+                  'debug': True,
+                  'domain': 'external.sip.mff.cuni.cz:5066',
+                  'forbidden_hosts': '',
+                  'forbidden_phone_number': '(^112$|^150$|^155$|^156$|^158$)',
+                  'forbidden_users': '(^112$|^150$|^155$|^156$|^158$)',
+    # this line was removed since it included a password
+                  'pjsip_log_level': 3,
+                  'reject_calls': False,
+                  'user': 'DEV-9889'},
+      'WebHub': { 'port': 8000},
+      'corpustools': { 'get_jasr_confnets': { 'frame_size': 256, 'rt_ratio': 0.2}}}
+
+2013-07-03-09-18-48.951854-COT  MainProcess : INFO       
+    #2      Time: 2013-07-03-09-18-48.900560-COT From: VoipIO     To: HUB        Command: call_connecting(remote_uri="9888") 
+
+2013-07-03-09-18-49.111331-COT  VoipIO-1   : DEBUG      
+    CallCallback::on_state : Call with "Jurcicek Filip" <sip:9888@195.113.20.69> is CONFIRMED last code = 200 (OK)
+
+2013-07-03-09-18-49.121824-COT  VoipIO-1   : DEBUG      
+    VoipIO::on_call_confirmed
+
+2013-07-03-09-18-49.123788-COT  MainProcess : INFO       
+    #3      Time: 2013-07-03-09-18-49.122013-COT From: VoipIO     To: HUB        Command: call_confirmed(remote_uri="9888") 
+
+2013-07-03-09-18-49.128141-COT  MainProcess : INFO       
+    
+    ========================================================================================================================
+    Incoming call from :          9888
+    ------------------------------------------------------------------------------------------------------------------------
+    Total calls:                  1
+    Total time (min):             0.5
+    Last period total calls:      1
+    Last period total time (min): 0.5
+    ------------------------------------------------------------------------------------------------------------------------
+    CALL ACCEPTED
+    ========================================================================================================================
+    
+
+2013-07-03-09-18-49.130483-COT  DM-5       : DEBUG      
+    #4      Time: 2013-07-03-09-18-49.125942-COT From: HUB        To: DM         Command: new_dialogue() 
+
+2013-07-03-09-18-49.134299-COT  DM-5       : DEBUG      
+    DM Output
+    ------------------------------------------------------------
+    hello()
+    
+
+2013-07-03-09-18-49.149507-COT  NLG-6      : DEBUG      
+    NLG Output
+    ------------------------------------------------------------
+    Dobrý den. Hovor je nahráván. Více informací o této službě je na internetu. Jak Vám mohu pomoci. 
+    
+
+2013-07-03-09-18-49.155324-COT  MainProcess : INFO       
+    #6      Time: 2013-07-03-09-18-49.146406-COT From: DM         To: HUB        Command: dm_da_generated() 
+
+2013-07-03-09-18-49.159925-COT  MainProcess : INFO       
+    #7      Time: 2013-07-03-09-18-49.158020-COT From: NLG        To: HUB        Command: nlg_text_generated() 
+
+2013-07-03-09-18-49.166720-COT  MainProcess : INFO       
+    #9      Time: 2013-07-03-09-18-49.160349-COT From: TTS        To: HUB        Command: tts_start(user_id="None",text="Dobrý den. Hovor je nahráván. Více informací o této službě je na internetu. Jak Vám mohu pomoci. ") 
+
+2013-07-03-09-18-49.202893-COT  MainProcess : INFO       
+    #11     Time: 2013-07-03-09-18-49.164864-COT From: VoipIO     To: HUB        Command: play_utterance_start(user_id="None",fname="tts-2013-07-03-09-18-49.159371.wav") 
+
+2013-07-03-09-18-49.261243-COT  MainProcess : INFO       
+    #514    Time: 2013-07-03-09-18-49.257663-COT From: TTS        To: HUB        Command: tts_end(user_id="None",text="Dobrý den. Hovor je nahráván. Více informací o této službě je na internetu. Jak Vám mohu pomoci. ",fname="tts-2013-07-03-09-18-49.159371.wav",log="true") 
+
+2013-07-03-09-18-50.226959-COT  MainProcess : INFO       
+    #578    Time: 2013-07-03-09-18-50.224084-COT From: VAD        To: HUB        Command: speech_start(fname="vad-2013-07-03-09-18-50.213492.wav") 
+
+2013-07-03-09-18-50.228856-COT  ASR-3      : DEBUG      
+    ASR: speech_start()
+
+2013-07-03-09-18-50.237490-COT  MainProcess : INFO       
+    #579    Time: 2013-07-03-09-18-50.224970-COT From: ASR        To: HUB        Command: asr_start() 
+
+2013-07-03-09-18-50.238729-COT  NLG-6      : DEBUG      
+    #580    Time: 2013-07-03-09-18-50.233597-COT From: HUB        To: NLG        Command: flush() 
+
+2013-07-03-09-18-50.239937-COT  MainProcess : INFO       
+    #581    Time: 2013-07-03-09-18-50.239067-COT From: NLG        To: HUB        Command: flushed() 
+
+2013-07-03-09-18-50.243709-COT  TTS-7      : DEBUG      
+    #582    Time: 2013-07-03-09-18-50.240561-COT From: HUB        To: TTS        Command: flush() 
+
+2013-07-03-09-18-50.248104-COT  MainProcess : INFO       
+    #583    Time: 2013-07-03-09-18-50.243945-COT From: TTS        To: HUB        Command: flushed() 
+
+2013-07-03-09-18-50.251299-COT  VoipIO-1   : DEBUG      
+    #584    Time: 2013-07-03-09-18-50.248263-COT From: HUB        To: VIO        Command: flush_out() 
+
+2013-07-03-09-18-50.253977-COT  MainProcess : INFO       
+    #585    Time: 2013-07-03-09-18-50.251753-COT From: VoipIO     To: HUB        Command: flushed_out() 
+
+2013-07-03-09-18-54.898522-COT  MainProcess : INFO       
+    #879    Time: 2013-07-03-09-18-54.897576-COT From: VAD        To: HUB        Command: speech_end(fname="vad-2013-07-03-09-18-50.213492.wav") 
+
+2013-07-03-09-18-54.899580-COT  ASR-3      : DEBUG      
+    ASR: speech_end()
+
+2013-07-03-09-18-55.927571-COT  MainProcess : INFO       
+    #945    Time: 2013-07-03-09-18-55.923431-COT From: VAD        To: HUB        Command: speech_start(fname="vad-2013-07-03-09-18-55.918035.wav") 
+
+2013-07-03-09-19-03.845520-COT  VAD-2      : EXCEPTION  
+    Uncaught exception in the VAD process.
+    Traceback (most recent call last):
+      File "/home/jurcicek/vystadial-git/alex/components/hub/vad.py", line 257, in run
+        self.read_write_audio()
+      File "/home/jurcicek/vystadial-git/alex/components/hub/vad.py", line 216, in read_write_audio
+        self.audio_out.send(data_rec)
+    KeyboardInterrupt
+    
+
+2013-07-03-09-19-03.846944-COT  SLU-4      : EXCEPTION  
+    Uncaught exception in SLU process.
+    Traceback (most recent call last):
+      File "/home/jurcicek/vystadial-git/alex/components/hub/slu.py", line 137, in run
+        time.sleep(self.cfg['Hub']['main_loop_sleep_time'])
+    KeyboardInterrupt
+    
+
+2013-07-03-09-19-03.849820-COT  DM-5       : EXCEPTION  
+    Uncaught exception in the DM process.
+    Traceback (most recent call last):
+      File "/home/jurcicek/vystadial-git/alex/components/hub/dm.py", line 178, in run
+        time.sleep(self.cfg['Hub']['main_loop_sleep_time'])
+    KeyboardInterrupt
+    
+
+2013-07-03-09-19-03.853870-COT  TTS-7      : EXCEPTION  
+    Uncaught exception in the TTS process.
+    Traceback (most recent call last):
+      File "/home/jurcicek/vystadial-git/alex/components/hub/tts.py", line 180, in run
+        time.sleep(self.cfg['Hub']['main_loop_sleep_time'])
+    KeyboardInterrupt
+    
+
+2013-07-03-09-19-03.855366-COT  NLG-6      : EXCEPTION  
+    Uncaught exception in NLG process.
+    Traceback (most recent call last):
+      File "/home/jurcicek/vystadial-git/alex/components/hub/nlg.py", line 119, in run
+        time.sleep(self.cfg['Hub']['main_loop_sleep_time'])
+    KeyboardInterrupt
+    
+
+2013-07-03-09-19-03.856391-COT  MainProcess : EXCEPTION  
+    Uncaught exception in VHUB process.
+    Traceback (most recent call last):
+      File "./vhub.py", line 122, in run
+        time.sleep(self.cfg['Hub']['main_loop_sleep_time'])
+    KeyboardInterrupt
+    
+
+2013-07-03-09-19-20.161907-COT  ASR-3      : EXCEPTION  
+    Uncaught exception in ASR process.
+    Traceback (most recent call last):
+      File "/home/jurcicek/vystadial-git/alex/components/hub/asr.py", line 220, in run
+        self.read_audio_write_asr_hypotheses()
+      File "/home/jurcicek/vystadial-git/alex/components/hub/asr.py", line 162, in read_audio_write_asr_hypotheses
+        asr_hyp = self.asr.hyp_out()
+      File "/home/jurcicek/vystadial-git/alex/components/asr/google.py", line 125, in hyp_out
+        nblist = self.recognize(wav)
+      File "/home/jurcicek/vystadial-git/alex/components/asr/google.py", line 72, in recognize
+        json_hypotheses = self.get_asr_hypotheses(flac_file_name)
+      File "/home/jurcicek/vystadial-git/alex/components/asr/google.py", line 51, in get_asr_hypotheses
+        json_hypotheses = urllib2.urlopen(request).read()
+      File "/usr/lib/python2.7/urllib2.py", line 126, in urlopen
+        return _opener.open(url, data, timeout)
+      File "/usr/lib/python2.7/urllib2.py", line 400, in open
+        response = self._open(req, data)
+      File "/usr/lib/python2.7/urllib2.py", line 418, in _open
+        '_open', req)
+      File "/usr/lib/python2.7/urllib2.py", line 378, in _call_chain
+        result = func(*args)
+      File "/usr/lib/python2.7/urllib2.py", line 1207, in http_open
+        return self.do_open(httplib.HTTPConnection, req)
+      File "/usr/lib/python2.7/urllib2.py", line 1174, in do_open
+        h.request(req.get_method(), req.get_selector(), req.data, headers)
+      File "/usr/lib/python2.7/httplib.py", line 958, in request
+        self._send_request(method, url, body, headers)
+      File "/usr/lib/python2.7/httplib.py", line 992, in _send_request
+        self.endheaders(body)
+      File "/usr/lib/python2.7/httplib.py", line 954, in endheaders
+        self._send_output(message_body)
+      File "/usr/lib/python2.7/httplib.py", line 814, in _send_output
+        self.send(msg)
+      File "/usr/lib/python2.7/httplib.py", line 776, in send
+        self.connect()
+      File "/usr/lib/python2.7/httplib.py", line 757, in connect
+        self.timeout, self.source_address)
+      File "/usr/lib/python2.7/socket.py", line 553, in create_connection
+        for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+    KeyboardInterrupt
+    
+
+2013-07-03-09-19-24.424009-COT  VoipIO-1   : INFO       
+    09:19:24.422   tsx0xc25f1ec !...Failed to send Request msg REGISTER/cseq=39930 (tdta0xc277140)! err=70018 (gethostbyname() has returned error (PJ_ERESOLVE))
+    
+
+2013-07-03-09-19-24.426196-COT  VoipIO-1   : INFO       
+    09:19:24.424    pjsua_acc.c  .....SIP registration failed, status=502 (gethostbyname() has returned error (PJ_ERESOLVE))
+    
+
+2013-07-03-09-19-24.427606-COT  VoipIO-1   : INFO       
+    09:19:24.426    pjsua_acc.c  ..Unable to create/send REGISTER: gethostbyname() has returned error (PJ_ERESOLVE) [status=70018]
+    
+
+2013-07-03-09-19-24.429559-COT  VoipIO-1   : DEBUG      
+    CallCallback::on_state : Call with "Jurcicek Filip" <sip:9888@195.113.20.69> is DISCONNCTD last code = 200 (Normal call clearing)
+

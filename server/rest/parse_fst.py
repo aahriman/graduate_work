@@ -40,8 +40,11 @@ def _posibilities(fst, fstNumState, words, posibilities, n):
         if(not fstState.final):
             _posibilities(fst, i.nextstate, words, posibilities, next_n);
 
-def posibilities(fstVector,words):
+def posibilities(path, words):
     ''' Return list of posibilities for every word in fstVector '''
+    
+    fstVector = fst.read(path); 
+    fstVector.remove_epsilon()
     posibilities = [];
     _posibilities(fstVector,fstVector.start, words, posibilities, 0)
     for i in posibilities:
@@ -57,10 +60,6 @@ def _generatorIndex(generator, index):
              return item
 
 def test():
-    f = fst.read("../data/vad-2013-09-26-20-31-51.384464.fst")
-    f.remove_epsilon()
-    words = wst2dict("../data/words.txt")
-    print(posibilities(f, words))
+    print(posibilities("../data/vad-2013-09-26-20-31-51.384464.fst", wst2dict("../data/words.txt")))
 
 
-test()

@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dialogue>
+    <config>
+        <!--    config = { 'ASR': { 'Google': { 'debug': False, 'language': 'cs', 'maxresults': 20},
+               'Julius': { 'adinnetport': 5530,
+                           'binary': '/usr/local/bin/julius',
+                           'debug': False,
+                           'hostname': 'localhost',
+                           'jconf': { '-adport': '5530',
+                                      '-b': '1000',
+                                      '-b2': '100',
+                                      '-cmnload': 'cmn.param',
+                                      '-cmnmapweight': '200',
+                                      '-cmnsave': 'cmn.param',
+                                      '-confnet': '',
+                                      '-fallback1pass': '',
+                                      '-gprune': 'safe',
+                                      '-h': '/mnt/h/jurcicek/vystadial-git-dev/alex/resources/asr/voip_en/hmmdefs',
+                                      '-hlist': '/mnt/h/jurcicek/vystadial-git-dev/alex/resources/asr/voip_en/tiedlist',
+                                      '-htkconf': '/mnt/h/jurcicek/vystadial-git-dev/alex/resources/asr/voip_en/config',
+                                      '-input': 'adinnet',
+                                      '-iwsp': '',
+                                      '-iwsppenalty': '0.0',
+                                      '-lmp': '15.0 0.0',
+                                      '-lmp2': '15.0 0.0',
+                                      '-mapunk': 'UM',
+                                      '-module': '10500',
+                                      '-n': '50',
+                                      '-nlr': '/mnt/h/jurcicek/vystadial-git-dev/alex/resources/lm/caminfo/julius_arpa_bigram',
+                                      '-no_ccd': '',
+                                      '-nrl': '/mnt/h/jurcicek/vystadial-git-dev/alex/resources/lm/caminfo/julius_arpa_rev_bigram',
+                                      '-silhead': '<s>',
+                                      '-siltail': '</s>',
+                                      '-spmodel': 'sp',
+                                      '-tmix': '4',
+                                      '-v': '/mnt/h/jurcicek/vystadial-git-dev/alex/resources/lm/caminfo/julius_dict'},
+                           'jconffile': 'julius.jconf',
+                           'killall': False,
+                           'logfile': 'julius.log',
+                           'msg_timeout': 0.3,
+                           'pidfile': 'julius.pid',
+                           'reuse_server': False,
+                           'serverport': 10500,
+                           'start_max_wait_time': 15,
+                           'start_wait_time': 0.5,
+                           'timeout': 2.0},
+               'Kaldi': { 'LM_scale': -6666.66,
+                          'hypothesis_type': 'nblist',
+                          'lat_depth': 666666,
+                          'model': 'TODO_path_to_model'},
+               'debug': True,
+               'type': 'Google'},
+      'AlexOnTheBus': { 'max_turns': 120},
+      'Analytics': Analytics(account_id='UA-41905278-1', domain_name='cuni.cz'),
+      'Audio': { 'sample_rate': 16000, 'samples_per_frame': 256},
+      'AudioIO': { 'debug': True, 'output_dir': './aio_call_log', 'play_buffer_size': 1024},
+      'DM': { 'PUfalRuleDM': { 'code_submit_url': None,
+                               'db_cfg': '/mnt/h/jurcicek/vystadial-git-dev/alex/resources/../applications/CamInfoRest/cued_data/CIRdbase_V7_noloc.txt',
+                               'ontology': '/mnt/h/jurcicek/vystadial-git-dev/alex/resources/../applications/CamInfoRest/ontology.cfg',
+                               'provide_code': False},
+              'UfalRuleDM': { 'code_submit_url': None,
+                              'db_cfg': '/mnt/h/jurcicek/vystadial-git-dev/alex/resources/../applications/CamInfoRest/cued_data/CIRdbase_V7_noloc.txt',
+                              'ontology': '/mnt/h/jurcicek/vystadial-git-dev/alex/resources/../applications/CamInfoRest/ontology.cfg',
+                              'provide_code': False},
+              'basic': { 'debug': True, 'silence_timeout': 10.0},
+              'debug': True,
+              'dialogue_policy': { 'type': <class 'alex.applications.AlexOnTheBus.aotb_hdc_policy.AOTBHDCPolicy'>},
+              'dialogue_state': { 'type': <class 'alex.components.dm.dddstate.DeterministicDiscriminativeDialogueState'>},
+              'input_timeout': 3.0,
+              'ontology': '/mnt/h/jurcicek/vystadial-git-dev/alex/applications/AlexOnTheBus/data/ontology.py',
+              'type': 'basic'},
+      'General': { 'debug': False, 'include': ['/mnt/h/jurcicek/vystadial-git-dev/alex/resources/private/default.cfg']},
+      'Hub': { 'history_file': 'hub_history_hub.txt', 'history_length': 1000, 'main_loop_sleep_time': 0.002},
+      'Logging': { 'excepthook': ExceptionHook(
+            ExceptionHook
+              Hook Type: log
+              Hook Logger: SystemLogger(output_dir=./call_logs, stdout_log_level='DEBUG', stdout=True, file_log_level='DEBUG')),
+                   'session_logger': SessionLogger(),
+                   'system_logger': SystemLogger(output_dir=/net/projects/vystadial/data/call-logs/2013-05-30-alex-aotb-prototype/new, stdout_log_level='DEBUG', stdout=True, file_log_level='DEBUG'),
+                   'system_name': u'Alex On The Bus - Live',
+                   'version': u'1.0'},
+      'NLG': { 'Template': { 'model': '/mnt/h/jurcicek/vystadial-git-dev/alex/applications/AlexOnTheBus/nlg_templates.cfg'},
+               'debug': True,
+               'type': 'Template'},
+      'SHub': { 'history_file': 'hub_history_shub.txt', 'history_length': 1000},
+      'SLU': { 'cl-tracing': { 'cldb_fname': '/mnt/h/jurcicek/vystadial-git-dev/alex/applications/CamInfoRest/data/database.py',
+                               'do_preprocessing': True,
+                               'features_type': ('ngram', 'ab_ngram'),
+                               'testing': { 'max_examples': None,
+                                            'min_perc': 80,
+                                            'model_fname': '/mnt/h/jurcicek/vystadial-git-dev/alex/applications/CamInfoRest/models/130516_minf60-minfc35-mind60.slu_model.gz',
+                                            'renormalise': True,
+                                            'threshold': None,
+                                            'vanilla': True},
+                               'training': { 'abstractions': ('abstract',), 'models_dir': 'models'}},
+               'debug': True,
+               'type': <class 'alex.applications.AlexOnTheBus.aotb_slu.AOTBSLU'>,
+               <class 'alex.applications.AlexOnTheBus.aotb_slu.AOTBSLU'>: { 'cldb_fname': '/mnt/h/jurcicek/vystadial-git-dev/alex/applications/AlexOnTheBus/data/database.py',
+                                                                            'preprocessing_cls': <class 'alex.applications.AlexOnTheBus.aotb_preprocessing.AOTBSLUPreprocessing'>,
+                                                                            'training': { 'models_dir': 'models'}}},
+      'THub': { 'history_file': 'hub_history_thub.txt', 'history_length': 1000},
+      'TTS': { 'Flite': { 'debug': False,
+                          'preprocessing': '/mnt/h/jurcicek/vystadial-git-dev/alex/resources/tts/prep_flite_en.cfg',
+                          'tempo': 1.0,
+                          'voice': 'kal16'},
+               'Google': { 'debug': False,
+                           'language': 'en',
+                           'preprocessing': '/mnt/h/jurcicek/vystadial-git-dev/alex/resources/tts/prep_google_en.cfg',
+                           'tempo': 1.0},
+               'SpeechTech': { 'debug': True,
+                               'login': 'filipjurcicek',
+    # this line was removed since it included a password
+                               'preprocessing': '/mnt/h/jurcicek/vystadial-git-dev/alex/resources/tts/prep_speechtech_cs.cfg',
+                               'tempo': 1.2,
+                               'voice': 'Iva210'},
+               'VoiceRSS': { 'api_key': '3b6a9fca5d724b1c8ac34691586cdda1'},
+               'VoiceRss': { 'language': 'en-gb',
+                             'preprocessing': '/mnt/h/jurcicek/vystadial-git-dev/alex/resources/tts/prep_voicerss_en.cfg',
+                             'tempo': 1.0},
+               'debug': True,
+               'in_between_segments_silence': 0.01,
+               'type': 'SpeechTech'},
+      'VAD': { 'debug': False,
+               'decision_frames_sil': 25,
+               'decision_frames_speech': 10,
+               'decision_non_speech_threshold': 0.2,
+               'decision_speech_threshold': 0.7,
+               'ffnn': { 'ceplifter': 22,
+                         'enormalise': True,
+                         'filter_length': 2,
+                         'frameshift': 160,
+                         'framesize': 512,
+                         'frontend': 'MFCC',
+                         'hifreq': 3800,
+                         'lofreq': 125,
+                         'model': '/mnt/h/jurcicek/vystadial-git-dev/alex/resources/vad/voip/vad_sds_mfcc_is39_hu32_lf0_mfr1000000_mfl1000000_mfps50_ts0_usec01.nn',
+                         'n_last_frames': 0,
+                         'numceps': 12,
+                         'numchans': 26,
+                         'preemcoef': 0.97,
+                         'useacc': True,
+                         'usec0': True,
+                         'usecmn': False,
+                         'usedelta': True,
+                         'usehamming': True,
+                         'usepower': True,
+                         'zmeansource': True},
+               'gmm': { 'ceplifter': 22,
+                        'enormalise': True,
+                        'filter_length': 2,
+                        'frameshift': 160,
+                        'framesize': 512,
+                        'frontend': 'MFCC',
+                        'hifreq': 3800,
+                        'lofreq': 125,
+                        'n_last_frames': 0,
+                        'numceps': 12,
+                        'numchans': 26,
+                        'preemcoef': 0.97,
+                        'sil_model': '/mnt/h/jurcicek/vystadial-git-dev/alex/resources/vad/voip/vad_sil_sds_mfcc_m064_f100000.gmm',
+                        'speech_model': '/mnt/h/jurcicek/vystadial-git-dev/alex/resources/vad/voip/vad_speech_sds_mfcc_m064_f100000.gmm',
+                        'useacc': True,
+                        'usec0': False,
+                        'usecmn': False,
+                        'usedelta': True,
+                        'usehamming': True,
+                        'usepower': True,
+                        'zmeansource': True},
+               'power': { 'adaptation_frames': 30, 'threshold': 70, 'threshold_multiplier': 1.0},
+               'speech_buffer_frames': 25,
+               'type': 'ffnn'},
+      'VoipHub': { 'blacklist_for': 7200,
+                   'call_db': u'/net/projects/vystadial/data/call-logs/2013-05-30-alex-aotb-prototype/new/call_db.pckl',
+                   'hard_time_limit': 360,
+                   'hard_turn_limit': 120,
+                   'history_length': 1000,
+                   'last_period_max_num_calls': 20,
+                   'last_period_max_total_time': 1800,
+                   'limit_reached_message': u'D\u011bkujeme za zavol\xe1n\xed, ale u\u017e jste volali hodn\u011b. Pros\xedm zavolejte pozd\u011bji. Na shledanou.',
+                   'period': 172800,
+                   'pid_file': u'/net/projects/vystadial/data/call-logs/2013-05-30-alex-aotb-prototype/new/vhub_live.pid',
+                   'wait_time_before_calling_back': 10},
+      'VoipIO': { 'allowed_hosts': '',
+                  'allowed_phone_numbers': '(^[234567])',
+                  'allowed_users': '(^[234567])',
+                  'debug': True,
+                  'domain': 'vystadial.ms.mff.cuni.cz',
+                  'forbidden_hosts': '',
+                  'forbidden_phone_number': '(^112$|^150$|^155$|^156$|^158$)',
+                  'forbidden_users': '(^112$|^150$|^155$|^156$|^158$)',
+    # this line was removed since it included a password
+                  'pjsip_log_level': 3,
+                  'reject_calls': False,
+                  'user': '800899998'},
+      'WebHub': { 'port': 8000},
+      'corpustools': { 'get_jasr_confnets': { 'frame_size': 256, 'rt_ratio': 0.2}}}
+-->
+    </config>
+    <dialogue_rec endtime="48.237" fname="all-2013-09-16-19-26-39.479751.played.wav" speaker="system" starttime="0.492"/>
+    <dialogue_rec endtime="48.266" fname="all-2013-09-16-19-26-39.479751.recorded.wav" speaker="user" starttime="0.499"/>
+    <header>
+        <host>loki.ms.mff.cuni.cz</host>
+        <date>2013-09-16 19:26:39 CEST</date>
+        <system>Alex On The Bus - Live</system>
+        <version>1.0</version>
+        <input_source type="voip"/>
+    </header>
+    <turn speaker="system" time="0.690" turn_number="1">
+        <dialogue_state>
+            <slot name="ludait">none</slot>
+        </dialogue_state>
+        <dialogue_act time="0.715">hello()</dialogue_act>
+        <text time="0.755">Dobrý den, dovolali jste se na informace o veřejné dopravě v Praze. Hovor je nahráván. Více informací o této službě je na internetu. Jak Vám mohu pomoci. </text>
+        <rec fname="tts-2013-09-16-19-26-40.251312.wav" starttime="0.801"/>
+    </turn>
+    <turn speaker="user" time="1.466" turn_number="1">
+        <rec endtime="2.293" fname="vad-2013-09-16-19-26-40.921733.wav" starttime="1.476"/>
+        <asr>
+            <hypothesis p="1.000">__silence__</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">silence()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <interpretation p="0.000">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">silence()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="user" time="2.814" turn_number="2">
+        <rec endtime="3.190" fname="vad-2013-09-16-19-26-42.268828.wav" starttime="2.826"/>
+        <asr>
+            <hypothesis p="1.000">__silence__</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">silence()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <interpretation p="0.000">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">silence()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="2.837" turn_number="2">
+        <dialogue_state>
+            <slot name="ludait">silence</slot>
+            <slot name="silence_time">0.0</slot>
+        </dialogue_state>
+        <dialogue_act time="2.872">silence()</dialogue_act>
+    </turn>
+    <turn speaker="system" time="3.410" turn_number="3">
+        <dialogue_state>
+            <slot name="ludait">silence</slot>
+            <slot name="silence_time">0.0</slot>
+        </dialogue_state>
+        <dialogue_act time="3.443">silence()</dialogue_act>
+    </turn>
+    <turn speaker="user" time="8.632" turn_number="3">
+        <rec endtime="15.868" fname="vad-2013-09-16-19-26-48.090202.wav" starttime="8.645"/>
+        <asr>
+            <hypothesis p="0.537">potřebuju se staň se nádraží holešovice</hypothesis>
+            <hypothesis p="0.066">potřebuju se staň se na nádraží holešovice</hypothesis>
+            <hypothesis p="0.061">potřebuji se staň se nádraží holešovice</hypothesis>
+            <hypothesis p="0.056">potřebuju stanice nádraží holešovice</hypothesis>
+            <hypothesis p="0.051">potřebuju se stanice nádraží holešovice</hypothesis>
+            <hypothesis p="0.046">potřebuji se staň se na nádraží holešovice</hypothesis>
+            <hypothesis p="0.041">potřebuju tě stanice nádraží holešovice</hypothesis>
+            <hypothesis p="0.036">potřebuji stanice nádraží holešovice</hypothesis>
+            <hypothesis p="0.031">potřebuju se staň nádraží holešovice</hypothesis>
+            <hypothesis p="0.025">potřebuju si stanice nádraží holešovice</hypothesis>
+            <hypothesis p="0.020">potřebuji se staň nádraží holešovice</hypothesis>
+            <hypothesis p="0.015">potřebuju zastánce nádraží holešovice</hypothesis>
+            <hypothesis p="0.010">potřebuju staň se nádraží holešovice</hypothesis>
+            <hypothesis p="0.005">potřebu se staň se nádraží holešovice</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="0.789">inform(=&quot;Nádraží Holešovice&quot;)</interpretation>
+            <interpretation p="0.099">inform(=&quot;Nádraží Holešovice&quot;)&amp;inform(to_stop=&quot;Nádraží Holešovice&quot;)</interpretation>
+            <interpretation p="0.099">null()</interpretation>
+            <interpretation p="0.013">inform(to_stop=&quot;Nádraží Holešovice&quot;)</interpretation>
+            <interpretation p="0.000">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="0.888">inform(=&quot;Nádraží Holešovice&quot;)</dai>
+                    <dai p="0.112">null()</dai>
+                </dai_alternatives>
+                <dai_alternatives>
+                    <dai p="0.112">inform(to_stop=&quot;Nádraží Holešovice&quot;)</dai>
+                    <dai p="0.888">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="user" time="16.437" turn_number="4">
+        <rec endtime="19.000" fname="vad-2013-09-16-19-26-55.895516.wav" starttime="16.450"/>
+        <asr>
+            <hypothesis p="0.616">do stanice českolipská</hypothesis>
+            <hypothesis p="0.070">dostaň se českolipská</hypothesis>
+            <hypothesis p="0.063">dostaň se k českolipská</hypothesis>
+            <hypothesis p="0.056">poslanci českolipská</hypothesis>
+            <hypothesis p="0.049">prosince českolipská</hypothesis>
+            <hypothesis p="0.042">do stanici českolipská</hypothesis>
+            <hypothesis p="0.035">dostaň českolipská</hypothesis>
+            <hypothesis p="0.028">dostaňte se českolipská</hypothesis>
+            <hypothesis p="0.021">kdo stanici českolipská</hypothesis>
+            <hypothesis p="0.014">dostanu se k českolipská</hypothesis>
+            <hypothesis p="0.007">dostane se českolipská</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="0.540">inform(to_stop=&quot;Českolipská&quot;)</interpretation>
+            <interpretation p="0.195">null()</interpretation>
+            <interpretation p="0.195">inform(to_stop=&quot;Českolipská&quot;)&amp;inform(=&quot;Českolipská&quot;)</interpretation>
+            <interpretation p="0.070">inform(=&quot;Českolipská&quot;)</interpretation>
+            <interpretation p="0.000">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="0.735">inform(to_stop=&quot;Českolipská&quot;)</dai>
+                    <dai p="0.265">null()</dai>
+                </dai_alternatives>
+                <dai_alternatives>
+                    <dai p="0.265">inform(=&quot;Českolipská&quot;)</dai>
+                    <dai p="0.735">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="19.616" turn_number="4">
+        <dialogue_state>
+            <slot name="ludait">none</slot>
+            <slot name="silence_time">0.0</slot>
+        </dialogue_state>
+        <dialogue_act time="19.660">request(from_stop)&amp;request(to_stop)</dialogue_act>
+        <text time="19.704">Odkud a kam chcete jet?</text>
+        <rec fname="tts-2013-09-16-19-26-59.178795.wav" starttime="19.724"/>
+    </turn>
+    <turn speaker="user" time="20.684" turn_number="5">
+        <rec endtime="21.434" fname="vad-2013-09-16-19-27-00.129584.wav" starttime="20.704"/>
+        <asr>
+            <hypothesis p="1.000">__silence__</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">silence()</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <interpretation p="0.000">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">silence()</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="20.727" turn_number="5">
+        <dialogue_state>
+            <slot name="ludait">none</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">none</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_centre">none</slot>
+            <slot name="to_stop">Českolipská</slot>
+        </dialogue_state>
+        <dialogue_act time="20.773">iconfirm(to_stop=&quot;Českolipská&quot;)&amp;request(from_stop)</dialogue_act>
+        <barge-in time="20.804"/>
+        <text time="20.894">Dobře, do zastávky Českolipská. Jaká je Vaše výchozí zastávka?</text>
+        <rec fname="tts-2013-09-16-19-27-00.371813.wav" starttime="20.925"/>
+    </turn>
+    <turn speaker="system" time="21.954" turn_number="6">
+        <dialogue_state>
+            <slot name="ludait">silence</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">none</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_centre">none</slot>
+            <slot name="to_stop">Českolipská</slot>
+            <slot name="rh_to_stop">system-informed</slot>
+            <slot name="ch_to_stop">system-informed</slot>
+            <slot name="sh_to_stop">system-informed</slot>
+        </dialogue_state>
+        <dialogue_act time="22.054">silence()</dialogue_act>
+    </turn>
+    <turn speaker="user" time="25.987" turn_number="6">
+        <rec endtime="28.089" fname="vad-2013-09-16-19-27-05.441306.wav" starttime="26.013"/>
+        <asr>
+            <hypothesis p="0.738">nádraží holešovice</hypothesis>
+            <hypothesis p="0.175">nádraží holešovice i</hypothesis>
+            <hypothesis p="0.087">nádraží holešovice a</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="1.000">inform(=&quot;Nádraží Holešovice&quot;)</interpretation>
+            <interpretation p="0.000">null()</interpretation>
+            <interpretation p="0.000">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="1.000">inform(=&quot;Nádraží Holešovice&quot;)</dai>
+                    <dai p="0.000">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="29.044" turn_number="7">
+        <dialogue_state>
+            <slot name="ludait">none</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">Nádraží Holešovice</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_centre">none</slot>
+            <slot name="to_stop">Českolipská</slot>
+            <slot name="rh_to_stop">system-informed</slot>
+            <slot name="ch_to_stop">system-informed</slot>
+            <slot name="sh_to_stop">system-informed</slot>
+        </dialogue_state>
+        <dialogue_act time="29.451">iconfirm(from_stop=&quot;Nádraží Holešovice&quot;)&amp;inform(found_directions=&quot;true&quot;)&amp;inform(alternative=&quot;1&quot;)&amp;inform(vehicle=&quot;BUS&quot;)&amp;inform(line=&quot;201&quot;)&amp;inform(go_at=&quot;07:29&quot;)&amp;inform(enter_at=&quot;Nádraží Holešovice&quot;)&amp;inform(headsign=&quot;Bakovská&quot;)&amp;inform(exit_at=&quot;Českolipská&quot;)</dialogue_act>
+        <text time="29.562">Dobře, ze zastávky Nádraží Holešovice. Našla jsem následující spojení. Možnost první. Jeďte autobusem číslo 201 v 07:29 ze zastávky Nádraží Holešovice směrem Bakovská. Vystupte na zastávce Českolipská.</text>
+        <rec fname="tts-2013-09-16-19-27-09.043714.wav" starttime="29.601"/>
+    </turn>
+    <turn speaker="user" time="46.081" turn_number="7">
+        <rec endtime="46.848" fname="vad-2013-09-16-19-27-25.534694.wav" starttime="46.157"/>
+        <asr>
+            <hypothesis p="0.769">děkuji</hypothesis>
+            <hypothesis p="0.092">děkuju</hypothesis>
+            <hypothesis p="0.069">dekuji</hypothesis>
+            <hypothesis p="0.046">děkuji ti</hypothesis>
+            <hypothesis p="0.023">děkuj</hypothesis>
+            <hypothesis p="0.000">__other__</hypothesis>
+        </asr>
+        <slu>
+            <interpretation p="0.824">thankyou()</interpretation>
+            <interpretation p="0.084">null()</interpretation>
+            <interpretation p="0.084">thankyou()&amp;other()</interpretation>
+            <interpretation p="0.009">other()</interpretation>
+            <confnet>
+                <dai_alternatives>
+                    <dai p="0.908">thankyou()</dai>
+                    <dai p="0.092">null()</dai>
+                </dai_alternatives>
+                <dai_alternatives>
+                    <dai p="0.092">other()</dai>
+                    <dai p="0.908">null()</dai>
+                </dai_alternatives>
+            </confnet>
+        </slu>
+    </turn>
+    <turn speaker="system" time="47.757" turn_number="8">
+        <dialogue_state>
+            <slot name="ludait">thankyou</slot>
+            <slot name="alternative">none</slot>
+            <slot name="from_centre">none</slot>
+            <slot name="from_stop">Nádraží Holešovice</slot>
+            <slot name="route_alternative">0</slot>
+            <slot name="silence_time">0.0</slot>
+            <slot name="time">none</slot>
+            <slot name="to_centre">none</slot>
+            <slot name="to_stop">Českolipská</slot>
+            <slot name="rh_alternative">system-informed</slot>
+            <slot name="rh_enter_at">system-informed</slot>
+            <slot name="rh_exit_at">system-informed</slot>
+            <slot name="rh_found_directions">system-informed</slot>
+            <slot name="rh_from_stop">system-informed</slot>
+            <slot name="rh_go_at">system-informed</slot>
+            <slot name="rh_headsign">system-informed</slot>
+            <slot name="rh_line">system-informed</slot>
+            <slot name="rh_to_stop">system-informed</slot>
+            <slot name="rh_vehicle">system-informed</slot>
+            <slot name="ch_alternative">system-informed</slot>
+            <slot name="ch_enter_at">system-informed</slot>
+            <slot name="ch_exit_at">system-informed</slot>
+            <slot name="ch_found_directions">system-informed</slot>
+            <slot name="ch_from_stop">system-informed</slot>
+            <slot name="ch_go_at">system-informed</slot>
+            <slot name="ch_headsign">system-informed</slot>
+            <slot name="ch_line">system-informed</slot>
+            <slot name="ch_to_stop">system-informed</slot>
+            <slot name="ch_vehicle">system-informed</slot>
+            <slot name="sh_alternative">system-informed</slot>
+            <slot name="sh_enter_at">system-informed</slot>
+            <slot name="sh_exit_at">system-informed</slot>
+            <slot name="sh_found_directions">system-informed</slot>
+            <slot name="sh_from_stop">system-informed</slot>
+            <slot name="sh_go_at">system-informed</slot>
+            <slot name="sh_headsign">system-informed</slot>
+            <slot name="sh_line">system-informed</slot>
+            <slot name="sh_to_stop">system-informed</slot>
+            <slot name="sh_vehicle">system-informed</slot>
+        </dialogue_state>
+        <dialogue_act time="47.827">inform(cordiality=&quot;true&quot;)&amp;hello()</dialogue_act>
+        <text time="47.885">Nemáte zač. S čím Vám mohu ještě pomoci.</text>
+        <rec fname="tts-2013-09-16-19-27-27.369702.wav" starttime="47.922"/>
+    </turn>
+</dialogue>
